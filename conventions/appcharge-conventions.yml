@@ -1,0 +1,68 @@
+generated: '2026-07-17'
+method: searched
+source: https://docs.appcharge.com/api-reference + openapi/appcharge-openapi.yml
+description: >-
+  Cross-cutting request/response semantics for the Appcharge REST API and its
+  webhook/callback surface, captured from the docs and derived from the OpenAPI.
+authentication:
+  style: api-key-header
+  header: x-publisher-token
+  see: authentication/appcharge-authentication.yml
+versioning:
+  style: uri-path
+  pattern: https://api.appcharge.com/v{version}/{service}/...
+  observed_versions: [v1, v2, v3]
+  note: >-
+    New API versions are carried in the endpoint path. The Personalization API
+    instead versions via a `version` field in the response body.
+  see: lifecycle/appcharge-lifecycle.yml
+idempotency:
+  supported: false
+  note: >-
+    Appcharge does not document an Idempotency-Key request header on its REST
+    API. Idempotency is instead a publisher-side responsibility on inbound
+    callbacks: the Grant Award callback must be de-duplicated by orderId /
+    purchaseId, and the publisher returns a stable publisherPurchaseId.
+pagination:
+  style: cursor-limited-list
+  observed:
+    - operation: listPromoCodes
+      note: Returns a paginated list of up to 1,000 promo codes per page for a coupon.
+  note: >-
+    Most management endpoints return full collections; large collections (promo
+    codes) are paginated with a documented page cap.
+money:
+  representation: minor-units
+  note: >-
+    Prices are expressed in the smallest currency unit (e.g. $10.00 => 1000).
+    For zero-decimal currencies (JPY) the value is the full unit. Currency is
+    ISO 4217. Price points are keyed on USD cents.
+localization:
+  country_codes: ISO 3166-1 alpha-2 (countryCode2)
+  locales: ISO 639 language + optional ISO 3166 country (e.g. fr-CA)
+  price_localization: dedicated Price Localization API (price points per country)
+error_envelope:
+  shape:
+    errorCode: integer
+    errorMessage: string
+  note: >-
+    REST errors return a JSON body with errorCode + errorMessage (not RFC 9457
+    problem+json). Some endpoints return { message } for auth/blocked cases.
+  see: errors/appcharge-problem-types.yml
+webhooks:
+  transport: HTTPS POST, application/json
+  signing: HMAC-SHA256 over "{timestamp}.{payload}", header signature=t=..,v1=..
+  replay_protection: reject timestamps older than ~5 minutes
+  retries:
+    schedule: [immediate, +15s, +15s, +15min]
+    max_attempts: 4
+    success_criteria: endpoint returns 2xx
+  session_id: >-
+    Some events carry a sessionId grouping player activity; a session ends after
+    30 minutes of inactivity or on logout.
+  see: asyncapi/appcharge-events-asyncapi.yml
+request_tracing:
+  headers: [x-project-id, x-publisher-token]
+rate_limiting:
+  documented: false
+  note: No public rate-limit headers or quotas documented at capture time.

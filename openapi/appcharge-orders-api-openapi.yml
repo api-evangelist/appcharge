@@ -1,0 +1,322 @@
+openapi: 3.0.3
+info:
+  title: Appcharge Assets Orders API
+  version: 1.0.0
+  description: Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.
+  contact:
+    name: Appcharge Developer Support
+    url: https://docs.appcharge.com/
+  x-apievangelist-source: https://docs.appcharge.com/api-reference (Mintlify embedded OpenAPI fragments)
+  x-apievangelist-method: searched
+  x-apievangelist-generated: '2026-07-17'
+servers:
+- url: https://api.appcharge.com
+  description: Production
+- url: https://api-sandbox.appcharge.com
+  description: Sandbox
+tags:
+- name: Orders
+paths:
+  /{YOUR_GRANT_AWARD_ENDPOINT}:
+    post:
+      tags:
+      - Orders
+      description: "<Note> This is a callback API. Appcharge calls this endpoint on your server when specific events occur. </Note> \n\n Notifies your system to grant an award to a customer. \n \n Appcharge calls this endpoint after a customer payment is finalized or when a free offer is collected. \n\n When your server responds with a valid `publisherPurchaseId`, Appcharge redirects the customer to the success page confirming their purchase. \n\n <Warning>Your server must return a valid `publisherPurchaseId` value to confirm the award has been sucessfully granted. If the property is missing or invalid, the award is marked as unsuccessful, and an alert is triggered. </Warning>"
+      operationId: grant-award
+      parameters:
+      - name: x-publisher-token
+        in: header
+        schema:
+          type: string
+        description: Publisher token.
+      - name: signature
+        in: header
+        schema:
+          type: string
+        description: '[Signature](/../../api-reference/appcharge-publisher-secure-communication).'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlayerOrderReportRequest'
+      responses:
+        '200':
+          description: Successfully granted award to customer.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayerOrderReportSuccess'
+        '400':
+          description: Award request failed because of a client error. The response body must include `publisherErrorMessage`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayerOrderReportError'
+              example:
+                publisherErrorMessage: Unable to grant the award because the player ID is invalid.
+              examples:
+                '400':
+                  summary: '400'
+                  value:
+                    publisherErrorMessage: Unable to grant the award because the player ID is invalid.
+        '500':
+          description: Award request failed because of a server error. The response body must include `publisherErrorMessage`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayerOrderReportError'
+              example:
+                publisherErrorMessage: Unable to grant the award because the inventory service is unavailable.
+              examples:
+                '500':
+                  summary: '500'
+                  value:
+                    publisherErrorMessage: Unable to grant the award because the inventory service is unavailable.
+components:
+  schemas:
+    PlayerOrderReportError:
+      type: object
+      required:
+      - publisherErrorMessage
+      example:
+        publisherErrorMessage: Unable to grant the award because the inventory service is unavailable.
+      properties:
+        publisherErrorMessage:
+          type: string
+          description: Explanation of why the award request failed. Required when your endpoint returns a `4XX` or `5XX` response.
+          example: Unable to grant the award because the inventory service is unavailable.
+    PlayerOrderReportSuccess:
+      type: object
+      required:
+      - publisherPurchaseId
+      properties:
+        publisherPurchaseId:
+          type: string
+          description: Publisher purchase ID for this transaction. Return this value after granting the award so Appcharge can confirm fulfillment and pair it with the Appcharge `orderId` for reconciliation. Learn more in [Before you begin](/../../api-reference/checkout/awards/introduction#before-you-begin).
+          example: '222673459829966773354378'
+    PlayerOrderReportRequest:
+      type: object
+      properties:
+        orderId:
+          type: string
+          description: Order ID in the Publisher Dashboard.
+          example: 68e25eebdcb1278
+        purchaseId:
+          type: string
+          description: Purchase ID.
+          example: pr_750b85591e1643685718e5443xyz789
+        appChargePaymentId:
+          type: string
+          description: Payment ID.
+          example: 68e25eebd76543210
+        purchaseDateAndTimeUtc:
+          type: string
+          format: date-time
+          description: Date and time of the purchase in UTC.
+          example: '2024-07-21T14:17:27.329Z'
+        playerId:
+          type: string
+          description: Player ID returned in the player authentication process.
+          example: '8533676467'
+        bundleName:
+          type: string
+          description: Offer name.
+          example: Starter Pack
+        bundleId:
+          type: string
+          description: Offer ID.
+          example: 684044555ed01178ed2c0b3b
+        sku:
+          type: string
+          description: Offer ID you provided.
+          example: starterpack
+        products:
+          type: array
+          description: Product details.
+          items:
+            type: object
+            properties:
+              amount:
+                type: integer
+                description: Amount of the purchased product (minimum 0).
+                example: 1000
+              sku:
+                type: string
+                description: Product ID.
+                example: prod22224448763533
+              name:
+                type: string
+                description: Product name.
+                example: Gold Coins
+        priceInDollar:
+          type: integer
+          format: int32
+          description: Price before taxes in USD cents. Converted in real time.
+          example: 999
+        priceInCents:
+          type: integer
+          format: int32
+          description: Total price paid in the lowest unit of the local currency.
+          example: 999
+        subTotal:
+          type: integer
+          format: int32
+          description: Price paid before taxes in the lowest unit of the local currency.
+          example: 850
+        tax:
+          type: integer
+          format: int32
+          description: Tax amount in the lowest unit of the local currency.
+          example: 149
+        taxRate:
+          type: number
+          format: float
+          description: Tax rate (percentage).
+          example: 17.5
+        taxInDollar:
+          type: integer
+          format: int32
+          description: Tax amount in USD cents.
+          example: 149
+        currency:
+          type: string
+          description: ISO 4217 currency code.
+          example: USD
+        currencyExchangeCost:
+          type: number
+          format: float
+          description: Currency exchange cost in USD cents.
+          example: 0
+        action:
+          type: string
+          enum:
+          - purchase
+          - bonus
+          description: Customer action.
+          example: purchase
+        actionStatus:
+          type: string
+          enum:
+          - completed
+          description: Action status.
+          example: completed
+        originalPriceInDollar:
+          type: integer
+          format: int32
+          description: Base price of the offer in USD cents. If `pricePointMetadata` is provided and you're using Appcharge's Web Store, its value overrides this one.
+          example: 1499
+        paymentPriceInDollar:
+          type: integer
+          format: int32
+          description: Base price of the offer in USD cents.
+          example: 999
+        paymentMethod:
+          type: string
+          description: Payment method.
+          example: card
+        countryCode2:
+          type: string
+          description: Country code (2-letter).
+          example: US
+        priceTotalInDollar:
+          type: integer
+          format: int32
+          description: Price paid including taxes. Converted in real time to USD cents.
+          example: 1148
+        playerEmail:
+          type: string
+          description: Email address.
+          example: john.doe@example.com
+        sessionMetadata:
+          type: string
+          description: An object for passing data.
+          example:
+            userId: '12345'
+            level: 10
+        receiptId:
+          type: string
+          description: Receipt ID.
+          example: receipt_abc123
+        estimatedPublisherNetAmount:
+          type: number
+          format: float
+          description: Estimated Publisher net amount in USD cents.
+          example: 850.5
+        estimatedAppchargeFee:
+          type: number
+          format: float
+          description: Estimated Appcharge fee in USD cents.
+          example: 148.5
+        pricePointMetadata:
+          type: integer
+          format: int32
+          description: Base price of the price point in USD cents.
+          example: 999
+        createdByIp:
+          type: string
+          description: IP address from which the order was made.
+          example: 192.168.1.1
+        zipCode:
+          type: string
+          nullable: true
+          description: Zip code (US/Canada only).
+          example: '10001'
+        awardFlow:
+          type: string
+          enum:
+          - auto
+          - manual_retry
+          description: Award flow. Automatic or manual retry via the Publisher Dashboard.
+          example: auto
+        promoCodeName:
+          type: string
+          description: Promo code name.
+          example: SUMMER2024
+        discount:
+          type: number
+          format: float
+          description: Discount amount in the currency the order was placed in.
+          example: 100
+        discountRatePoints:
+          type: number
+          description: Discount rate (percentage).
+          example: '10'
+        storeMetadata:
+          type: object
+          description: Details on offer-related metadata.
+          properties:
+            productsSequenceIndex:
+              type: integer
+              description: The index of the offer.
+              example: 1
+            offerType:
+              type: string
+              description: Offer type.
+              enum:
+              - PopUp
+              - Bundle
+              - SpecialOffer
+              - RollingOffer
+              - CheckoutLink
+            utms:
+              description: UTM data.
+              type: object
+              properties:
+                utmSource:
+                  type: string
+                  description: The source of the traffic (e.g., Facebook).
+                  example: Facebook
+                utmMedium:
+                  type: string
+                  description: The marketing channel used (e.g., email).
+                  example: email
+                utmCampaign:
+                  type: string
+                  description: The marketing campaign identifier (e.g., spring_sale).
+                  example: spring_sale
+  securitySchemes:
+    PublisherTokenAuth:
+      type: apiKey
+      in: header
+      name: x-publisher-token
+      description: Publisher token, as displayed in the Publisher Dashboard.

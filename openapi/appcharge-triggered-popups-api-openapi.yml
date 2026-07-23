@@ -1,0 +1,322 @@
+openapi: 3.0.3
+info:
+  title: Appcharge Assets Triggered Popups API
+  version: 1.0.0
+  description: Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.
+  contact:
+    name: Appcharge Developer Support
+    url: https://docs.appcharge.com/
+  x-apievangelist-source: https://docs.appcharge.com/api-reference (Mintlify embedded OpenAPI fragments)
+  x-apievangelist-method: searched
+  x-apievangelist-generated: '2026-07-17'
+servers:
+- url: https://api.appcharge.com
+  description: Production
+- url: https://api-sandbox.appcharge.com
+  description: Sandbox
+tags:
+- name: Triggered Popups
+paths:
+  /v2/offer:
+    get:
+      tags:
+      - Triggered Popups
+      summary: Get Store Refresh Popup
+      description: Retrieves one or more store refresh popups.
+      operationId: getStoreRefreshPopup
+      parameters:
+      - name: publisherOfferIds
+        in: query
+        required: true
+        description: The unique identifier for the offer. To retrieve multiple store refresh popups, separate them with a comma.
+        schema:
+          type: string
+          example: store-refresh-offer-1,store-refresh-offer-2
+      - name: x-publisher-token
+        in: header
+        required: true
+        description: The publisher token used for authentication.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Store Refresh Popup retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totalCount:
+                    type: number
+                    description: Total number of matching offers.
+                  offers:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/StoreRefreshPopupDtoResponse'
+        '401':
+          description: Unauthorized.
+  /v2/offer/{publisherOfferId}:
+    delete:
+      tags:
+      - Triggered Popups
+      summary: Delete Store Refresh Popup
+      description: Deletes a store refresh popup.
+      operationId: deleteStoreRefreshPopup
+      parameters:
+      - name: publisherOfferId
+        description: The offer ID provided by the publisher. This is the offer's **External ID** value in the Publisher Dashboard.
+        required: true
+        in: path
+        schema:
+          type: string
+          example: store-refresh-offer-1
+      - name: x-publisher-token
+        required: true
+        in: header
+        description: The publisher token
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Deleted offer.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoreRefreshPopupDtoResponse'
+        '401':
+          description: Not Authorized
+components:
+  schemas:
+    ProductSale:
+      type: object
+      description: Sale details for the product quantity. The sale will only be applied on the first product.
+      properties:
+        sale:
+          type: integer
+          description: Sale amount.
+          example: 30
+        type:
+          type: string
+          description: Sale type.
+          default: percentage
+          enum:
+          - percentage
+          example: percentage
+    Badges:
+      type: array
+      description: List of badges associated with the Store Refresh Popup.
+      example:
+      - publisherBadgeId: best_value
+      items:
+        type: object
+        properties:
+          publisherBadgeId:
+            type: string
+            description: Badge ID.
+            example: best_value
+        required:
+        - publisherBadgeId
+    Schedule:
+      type: object
+      required:
+      - timeFrames
+      - permanent
+      description: Schedule for when the Store Refresh Popup is available.
+      properties:
+        permanent:
+          type: boolean
+          description: Whether the Store Refresh Popup is permanent.
+          example: false
+        timeFrames:
+          type: array
+          description: Time frame for the scheduled popup. Leave blank if permanent is set to true. If permanent is false, at least 1 time frame is required. When specifying multiple timeFrames, the startTime and endTime of each must not overlap.
+          items:
+            type: object
+            required:
+            - startTime
+            - endTime
+            properties:
+              startTime:
+                type: string
+                description: Scheduled popup start time.
+                format: date-time
+                example: '2026-05-02T00:00:00.000Z'
+              endTime:
+                type: string
+                description: Scheduled popup end time. Can't be a past date.
+                format: date-time
+                example: '2026-05-04T23:59:59.000Z'
+              notes:
+                type: string
+                description: Notes about the scheduled popup.
+                example: Initial weekend rollout
+    StoreRefreshProductsSequence:
+      type: array
+      description: Sequence of products included in the Store Refresh Popup.
+      items:
+        type: object
+        properties:
+          index:
+            type: integer
+            description: Order of the product sequence in the Store Refresh Popup.
+            example: 1
+          products:
+            type: array
+            description: List of products in the Store Refresh Popup.
+            items:
+              type: object
+              required:
+              - publisherProductId
+              - quantity
+              - priority
+              properties:
+                publisherProductId:
+                  type: string
+                  description: Product ID.
+                  example: green_diamond
+                quantity:
+                  type: integer
+                  description: Product quantity in the Store Refresh Popup.
+                  example: 1
+                priority:
+                  type: string
+                  description: Specifies the display priority of a product within the Store Refresh Popup.
+                  enum:
+                  - Main
+                  - Sub
+                  example: Main
+          priceInUsdCents:
+            type: integer
+            description: Product sequence price in cents. The value must be either 0 (free), or have a minimum 80 cents.
+            example: 99
+          playerAvailability:
+            type: number
+            description: Amount of times the player can purchase the Store Refresh Popup. Must be a minimum of 1.
+            example: 10
+          hidePlayerAvailability:
+            type: boolean
+            description: Whether to hide the availability text based on the `playerAvailability` property value in the web store. If `false`, and if `playerAvailability` is set to `5`, the web store displays `Available 5/5`. When a player purchases the offer, the displayed availability decreases, for example to `Available 4/5`. Set to `true` to hide the availability text in the UI.
+            default: false
+            example: true
+        required:
+        - index
+        - products
+        - priceInUsdCents
+    PriceDiscount:
+      type: object
+      description: Price discount applied to the Store Refresh Popup. Relevant only for paid offers.
+      properties:
+        discount:
+          type: integer
+          description: Discount amount.
+          example: 25
+        type:
+          type: string
+          description: Discount type.
+          default: percentage
+          enum:
+          - percentage
+          example: percentage
+    StoreRefreshPopupDtoResponse:
+      type: object
+      properties:
+        publisherId:
+          type: string
+          description: Publisher ID.
+        offerId:
+          type: string
+          description: Store Refresh Popup ID.
+        publisherOfferId:
+          type: string
+          description: Store Refresh Popup ID provided by the publisher. This is the offer's **External ID** value in the Publisher Dashboard.
+        name:
+          type: string
+          description: Store Refresh Popup name.
+        displayName:
+          type: string
+          description: Store Refresh Popup display name. If not provided, the name will be used.
+        description:
+          type: string
+          description: Store Refresh Popup description.
+        type:
+          type: string
+          description: Offer type.
+        subType:
+          type: string
+          description: Offer sub type - In this case 'StoreRefresh'.
+        active:
+          type: boolean
+          description: Whether the Store Refresh Popup is active.
+        priority:
+          type: integer
+          description: Priority level of the Store Refresh Popup.
+        offerUi:
+          type: object
+          description: UI configuration for the Store Refresh Popup.
+          properties:
+            offerUiId:
+              type: string
+              description: Offer Design ID generated by Appcharge. This is the design's **ID** value in the Publisher Dashboard.
+              example: 68b41c5aa1c5b1a284737e9b
+            offerExternalUiId:
+              type: string
+              description: Offer Design ID. This is the design's **External ID** value in the Publisher Dashboard.
+              example: Real_Store_Refresh
+            active:
+              type: boolean
+              description: Whether the Store Refresh Popup design is active.
+            offerUiType:
+              type: string
+              description: Offer design type.
+            name:
+              type: string
+              description: Store Refresh Popup design name, as configured in the Publisher Dashboard.
+            description:
+              type: string
+              description: Store Refresh Popup design description, as configured in the Publisher Dashboard.
+        segments:
+          type: array
+          description: List of player segments that this Store Refresh Popup applies to.
+          items:
+            type: string
+        productsSequence:
+          $ref: '#/components/schemas/StoreRefreshProductsSequence'
+        displayRule:
+          $ref: '#/components/schemas/StoreRefreshDisplayRule'
+        schedule:
+          $ref: '#/components/schemas/Schedule'
+        productSale:
+          $ref: '#/components/schemas/ProductSale'
+        priceDiscount:
+          $ref: '#/components/schemas/PriceDiscount'
+        badges:
+          $ref: '#/components/schemas/Badges'
+        createdAt:
+          type: string
+          description: Date the Store Refresh Popup was created.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date the Store Refresh Popup was updated.
+          format: date-time
+    StoreRefreshDisplayRule:
+      type: object
+      required:
+      - frequency
+      - cooldownInMinutes
+      description: Rules that control how often the Store Refresh Popup is displayed.
+      properties:
+        frequency:
+          type: integer
+          description: Number of store refreshes required before the popup is displayed.
+          example: 3
+        cooldownInMinutes:
+          type: integer
+          description: Number of minutes that must pass before the popup can be shown again.
+          example: 1
+  securitySchemes:
+    PublisherTokenAuth:
+      type: apiKey
+      in: header
+      name: x-publisher-token
+      description: Publisher token, as displayed in the Publisher Dashboard.

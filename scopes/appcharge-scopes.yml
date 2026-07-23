@@ -1,0 +1,31 @@
+generated: '2026-07-17'
+method: searched
+source: https://api.appcharge.com/.well-known/oauth-authorization-server
+docs: https://mcp.appcharge.com/.well-known/oauth-protected-resource
+description: >-
+  OAuth 2.0 scopes published by Appcharge's authorization server (RFC 8414).
+  These scopes gate the hosted MCP server (mcp.appcharge.com); the publisher
+  REST API itself authenticates with the x-publisher-token API key (see
+  authentication/). Flow: authorization_code with PKCE (S256) and dynamic
+  client registration; token_endpoint_auth_methods_supported = [none] (public
+  clients).
+schemes:
+  - name: OAuth2
+    source: https://api.appcharge.com/.well-known/oauth-authorization-server
+    issuer: https://api.appcharge.com
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://api.appcharge.com/oauth/authorize
+        tokenUrl: https://api.appcharge.com/oauth/token
+        registrationUrl: https://api.appcharge.com/oauth/register
+        jwksUri: https://api.appcharge.com/.well-known/jwks-oauth.json
+        pkce: [S256]
+scopes:
+  - scope: mcp:read
+    description: Read access via the Appcharge MCP server.
+    flows: [authorizationCode]
+    sources: [https://api.appcharge.com/.well-known/oauth-authorization-server]
+  - scope: mcp:write
+    description: Write access via the Appcharge MCP server.
+    flows: [authorizationCode]
+    sources: [https://api.appcharge.com/.well-known/oauth-authorization-server]

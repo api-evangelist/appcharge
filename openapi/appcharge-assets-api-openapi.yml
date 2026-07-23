@@ -1,0 +1,378 @@
+openapi: 3.0.3
+info:
+  title: Appcharge Assets API
+  version: 1.0.0
+  description: Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.
+  contact:
+    name: Appcharge Developer Support
+    url: https://docs.appcharge.com/
+  x-apievangelist-source: https://docs.appcharge.com/api-reference (Mintlify embedded OpenAPI fragments)
+  x-apievangelist-method: searched
+  x-apievangelist-generated: '2026-07-17'
+servers:
+- url: https://api.appcharge.com
+  description: Production
+- url: https://api-sandbox.appcharge.com
+  description: Sandbox
+tags:
+- name: Assets
+paths:
+  /components/v1/asset:
+    post:
+      tags:
+      - Assets
+      description: Creates an asset in the Assets Library.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              oneOf:
+              - $ref: '#/components/schemas/AssetUploadViaFile'
+              - $ref: '#/components/schemas/AssetUploadViaUrl'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetUploadViaUrl'
+      responses:
+        '200':
+          description: Asset uploaded successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetResponse'
+        '400':
+          description: Bad request. Invalid input or validation failure.
+      x-codeSamples:
+      - lang: Shell
+        label: cURL
+        source: 'curl --location ''https://api-sandbox.appcharge.com/components/v1/asset'' \
+
+          --header ''x-publisher-token: TOKEN'' \
+
+          --form ''type="product"'' \
+
+          --form ''name="filename"'' \
+
+          --form ''file=@"PATH/TO/FILE"'''
+      operationId: postComponentsV1Asset
+    get:
+      tags:
+      - Assets
+      description: Retrieves a list of all assets in the Assets Library.
+      responses:
+        '200':
+          description: Assets retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAllAssetsResponse'
+      operationId: getComponentsV1Asset
+  /components/v1/asset/{name}:
+    parameters:
+    - in: path
+      name: name
+      required: true
+      schema:
+        type: string
+        example: gold_coins_icon
+      description: Asset name.
+    delete:
+      tags:
+      - Assets
+      description: Deletes an asset in the Assets Library.
+      responses:
+        '200':
+          description: Asset deleted successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetResponse'
+        '404':
+          description: Asset not found.
+      operationId: deleteComponentsV1AssetName
+    get:
+      tags:
+      - Assets
+      description: Retrieves a specific asset in the Assets Library.
+      responses:
+        '200':
+          description: Asset details retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetResponse'
+        '404':
+          description: Asset not found.
+      operationId: getComponentsV1AssetName
+    put:
+      tags:
+      - Assets
+      description: Updates an asset in the Assets Library.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AssetUpdate'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetUpdate'
+      responses:
+        '200':
+          description: Asset updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetResponse'
+        '400':
+          description: Bad request. Invalid input or validation failure.
+        '404':
+          description: Asset not found.
+      operationId: putComponentsV1AssetName
+components:
+  schemas:
+    AssetUpdate:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Asset category.
+          enum:
+          - product
+          - badge
+          - bgMobile
+          - bgDesk
+          - logo
+          - favicon
+          - bgBundle
+          - bgPopup
+          - general
+          - section
+          - productPrefix
+          - playerLevel
+          - banner
+          - addToHomeButtonImage
+          - addToHomeIconImage
+          - playerProfileImage
+          - offerHeader
+          - backToGameButtonImage
+          - animation
+          - trait
+          example: bgMobile
+        name:
+          type: string
+          description: Asset name.
+          example: main_menu_background
+        file:
+          type: string
+          format: binary
+          description: A valid PNG or JPEG image file. Maximum size is 2 MB.
+          example: gold_coins_icon.png
+        externalImageUrl:
+          type: string
+          format: url
+          description: 'URL to a valid, publicly accessible image. Appcharge saves and uses this URL as-is and doesn''t download, copy, upload, or host the image on Appcharge CDN. The image must remain available at the provided URL.
+
+
+            We recommend uploading image files instead of using external URLs when possible. Appcharge hosts uploaded files on its CDN. Maximum size is 2 MB. Must be in PNG or JPEG format.'
+          example: https://example.com/assets/main_menu_background_updated.png
+    AssetUploadViaUrl:
+      title: Upload via URL
+      type: object
+      description: Use an external image URL for an asset.
+      properties:
+        type:
+          type: string
+          description: Asset category.
+          enum:
+          - product
+          - badge
+          - bgMobile
+          - bgDesk
+          - logo
+          - favicon
+          - bgBundle
+          - bgPopup
+          - general
+          - section
+          - productPrefix
+          - playerLevel
+          - banner
+          - addToHomeButtonImage
+          - addToHomeIconImage
+          - playerProfileImage
+          - offerHeader
+          - backToGameButtonImage
+          - animation
+          - trait
+          example: badge
+        name:
+          type: string
+          description: Asset name.
+          example: summer_sale_badge
+        externalImageUrl:
+          type: string
+          format: url
+          description: 'URL to a valid, publicly accessible image. Appcharge saves and uses this URL as-is and doesn''t download, copy, upload, or host the image on Appcharge CDN. The image must remain available at the provided URL.
+
+
+            We recommend uploading image files instead of using external URLs when possible. Appcharge hosts uploaded files on its CDN. Maximum size is 2 MB. Must be in PNG or JPEG format.'
+          example: https://example.com/assets/summer_sale_badge.png
+      required:
+      - type
+      - name
+      - externalImageUrl
+    GetAllAssetsResponse:
+      type: object
+      properties:
+        getAllAssetsResponse:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Asset ID.
+                example: 507f1f77bcf86cd799439011
+              name:
+                type: string
+                description: Asset name.
+                example: gold_coins_icon
+              type:
+                type: string
+                description: Asset category.
+                enum:
+                - product
+                - badge
+                - bgMobile
+                - bgDesk
+                - logo
+                - favicon
+                - bgBundle
+                - bgPopup
+                - general
+                - section
+                - productPrefix
+                - playerLevel
+                - banner
+                - addToHomeButtonImage
+                - addToHomeIconImage
+                - playerProfileImage
+                - offerHeader
+                - backToGameButtonImage
+                - animation
+                - trait
+                example: product
+              imageUrl:
+                type: string
+                format: url
+                description: Image URL. For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from your CDN at the provided URL.
+                example: https://media.appcharge.com/media/691d8c9f127412f152236889baf5
+              contentType:
+                type: string
+                description: Image [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types).
+                example: image/png
+              externalImageUrl:
+                type: string
+                format: url
+                description: Original image URL if the asset uses an external image URL. This URL is served from your CDN at the provided URL.
+                example: https://example.com/assets/gold_coins_icon.png
+    AssetResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Asset ID.
+          example: 507f1f77bcf86cd799439011
+        name:
+          type: string
+          description: Asset name.
+          example: gold_coins_icon
+        type:
+          type: string
+          description: Asset category.
+          enum:
+          - product
+          - badge
+          - bgMobile
+          - bgDesk
+          - logo
+          - favicon
+          - bgBundle
+          - bgPopup
+          - general
+          - section
+          - productPrefix
+          - playerLevel
+          - banner
+          - addToHomeButtonImage
+          - addToHomeIconImage
+          - playerProfileImage
+          - offerHeader
+          - backToGameButtonImage
+          - animation
+          - trait
+          example: product
+        imageUrl:
+          type: string
+          format: url
+          description: Image URL. For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from your CDN at the provided URL.
+          example: https://media.appcharge.com/media/691d8c9f127412f152236889baf5
+        contentType:
+          type: string
+          description: Image [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types).
+          example: image/png
+        externalImageUrl:
+          type: string
+          format: url
+          description: Original image URL if the asset uses an external image URL. This URL is served from your CDN at the provided URL.
+          example: https://example.com/assets/gold_coins_icon.png
+    AssetUploadViaFile:
+      title: Upload via File
+      type: object
+      description: Upload asset via file.
+      properties:
+        type:
+          type: string
+          description: Asset category.
+          enum:
+          - product
+          - badge
+          - bgMobile
+          - bgDesk
+          - logo
+          - favicon
+          - bgBundle
+          - bgPopup
+          - general
+          - section
+          - productPrefix
+          - playerLevel
+          - banner
+          - addToHomeButtonImage
+          - addToHomeIconImage
+          - playerProfileImage
+          - offerHeader
+          - backToGameButtonImage
+          - animation
+          - trait
+          example: product
+        name:
+          type: string
+          description: Asset name.
+          example: gold_coins_icon
+        file:
+          type: string
+          format: binary
+          description: A valid PNG or JPEG image file. Maximum size is 2 MB.
+          example: gold_coins_icon.png
+      required:
+      - type
+      - name
+      - file
+  securitySchemes:
+    PublisherTokenAuth:
+      type: apiKey
+      in: header
+      name: x-publisher-token
+      description: Publisher token, as displayed in the Publisher Dashboard.

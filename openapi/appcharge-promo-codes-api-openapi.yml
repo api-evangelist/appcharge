@@ -1,0 +1,467 @@
+openapi: 3.0.3
+info:
+  title: Appcharge Assets Promo Codes API
+  version: 1.0.0
+  description: Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.
+  contact:
+    name: Appcharge Developer Support
+    url: https://docs.appcharge.com/
+  x-apievangelist-source: https://docs.appcharge.com/api-reference (Mintlify embedded OpenAPI fragments)
+  x-apievangelist-method: searched
+  x-apievangelist-generated: '2026-07-17'
+servers:
+- url: https://api.appcharge.com
+  description: Production
+- url: https://api-sandbox.appcharge.com
+  description: Sandbox
+tags:
+- name: Promo Codes
+paths:
+  /coupons/coupon/{couponName}/promo-codes:
+    parameters:
+    - in: path
+      name: couponName
+      required: true
+      schema:
+        type: string
+        example: summer26
+      description: Coupon name.
+    post:
+      tags:
+      - Promo Codes
+      description: Creates multiple promo codes for a specific coupon. <br/><br/> Maximum of 1,000 promo codes allowed per request.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePromoCodesRequest'
+      responses:
+        '200':
+          description: Promo codes created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromoCodesResponse'
+        '400':
+          description: Bad request. Invalid input or validation failure.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                invalidCouponName:
+                  summary: Invalid coupon name
+                  value:
+                    error: Invalid coupon name. Use only English letters and numbers.
+                invalidPromoCodeName:
+                  summary: Invalid promo code name
+                  value:
+                    error: Invalid promo code name. Use only English letters and numbers.
+                promoCodesBelowMinimum:
+                  summary: Promo codes count below minimum
+                  value:
+                    error: Promo codes count must be at least 1.
+                promoCodesAboveMaximum:
+                  summary: Promo codes count above maximum
+                  value:
+                    error: Promo codes count must not exceed 1000.
+                duplicatePromoCodes:
+                  summary: Duplicate promo codes in request
+                  value:
+                    error: 'Some promo codes in the request are duplicated: swx1, swx2.'
+                maxRedemptionsBelowMinimum:
+                  summary: maxRedemptions below minimum
+                  value:
+                    error: maxRedemptions must not be less than 1
+                missingRequiredField:
+                  summary: Required field missing
+                  value:
+                    error: 'Missing required field: promoCodes.'
+        '404':
+          description: Coupon not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                couponNotFound:
+                  summary: Coupon not found
+                  value:
+                    error: Coupon not found.
+        '409':
+          description: Conflict. One or more promo codes already exist and are active on another coupon.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                promoCodeExists:
+                  summary: Promo code already active on another coupon
+                  value:
+                    error: 'Some promo codes are already active on other coupon: swx1, swx2.'
+        '500':
+          description: Unexpected error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                unexpectedError:
+                  summary: Unexpected error
+                  value:
+                    error: Unexpected error. Please contact support.
+      operationId: postCouponsCouponCouponnamePromoCodes
+    get:
+      tags:
+      - Promo Codes
+      description: Retrieves a paginated list of up to 1,000 promo codes for a specific coupon.
+      parameters:
+      - in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+          example: 1000
+        description: Maximum number of promo codes to return.
+      - in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+          example: 1
+        description: Page number to retrieve.
+      - in: query
+        name: sortDirection
+        required: false
+        schema:
+          type: string
+          default: asc
+          enum:
+          - asc
+          - desc
+          example: desc
+        description: Sort direction of results by `createdAt`.
+      - in: query
+        name: isActive
+        required: false
+        schema:
+          type: boolean
+          example: true
+        description: Filter by active status.
+      responses:
+        '200':
+          description: Promo codes retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPromoCodesResponse'
+        '404':
+          description: Coupon not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                couponNotFound:
+                  summary: Coupon not found
+                  value:
+                    error: Coupon not found.
+      operationId: getCouponsCouponCouponnamePromoCodes
+  /coupons/coupon/{couponName}/promo-codes/set-activation:
+    parameters:
+    - in: path
+      name: couponName
+      required: true
+      schema:
+        type: string
+        example: summer26
+      description: Coupon name.
+    patch:
+      tags:
+      - Promo Codes
+      description: Activates or deactivates promo codes for a specific coupon. <br/><br/> Maximum of 1,000 promo code names allowed per request.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PromoCodeActivationRequest'
+      responses:
+        '200':
+          description: Promo codes updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromoCodeActivationResponse'
+        '400':
+          description: Bad request. Invalid input or validation failure.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                promoCodeNamesBelowMinimum:
+                  summary: Promo code names count below minimum
+                  value:
+                    error: Promo code names count must be at least 1.
+                promoCodeNamesAboveMaximum:
+                  summary: Promo code names count above maximum
+                  value:
+                    error: Promo code names count must not exceed 1000.
+        '404':
+          description: Coupon not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                couponNotFound:
+                  summary: Coupon not found
+                  value:
+                    error: Coupon not found.
+        '500':
+          description: Unexpected error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                unexpectedError:
+                  summary: Unexpected error
+                  value:
+                    error: Unexpected error. Please contact support.
+      operationId: patchCouponsCouponCouponnamePromoCodesSetActivation
+  /coupons/coupon/{couponName}/promo-code/{promoCodeName}:
+    parameters:
+    - in: path
+      name: couponName
+      required: true
+      schema:
+        type: string
+        example: summer26
+      description: Coupon name.
+    - in: path
+      name: promoCodeName
+      required: true
+      schema:
+        type: string
+        example: swx1
+      description: Promo code name.
+    get:
+      tags:
+      - Promo Codes
+      description: Retrieves a specific promo code.
+      responses:
+        '200':
+          description: Promo code retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromoCodeResponse'
+        '400':
+          description: Bad request. Invalid input or validation failure.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                invalidCouponName:
+                  summary: Invalid coupon name
+                  value:
+                    error: Invalid coupon name. Use only English letters and numbers.
+                invalidPromoCodeName:
+                  summary: Invalid promo code name
+                  value:
+                    error: Invalid promo code name. Use only English letters and numbers.
+        '404':
+          description: Promo code or coupon not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                couponNotFound:
+                  summary: Coupon not found
+                  value:
+                    error: Coupon not found.
+                promoCodeNotFound:
+                  summary: Promo code not found
+                  value:
+                    error: Promo code not found.
+        '500':
+          description: Unexpected error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                unexpectedError:
+                  summary: Unexpected error
+                  value:
+                    error: Unexpected error. Please contact support.
+      operationId: getCouponsCouponCouponnamePromoCodePromocodename
+components:
+  schemas:
+    ListPromoCodesResponse:
+      type: object
+      properties:
+        promoCodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/PromoCode'
+          description: List of promo codes.
+        totalCount:
+          type: integer
+          description: Total number of promo codes matching the query.
+          example: 42
+        totalPages:
+          type: integer
+          description: Total number of pages matching the query.
+          example: 1
+        hasNextPage:
+          type: boolean
+          description: Whether there is an additional page of results.
+          example: true
+        page:
+          type: integer
+          description: Current page number.
+          example: 1
+        limit:
+          type: integer
+          description: Maximum number of promo codes per page.
+          example: 1000
+    CreatedPromoCode:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Promo code name.
+          example: swx1
+        active:
+          type: boolean
+          description: Whether the promo code is active.
+          example: true
+        maxRedemptions:
+          type: integer
+          description: Maximum number of times this promo code can be redeemed.
+          example: 1
+        createdAt:
+          type: string
+          format: date-time
+          description: Timestamp when the promo code was created.
+          example: '2025-01-22T15:58:24.116Z'
+        updatedAt:
+          type: string
+          format: date-time
+          description: Timestamp when the promo code was last updated.
+          example: '2025-01-25T08:44:26.668Z'
+    CreatePromoCodesRequest:
+      type: object
+      properties:
+        promoCodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreatePromoCodeInput'
+          description: List of promo codes to create.
+      required:
+      - promoCodes
+    PromoCodeActivationResponse:
+      type: object
+      properties:
+        promoCodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/PromoCode'
+          description: List of updated promo codes.
+    CreatePromoCodeInput:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Promo code name. Can't contain spaces or special characters.
+          example: swx1
+        maxRedemptions:
+          type: integer
+          description: Maximum number of times this promo code can be redeemed.
+          example: 1
+        active:
+          type: boolean
+          description: Whether the promo code is active.
+          example: true
+      required:
+      - name
+      - maxRedemptions
+      - active
+    PromoCodeActivationRequest:
+      type: object
+      properties:
+        active:
+          type: boolean
+          description: Whether to activate or deactivate the specified promo codes.
+          example: false
+        promoCodeNames:
+          type: array
+          items:
+            type: string
+          minItems: 1
+          maxItems: 1000
+          description: List of promo code names to activate or deactivate.
+          example:
+          - swx1
+          - swx2
+          - swx3
+      required:
+      - active
+      - promoCodeNames
+    PromoCodesResponse:
+      type: object
+      properties:
+        promoCodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreatedPromoCode'
+          description: List of created promo codes.
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message describing what went wrong.
+    PromoCodeResponse:
+      $ref: '#/components/schemas/PromoCode'
+    PromoCode:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Promo code name.
+          example: swx1
+        active:
+          type: boolean
+          description: Whether the promo code is active.
+          example: true
+        maxRedemptions:
+          type: integer
+          description: Maximum number of times this promo code can be redeemed.
+          example: 50
+        createdAt:
+          type: string
+          format: date-time
+          description: Timestamp when the promo code was created.
+          example: '2025-01-22T15:58:24.116Z'
+        updatedAt:
+          type: string
+          format: date-time
+          description: Timestamp when the promo code was last updated.
+          example: '2025-01-25T08:44:26.668Z'
+        redemptions:
+          type: integer
+          description: Number of times this promo code has been redeemed.
+          example: 10
+  securitySchemes:
+    PublisherTokenAuth:
+      type: apiKey
+      in: header
+      name: x-publisher-token
+      description: Publisher token, as displayed in the Publisher Dashboard.

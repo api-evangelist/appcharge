@@ -1,28 +1,343 @@
 aid: appcharge
 name: Appcharge
-description: 'Appcharge is a company surfaced as a portfolio company of creandum, ivp and added to the
-  API Evangelist network as a stub for enrichment. Sector: other. This profile is a lead awaiting the
-  enrichment pipeline.'
+description: >-
+  Appcharge is a monetization and payments platform (merchant of record) for mobile
+  game publishers. It lets studios sell in-game offers direct-to-consumer outside the
+  app stores through a hosted web store, a mobile Checkout SDK, and Payment Links —
+  covering checkout sessions, price localization, coupons and promo codes, refunds,
+  web-store offers (bundles, daily bonuses, rolling/special offers, progress bars,
+  reward calendars, triggered popups), offer components, game-portal content, media
+  assets, translations, financial and analytics reporting, and player
+  personalization/authentication callbacks. The REST API authenticates with an
+  x-publisher-token API-key header; webhooks and Appcharge-to-publisher callbacks are
+  HMAC-SHA256 signed with a replay window; and a hosted MCP server exposes agent
+  access over OAuth 2.0 (authorization_code + PKCE).
 url: https://raw.githubusercontent.com/api-evangelist/appcharge/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://appcharge.com/sharing-whatsapp.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - creandum
 - ivp
-x-tier: stub
+x-tier: profiled
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
-- Other
-apis: []
+- Payments
+- Monetization
+- Merchant of Record
+- Mobile Games
+- Gaming
+- Checkout
+- In-Game Purchases
+- Web Store
+- eCommerce
+apis:
+- aid: appcharge:appcharge-assets-api
+  name: Appcharge Assets API
+  description: The Assets API from Appcharge — 2 operation(s) for assets.
+  humanURL: https://docs.appcharge.com/api-reference/introduction
+  baseURL: https://api.appcharge.com
+  tags:
+  - Assets
+  properties:
+  - type: OpenAPI
+    url: openapi/appcharge-assets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.appcharge.com/api-reference/introduction
+- aid: appcharge:appcharge-authentication-api
+  name: Appcharge Authentication API
+  description: The Authentication API from Appcharge — 2 operation(s) for authentication.
+  humanURL: https://docs.appcharge.com/api-reference/introduction
+  baseURL: https://api.appcharge.com
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/appcharge-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://docs.appcharge.com/api-reference/introduction
+- aid: appcharge:appcharge-badges-api
+  name: Appcharge Badges API
+  description: The Badges API from Appcharge — 2 operation(s) for badges.
+  humanURL: https://docs.appcharge.com/api-reference/introduction
+  baseURL: https://api.appcharge.com
+  tags:
+  - Badges
+  properties:
+  - type: OpenAPI
+    url: openapi/appcharge-badges-api-openapi.yml
+  - type: Documentation
+    url: https://docs.appcharge.com/api-reference/introduction
+- aid: appcharge:appcharge-coupons-api
+  name: Appcharge Coupons API
+  description: The Coupons API from Appcharge — 2 operation(s) for coupons.
+  humanURL: https://docs.appcharge.com/api-reference/introduction
+  baseURL: https://api.appcharge.com
+  tags:
+  - Coupons
+  properties:
+  - type: OpenAPI
+    url: openapi/appcharge-coupons-api-openapi.yml
+  - type: Documentation
+    url: https://docs.appcharge.com/api-reference/introduction
+- aid: appcharge:appcharge-general-api
+  name: Appcharge General API
+  description: The General API from Appcharge — 9 operation(s) for general.
+  humanURL: https://docs.appcharge.com/api-reference/introduction
+  baseURL: https://api.appcharge.com
+  tags:
+  - General
+  properties:
+  - type: OpenAPI
+    url: openapi/appcharge-general-api-openapi.yml
+  - type: Documentation
+    url: https://docs.appcharge.com/api-reference/introduction
+- aid: appcharge:appcharge-localization-api
+  name: Appcharge Localization API
+  description: The Localization API from Appcharge — 1 operation(s) for localization.
+  humanURL: https://docs.appcharge.com/api-reference/introduction
+  baseURL: https://api.appcharge.com
+  tags:
+  - Localization
+  properties:
+  - type: OpenAPI
+    url: openapi/appcharge-localization-api-openapi.yml
+  - type: Documentation
+    url: https://docs.appcharge.com/api-reference/introduction
+- aid: appcharge:appcharge-offer-designs-api
+  name: Appcharge Offer Designs API
+  description: The Offer Designs API from Appcharge — 2 operation(s) for offer designs.
+  humanURL: https://docs.appcharge.com/api-reference/introduction
+  baseURL: https://api.appcharge.com
+  tags:
+  - Offer Designs
+  properties:
+  - type: OpenAPI
+    url: openapi/appcharge-offer-designs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.appcharge.com/api-reference/introduction
+- aid: appcharge:appcharge-offers-api
+  name: Appcharge Offers API
+  description: The Offers API from Appcharge — 5 operation(s) for offers.
+  humanURL: https://docs.appcharge.com/api-reference/introduction
+  baseURL: https://api.appcharge.com
+  tags:
+  - Offers
+  properties:
+  - type: OpenAPI
+    url: openapi/appcharge-offers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.appcharge.com/api-reference/introduction
+- aid: appcharge:appcharge-orders-api
+  name: Appcharge Orders API
+  description: The Orders API from Appcharge — 1 operation(s) for orders.
+  humanURL: https://docs.appcharge.com/api-reference/introduction
+  baseURL: https://api.appcharge.com
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/appcharge-orders-api-openapi.yml
+  - type: Documentation
+    url: https://docs.appcharge.com/api-reference/introduction
+- aid: appcharge:appcharge-personalization-api
+  name: Appcharge Personalization API
+  description: The Personalization API from Appcharge — 1 operation(s) for personalization.
+  humanURL: https://docs.appcharge.com/api-reference/introduction
+  baseURL: https://api.appcharge.com
+  tags:
+  - Personalization
+  properties:
+  - type: OpenAPI
+    url: openapi/appcharge-personalization-api-openapi.yml
+  - type: Documentation
+    url: https://docs.appcharge.com/api-reference/introduction
+- aid: appcharge:appcharge-popups-api
+  name: Appcharge Popups API
+  description: The Popups API from Appcharge — 1 operation(s) for popups.
+  humanURL: https://docs.appcharge.com/api-reference/introduction
+  baseURL: https://api.appcharge.com
+  tags:
+  - Popups
+  properties:
+  - type: OpenAPI
+    url: openapi/appcharge-popups-api-openapi.yml
+  - type: Documentation
+    url: https://docs.appcharge.com/api-reference/introduction
+- aid: appcharge:appcharge-portal-content-api
+  name: Appcharge Portal Content API
+  description: The Portal Content API from Appcharge — 4 operation(s) for portal content.
+  humanURL: https://docs.appcharge.com/api-reference/introduction
+  baseURL: https://api.appcharge.com
+  tags:
+  - Portal Content
+  properties:
+  - type: OpenAPI
+    url: openapi/appcharge-portal-content-api-openapi.yml
+  - type: Documentation
+    url: https://docs.appcharge.com/api-reference/introduction
+- aid: appcharge:appcharge-products-api
+  name: Appcharge Products API
+  description: The Products API from Appcharge — 2 operation(s) for products.
+  humanURL: https://docs.appcharge.com/api-reference/introduction
+  baseURL: https://api.appcharge.com
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/appcharge-products-api-openapi.yml
+  - type: Documentation
+    url: https://docs.appcharge.com/api-reference/introduction
+- aid: appcharge:appcharge-promo-codes-api
+  name: Appcharge Promo Codes API
+  description: The Promo Codes API from Appcharge — 3 operation(s) for promo codes.
+  humanURL: https://docs.appcharge.com/api-reference/introduction
+  baseURL: https://api.appcharge.com
+  tags:
+  - Promo Codes
+  properties:
+  - type: OpenAPI
+    url: openapi/appcharge-promo-codes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.appcharge.com/api-reference/introduction
+- aid: appcharge:appcharge-rolling-offers-api
+  name: Appcharge Rolling Offers API
+  description: The Rolling Offers API from Appcharge — 2 operation(s) for rolling offers.
+  humanURL: https://docs.appcharge.com/api-reference/introduction
+  baseURL: https://api.appcharge.com
+  tags:
+  - Rolling Offers
+  properties:
+  - type: OpenAPI
+    url: openapi/appcharge-rolling-offers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.appcharge.com/api-reference/introduction
+- aid: appcharge:appcharge-store-refresh-popups-api
+  name: Appcharge Store Refresh Popups API
+  description: The Store Refresh Popups API from Appcharge — 2 operation(s) for store refresh popups.
+  humanURL: https://docs.appcharge.com/api-reference/introduction
+  baseURL: https://api.appcharge.com
+  tags:
+  - Store Refresh Popups
+  properties:
+  - type: OpenAPI
+    url: openapi/appcharge-store-refresh-popups-api-openapi.yml
+  - type: Documentation
+    url: https://docs.appcharge.com/api-reference/introduction
+- aid: appcharge:appcharge-triggered-popups-api
+  name: Appcharge Triggered Popups API
+  description: The Triggered Popups API from Appcharge — 2 operation(s) for triggered popups.
+  humanURL: https://docs.appcharge.com/api-reference/introduction
+  baseURL: https://api.appcharge.com
+  tags:
+  - Triggered Popups
+  properties:
+  - type: OpenAPI
+    url: openapi/appcharge-triggered-popups-api-openapi.yml
+  - type: Documentation
+    url: https://docs.appcharge.com/api-reference/introduction
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+# --- identity / link properties ---
 - type: Website
   url: https://appcharge.com/
+- type: DeveloperPortal
+  url: https://docs.appcharge.com/
+- type: Documentation
+  url: https://docs.appcharge.com/
+- type: APIReference
+  url: https://docs.appcharge.com/api-reference/introduction
+- type: Support
+  url: https://help.appcharge.com/hc/en-us
+- type: Blog
+  url: https://www.appcharge.com/blog
+- type: GitHubOrganization
+  url: https://github.com/Appcharge
+- type: SignUp
+  url: https://dashboard.appcharge.com
+- type: TermsOfService
+  url: https://www.appcharge.com/tc
+- type: PrivacyPolicy
+  url: https://www.appcharge.com/privacy-policy
+# --- artifacts ---
+- type: Authentication
+  url: authentication/appcharge-authentication.yml
+- type: OAuthScopes
+  url: scopes/appcharge-scopes.yml
+- type: Conventions
+  url: conventions/appcharge-conventions.yml
+- type: ErrorCatalog
+  url: errors/appcharge-problem-types.yml
+- type: RateLimits
+  url: rate-limits/appcharge-rate-limits.yml
+- type: Lifecycle
+  url: lifecycle/appcharge-lifecycle.yml
+- type: StatusPage
+  url: https://appcharge.instatus.com
+- type: Deprecation
+  url: https://docs.appcharge.com/api-reference/versioning-policy
+- type: ChangeLog
+  url: changelog/appcharge-changelog.yml
+- type: Sandbox
+  url: sandbox/appcharge-sandbox.yml
+- type: Packages
+  url: packages/appcharge-packages.yml
+- type: SDKs
+  url: packages/appcharge-packages.yml
+- type: Components
+  url: components/appcharge-components.yml
+- type: DataModel
+  url: data-model/appcharge-data-model.yml
+- type: MCPServer
+  url: mcp/appcharge-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/appcharge-llms.txt
+- type: Overlay
+  url: overlays/appcharge-openapi-overlay.yaml
+- type: WellKnown
+  url: well-known/appcharge-well-known.yml
+- type: AsyncAPI
+  url: asyncapi/appcharge-events-asyncapi.yml
+- type: Webhooks
+  url: asyncapi/appcharge-events-asyncapi.yml
+- type: Conformance
+  url: conformance/appcharge-conformance.yml
+- type: Compliance
+  url: https://docs.appcharge.com/merchant-of-record/security/about-security-at-appcharge
+- type: TrustCenter
+  url: security/appcharge-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/appcharge-vulnerability-disclosure.yml
+- type: Security
+  url: https://docs.appcharge.com/merchant-of-record/security/about-security-at-appcharge
+- type: DomainSecurity
+  url: security/appcharge-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/appcharge-agentic-access.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

@@ -1,0 +1,37 @@
+generated: '2026-07-17'
+method: searched
+source: https://www.npmjs.com/search?q=appcharge + https://docs.appcharge.com/
+description: >-
+  Appcharge's client-side embeddable surfaces. The Checkout SDKs render
+  Appcharge's hosted checkout (pay.appcharge.com) inside a publisher's web app;
+  the Payment Links SDKs open the checkout from native mobile games. These are
+  UI/embed surfaces distinct from server-side integration (see packages/ for the
+  full catalog and authentication/ for tokens).
+families:
+  - name: Web Checkout SDK
+    kind: embeddable-checkout
+    description: >-
+      Drop-in checkout component that boots Appcharge's hosted checkout
+      (parsedUrl / pay.appcharge.com) from a web store, per framework.
+    loaders:
+      - { framework: React, package: appcharge-checkout-reactjs-sdk }
+      - { framework: Vue 2, package: appcharge-checkout-vuejs-sdk }
+      - { framework: Vue 3, package: appcharge-checkout-vuejs3-sdk }
+      - { framework: Angular, package: appcharge-checkout-angular-sdk }
+      - { framework: Vanilla JS, package: appcharge-checkout-vanilla-js-sdk }
+      - { framework: JS, package: appcharge-checkout-js-sdk }
+  - name: Web Store SDK
+    kind: embeddable-store
+    description: Renders the Appcharge D2C web store surface.
+    loaders:
+      - { framework: JS, package: appcharge-store-sdk }
+  - name: Payment Links SDK (mobile)
+    kind: native-checkout-launcher
+    description: >-
+      Opens Appcharge checkout / payment links from native mobile games and
+      returns the player to the game via deeplink.
+    loaders:
+      - { platform: Unity, repo: https://github.com/Appcharge/unity-payment-links }
+      - { platform: iOS, repo: https://github.com/Appcharge/ios-payment-links }
+hosted_surfaces:
+  - { name: Hosted Checkout, url: https://pay.appcharge.com }

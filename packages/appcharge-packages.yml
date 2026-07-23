@@ -1,0 +1,107 @@
+generated: '2026-07-17'
+method: searched
+source: https://www.npmjs.com/search?q=appcharge + https://github.com/Appcharge
+description: >-
+  First-party Appcharge client libraries. The Checkout frontend SDKs (published
+  to npm) embed Appcharge's hosted checkout into web apps across frameworks;
+  the Payment Links SDKs (Unity/iOS) and the publisher "agent" reference servers
+  live on the Appcharge GitHub org. All npm packages are published under the
+  appcharge-* maintainer accounts (appcharge-fe, nirtz-appcharge, ...).
+packages:
+  # --- Checkout / Web Store frontend SDKs (npm) ---
+  - language: javascript
+    registry: npm
+    name: appcharge-checkout-reactjs-sdk
+    version: 4.4.0
+    url: https://www.npmjs.com/package/appcharge-checkout-reactjs-sdk
+    install: npm install appcharge-checkout-reactjs-sdk
+    official: true
+    kind: frontend-checkout-sdk
+  - language: javascript
+    registry: npm
+    name: appcharge-checkout-vuejs-sdk
+    version: 3.1.1
+    url: https://www.npmjs.com/package/appcharge-checkout-vuejs-sdk
+    install: npm install appcharge-checkout-vuejs-sdk
+    official: true
+    kind: frontend-checkout-sdk
+  - language: javascript
+    registry: npm
+    name: appcharge-checkout-vuejs3-sdk
+    version: 2.1.0
+    url: https://www.npmjs.com/package/appcharge-checkout-vuejs3-sdk
+    install: npm install appcharge-checkout-vuejs3-sdk
+    official: true
+    kind: frontend-checkout-sdk
+  - language: javascript
+    registry: npm
+    name: appcharge-checkout-angular-sdk
+    version: 3.1.0
+    url: https://www.npmjs.com/package/appcharge-checkout-angular-sdk
+    install: npm install appcharge-checkout-angular-sdk
+    official: true
+    kind: frontend-checkout-sdk
+  - language: javascript
+    registry: npm
+    name: appcharge-checkout-js-sdk
+    version: 3.1.1
+    url: https://www.npmjs.com/package/appcharge-checkout-js-sdk
+    install: npm install appcharge-checkout-js-sdk
+    official: true
+    kind: frontend-checkout-sdk
+  - language: javascript
+    registry: npm
+    name: appcharge-checkout-vanilla-js-sdk
+    version: 1.0.2
+    url: https://www.npmjs.com/package/appcharge-checkout-vanilla-js-sdk
+    install: npm install appcharge-checkout-vanilla-js-sdk
+    official: true
+    kind: frontend-checkout-sdk
+  - language: javascript
+    registry: npm
+    name: appcharge-store-sdk
+    version: 0.0.13
+    url: https://www.npmjs.com/package/appcharge-store-sdk
+    install: npm install appcharge-store-sdk
+    official: true
+    kind: frontend-store-sdk
+  # --- Payment Links / mobile SDKs (GitHub, source) ---
+  - language: csharp
+    registry: github
+    name: unity-payment-links
+    url: https://github.com/Appcharge/unity-payment-links
+    official: true
+    kind: mobile-sdk
+    platform: unity
+  - language: objective-c
+    registry: github
+    name: ios-payment-links
+    url: https://github.com/Appcharge/ios-payment-links
+    official: true
+    kind: mobile-sdk
+    platform: ios
+  # --- Publisher-side reference "agent" servers (GitHub) ---
+  - language: javascript
+    registry: github
+    name: appcharge-agent-node-public
+    url: https://github.com/Appcharge/appcharge-agent-node-public
+    official: true
+    kind: reference-server
+  - language: python
+    registry: github
+    name: appcharge-agent-python
+    url: https://github.com/Appcharge/appcharge-agent-python
+    official: true
+    kind: reference-server
+  - language: java
+    registry: github
+    name: appcharge-agent-java-public
+    url: https://github.com/Appcharge/appcharge-agent-java-public
+    official: true
+    kind: reference-server
+  - language: go
+    registry: github
+    name: golang-agent
+    url: https://github.com/Appcharge/golang-agent
+    official: true
+    kind: reference-server

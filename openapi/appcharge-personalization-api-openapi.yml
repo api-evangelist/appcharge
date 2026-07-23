@@ -1,0 +1,530 @@
+openapi: 3.0.3
+info:
+  title: Appcharge Assets Personalization API
+  version: 1.0.0
+  description: Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.
+  contact:
+    name: Appcharge Developer Support
+    url: https://docs.appcharge.com/
+  x-apievangelist-source: https://docs.appcharge.com/api-reference (Mintlify embedded OpenAPI fragments)
+  x-apievangelist-method: searched
+  x-apievangelist-generated: '2026-07-17'
+servers:
+- url: https://api.appcharge.com
+  description: Production
+- url: https://api-sandbox.appcharge.com
+  description: Sandbox
+tags:
+- name: Personalization
+paths:
+  /{YOUR_PERSONALIZE_WEBSTORE_ENDPOINT}:
+    post:
+      tags:
+      - Personalization
+      summary: Sync player information
+      description: "<Note> This is a callback API. Appcharge calls this endpoint on your server when specific events occur. </Note> \n\n Notifies your system to personalize the web store for a player. <br /> <br /> Appcharge calls this endpoint when: <ul><li>A player logs in to your web store.</li><li>A player completes a purchase.</li><li>Every 5 minutes after the player’s last sync.</li></ul> Your server responds with the most current player data and all available offers for the player. Appcharge then updates the web store for the player accordingly."
+      operationId: personalize-webstore
+      parameters:
+      - in: header
+        name: x-publisher-token
+        schema:
+          type: string
+        description: Publisher token.
+      - name: signature
+        in: header
+        description: The signed payload.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                playerId:
+                  type: string
+                  description: Player ID (the same value as the `publisherPlayerId` property returned in the [Authenticate Player Callback](/../../api-reference/webstore/player-authentication/authenticate-player-callback)).
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - status
+                - sessionMetadata
+                properties:
+                  version:
+                    type: integer
+                    description: The used version. In this case, the value is ‘2’
+                    example: 2
+                  logo:
+                    type: string
+                    description: 'Logo ID provided when a file is uploaded to the Assets Library. Use this to display a logo in your web store. '
+                    example: MY_LOGO_ASSET_ID
+                  status:
+                    type: string
+                    enum:
+                    - valid
+                    - invalid
+                    description: Web store personalization request status.
+                    example: valid
+                  sessionMetadata:
+                    type: object
+                    description: Container for storing any pertinent information related to the player's session. If enabled, this is sent back in the [Grant Award Callback](/../../api-reference/checkout/awards/grant-award-callback) as well.
+                  profileFrameId:
+                    type: string
+                    description: Corresponds to the profile frame picture ID uploaded to the asset library in Appcharge's dashboard. Displayed above the player's profile picture.
+                    example: profileFrame123
+                  playerLevelName:
+                    type: string
+                    description: Aligns with the player level picture name/ID uploaded to the asset library in Appcharge's dashboard. Displayed alongside the footer.
+                    example: playerLevelName
+                  bannerExternalId:
+                    type: string
+                    description: Aligns with the banner asset ID uploaded to the asset library in Appcharge’s dashboard. Displayed at the top of the screen.
+                    example: playerLevelAssetId
+                  playerLevel:
+                    type: object
+                    description: Presents discounts related to the player’s level.
+                    required:
+                    - assetId
+                    properties:
+                      assetId:
+                        type: string
+                        description: The ID of the asset relevant to the player’s level, uploaded to the asset library in Appcharge’s dashboard.
+                        example: playerLevel1
+                      text:
+                        type: string
+                        description: Text to be displayed on top of the asset.
+                        example: 10%
+                      endsIn:
+                        type: number
+                        description: Epoch timestamp in milliseconds indicating when the level discount will end.
+                        example: 1728283121000
+                  playerLevelBanners:
+                    type: array
+                    description: List of banners to display to players based on their game level.
+                    items:
+                      type: object
+                      required:
+                      - assetId
+                      - designId
+                      properties:
+                        assetId:
+                          type: string
+                          description: The banner ID in the Asset Library.
+                        designId:
+                          type: string
+                          description: ID provided by Appcharge specifying the banner type and design.
+                        text:
+                          type: array
+                          description: List of text objects for displaying the banner text.
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                description: The text ID that specifies the text’s placement in the banner.
+                              content:
+                                type: string
+                                description: The text displayed in the banner.
+                        endsIn:
+                          type: number
+                          description: Unix timestamp indicating when the banner expires. For example, `1720051200` represents July 4, 2024.
+                  offersOrder:
+                    type: string
+                    enum:
+                    - publisherOrder
+                    - priceHighToLow
+                    - priceLowToHigh
+                    default: priceLowToHigh
+                    description: Defines the order of offers.
+                  sectionsOrder:
+                    type: array
+                    items:
+                      type: string
+                    description: An array of publisher’s section ids that defines the order of sections for the store.
+                  segments:
+                    type: array
+                    items:
+                      type: string
+                    description: The list of segments associated with the player.
+                  focus:
+                    type: object
+                    properties:
+                      publisherBundleId:
+                        type: string
+                        description: The id of the bundle to focus on in the web store.
+                        example: bundle123
+                    description: Customize which offer you want to focus on.
+                  attributes:
+                    type: object
+                    description: "A set of custom key-value pairs that you can define to tag players for segmentation and A/B testing. These attributes can then be used to filter players in the Publisher Dashboard.\n\nExample:\n{\n  \"BF_test\": \"test\",\n  \"monetization_persona\": \"non_payer\"\n}"
+                  storeTheme:
+                    type: object
+                    description: Information about the web store theme.
+                    properties:
+                      bgImageMobile:
+                        type: string
+                        description: Name of the background image for mobile devices in the Assets Library of the Publisher Dashboard.
+                        example: mobile_bg_2
+                      bgImageDesktop:
+                        type: string
+                        description: Name of the background image for desktop devices in the Assets Library of the Publisher Dashboard.
+                        example: desktop_bg_2
+                      logo:
+                        type: string
+                        description: Name of the logo image in the Assets Library of the Publisher Dashboard.
+                        example: store_logo_2
+                      profileFrameImage:
+                        type: string
+                        description: Name of the profile frame image in the Assets Library of the Publisher Dashboard.
+                        example: profile_frame_2
+                      bannerImage:
+                        type: string
+                        description: Name of the banner image in the Assets Library of the Publisher Dashboard.
+                        example: banner_2
+                      playerLevelImage:
+                        type: string
+                        description: Name of the player level image in the Assets Library of the Publisher Dashboard.
+                        example: player_level_2
+                  balances:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - publisherProductId
+                      - quantity
+                      properties:
+                        publisherProductId:
+                          type: string
+                          description: The publisher's product id.
+                          example: product123
+                        quantity:
+                          type: integer
+                          description: The quantity of the product. Should be greater than or equal to 0 and less than or equal to 24 digits long.
+                          example: 5
+                    description: A list of product balances of the player.
+                  offers:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - publisherOfferId
+                      - productsSequence
+                      properties:
+                        publisherOfferId:
+                          type: string
+                          description: The publisher's offer id.
+                          example: offer123
+                        endsIn:
+                          type: number
+                          description: '[Epoch](https://www.epoch101.com/) timestamp in milliseconds indicating how much time remains on the countdown timer for the offer displayed in the web store, regardless of its schedule.'
+                          example: '1743077489'
+                        offerDescriptionOverride:
+                          type: string
+                          description: The description that will be displayed instead of the current offer description in the store UI.
+                        offerDesignOverride:
+                          type: object
+                          properties:
+                            offerDesignSubtitleTextOverride:
+                              type: string
+                              description: The text that will be displayed instead of the current subtitle in the offer UI.
+                            offerDesignId:
+                              type: string
+                              description: This is the offerExternalUiId, which is used to override the offer UI for the store.
+                            offerBackgroundImageOverride:
+                              type: string
+                              description: 'Image URL used to override the current background image. Appcharge saves and uses this URL as-is and doesn''t download, copy, upload, or host the image. The image must remain available at the provided URL.
+
+
+                                We recommend uploading image files instead of using external URLs when possible. Appcharge hosts uploaded files on its CDN.'
+                        productSale:
+                          type: object
+                          description: Details on the product sale. This field is not applicable for Rolling Offers. To define a product sale for Rolling Offers, refer to the 'productSale' field within 'productsSequence'.
+                          properties:
+                            amountBeforeSale:
+                              type: integer
+                              description: Offer amount in USD before sale is applied.
+                            sale:
+                              type: integer
+                              description: Sale amount in percentage.
+                            type:
+                              type: string
+                              description: Will be 'percentage' by default. Optional values are 'percentage', 'multiplier', 'fixed_amount'.
+                        priceDiscount:
+                          type: object
+                          description: Used to define the discount for the offer price. This field is not applicable for Rolling Offers. To define an offer discount for Rolling Offers, refer to the 'priceDiscount' field within 'productsSequence'.
+                          required:
+                          - discount
+                          - type
+                          properties:
+                            priceBeforeDiscount:
+                              type: integer
+                              description: The original price of the offer before discount. Copied to FE without any logic on Appcharge’s side. The minimum should be 0.
+                              example: 100
+                            discount:
+                              type: integer
+                              description: The discount percentage, min of 0
+                              example: 20
+                            type:
+                              type: string
+                              enum:
+                              - percentage
+                              description: The type of discount, currently only "percentage" is supported.
+                              example: percentage
+                        badges:
+                          type: array
+                          description: A list of badges in the offer. If you do not want to have badges, then it should be sent as an empty array. This field is not applicable for Rolling Offers. To define badges for Rolling Offers, refer to the ‘badges’ field within ‘productsSequence’.
+                          items:
+                            type: object
+                            required:
+                            - publisherBadgeId
+                            - position
+                            properties:
+                              publisherBadgeId:
+                                type: string
+                                description: The publisher's badge id.
+                                example: badge123
+                              position:
+                                type: string
+                                enum:
+                                - right
+                                - left
+                                - center
+                                description: This field is outdated. The position of the badge should be set from Dashboard only.
+                                example: center
+                              ribbonTextOverride:
+                                type: string
+                                description: A text that will override the ribbon's text provided in publisherBadgeId. Only relevant when the badge sent in publisherBadgeId is from type 'Ribbon'.
+                        dynamicOfferUi:
+                          type: object
+                          required:
+                          - salePercentage
+                          description: Details of the dynamic user interface for the offer. **Deprecated**
+                          properties:
+                            badges:
+                              type: array
+                              description: A list of badges in the offer.
+                              items:
+                                type: object
+                                required:
+                                - publisherBadgeId
+                                - position
+                                properties:
+                                  publisherBadgeId:
+                                    type: string
+                                    description: The publisher's badge id.
+                                    example: badge123
+                                  position:
+                                    type: string
+                                    enum:
+                                    - right
+                                    - left
+                                    - center
+                                    description: This field is outdated. The position of the badge should be set from Dashboard only.
+                                    example: center
+                                  ribbonTextOverride:
+                                    type: string
+                                    description: A text that will override the ribbon's text provided in publisherBadgeId. Only relevant when the badge sent in publisherBadgeId is from type 'Ribbon'.
+                            salePercentage:
+                              type: integer
+                              description: Sale amount in percentage.
+                            amountBeforeSale:
+                              type: integer
+                              description: Offer amount in USD before sale is applied.
+                            salePercentageDisplayType:
+                              type: string
+                              description: Will be 'percentage' by default. Optional values are 'percentage', 'multiplier', 'fixed_amount'.
+                            offerDesignId:
+                              type: string
+                              description: This is the offerExternalUiId, which is used to override the offer UI for the store.
+                        productsSequence:
+                          type: array
+                          description: The sequence of the products included in the offer. Rolling offers should be the same amount of sequences as the amount of sub offers configured in the Publisher Dashboard.
+                          items:
+                            type: object
+                            required:
+                            - index
+                            - products
+                            properties:
+                              index:
+                                type: integer
+                                minimum: 1
+                                description: "The position of this offer or sub-offer within the parent offer. Each index should be a positive integer starting from 1. \n\n **Note:** For the Progress Bar offer, this property defines the mission order."
+                              productSale:
+                                type: object
+                                description: Details on the product sale. This field is only relevant for Rolling Offers. To define a product sale for other offer types, refer to the corresponding 'productSale' field at the root level within 'offers'.
+                                properties:
+                                  amountBeforeSale:
+                                    type: integer
+                                    description: Offer amount in USD before sale is applied.
+                                  sale:
+                                    type: integer
+                                    description: Sale amount in percentage.
+                                  type:
+                                    type: string
+                                    description: Will be 'percentage' by default. Optional values are 'percentage', 'multiplier', 'fixed_amount'.
+                              priceDiscount:
+                                type: object
+                                description: Used to define the discount for the offer price. This is only relevant for Rolling Offers. To define a price discount for other offer types, refer to the corresponding 'priceDiscount' field at the root level within the 'offers' object.
+                                required:
+                                - discount
+                                - type
+                                properties:
+                                  priceBeforeDiscount:
+                                    type: integer
+                                    description: The original price of the offer before discount. Copied to FE without any logic on Appcharge’s side. The minimum should be 0.
+                                    example: 100
+                                  discount:
+                                    type: integer
+                                    description: The discount percentage, min of 0
+                                    example: 20
+                                  type:
+                                    type: string
+                                    enum:
+                                    - percentage
+                                    description: The type of discount, currently only "percentage" is supported.
+                                    example: percentage
+                              badges:
+                                type: array
+                                description: A list of badges in the offer. If you do not want to have badges, then it should be sent as an empty array. This field is only relevant for Rolling Offers. To define badges for other offer types, refer to the 'badges' field at the root level within the 'offers' object.
+                                items:
+                                  type: object
+                                  required:
+                                  - publisherBadgeId
+                                  - position
+                                  properties:
+                                    publisherBadgeId:
+                                      type: string
+                                      description: The publisher's badge id.
+                                      example: badge123
+                                    position:
+                                      type: string
+                                      enum:
+                                      - right
+                                      - left
+                                      - center
+                                      description: This field is outdated. The position of the badge should be set from Dashboard only.
+                                      example: center
+                                    ribbonTextOverride:
+                                      type: string
+                                      description: A text that will override the ribbon's text provided in publisherBadgeId. Only relevant when the badge sent in publisherBadgeId is from type 'Ribbon'.
+                              progressBarPoints:
+                                type: array
+                                description: "The contribution of this offer toward the progress bar. A points ribbon is displayed with the number of points for offers that define this field. \n\n **Note:** Currently you can only have 1 progress bar object."
+                                items:
+                                  type: object
+                                  properties:
+                                    publisherBarId:
+                                      type: string
+                                      description: The publisher's external bar ID.
+                                      example: progress-bar-1
+                                    points:
+                                      type: integer
+                                      description: Number of points awarded toward the progress bar when this offer is purchased or claimed.
+                                      example: 1000
+                              products:
+                                type: array
+                                description: "The products in a given offer. \n\n **Note:** For the Progress Bar offer, this property defines the reward received when completing the given mission."
+                                items:
+                                  type: object
+                                  required:
+                                  - publisherProductId
+                                  - quantity
+                                  properties:
+                                    publisherProductId:
+                                      type: string
+                                      description: The product Id.
+                                      example: product123
+                                    quantity:
+                                      type: integer
+                                      description: The quantity of the product. Should be minimum 0 and equal to or less than 24 digits long.
+                                      example: 2
+                                    priority:
+                                      type: string
+                                      description: Specifies the display priority of a product within the offer.
+                                      enum:
+                                      - Main
+                                      - Sub
+                                      x-enum-descriptions:
+                                      - Main: Primary display, with more prominent placement in supported templates.
+                                      - Sub: Secondary display, with less prominent placement in supported templates.
+                                    traits:
+                                      type: array
+                                      description: A list of visual or descriptive features associated with the product. Useful for distinguishing variants, bonuses, or unique characteristics of the product.
+                                      items:
+                                        type: object
+                                        required:
+                                        - assetId
+                                        - text
+                                        properties:
+                                          assetId:
+                                            type: string
+                                            description: The asset ID of the trait, located in the Asset Library.
+                                            example: burn_damage_icon
+                                          text:
+                                            type: string
+                                            description: The label or descriptor associated with the trait.
+                                            example: Burn Damage
+                                    rarityProductInfo:
+                                      type: object
+                                      description: Details about the rarity of the product.
+                                      properties:
+                                        stars:
+                                          type: integer
+                                          description: The number of icons (stars) representing the rarity of the product. Displayed next to the product and inside the tooltip.
+                                          example: 5
+                                        tooltip:
+                                          oneOf:
+                                          - type: array
+                                            description: Assets representing products and the player's probability of receiving them.
+                                            items:
+                                              type: object
+                                              required:
+                                              - sectionName
+                                              - products
+                                              properties:
+                                                sectionName:
+                                                  type: string
+                                                  description: The section representing each product type available in the tooltip.
+                                                  example: Special Offers
+                                                products:
+                                                  type: array
+                                                  items:
+                                                    type: object
+                                                    required:
+                                                    - publisherProductId
+                                                    - text
+                                                    properties:
+                                                      publisherProductId:
+                                                        type: string
+                                                        description: The publisher's product ID.
+                                                        example: Coin
+                                                      text:
+                                                        type: string
+                                                        description: The text associated with the product.
+                                                        example: 20%
+                                          - type: object
+                                            description: A general description tooltip for the product.
+                                            required:
+                                            - tooltipText
+                                            - rarityText
+                                            properties:
+                                              tooltipText:
+                                                type: string
+                                                description: The text of the tooltip.
+                                                example: Rare Item
+                                              rarityText:
+                                                type: string
+                                                description: The text that appears next to the product and inside the tooltip, before the rarity icons (stars).
+                                                example: Legendary
+components:
+  securitySchemes:
+    PublisherTokenAuth:
+      type: apiKey
+      in: header
+      name: x-publisher-token
+      description: Publisher token, as displayed in the Publisher Dashboard.

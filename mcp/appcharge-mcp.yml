@@ -1,0 +1,37 @@
+generated: '2026-07-17'
+method: searched
+status: published
+source: https://github.com/Appcharge/appcharge-skills/blob/master/.mcp.json
+description: >-
+  Appcharge ships an official hosted MCP server. It is declared in the public
+  appcharge-skills repo (.mcp.json) and advertised by the Claude/Cursor plugin
+  manifests. The endpoint is live (returns 401 "Missing Bearer token" without
+  auth) and is protected by OAuth 2.0 — the resource metadata
+  (/.well-known/oauth-protected-resource) points at api.appcharge.com as the
+  authorization server, with PKCE + dynamic client registration and scopes
+  mcp:read / mcp:write.
+server:
+  name: appcharge
+  transport: http
+  url: https://mcp.appcharge.com/mcp
+  auth:
+    type: oauth2
+    authorization_server: https://api.appcharge.com
+    protected_resource_metadata: https://mcp.appcharge.com/.well-known/oauth-protected-resource
+    scopes: [mcp:read, mcp:write]
+    bearer_methods: [header]
+install:
+  claude_plugin: /plugin marketplace add https://github.com/Appcharge/appcharge-skills
+  mcp_config: |
+    {
+      "mcpServers": {
+        "appcharge": { "type": "http", "url": "https://mcp.appcharge.com/mcp" }
+      }
+    }
+tools:
+  note: >-
+    The tool list is not published in the manifest and the live server requires
+    OAuth to enumerate tools. Tools are not fabricated here; the underlying REST
+    surface the server is expected to wrap is documented in
+    openapi/appcharge-openapi.yml (checkout sessions, refunds, coupons, price
+    points, offers, reporting).

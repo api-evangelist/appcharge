@@ -1,0 +1,56 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/appcharge-openapi.yml
+description: >-
+  Entity-relationship graph derived from the Appcharge OpenAPI schemas and id
+  references. Identifiers observed: sku / publisherOfferId (offers &
+  components), couponName + promoCodeName (coupons), priceInUsdCents (price
+  points), contentId + isoCode (portal content), asset name (assets),
+  orderId / purchaseId + publisherPurchaseId (orders), customer.id / playerId.
+entities:
+  - name: CheckoutSession
+    id: checkoutSessionToken
+    keyed_by: [purchaseId]
+    fields: [priceDetails, offer, items, customer, sessionMetadata, redirectUrl]
+  - name: Order
+    id: orderId
+    keyed_by: [purchaseId, publisherPurchaseId]
+  - name: Offer
+    id: sku / publisherOfferId
+    variants: [bundle, daily-bonus, rolling-offer, special-offer, progress-bar, reward-calendar, checkout-link, triggered-popup]
+  - name: Product
+    id: externalId
+  - name: Item
+    id: sku
+  - name: Coupon
+    id: couponName
+  - name: PromoCode
+    id: promoCodeName
+  - name: PricePoint
+    id: priceInUsdCents
+  - name: Badge
+    id: externalId
+  - name: OfferDesign
+    id: externalId
+  - name: PortalContent
+    id: contentId
+  - name: ContentTranslation
+    id: isoCode
+  - name: Asset
+    id: name
+  - name: Translation
+    id: locale
+  - name: Customer
+    id: id (playerId)
+relationships:
+  - { from: CheckoutSession, to: Offer, type: has_one, via: offer.sku }
+  - { from: CheckoutSession, to: Item, type: has_many, via: "items[].sku" }
+  - { from: CheckoutSession, to: Customer, type: belongs_to, via: customer.id }
+  - { from: Order, to: CheckoutSession, type: belongs_to, via: purchaseId }
+  - { from: Order, to: Customer, type: belongs_to, via: playerId }
+  - { from: PromoCode, to: Coupon, type: belongs_to, via: couponName }
+  - { from: Offer, to: Product, type: has_many, via: "productsSequence[].productExternalId" }
+  - { from: Offer, to: OfferDesign, type: has_one, via: externalId }
+  - { from: Offer, to: Badge, type: has_many, via: externalId }
+  - { from: Offer, to: PricePoint, type: has_one, via: priceInUsdCents }
+  - { from: PortalContent, to: ContentTranslation, type: has_many, via: isoCode }

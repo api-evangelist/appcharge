@@ -1,0 +1,995 @@
+openapi: 3.0.3
+info:
+  title: Appcharge Assets Portal Content API
+  version: 1.0.0
+  description: Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.
+  contact:
+    name: Appcharge Developer Support
+    url: https://docs.appcharge.com/
+  x-apievangelist-source: https://docs.appcharge.com/api-reference (Mintlify embedded OpenAPI fragments)
+  x-apievangelist-method: searched
+  x-apievangelist-generated: '2026-07-17'
+servers:
+- url: https://api.appcharge.com
+  description: Production
+- url: https://api-sandbox.appcharge.com
+  description: Sandbox
+tags:
+- name: Portal Content
+paths:
+  /v1/portal-content:
+    post:
+      tags:
+      - Portal Content
+      summary: Create Content
+      description: Creates a new content item.
+      operationId: create-content
+      parameters:
+      - name: x-publisher-token
+        required: true
+        in: header
+        description: Publisher token.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateContentRequest'
+      responses:
+        '200':
+          description: Content created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentItem'
+        '400':
+          description: Invalid request body or validation error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: BAD_REQUEST
+                requestUrl: /v1/portal-content
+                body: Invalid request body or validation error.
+        '401':
+          description: Invalid or missing publisher token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: UNAUTHORIZED
+                requestUrl: /v1/portal-content
+                body: Invalid or missing publisher token.
+        '409':
+          description: Slug already exists.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: CONFLICT
+                requestUrl: /v1/portal-content
+                body: Slug already exists.
+        '500':
+          description: Server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: INTERNAL_SERVER_ERROR
+                requestUrl: /v1/portal-content
+                body: Server error.
+    get:
+      tags:
+      - Portal Content
+      summary: Get Content
+      description: Retrieves a list of all content items.
+      operationId: get-content
+      parameters:
+      - name: x-publisher-token
+        required: true
+        in: header
+        description: Publisher token.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Content retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetContentResponse'
+        '401':
+          description: Invalid or missing publisher token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: UNAUTHORIZED
+                requestUrl: /v1/portal-content
+                body: Invalid or missing publisher token.
+        '500':
+          description: Server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: INTERNAL_SERVER_ERROR
+                requestUrl: /v1/portal-content
+                body: Server error.
+  /v1/portal-content/{contentId}:
+    delete:
+      tags:
+      - Portal Content
+      summary: Delete Content
+      description: Deletes a content item.
+      operationId: delete-content
+      parameters:
+      - name: contentId
+        in: path
+        required: true
+        description: Content ID.
+        schema:
+          type: string
+          example: 507f1f77bcf86cd799439011
+      - name: x-publisher-token
+        required: true
+        in: header
+        description: Publisher token.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Content deleted successfully.
+        '400':
+          description: Invalid content ID or deletion error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: BAD_REQUEST
+                requestUrl: /v1/portal-content/{contentId}
+                body: Invalid content ID or deletion error.
+        '401':
+          description: Invalid or missing publisher token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: UNAUTHORIZED
+                requestUrl: /v1/portal-content/{contentId}
+                body: Invalid or missing publisher token.
+        '404':
+          description: Content not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: NOT_FOUND
+                requestUrl: /v1/portal-content/{contentId}
+                body: Content not found.
+        '500':
+          description: Server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: INTERNAL_SERVER_ERROR
+                requestUrl: /v1/portal-content/{contentId}
+                body: Server error.
+    get:
+      tags:
+      - Portal Content
+      summary: Get Content By ID
+      description: Retrieves a specific content item by its ID.
+      operationId: get-content-by-id
+      parameters:
+      - name: contentId
+        in: path
+        required: true
+        description: Content ID.
+        schema:
+          type: string
+          example: 507f1f77bcf86cd799439011
+      - name: x-publisher-token
+        required: true
+        in: header
+        description: Publisher token.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Content retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentItem'
+        '401':
+          description: Invalid or missing publisher token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: UNAUTHORIZED
+                requestUrl: /v1/portal-content/{contentId}
+                body: Invalid or missing publisher token.
+        '404':
+          description: Content not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: NOT_FOUND
+                requestUrl: /v1/portal-content/{contentId}
+                body: Content not found.
+        '500':
+          description: Server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: INTERNAL_SERVER_ERROR
+                requestUrl: /v1/portal-content/{contentId}
+                body: Server error.
+    put:
+      tags:
+      - Portal Content
+      summary: Update Content
+      description: Updates a content item.
+      operationId: update-content
+      parameters:
+      - name: contentId
+        in: path
+        required: true
+        description: Content ID.
+        schema:
+          type: string
+          example: 507f1f77bcf86cd799439011
+      - name: x-publisher-token
+        required: true
+        in: header
+        description: Publisher token.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateContentRequest'
+      responses:
+        '200':
+          description: Content updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentItem'
+        '400':
+          description: Invalid request body or validation error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: BAD_REQUEST
+                requestUrl: /v1/portal-content/{contentId}
+                body: Invalid request body or validation error.
+        '401':
+          description: Invalid or missing publisher token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: UNAUTHORIZED
+                requestUrl: /v1/portal-content/{contentId}
+                body: Invalid or missing publisher token.
+        '404':
+          description: Content not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: NOT_FOUND
+                requestUrl: /v1/portal-content/{contentId}
+                body: Content not found.
+        '409':
+          description: Slug already exists.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: CONFLICT
+                requestUrl: /v1/portal-content/{contentId}
+                body: Slug already exists.
+        '500':
+          description: Server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: INTERNAL_SERVER_ERROR
+                requestUrl: /v1/portal-content/{contentId}
+                body: Server error.
+  /v1/portal-content/{contentId}/translations:
+    get:
+      tags:
+      - Portal Content
+      summary: Get Content Translations
+      description: Retrieves all existing translations for a content item.
+      operationId: get-content-translations
+      parameters:
+      - name: contentId
+        required: true
+        in: path
+        description: Content ID.
+        schema:
+          type: string
+      - name: x-publisher-token
+        required: true
+        in: header
+        description: Publisher token.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Translations retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetContentTranslationsResponse'
+        '401':
+          description: Invalid or missing publisher token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: UNAUTHORIZED
+                requestUrl: /v1/portal-content/{contentId}/translations
+                body: Invalid or missing publisher token.
+        '404':
+          description: Content not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: NOT_FOUND
+                requestUrl: /v1/portal-content/{contentId}/translations
+                body: Content not found.
+        '500':
+          description: Server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: INTERNAL_SERVER_ERROR
+                requestUrl: /v1/portal-content/{contentId}/translations
+                body: Server error.
+  /v1/portal-content/{contentId}/translations/{isoCode}:
+    put:
+      tags:
+      - Portal Content
+      summary: Upsert Content Translation
+      description: Creates or updates a translation for a content item in a specific locale. <br/><br/>This operation doesn't modify translations in other locales or other content fields.<br /> <Note>You must first [add the locale in the Publisher Dashboard](/../../guides/translations/add-and-manage-languages) before adding its translation.</Note>
+      operationId: upsert-content-translation
+      parameters:
+      - name: contentId
+        required: true
+        in: path
+        description: Content ID.
+        schema:
+          type: string
+      - name: isoCode
+        required: true
+        in: path
+        description: The locale code. Both [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code and [ISO-3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code formats are supported.
+        schema:
+          type: string
+      - name: x-publisher-token
+        required: true
+        in: header
+        description: Publisher token.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpsertContentTranslationRequest'
+      responses:
+        '200':
+          description: Translation upserted successfully. Returns the full updated content item.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentItem'
+        '400':
+          description: Invalid request body or validation error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: BAD_REQUEST
+                requestUrl: /v1/portal-content/{contentId}/translations/{isoCode}
+                body: Invalid request body or validation error.
+        '401':
+          description: Invalid or missing publisher token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: UNAUTHORIZED
+                requestUrl: /v1/portal-content/{contentId}/translations/{isoCode}
+                body: Invalid or missing publisher token.
+        '404':
+          description: Content not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: NOT_FOUND
+                requestUrl: /v1/portal-content/{contentId}/translations/{isoCode}
+                body: Content not found.
+        '409':
+          description: Slug conflict.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: CONFLICT
+                requestUrl: /v1/portal-content/{contentId}/translations/{isoCode}
+                body: Slug already exists.
+        '413':
+          description: Request payload is too large.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: PAYLOAD_TOO_LARGE
+                requestUrl: /v1/portal-content/{contentId}/translations/{isoCode}
+                body: Request payload is too large.
+        '500':
+          description: Server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                message: INTERNAL_SERVER_ERROR
+                requestUrl: /v1/portal-content/{contentId}/translations/{isoCode}
+                body: Server error.
+components:
+  schemas:
+    CreateContentRequest:
+      type: object
+      required:
+      - title
+      - headerImage
+      - thumbnailImage
+      - contentType
+      properties:
+        title:
+          type: string
+          description: Content title.
+          example: Welcome to Our Game
+        subTitle:
+          type: string
+          description: 'Content description. '
+          example: Everything you need to know
+        bodyText:
+          type: string
+          description: Content body text.
+          example: This is the main content body with detailed information about getting started...
+        headerImage:
+          type: string
+          description: Content header image URL. Can be an external link or the URL of an image from the Assets Library.
+          example: https://cdn.example.com/images/header.jpg
+        thumbnailImage:
+          type: string
+          description: Content thumbnail image URL. Can be an external link or the URL of an image from the Assets Library.
+          example: https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg
+        labels:
+          type: array
+          items:
+            type: string
+          description: List of labels associated with the content.
+          example:
+          - tutorial
+          - beginner
+        state:
+          type: string
+          description: Current state of the content.
+          default: visible
+          enum:
+          - visible
+          - hidden
+          - scheduled
+          example: visible
+        contentType:
+          type: string
+          enum:
+          - article
+          - news
+          description: Content type.
+          example: article
+        publishDate:
+          type: string
+          format: date-time
+          description: Content publish date. Use for scheduling content.
+          example: '2025-10-20T00:00:00.000Z'
+        pages:
+          type: array
+          items:
+            type: string
+          description: "List of page IDs where this content will appear. The Page ID can be found in the Pages section of the Publisher Dashboard. \n\n **Note:** If you don't pass this property, or if you assign the content to a page that doesn't exist, the content will be created but won't be displayed in the Game Portal."
+          example:
+          - 6850249eb5bd5c59b9bab7e2
+          - 692eb70d0293e07ab4895518
+        slug:
+          type: string
+          description: Content slug. If not provided, this value is auto-generated.
+          example: welcome-to-our-game
+        visibility:
+          type: string
+          enum:
+          - public
+          - private
+          description: Content visibility level.
+          default: public
+          example: public
+        tag:
+          type: string
+          description: Internal tag for organizing your content. Not visible to players.
+          example: spring2025
+        translations:
+          type: array
+          items:
+            $ref: '#/components/schemas/TranslationRequest'
+          description: "List of translations for the content item. Each object represents a locale and its translations. \n\n **Note:** You must first [add the locale in the Publisher Dashboard](/../../guides/translations/add-and-manage-languages) before adding its translations."
+    UpsertContentTranslationRequest:
+      type: object
+      required:
+      - title
+      - subTitle
+      - bodyText
+      - headerImage
+      - thumbnailImage
+      - labels
+      properties:
+        title:
+          type: string
+          description: Translated title.
+          example: Bienvenue dans notre jeu
+        subTitle:
+          type: string
+          description: Translated subtitle.
+          example: Tout ce que vous devez savoir
+        bodyText:
+          type: string
+          description: Translated body text.
+          example: Ceci est le contenu principal de l'article en français...
+        headerImage:
+          type: string
+          description: Translated header image URL. Can be an external link or the URL of an image from the Assets Library.
+          example: https://cdn.example.com/images/header-fr.jpg
+        thumbnailImage:
+          type: string
+          description: Translated thumbnail image URL. Can be an external link or the URL of an image from the Assets Library.
+          example: https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg
+        labels:
+          type: array
+          items:
+            type: string
+          description: Translated labels.
+          example:
+          - tutoriel
+          - débutant
+    GetContentTranslationsResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/TranslationResponse'
+          description: List of translations for the content item. Each item represents a locale and its translations.
+    GetContentResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContentItemList'
+          description: List of content objects.
+    TranslationResponse:
+      type: object
+      properties:
+        isoCode:
+          type: string
+          description: The locale code. Both [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code and [ISO-3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code formats are supported.
+          example: fr-FR
+        title:
+          type: string
+          description: Translated title.
+          example: Bienvenue dans notre jeu
+        subTitle:
+          type: string
+          description: Translated description.
+          example: Tout ce que vous devez savoir
+        bodyText:
+          type: string
+          description: Translated body text.
+          example: Ceci est le contenu principal de l'article en français...
+        headerImage:
+          type: string
+          description: Translated header image URL.
+          example: https://cdn.example.com/images/header-fr.jpg
+        thumbnailImage:
+          type: string
+          description: Translated thumbnail image URL.
+          example: https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg
+        labels:
+          type: array
+          items:
+            type: string
+          description: Translated labels.
+          example:
+          - tutoriel
+          - débutant
+    UpdateContentRequest:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Content title.
+          example: Welcome to Our Game - Updated
+        subTitle:
+          type: string
+          description: 'Content description. '
+        bodyText:
+          type: string
+          description: Content body text.
+        headerImage:
+          type: string
+          description: 'Content header image URL. '
+        thumbnailImage:
+          type: string
+          description: 'Content thumbnail image URL. '
+        labels:
+          type: array
+          items:
+            type: string
+          description: List of labels associated with the content.
+          example:
+          - tutorial
+          - beginner
+          - featured
+        state:
+          type: string
+          description: Current state of the content.
+          default: visible
+          enum:
+          - visible
+          - hidden
+          - scheduled
+          example: visible
+        contentType:
+          type: string
+          enum:
+          - article
+          - news
+          description: 'Type: article or news.'
+        publishDate:
+          type: string
+          format: date-time
+          description: Content publish date. Use for scheduling content.
+        pages:
+          type: array
+          items:
+            type: string
+          description: List of pages where this content appears.
+        slug:
+          type: string
+          description: Content slug. If not provided, this value is auto-generated.
+        visibility:
+          type: string
+          enum:
+          - public
+          - private
+          description: Content visibility level.
+          default: public
+          example: public
+        tag:
+          type: string
+          description: Internal tag for organizing your content. Not visible to players.
+          example: spring2025
+        translations:
+          type: array
+          items:
+            $ref: '#/components/schemas/TranslationRequest'
+          description: "List of translations for the content item. Each object represents a locale and its translations. \n\n **Note:** You must first [add the locale in the Publisher Dashboard](/../../guides/translations/add-and-manage-languages) before adding its translations."
+    ErrorResponse:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+          format: int32
+          description: Error code indicating the type of failure.
+          default: 0
+        errorMessage:
+          type: string
+          description: Detailed message describing the error.
+    TranslationRequest:
+      type: object
+      required:
+      - isoCode
+      - title
+      - subTitle
+      - bodyText
+      - headerImage
+      - thumbnailImage
+      - labels
+      properties:
+        isoCode:
+          type: string
+          description: The locale code. Both [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code and [ISO-3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code formats are supported.
+          example: fr-FR
+        title:
+          type: string
+          description: Translated title.
+          example: Bienvenue dans notre jeu
+        subTitle:
+          type: string
+          description: Translated subtitle.
+          example: Tout ce que vous devez savoir
+        bodyText:
+          type: string
+          description: Translated body text.
+          example: Ceci est le contenu principal de l'article en français...
+        headerImage:
+          type: string
+          description: Translated header image URL. Can be an external link or the URL of an image from the Assets Library.
+          example: https://cdn.example.com/images/header-fr.jpg
+        thumbnailImage:
+          type: string
+          description: Translated thumbnail image URL. Can be an external link or the URL of an image from the Assets Library.
+          example: https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg
+        labels:
+          type: array
+          items:
+            type: string
+          description: Translated labels.
+          example:
+          - tutoriel
+          - débutant
+    Page:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Page ID.
+          example: 6850249eb5bd5c59b9bab7e2
+        pageName:
+          type: string
+          description: Page name.
+          example: faq
+    ContentItemList:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Content ID.
+          example: 507f1f77bcf86cd799439011
+        title:
+          type: string
+          description: Content title.
+          example: Welcome to Our Game
+        subTitle:
+          type: string
+          description: Content description.
+          example: Everything you need to know
+        bodyText:
+          type: string
+          description: Content body text.
+          example: This is the main content body with detailed information...
+        headerImage:
+          type: string
+          description: Content header image URL.
+          example: https://cdn.example.com/images/header.jpg
+        thumbnailImage:
+          type: string
+          description: Content thumbnail image URL.
+          example: https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg
+        labels:
+          type: array
+          items:
+            type: string
+          description: List of labels associated with the content.
+          example:
+          - tutorial
+          - beginner
+        state:
+          type: string
+          description: Current state of the content.
+          default: hidden
+          enum:
+          - visible
+          - hidden
+          - scheduled
+          example: hidden
+        contentType:
+          type: string
+          enum:
+          - article
+          - news
+          description: Content type.
+          example: article
+        publishDate:
+          type: string
+          format: date-time
+          description: Content publish date. Use for scheduling content.
+          example: '2025-10-20T00:00:00.000Z'
+        slug:
+          type: string
+          description: Content slug. If not provided, this value is auto-generated.
+          example: welcome-to-our-game
+        visibility:
+          type: string
+          enum:
+          - public
+          - private
+          description: Content visibility level.
+          default: public
+          example: public
+        tag:
+          type: string
+          description: Internal tag for organizing your content. Not visible to players.
+          example: spring2025
+        createdAt:
+          type: string
+          format: date-time
+          description: Created date.
+          example: '2025-10-15T10:30:00.000Z'
+        updatedAt:
+          type: string
+          format: date-time
+          description: Updated date.
+          example: '2025-10-19T14:20:00.000Z'
+        pages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Page'
+          description: List of pages where this content appears.
+          example:
+          - id: 68b0249eb5bd5c59b9bab7e2
+            pageName: FAQs
+          - id: 692eb70d0293e07ab4895518
+            pageName: Events
+    ContentItem:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Content ID.
+          example: 507f1f77bcf86cd799439011
+        title:
+          type: string
+          description: Content title.
+          example: Welcome to Our Game
+        subTitle:
+          type: string
+          description: Content description.
+          example: Everything you need to know
+        bodyText:
+          type: string
+          description: Content body text.
+          example: This is the main content body with detailed information...
+        headerImage:
+          type: string
+          description: Content header image URL.
+          example: https://cdn.example.com/images/header.jpg
+        thumbnailImage:
+          type: string
+          description: Content thumbnail image URL.
+          example: https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg
+        labels:
+          type: array
+          items:
+            type: string
+          description: List of labels associated with the content.
+          example:
+          - tutorial
+          - beginner
+        state:
+          type: string
+          description: Current state of the content.
+          default: hidden
+          enum:
+          - visible
+          - hidden
+          - scheduled
+          example: hidden
+        contentType:
+          type: string
+          enum:
+          - article
+          - news
+          description: Content type.
+          example: article
+        publishDate:
+          type: string
+          format: date-time
+          description: Content publish date. Use for scheduling content.
+          example: '2025-10-20T00:00:00.000Z'
+        slug:
+          type: string
+          description: Content slug. If not provided, this value is auto-generated.
+          example: welcome-to-our-game
+        visibility:
+          type: string
+          enum:
+          - public
+          - private
+          description: Content visibility level.
+          default: public
+          example: public
+        tag:
+          type: string
+          description: Internal tag for organizing your content. Not visible to players.
+          example: spring2025
+        createdAt:
+          type: string
+          format: date-time
+          description: Created date.
+          example: '2025-10-15T10:30:00.000Z'
+        updatedAt:
+          type: string
+          format: date-time
+          description: Updated date.
+          example: '2025-10-19T14:20:00.000Z'
+        translations:
+          type: array
+          items:
+            $ref: '#/components/schemas/TranslationResponse'
+          description: List of translations for the content item. Each object represents a locale and its translations.
+        pages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Page'
+          description: List of pages where this content appears.
+          example:
+          - id: 68b0249eb5bd5c59b9bab7e2
+            pageName: FAQs
+          - id: 692eb70d0293e07ab4895518
+            pageName: Events
+  securitySchemes:
+    PublisherTokenAuth:
+      type: apiKey
+      in: header
+      name: x-publisher-token
+      description: Publisher token, as displayed in the Publisher Dashboard.

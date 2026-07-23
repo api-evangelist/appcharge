@@ -1,0 +1,54 @@
+generated: '2026-07-17'
+method: searched
+source: https://docs.appcharge.com/api-reference/whats-new/release-notes
+description: >-
+  Dated release notes for the Appcharge API Reference. Scheme is date-labeled
+  entries (not semantic versions); each entry is tagged New Feature / New
+  Endpoint / New Property / New Event. Recent window captured below.
+scheme: dated-release-notes
+url: https://docs.appcharge.com/api-reference/whats-new/release-notes
+entries:
+  - date: 2026-07-02
+    type: New Property
+    area: Events V2
+    highlight: Added a `device` object (platform, deviceModel, osType, osVersion, browserType, browserVersion) to order events.
+  - date: 2026-06-18
+    type: New Feature
+    area: Reward Calendars API
+    highlight: New Reward Calendars API and Reward Calendar Designs API (7-day calendar popup offers) with full CRUD.
+  - date: 2026-06-04
+    type: New Property
+    area: Offers V2 API
+    highlight: Added `hidePlayerAvailability` to productsSequence in Special Offers and Store Refresh Popups.
+  - date: 2026-05-28
+    type: New Endpoint
+    area: Price Localization API
+    highlight: Added "Get Price Points for a Country" endpoint plus a Price Localization Errors reference page.
+  - date: 2026-05-26
+    type: New Property
+    area: Initiate Game Auth Callback
+    highlight: Added optional `desktopAutoRedirect` to redirect desktop web-store logins straight to the deepLink.
+  - date: 2026-05-24
+    type: New Feature
+    area: Offers V2
+    highlight: Daily Bonuses promoted to a standalone API; Popups renamed to Triggered Popups; added Store Refresh Popups API.
+  - date: 2026-05-20
+    type: New Property
+    area: Create Checkout Session API
+    highlight: Added `customer.identitySignals.firstSeenAt` to improve risk decisions and reduce false declines.
+  - date: 2026-04-09
+    type: New Feature
+    area: Game Portal Content API
+    highlight: Added Upsert Content Translation and Get Content Translations endpoints.
+  - date: 2026-04-05
+    type: New Event
+    area: Game Portal
+    highlight: Added Portal Block Clicked event.
+  - date: 2026-03-17
+    type: New Feature
+    area: Web Store events
+    highlight: Added Progress Bar events (points granted, mission started, mission completed) and progressBars fields on offer events.
+  - date: 2026-03-10
+    type: New Property
+    area: Authenticate Player Callback
+    highlight: Added `publisherErrorMessageTitle` to the callback response.

@@ -1,0 +1,420 @@
+# Appcharge Documentation
+
+## Docs
+
+- [About Session Metadata](https://docs.appcharge.com/api-reference/about-session-metadata.md)
+- [Appcharge to Publisher Secure Communication](https://docs.appcharge.com/api-reference/appcharge-publisher-secure-communication.md)
+- [Grant Award Callback](https://docs.appcharge.com/api-reference/checkout/awards/grant-award-callback.md): > **Note:** This is a callback API. Appcharge calls this endpoint on your server when specific events occur.
+- [Introduction](https://docs.appcharge.com/api-reference/checkout/awards/introduction.md)
+- [Cancel Checkout Session](https://docs.appcharge.com/api-reference/checkout/checkout-session/cancel-checkout-session.md): Cancels a checkout session.
+- [Create Checkout Session API](https://docs.appcharge.com/api-reference/checkout/checkout-session/create-checkout-session.md): Creates a checkout session.
+- [Checkout Webhooks](https://docs.appcharge.com/api-reference/checkout/checkout-webhooks.md)
+- [Bulk Create Promo Codes](https://docs.appcharge.com/api-reference/checkout/coupons/bulk-create-promo-codes.md): Creates multiple promo codes for a specific coupon.
+- [Bulk Set Promo Codes Activation](https://docs.appcharge.com/api-reference/checkout/coupons/bulk-set-promo-codes-activation.md): Activates or deactivates promo codes for a specific coupon.
+- [Create Coupon](https://docs.appcharge.com/api-reference/checkout/coupons/create-coupon.md): Creates a coupon.
+- [Get Coupon By Name](https://docs.appcharge.com/api-reference/checkout/coupons/get-coupon-by-name.md): Retrieves a specific coupon by name.
+- [Get Promo Code](https://docs.appcharge.com/api-reference/checkout/coupons/get-promo-code.md): Retrieves a specific promo code.
+- [Introduction](https://docs.appcharge.com/api-reference/checkout/coupons/introduction.md)
+- [List Promo Codes](https://docs.appcharge.com/api-reference/checkout/coupons/list-promo-codes.md): Retrieves a paginated list of up to 1,000 promo codes for a specific coupon.
+- [Update Coupon](https://docs.appcharge.com/api-reference/checkout/coupons/update-coupon.md): Updates an existing coupon. Only the fields provided in the request body will be updated.
+- [Analytics Reporting API](https://docs.appcharge.com/api-reference/checkout/finance-and-analytics/analytics-reporting-api.md)
+- [Financial Reporting API](https://docs.appcharge.com/api-reference/checkout/finance-and-analytics/financial-reporting-api.md)
+- [Get Transactions](https://docs.appcharge.com/api-reference/checkout/finance-and-analytics/get-transactions.md): Retrieves transaction data for a given time period.
+- [Create Price Point](https://docs.appcharge.com/api-reference/checkout/price-localization/create-price-point.md): Creates a price point from a base price in USD cents.
+- [Delete Price Point](https://docs.appcharge.com/api-reference/checkout/price-localization/delete-price-point.md): Deletes a specific price point.
+- [Price Localization Errors](https://docs.appcharge.com/api-reference/checkout/price-localization/error-messages.md)
+- [Get All Price Points](https://docs.appcharge.com/api-reference/checkout/price-localization/get-all-price-points.md): Retrieves a list of all price points in USD cents.
+- [Get Price Point](https://docs.appcharge.com/api-reference/checkout/price-localization/get-price-point.md): Retrieves a specific price point by its base price in USD cents.
+- [Get Price Points for a Country](https://docs.appcharge.com/api-reference/checkout/price-localization/get-price-points-for-a-country.md): Retrieves price points localized for a specific country.
+- [Introduction](https://docs.appcharge.com/api-reference/checkout/price-localization/introduction.md)
+- [Update Price Point](https://docs.appcharge.com/api-reference/checkout/price-localization/update-price-point.md): Updates a price point.
+- [Initiate Refund](https://docs.appcharge.com/api-reference/checkout/refunds/initiate-refund.md): Initiates a full refund for a specified order.
+- [Invalid Property Error](https://docs.appcharge.com/api-reference/events/v1/error/invalid_property_error.md)
+- [Introduction](https://docs.appcharge.com/api-reference/events/v1/introduction.md)
+- [Login Canceled](https://docs.appcharge.com/api-reference/events/v1/login/login_canceled.md)
+- [Login Land](https://docs.appcharge.com/api-reference/events/v1/login/login_land.md)
+- [Login Method Selected](https://docs.appcharge.com/api-reference/events/v1/login/login_method_selected.md)
+- [Login Resolved](https://docs.appcharge.com/api-reference/events/v1/login/login_resolved.md)
+- [Shop Land](https://docs.appcharge.com/api-reference/events/v1/login/shop_land.md)
+- [Order Cancelled](https://docs.appcharge.com/api-reference/events/v1/order/order_cancelled.md)
+- [Order Completed Failed](https://docs.appcharge.com/api-reference/events/v1/order/order_completed_failed.md)
+- [Order Completed Success](https://docs.appcharge.com/api-reference/events/v1/order/order_completed_success.md)
+- [Order Created](https://docs.appcharge.com/api-reference/events/v1/order/order_created.md)
+- [Payment Intent Failed](https://docs.appcharge.com/api-reference/events/v1/order/payment_intent_failed.md)
+- [Payment Intent Success](https://docs.appcharge.com/api-reference/events/v1/order/payment_intent_success.md)
+- [Order Dispute Lost](https://docs.appcharge.com/api-reference/events/v1/refund-dispute/order_dispute_lost.md)
+- [Order Dispute Open](https://docs.appcharge.com/api-reference/events/v1/refund-dispute/order_dispute_open.md)
+- [Order Dispute Won](https://docs.appcharge.com/api-reference/events/v1/refund-dispute/order_dispute_won.md)
+- [Order Refunded](https://docs.appcharge.com/api-reference/events/v1/refund-dispute/order_refunded.md)
+- [Approval Request Closed](https://docs.appcharge.com/api-reference/events/v1/store-interaction/approval_request_closed.md)
+- [Approval Request Displayed](https://docs.appcharge.com/api-reference/events/v1/store-interaction/approval_request_displayed.md)
+- [Offers Loaded](https://docs.appcharge.com/api-reference/events/v1/store-interaction/offers_loaded.md)
+- [Offers Shown](https://docs.appcharge.com/api-reference/events/v1/store-interaction/offers_shown.md)
+- [Introduction](https://docs.appcharge.com/api-reference/events/v2/introduction.md)
+- [Order Canceled](https://docs.appcharge.com/api-reference/events/v2/order/order_canceled.md)
+- [Order Completed](https://docs.appcharge.com/api-reference/events/v2/order/order_completed.md)
+- [Order Created](https://docs.appcharge.com/api-reference/events/v2/order/order_created.md)
+- [Dispute Opened](https://docs.appcharge.com/api-reference/events/v2/order/order_dispute_opened.md)
+- [Dispute Resolved](https://docs.appcharge.com/api-reference/events/v2/order/order_dispute_resolved.md)
+- [Payment Resolved](https://docs.appcharge.com/api-reference/events/v2/order/order_payment_resolved.md)
+- [Order Refunded](https://docs.appcharge.com/api-reference/events/v2/order/order_refunded.md)
+- [Portal Login Canceled](https://docs.appcharge.com/api-reference/events/v2/portal/login/portal_login_canceled.md)
+- [Portal Login Completed](https://docs.appcharge.com/api-reference/events/v2/portal/login/portal_login_completed.md)
+- [Portal Login Displayed](https://docs.appcharge.com/api-reference/events/v2/portal/login/portal_login_displayed.md)
+- [Portal Login Method Selected](https://docs.appcharge.com/api-reference/events/v2/portal/login/portal_login_method_selected.md)
+- [Portal Approval Request Closed](https://docs.appcharge.com/api-reference/events/v2/portal/ui/portal_approval_request_closed.md)
+- [Portal Approval Request Displayed](https://docs.appcharge.com/api-reference/events/v2/portal/ui/portal_approval_request_displayed.md)
+- [Portal Block Clicked](https://docs.appcharge.com/api-reference/events/v2/portal/ui/portal_block_clicked.md)
+- [Portal Content Displayed](https://docs.appcharge.com/api-reference/events/v2/portal/ui/portal_content_displayed.md)
+- [Portal Footer Clicked](https://docs.appcharge.com/api-reference/events/v2/portal/ui/portal_footer_clicked.md)
+- [Portal Page Displayed](https://docs.appcharge.com/api-reference/events/v2/portal/ui/portal_page_displayed.md)
+- [Invalid Property Error](https://docs.appcharge.com/api-reference/events/v2/webstore/invalid_property.md)
+- [Web Store Login Canceled](https://docs.appcharge.com/api-reference/events/v2/webstore/login/webstore_login_canceled.md)
+- [Web Store Login Completed](https://docs.appcharge.com/api-reference/events/v2/webstore/login/webstore_login_completed.md)
+- [Web Store Login Displayed](https://docs.appcharge.com/api-reference/events/v2/webstore/login/webstore_login_displayed.md)
+- [Web Store Login Method Selected](https://docs.appcharge.com/api-reference/events/v2/webstore/login/webstore_login_method_selected.md)
+- [Web Store Displayed](https://docs.appcharge.com/api-reference/events/v2/webstore/login/webstore_store_displayed.md)
+- [Web Store Approval Request Closed](https://docs.appcharge.com/api-reference/events/v2/webstore/offer/approval_request_closed.md)
+- [Web Store Approval Request Displayed](https://docs.appcharge.com/api-reference/events/v2/webstore/offer/approval_request_displayed.md)
+- [Offer Popup Closed](https://docs.appcharge.com/api-reference/events/v2/webstore/offer/offer_popup_closed.md)
+- [Offers Displayed](https://docs.appcharge.com/api-reference/events/v2/webstore/offer/offers_displayed.md)
+- [Offers Loaded](https://docs.appcharge.com/api-reference/events/v2/webstore/offer/offers_loaded.md)
+- [Progress Bar Mission Completed](https://docs.appcharge.com/api-reference/events/v2/webstore/offer/progress_bar_mission_completed.md)
+- [Progress Bar Mission Started](https://docs.appcharge.com/api-reference/events/v2/webstore/offer/progress_bar_mission_started.md)
+- [Progress Bar Points Granted](https://docs.appcharge.com/api-reference/events/v2/webstore/offer/progress_bar_points_granted.md)
+- [Personalization Response Error](https://docs.appcharge.com/api-reference/events/v2/webstore/personalization_response_error.md)
+- [Create Content](https://docs.appcharge.com/api-reference/game-portal/content/create-content.md): Creates a new content item.
+- [Delete Content](https://docs.appcharge.com/api-reference/game-portal/content/delete-content.md): Deletes a content item.
+- [Get All Content](https://docs.appcharge.com/api-reference/game-portal/content/get-content.md): Retrieves a list of all content items.
+- [Get Content By ID](https://docs.appcharge.com/api-reference/game-portal/content/get-content-by-id.md): Retrieves a specific content item by its ID.
+- [Get Content Translations](https://docs.appcharge.com/api-reference/game-portal/content/get-content-translations.md): Retrieves all existing translations for a content item.
+- [Introduction](https://docs.appcharge.com/api-reference/game-portal/content/introduction.md)
+- [Update Content](https://docs.appcharge.com/api-reference/game-portal/content/update-content.md): Updates a content item.
+- [Upsert Content Translation](https://docs.appcharge.com/api-reference/game-portal/content/upsert-content-translation.md): Creates or updates a translation for a content item in a specific locale.
+- [API Reference](https://docs.appcharge.com/api-reference/introduction.md)
+- [Create Asset](https://docs.appcharge.com/api-reference/media/assets-library/create-asset.md): Creates an asset in the Assets Library.
+- [Delete Asset](https://docs.appcharge.com/api-reference/media/assets-library/delete-asset.md): Deletes an asset in the Assets Library.
+- [Get All Assets](https://docs.appcharge.com/api-reference/media/assets-library/get-all-assets.md): Retrieves a list of all assets in the Assets Library.
+- [Get Asset](https://docs.appcharge.com/api-reference/media/assets-library/get-asset.md): Retrieves a specific asset in the Assets Library.
+- [Introduction](https://docs.appcharge.com/api-reference/media/assets-library/introduction.md)
+- [Update Asset](https://docs.appcharge.com/api-reference/media/assets-library/update-asset.md): Updates an asset in the Assets Library.
+- [About the Sandbox Account](https://docs.appcharge.com/api-reference/sandbox-account/about-the-sandbox-account.md)
+- [Sandbox Payment Methods](https://docs.appcharge.com/api-reference/sandbox-account/payment-methods.md)
+- [Supported Environments and Limitations](https://docs.appcharge.com/api-reference/supported-environments-and-limitations.md)
+- [Terminology](https://docs.appcharge.com/api-reference/terminology.md)
+- [Get Translations](https://docs.appcharge.com/api-reference/translations/get-translations.md): Retrieves a list of all translatable fields and their translations.
+- [Introduction](https://docs.appcharge.com/api-reference/translations/introduction.md)
+- [Set Translations](https://docs.appcharge.com/api-reference/translations/set-translations.md): Sets translation content for translatable fields.
+- [API Versioning Policy](https://docs.appcharge.com/api-reference/versioning-policy.md)
+- [Create Badge](https://docs.appcharge.com/api-reference/webstore/offer-components/badges/create-badge.md): Creates a badge.
+- [Delete Badge](https://docs.appcharge.com/api-reference/webstore/offer-components/badges/delete-badge.md): Deletes a badge.
+- [Get All Badges](https://docs.appcharge.com/api-reference/webstore/offer-components/badges/get-all-badges.md): Retrieves a list of all badges.
+- [Get Badge](https://docs.appcharge.com/api-reference/webstore/offer-components/badges/get-badge.md): Retrieves a specific badge.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offer-components/badges/introduction.md)
+- [Update Badge](https://docs.appcharge.com/api-reference/webstore/offer-components/badges/update-badge.md): Updates a badge.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offer-components/introduction.md)
+- [Create Bundle Design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/bundles/create-bundle-design.md): Creates a bundle design.
+- [Delete Bundle Design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/bundles/delete-bundle-design.md): Deletes a bundle design.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/bundles/introduction.md)
+- [Update Bundle Design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/bundles/update-bundle-design.md): Updates a bundle design.
+- [Create Daily Bonus Design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/daily-bonuses/create-daily-bonus-design.md): Creates a daily bonus design.
+- [Delete Daily Bonus Design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/daily-bonuses/delete-daily-bonus-design.md): Deletes a daily bonus design.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/daily-bonuses/introduction.md)
+- [Update Daily Bonus Design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/daily-bonuses/update-daily-bonus-design.md): Updates a daily bonus design.
+- [Get All Offer Designs](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/get-all-offer-designs.md): Retrieves a list of all offer designs.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/introduction.md)
+- [Create Reward Calendar Design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/reward-calendars/create-reward-calendar-design.md): Creates a reward calendar design.
+- [Delete Reward Calendar Design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/reward-calendars/delete-reward-calendar-design.md): Deletes a reward calendar design.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/reward-calendars/introduction.md)
+- [Update Reward Calendar Design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/reward-calendars/update-reward-calendar-design.md): Updates a reward calendar design.
+- [Create Rolling Offer Design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/rolling-offers/create-rolling-offer-design.md): Creates a rolling offer design.
+- [Delete Rolling Offer Design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/rolling-offers/delete-rolling-offer-design.md): Deletes a rolling offer design.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/rolling-offers/introduction.md)
+- [Update Rolling Offer Design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/rolling-offers/update-rolling-offer-design.md): Updates a rolling offer design.
+- [Create Special Offer Design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/special-offers/create-special-offer-design.md): Creates a special offer design.
+- [Delete Special Offer Design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/special-offers/delete-special-offer-design.md): Deletes a special offer design.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/special-offers/introduction.md)
+- [Update Special Offer Design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/special-offers/update-special-offer-design.md): Updates a special offer design.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/triggered-popups/introduction.md)
+- [Create Post Purchase Popup Design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/triggered-popups/post-purchase-popups/create-post-purchase-popup-design.md): Creates a post purchase popup design.
+- [Delete Post Purchase Popup Design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/triggered-popups/post-purchase-popups/delete-post-purchase-popup-design.md): Deletes a post purchase popup design.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/triggered-popups/post-purchase-popups/introduction.md)
+- [Update Post Purchase Popup Design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/triggered-popups/post-purchase-popups/update-post-purchase-popup-design.md): Updates a post purchase popup design.
+- [Create Product](https://docs.appcharge.com/api-reference/webstore/offer-components/products/create-product.md): Creates a product.
+- [Delete Product](https://docs.appcharge.com/api-reference/webstore/offer-components/products/delete-product.md): Deletes a product.
+- [Get All Products](https://docs.appcharge.com/api-reference/webstore/offer-components/products/get-all-products.md): Retrieves a list of all products.
+- [Get Product](https://docs.appcharge.com/api-reference/webstore/offer-components/products/get-product.md): Retrieves the details of a specific product.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offer-components/products/introduction.md)
+- [Update Product](https://docs.appcharge.com/api-reference/webstore/offer-components/products/update-product.md): Updates a product.
+- [Create Offer](https://docs.appcharge.com/api-reference/webstore/offers-v1/create-offer.md)
+- [Delete Offer](https://docs.appcharge.com/api-reference/webstore/offers-v1/delete-offer.md)
+- [Get Offer](https://docs.appcharge.com/api-reference/webstore/offers-v1/get-offer.md)
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offers-v1/introduction.md)
+- [Create Daily Bonus Popup](https://docs.appcharge.com/api-reference/webstore/offers-v1/popups/create-daily-bonus.md)
+- [Create Post Purchase Popup](https://docs.appcharge.com/api-reference/webstore/offers-v1/popups/create-post-purchase-popup.md)
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offers-v1/popups/introduction.md)
+- [Update Popup](https://docs.appcharge.com/api-reference/webstore/offers-v1/popups/update-popups.md)
+- [Create Rolling Offer](https://docs.appcharge.com/api-reference/webstore/offers-v1/rolling-offers/create-rolling-offer.md)
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offers-v1/rolling-offers/introduction.md)
+- [Update Rolling Offer](https://docs.appcharge.com/api-reference/webstore/offers-v1/rolling-offers/update-rolling-offer.md)
+- [Update Offer](https://docs.appcharge.com/api-reference/webstore/offers-v1/update-offer.md)
+- [Create Bundle](https://docs.appcharge.com/api-reference/webstore/offers-v2/bundles/create-bundle.md): Creates a bundle.
+- [Delete Bundle](https://docs.appcharge.com/api-reference/webstore/offers-v2/bundles/delete-bundle.md): Deletes a bundle.
+- [Get Bundle](https://docs.appcharge.com/api-reference/webstore/offers-v2/bundles/get-bundle.md): Retrieves one or more bundles.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offers-v2/bundles/introduction.md)
+- [Update Bundle](https://docs.appcharge.com/api-reference/webstore/offers-v2/bundles/update-bundle.md): Updates a bundle.
+- [Create Checkout Link Offer](https://docs.appcharge.com/api-reference/webstore/offers-v2/checkout-link-offers/create-checkout-link-offer.md): Creates a checkout link offer.
+- [Delete Checkout Link Offer](https://docs.appcharge.com/api-reference/webstore/offers-v2/checkout-link-offers/delete-checkout-link-offer.md): Deletes a checkout link offer.
+- [Get Checkout Link Offer](https://docs.appcharge.com/api-reference/webstore/offers-v2/checkout-link-offers/get-checkout-link-offer.md): Retrieves one or more checkout link offers.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offers-v2/checkout-link-offers/introduction.md)
+- [Update Checkout Link Offer](https://docs.appcharge.com/api-reference/webstore/offers-v2/checkout-link-offers/update-checkout-link-offer.md): Updates a checkout link offer.
+- [Create Daily Bonus](https://docs.appcharge.com/api-reference/webstore/offers-v2/daily-bonuses/create-daily-bonus.md): Creates a daily bonus.
+- [Delete Daily Bonus](https://docs.appcharge.com/api-reference/webstore/offers-v2/daily-bonuses/delete-daily-bonus.md): Deletes a daily bonus.
+- [Get Daily Bonus](https://docs.appcharge.com/api-reference/webstore/offers-v2/daily-bonuses/get-daily-bonus.md): Retrieves one or more daily bonuses.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offers-v2/daily-bonuses/introduction.md)
+- [Update Daily Bonus](https://docs.appcharge.com/api-reference/webstore/offers-v2/daily-bonuses/update-daily-bonus.md): Updates a daily bonus.
+- [Get All Offers](https://docs.appcharge.com/api-reference/webstore/offers-v2/get-offers.md): Retrieves a list of offers based on the specified query parameters.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offers-v2/introduction.md)
+- [Create Progress Bar](https://docs.appcharge.com/api-reference/webstore/offers-v2/progress-bars/create-progress-bar.md): Creates a Progress Bar offer.
+- [Delete Progress Bar](https://docs.appcharge.com/api-reference/webstore/offers-v2/progress-bars/delete-progress-bar.md): Deletes a Progress Bar offer.
+- [Get Progress Bar](https://docs.appcharge.com/api-reference/webstore/offers-v2/progress-bars/get-progress-bar.md): Retrieves one or more Progress Bar offers.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offers-v2/progress-bars/introduction.md)
+- [Update Progress Bar](https://docs.appcharge.com/api-reference/webstore/offers-v2/progress-bars/update-progress-bar.md): Updates a Progress Bar offer.
+- [Create Reward Calendar](https://docs.appcharge.com/api-reference/webstore/offers-v2/reward-calendars/create-reward-calendar.md): Creates a Reward Calendar offer.
+- [Delete Reward Calendar](https://docs.appcharge.com/api-reference/webstore/offers-v2/reward-calendars/delete-reward-calendar.md): Deletes a Reward Calendar offer.
+- [Get Reward Calendar](https://docs.appcharge.com/api-reference/webstore/offers-v2/reward-calendars/get-reward-calendar.md): Retrieves one or more Reward Calendar offers.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offers-v2/reward-calendars/introduction.md)
+- [Update Reward Calendar](https://docs.appcharge.com/api-reference/webstore/offers-v2/reward-calendars/update-reward-calendar.md): Updates a Reward Calendar offer.
+- [Create Rolling Offer](https://docs.appcharge.com/api-reference/webstore/offers-v2/rolling-offers/create-rolling-offer.md): Creates a rolling offer.
+- [Delete Rolling Offer](https://docs.appcharge.com/api-reference/webstore/offers-v2/rolling-offers/delete-rolling-offer.md): Deletes a rolling offer.
+- [Get Rolling Offer](https://docs.appcharge.com/api-reference/webstore/offers-v2/rolling-offers/get-rolling-offer.md): Retrieves one or more rolling offers.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offers-v2/rolling-offers/introduction.md)
+- [Update Rolling Offer](https://docs.appcharge.com/api-reference/webstore/offers-v2/rolling-offers/update-rolling-offer.md): Updates a rolling offer.
+- [Create Special Offer](https://docs.appcharge.com/api-reference/webstore/offers-v2/special-offers/create-special-offer.md): Creates a special offer.
+- [Delete Special Offer](https://docs.appcharge.com/api-reference/webstore/offers-v2/special-offers/delete-special-offer.md): Deletes a special offer.
+- [Get Special Offer](https://docs.appcharge.com/api-reference/webstore/offers-v2/special-offers/get-special-offer.md): Retrieves one or more special offers.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offers-v2/special-offers/introduction.md)
+- [Update Special Offer](https://docs.appcharge.com/api-reference/webstore/offers-v2/special-offers/update-special-offer.md): Updates a special offer.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offers-v2/triggered-popups/introduction.md)
+- [Create Post Purchase Popup](https://docs.appcharge.com/api-reference/webstore/offers-v2/triggered-popups/post-purchase-popups/create-post-purchase-popup.md): Creates a post purchase offer.
+- [Delete Post Purchase Popup](https://docs.appcharge.com/api-reference/webstore/offers-v2/triggered-popups/post-purchase-popups/delete-post-purchase-popup.md): Deletes a post purchase popup.
+- [Get Post Purchase Popup](https://docs.appcharge.com/api-reference/webstore/offers-v2/triggered-popups/post-purchase-popups/get-post-purchase-popup.md): Retrieves one or more post purchase popups.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offers-v2/triggered-popups/post-purchase-popups/introduction.md)
+- [Update Post Purchase Popup](https://docs.appcharge.com/api-reference/webstore/offers-v2/triggered-popups/post-purchase-popups/update-post-purchase-popup.md): Updates a post purchase offer.
+- [Create Store Refresh Popup](https://docs.appcharge.com/api-reference/webstore/offers-v2/triggered-popups/store-refresh-popups/create-store-refresh-popup.md): Creates a Store Refresh popup offer. Triggered when a player refreshes the web store.
+- [Delete Store Refresh Popup](https://docs.appcharge.com/api-reference/webstore/offers-v2/triggered-popups/store-refresh-popups/delete-store-refresh-popup.md): Deletes a store refresh popup.
+- [Get Store Refresh Popup](https://docs.appcharge.com/api-reference/webstore/offers-v2/triggered-popups/store-refresh-popups/get-store-refresh-popup.md): Retrieves one or more store refresh popups.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/offers-v2/triggered-popups/store-refresh-popups/introduction.md)
+- [Update Store Refresh Popup](https://docs.appcharge.com/api-reference/webstore/offers-v2/triggered-popups/store-refresh-popups/update-store-refresh-popup.md): Updates a Store Refresh popup offer.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/personalization/introduction.md)
+- [Personalize Web Store Callback](https://docs.appcharge.com/api-reference/webstore/personalization/personalize-webstore-callback.md): > **Note:** This is a callback API. Appcharge calls this endpoint on your server when specific events occur.
+- [Trigger Web Store Personalization](https://docs.appcharge.com/api-reference/webstore/personalization/trigger-webstore-personalization.md): Triggers the [Personalize Web Store Callback](./personalize-webstore-callback) for all players.
+- [Trigger Web Store Personalization By Player ID](https://docs.appcharge.com/api-reference/webstore/personalization/trigger-webstore-personalization-by-player-id.md): Triggers the [Personalize Web Store Callback](./personalize-webstore-callback) by player ID.
+- [Authenticate Player Callback](https://docs.appcharge.com/api-reference/webstore/player-authentication/authenticate-player-callback.md): > **Note:** This is a callback API. Appcharge calls this endpoint on your server when specific events occur.
+- [Initiate Game Auth Callback](https://docs.appcharge.com/api-reference/webstore/player-authentication/initiate-game-auth-callback.md): > **Warning:** This API endpoint is only relevant for the Game Redirect Login method.
+- [Introduction](https://docs.appcharge.com/api-reference/webstore/player-authentication/introduction.md)
+- [Deprecation Notices](https://docs.appcharge.com/api-reference/whats-new/deprecation-notices.md)
+- [Release Notes](https://docs.appcharge.com/api-reference/whats-new/release-notes.md)
+- [Welcome to the Appcharge Changelog](https://docs.appcharge.com/changelog.md)
+- [Model Context Protocol (MCP)](https://docs.appcharge.com/guides/appcharge-ai/appcharge-mcp.md)
+- [About the Checkout](https://docs.appcharge.com/guides/checkout/about-the-checkout.md)
+- [Add Apple Pay](https://docs.appcharge.com/guides/checkout/add-apple-pay.md)
+- [About Awards](https://docs.appcharge.com/guides/checkout/awards/about-awards.md)
+- [Set Up Award Notifications](https://docs.appcharge.com/guides/checkout/awards/set-up-award-notifications.md)
+- [High-Level Flow](https://docs.appcharge.com/guides/checkout/checkout-high-level-flow.md)
+- [About Coupons](https://docs.appcharge.com/guides/checkout/coupons/about-coupons.md)
+- [Create and Manage a Coupon](https://docs.appcharge.com/guides/checkout/coupons/create-and-manage-a-coupon.md)
+- [Design Your Checkout](https://docs.appcharge.com/guides/checkout/design-your-checkout.md)
+- [Initiate a Refund](https://docs.appcharge.com/guides/checkout/initiate-a-refund.md)
+- [About Price Localization for External Stores](https://docs.appcharge.com/guides/checkout/price-localization/about-price-localization-for-external-webstores.md)
+- [Choose a Price Localization Model](https://docs.appcharge.com/guides/checkout/price-localization/choose-a-price-localization-model.md)
+- [Set Up Price Points](https://docs.appcharge.com/guides/checkout/price-localization/set-up-price-points.md)
+- [Supported Countries for Price Points](https://docs.appcharge.com/guides/checkout/price-localization/supported-countries.md)
+- [About Receipts](https://docs.appcharge.com/guides/checkout/receipts/about-receipts.md)
+- [Customize Receipts](https://docs.appcharge.com/guides/checkout/receipts/customize-receipts.md)
+- [Set Up Your Checkout](https://docs.appcharge.com/guides/checkout/set-up-your-checkout.md)
+- [About the Events Center](https://docs.appcharge.com/guides/events/about-the-events-center.md)
+- [About the Game Portal](https://docs.appcharge.com/guides/game-portal/about-the-game-portal.md)
+- [Create and Manage a Game Portal Page](https://docs.appcharge.com/guides/game-portal/create-and-manage-a-game-portal-page.md)
+- [Create and Manage Game Portal Blocks](https://docs.appcharge.com/guides/game-portal/create-and-manage-game-portal-blocks.md)
+- [Create and Manage Game Portal Content](https://docs.appcharge.com/guides/game-portal/create-and-manage-game-portal-content.md)
+- [Design Your Game Portal](https://docs.appcharge.com/guides/game-portal/design-your-game-portal.md)
+- [About Parking Domains](https://docs.appcharge.com/guides/game-portal/parking-domains/about-parking-domains.md)
+- [Set Up a Parking Domain](https://docs.appcharge.com/guides/game-portal/parking-domains/set-up-a-parking-domain.md)
+- [AppsFlyer Integration](https://docs.appcharge.com/guides/integrations/appsflyer.md)
+- [Welcome to Appcharge](https://docs.appcharge.com/guides/introduction.md)
+- [Implement A/B Testing](https://docs.appcharge.com/guides/measurement-tools/implement-ab-testing.md)
+- [About Payment Links](https://docs.appcharge.com/guides/payment-links/about-payment-links.md)
+- [Link Out Without SDK](https://docs.appcharge.com/guides/payment-links/link-out-without-sdk.md)
+- [Migrate to the Payment Links SDK](https://docs.appcharge.com/guides/payment-links/migrate-to-the-payment-links-sdk.md)
+- [Sell Outside IAP (U.S.)](https://docs.appcharge.com/guides/payment-links/sell-outside-iap.md)
+- [Set Up a Deep Link (Android)](https://docs.appcharge.com/guides/payment-links/set-up-deep-link.md)
+- [Set Up a Universal Link (iOS)](https://docs.appcharge.com/guides/payment-links/set-up-universal-link.md)
+- [About the Publisher Dashboard](https://docs.appcharge.com/guides/publisher-dashboard/about-the-publisher-dashboard.md)
+- [Add an Asset](https://docs.appcharge.com/guides/publisher-dashboard/add-an-asset.md)
+- [Add Terms & Policies](https://docs.appcharge.com/guides/publisher-dashboard/add-terms-and-policies.md)
+- [Configure Authentication Settings](https://docs.appcharge.com/guides/publisher-dashboard/configure-authentication-settings.md)
+- [Configure Developer Settings](https://docs.appcharge.com/guides/publisher-dashboard/configure-developer-settings.md)
+- [Manage User Roles and Permissions](https://docs.appcharge.com/guides/publisher-dashboard/manage-user-roles-and-permissions.md)
+- [View Analytics](https://docs.appcharge.com/guides/publisher-dashboard/view-analytics.md)
+- [View Blocked Players](https://docs.appcharge.com/guides/publisher-dashboard/view-blocked-players.md)
+- [View Financial Reports](https://docs.appcharge.com/guides/publisher-dashboard/view-financial-reports.md)
+- [View Orders](https://docs.appcharge.com/guides/publisher-dashboard/view-orders.md)
+- [View Segments](https://docs.appcharge.com/guides/publisher-dashboard/view-segments.md)
+- [Space Race Game Demo](https://docs.appcharge.com/guides/space-race-demo.md)
+- [About Translations](https://docs.appcharge.com/guides/translations/about-translations.md)
+- [Add and Manage Languages](https://docs.appcharge.com/guides/translations/add-and-manage-languages.md)
+- [Set and Manage Translations](https://docs.appcharge.com/guides/translations/set-and-manage-translations.md)
+- [Translate Game Portal Content](https://docs.appcharge.com/guides/translations/translate-game-portal-content.md)
+- [About the Web Store](https://docs.appcharge.com/guides/webstore/about-the-webstore.md)
+- [About the Add to Home Screen Button](https://docs.appcharge.com/guides/webstore/design/about-the-add-to-home-screen-button.md)
+- [About the Back to Game Button](https://docs.appcharge.com/guides/webstore/design/about-the-back-to-game-button.md)
+- [Add a Banner](https://docs.appcharge.com/guides/webstore/design/add-a-banner.md)
+- [Add a Section](https://docs.appcharge.com/guides/webstore/design/add-a-section.md)
+- [Add a Tab](https://docs.appcharge.com/guides/webstore/design/add-a-tab.md)
+- [About the Template Studio](https://docs.appcharge.com/guides/webstore/design/template-studio/about-the-template-studio.md)
+- [Create and Manage a Template](https://docs.appcharge.com/guides/webstore/design/template-studio/create-and-manage-template.md)
+- [Customize Your Web Store Layout Using Blocks](https://docs.appcharge.com/guides/webstore/design/template-studio/template-editor/customize-your-web-store-layout-using-blocks.md)
+- [Preview the Web Store with Personalization Data](https://docs.appcharge.com/guides/webstore/design/template-studio/template-editor/preview-the-webstore-with-personalization-data.md)
+- [Set Up Your Brand Kit](https://docs.appcharge.com/guides/webstore/design/template-studio/template-editor/set-up-your-brand-kit.md)
+- [Tour the Template Editor](https://docs.appcharge.com/guides/webstore/design/template-studio/template-editor/tour-the-template-editor.md)
+- [About Offers](https://docs.appcharge.com/guides/webstore/offers/about-offers.md)
+- [About Bundles](https://docs.appcharge.com/guides/webstore/offers/bundles/about-bundles.md)
+- [Create and Manage a Bundle](https://docs.appcharge.com/guides/webstore/offers/bundles/create-and-manage-a-bundle.md)
+- [About Checkout Link Offers](https://docs.appcharge.com/guides/webstore/offers/checkout-link-offers/about-checkout-link-offers.md)
+- [Create and Manage a Checkout Link Offer](https://docs.appcharge.com/guides/webstore/offers/checkout-link-offers/create-and-manage-a-checkout-link-offer.md)
+- [Use JWT Authentication to Create a Checkout Link Offer](https://docs.appcharge.com/guides/webstore/offers/checkout-link-offers/use-jwt-method.md)
+- [About Daily Bonuses](https://docs.appcharge.com/guides/webstore/offers/daily-bonuses/about-daily-bonuses.md)
+- [Create a Daily Bonus Popup](https://docs.appcharge.com/guides/webstore/offers/daily-bonuses/create-a-daily-bonus.md)
+- [Add a Badge](https://docs.appcharge.com/guides/webstore/offers/offer-design/add-a-badge.md)
+- [Add a Product](https://docs.appcharge.com/guides/webstore/offers/offer-design/add-a-product.md)
+- [Design an Offer](https://docs.appcharge.com/guides/webstore/offers/offer-design/design-an-offer.md)
+- [About Progress Bars](https://docs.appcharge.com/guides/webstore/offers/progress-bars/about-progress-bars.md)
+- [Create and Manage a Progress Bar](https://docs.appcharge.com/guides/webstore/offers/progress-bars/create-and-manage-a-progress-bar.md)
+- [About Reward Calendars](https://docs.appcharge.com/guides/webstore/offers/reward-calendars/about-reward-calendars.md)
+- [Create and Manage a Reward Calendar](https://docs.appcharge.com/guides/webstore/offers/reward-calendars/create-and-manage-a-reward-calendar.md)
+- [About Rolling Offers](https://docs.appcharge.com/guides/webstore/offers/rolling-offers/about-rolling-offers.md)
+- [Create and Manage a Rolling Offer](https://docs.appcharge.com/guides/webstore/offers/rolling-offers/create-and-manage-a-rolling-offer.md)
+- [About Special Offers](https://docs.appcharge.com/guides/webstore/offers/special-offers/about-special-offers.md)
+- [Create and Manage a Special Offer](https://docs.appcharge.com/guides/webstore/offers/special-offers/create-and-manage-a-special-offer.md)
+- [About Triggered Popups](https://docs.appcharge.com/guides/webstore/offers/triggered-popups/about-triggered-popups.md)
+- [Create a Triggered Popup](https://docs.appcharge.com/guides/webstore/offers/triggered-popups/create-a-triggered-popup.md)
+- [About Web Store Personalization](https://docs.appcharge.com/guides/webstore/personalization/about-personalization.md)
+- [Choose a Personalization Model](https://docs.appcharge.com/guides/webstore/personalization/choose-a-personalization-model.md)
+- [Configure Web Store Personalization](https://docs.appcharge.com/guides/webstore/personalization/configure-personalization.md)
+- [About Player Authentication](https://docs.appcharge.com/guides/webstore/player-authentication/about-player-authentication.md)
+- [About Game Redirect Login](https://docs.appcharge.com/guides/webstore/player-authentication/game-redirect-login/about-game-redirect-login.md)
+- [Set Up Game Redirect Login](https://docs.appcharge.com/guides/webstore/player-authentication/game-redirect-login/set-up-game-redirect-login.md)
+- [About Password Login](https://docs.appcharge.com/guides/webstore/player-authentication/password-login/about-password-login.md)
+- [Set Up Password Login](https://docs.appcharge.com/guides/webstore/player-authentication/password-login/set-up-password-login.md)
+- [About Player ID Login](https://docs.appcharge.com/guides/webstore/player-authentication/player-id-login/about-player-id-login.md)
+- [Set Up Player ID Login](https://docs.appcharge.com/guides/webstore/player-authentication/player-id-login/set-up-player-id-login.md)
+- [About Pre-Authenticated Login](https://docs.appcharge.com/guides/webstore/player-authentication/pre-authenticated-login/about-pre-authenticated-login.md)
+- [Set Up Pre-Authenticated Login](https://docs.appcharge.com/guides/webstore/player-authentication/pre-authenticated-login/set-up-pre-authenticated-login.md)
+- [Set Up Player Authentication](https://docs.appcharge.com/guides/webstore/player-authentication/set-up-player-authentication.md)
+- [About SSO Login](https://docs.appcharge.com/guides/webstore/player-authentication/sso-login/about-sso-login.md)
+- [Set Up Apple SSO](https://docs.appcharge.com/guides/webstore/player-authentication/sso-login/set-up-apple-sso.md)
+- [Set Up Facebook SSO](https://docs.appcharge.com/guides/webstore/player-authentication/sso-login/set-up-facebook-sso.md)
+- [Set Up Google SSO](https://docs.appcharge.com/guides/webstore/player-authentication/sso-login/set-up-google-sso.md)
+- [Set Up Your Web Store](https://docs.appcharge.com/guides/webstore/set-up-your-webstore.md)
+- [Choose a Support Model](https://docs.appcharge.com/guides/webstore/settings/choose-a-support-model.md)
+- [Configure General Store Settings](https://docs.appcharge.com/guides/webstore/settings/configure-general-store-settings.md)
+- [Set Up a Custom Domain](https://docs.appcharge.com/guides/webstore/settings/set-up-a-custom-domain.md)
+- [Set Up a Maintenance Page](https://docs.appcharge.com/guides/webstore/settings/set-up-a-maintenance-page.md)
+- [Currency Conversions](https://docs.appcharge.com/merchant-of-record/finance/currency-conversions.md)
+- [Invoice Merchant and Statement Descriptor](https://docs.appcharge.com/merchant-of-record/finance/invoice-merchant-and-statement-descriptor.md)
+- [Supported Currencies](https://docs.appcharge.com/merchant-of-record/finance/supported-currencies.md)
+- [Supported PayPal Currencies](https://docs.appcharge.com/merchant-of-record/finance/supported-paypal-currencies.md)
+- [Supported Regions](https://docs.appcharge.com/merchant-of-record/finance/supported-regions.md)
+- [Tax Collection and Calculation](https://docs.appcharge.com/merchant-of-record/finance/tax-collection-and-calculation.md)
+- [About Compliance at Appcharge](https://docs.appcharge.com/merchant-of-record/policies/about-compliance-at-appcharge.md)
+- [About GDPR Compliance at Appcharge](https://docs.appcharge.com/merchant-of-record/policies/about-gdpr-at-appcharge.md)
+- [California AB 2426 Compliance Policy](https://docs.appcharge.com/merchant-of-record/policies/california-law-compliance-policy.md)
+- [Cookies Policy](https://docs.appcharge.com/merchant-of-record/policies/cookies-policy.md)
+- [COPPA Policy](https://docs.appcharge.com/merchant-of-record/policies/coppa-compliance-policy.md)
+- [Player Policies](https://docs.appcharge.com/merchant-of-record/policies/player-policies.md)
+- [SOC 1 Compliance at Appcharge](https://docs.appcharge.com/merchant-of-record/policies/soc-1-compliance-at-appcharge.md)
+- [Texas SB 2420 Compliance Policy](https://docs.appcharge.com/merchant-of-record/policies/texas-law-compliance-policy.md)
+- [About Security at Appcharge](https://docs.appcharge.com/merchant-of-record/security/about-security-at-appcharge.md)
+- [Appcharge Bug Bounty Program](https://docs.appcharge.com/merchant-of-record/security/appcharge-bug-bounty-program.md)
+- [Secure Communication with the Appcharge Platform](https://docs.appcharge.com/merchant-of-record/security/appcharge-to-publisher-secure-communication.md)
+- [Web Store & Checkout Cookies](https://docs.appcharge.com/merchant-of-record/security/webstore-and-checkout-cookies.md)
+- [Changelog](https://docs.appcharge.com/sdks/checkout/frontend-sdk/frontend-sdk-changelog.md)
+- [Frontend Events](https://docs.appcharge.com/sdks/checkout/frontend-sdk/frontend-sdk-events.md)
+- [Integrate the SDK](https://docs.appcharge.com/sdks/checkout/frontend-sdk/integrate-the-sdk.md)
+- [Introduction](https://docs.appcharge.com/sdks/checkout/frontend-sdk/introduction.md)
+- [Manage and Retrieve Price Points](https://docs.appcharge.com/sdks/checkout/frontend-sdk/manage-and-retrieve-price-points.md)
+- [Translate Your Checkout](https://docs.appcharge.com/sdks/checkout/frontend-sdk/translate-your-checkout.md)
+- [SDK Documentation](https://docs.appcharge.com/sdks/introduction.md)
+- [Changelog](https://docs.appcharge.com/sdks/payment-links/android/changelog.md)
+- [Implement the Callbacks](https://docs.appcharge.com/sdks/payment-links/android/implement-the-callbacks.md)
+- [Initialize the SDK](https://docs.appcharge.com/sdks/payment-links/android/initialize-the-android-payment-links-sdk.md)
+- [Launch the Checkout](https://docs.appcharge.com/sdks/payment-links/android/launch-the-checkout.md)
+- [Retrieve Price Points](https://docs.appcharge.com/sdks/payment-links/android/retrieve-price-points.md)
+- [Setup](https://docs.appcharge.com/sdks/payment-links/android/setup.md)
+- [Introduction](https://docs.appcharge.com/sdks/payment-links/introduction.md)
+- [Changelog](https://docs.appcharge.com/sdks/payment-links/ios/changelog.md)
+- [Implement the Callbacks](https://docs.appcharge.com/sdks/payment-links/ios/implement-the-callbacks.md)
+- [Import the Payment Links SDK](https://docs.appcharge.com/sdks/payment-links/ios/import-payment-links-sdk.md)
+- [Initialize the SDK](https://docs.appcharge.com/sdks/payment-links/ios/initialize-the-ios-payment-links-sdk.md)
+- [Launch the Checkout](https://docs.appcharge.com/sdks/payment-links/ios/launch-the-checkout.md)
+- [Retrieve Price Points](https://docs.appcharge.com/sdks/payment-links/ios/retrieve-price-points.md)
+- [Set Up Your Project](https://docs.appcharge.com/sdks/payment-links/ios/set-up-your-project.md)
+- [Payment Link Flow](https://docs.appcharge.com/sdks/payment-links/payment-link-flow.md)
+- [Troubleshooting](https://docs.appcharge.com/sdks/payment-links/troubleshooting.md)
+- [Changelog](https://docs.appcharge.com/sdks/payment-links/unity/changelog.md)
+- [Configure the SDK](https://docs.appcharge.com/sdks/payment-links/unity/configure-the-sdk.md)
+- [Implement the Callbacks](https://docs.appcharge.com/sdks/payment-links/unity/implement-callbacks.md)
+- [Import the Payment Links SDK](https://docs.appcharge.com/sdks/payment-links/unity/import-payment-links-sdk.md)
+- [Initialize the SDK](https://docs.appcharge.com/sdks/payment-links/unity/initialize-the-payment-links-sdk.md)
+- [Integrate with Android](https://docs.appcharge.com/sdks/payment-links/unity/integrate-with-android.md)
+- [Integrate with iOS](https://docs.appcharge.com/sdks/payment-links/unity/integrate-with-ios.md)
+- [Integrate with WebGL](https://docs.appcharge.com/sdks/payment-links/unity/integrate-with-webgl.md)
+- [Launch the Checkout](https://docs.appcharge.com/sdks/payment-links/unity/launch-the-checkout.md)
+- [Retrieve Price Points](https://docs.appcharge.com/sdks/payment-links/unity/retrieve-price-points.md)
+
+## OpenAPI Specs
+
+- [openapi-reward-calendar](https://docs.appcharge.com/api-reference/webstore/offers-v2/reward-calendars/openapi-reward-calendar.json)
+- [openapi-offers-all](https://docs.appcharge.com/api-reference/webstore/offers-v2/openapi-offers-all.json)
+- [openapi-update-popups_v1](https://docs.appcharge.com/api-reference/webstore/offers-v1/popups/openapi-update-popups_v1.json)
+- [openapi-post-purchase-popup_v1](https://docs.appcharge.com/api-reference/webstore/offers-v1/popups/openapi-post-purchase-popup_v1.json)
+- [openapi-daily-bonus_v1](https://docs.appcharge.com/api-reference/webstore/offers-v1/popups/openapi-daily-bonus_v1.json)
+- [openapi-reward-calendar-design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/reward-calendars/openapi-reward-calendar-design.json)
+- [openapi-offer-designs-api](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/openapi-offer-designs-api.json)
+- [openapi-daily-bonus-design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/daily-bonuses/openapi-daily-bonus-design.json)
+- [openapi-get-transactions](https://docs.appcharge.com/api-reference/checkout/finance-and-analytics/openapi-get-transactions.json)
+- [openapi-create-checkout-session](https://docs.appcharge.com/api-reference/checkout/checkout-session/openapi-create-checkout-session.json)
+- [openapi-store-refresh](https://docs.appcharge.com/api-reference/webstore/offers-v2/triggered-popups/store-refresh-popups/openapi-store-refresh.json)
+- [openapi-post-purchase](https://docs.appcharge.com/api-reference/webstore/offers-v2/triggered-popups/post-purchase-popups/openapi-post-purchase.json)
+- [openapi-special-offers](https://docs.appcharge.com/api-reference/webstore/offers-v2/special-offers/openapi-special-offers.json)
+- [openapi-rolling-offer](https://docs.appcharge.com/api-reference/webstore/offers-v2/rolling-offers/openapi-rolling-offer.json)
+- [openapi-progress-bar](https://docs.appcharge.com/api-reference/webstore/offers-v2/progress-bars/openapi-progress-bar.json)
+- [openapi-daily-bonus](https://docs.appcharge.com/api-reference/webstore/offers-v2/daily-bonuses/openapi-daily-bonus.json)
+- [openapi-checkout-links](https://docs.appcharge.com/api-reference/webstore/offers-v2/checkout-link-offers/openapi-checkout-links.json)
+- [openapi-bundle](https://docs.appcharge.com/api-reference/webstore/offers-v2/bundles/openapi-bundle.json)
+- [openapi-post-purchase-popup-design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/triggered-popups/post-purchase-popups/openapi-post-purchase-popup-design.json)
+- [openapi-special-offer-design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/special-offers/openapi-special-offer-design.json)
+- [openapi-rolling-offer-design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/rolling-offers/openapi-rolling-offer-design.json)
+- [openapi-bundle-design](https://docs.appcharge.com/api-reference/webstore/offer-components/offer-designs/bundles/openapi-bundle-design.json)
+- [openapi-badges-api](https://docs.appcharge.com/api-reference/webstore/offer-components/badges/openapi-badges-api.json)
+- [openapi-price-points](https://docs.appcharge.com/api-reference/checkout/price-localization/openapi-price-points.json)
+- [openapi-initiate-game-auth-callback](https://docs.appcharge.com/api-reference/webstore/player-authentication/openapi-initiate-game-auth-callback.json)
+- [openapi-authenticate-player-callback](https://docs.appcharge.com/api-reference/webstore/player-authentication/openapi-authenticate-player-callback.json)
+- [openapi-personalize-webstore-callback](https://docs.appcharge.com/api-reference/webstore/personalization/openapi-personalize-webstore-callback.json)
+- [openapi-portal-content](https://docs.appcharge.com/api-reference/game-portal/content/openapi-portal-content.json)
+- [openapi-grant-award](https://docs.appcharge.com/api-reference/checkout/awards/openapi-grant-award.json)
+- [openapi-products-api](https://docs.appcharge.com/api-reference/webstore/offer-components/products/openapi-products-api.json)
+- [openapi-assets-api](https://docs.appcharge.com/api-reference/media/assets-library/openapi-assets-api.json)
+- [openapi-trigger-webstore-personalization](https://docs.appcharge.com/api-reference/webstore/personalization/openapi-trigger-webstore-personalization.json)
+- [openapi-trigger-webstore-personalization-by-player-id](https://docs.appcharge.com/api-reference/webstore/personalization/openapi-trigger-webstore-personalization-by-player-id.json)
+- [openapi-rolling-offers_v1](https://docs.appcharge.com/api-reference/webstore/offers-v1/rolling-offers/openapi-rolling-offers_v1.json)
+- [openapi-offers_v1](https://docs.appcharge.com/api-reference/webstore/offers-v1/openapi-offers_v1.json)
+- [openapi-translations](https://docs.appcharge.com/api-reference/translations/openapi-translations.json)
+- [openapi-initiate-refund](https://docs.appcharge.com/api-reference/checkout/refunds/openapi-initiate-refund.json)
+- [openapi-currencies](https://docs.appcharge.com/api-reference/checkout/price-localization/openapi-currencies.json)
+- [openapi-get-transactions-old](https://docs.appcharge.com/api-reference/checkout/finance-and-analytics/openapi-get-transactions-old.json)
+- [openapi-financial-rep](https://docs.appcharge.com/api-reference/checkout/finance-and-analytics/openapi-financial-rep.json)
+- [openapi-analytics](https://docs.appcharge.com/api-reference/checkout/finance-and-analytics/openapi-analytics.json)
+- [openapi-coupons](https://docs.appcharge.com/api-reference/checkout/coupons/openapi-coupons.json)
+- [openapi-cancel-checkout-session](https://docs.appcharge.com/api-reference/checkout/checkout-session/openapi-cancel-checkout-session.json)

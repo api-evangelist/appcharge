@@ -1,0 +1,41 @@
+generated: '2026-07-17'
+method: searched
+source: https://docs.appcharge.com/api-reference/sandbox-account/about-the-sandbox-account + https://docs.appcharge.com/api-reference/sandbox-account/payment-methods
+description: >-
+  Appcharge provides a Sandbox environment that mirrors production on separate
+  demo accounts, using virtual currency and demo Facebook/Apple/Google logins.
+  Switch the API base URL to the sandbox host to run in test mode.
+environments:
+  production_base_url: https://api.appcharge.com
+  sandbox_base_url: https://api-sandbox.appcharge.com
+  selection: >-
+    Same publisher token / account; choose the environment by switching the base
+    URL. Sandbox transactions are recorded and processed internally with virtual
+    currency.
+demo_account:
+  logins: [Demo Facebook, Demo Apple, Demo Google]
+  note: Sandbox Demo Account transitions smoothly into initial integration.
+test_cards:
+  billing_country: US
+  cards:
+    - { brand: Visa, number: '4242424242424242', cvc: any 3 digits, exp: any future date }
+    - { brand: Visa (debit), number: '4000056655665556', cvc: any 3 digits, exp: any future date }
+    - { brand: Mastercard, number: '5555555555554444', cvc: any 3 digits, exp: any future date }
+    - { brand: Mastercard (2-series), number: '2223003122003222', cvc: any 3 digits, exp: any future date }
+    - { brand: Mastercard (debit), number: '5200828282828210', cvc: any 3 digits, exp: any future date }
+    - { brand: Mastercard (prepaid), number: '5105105105105100', cvc: any 3 digits, exp: any future date }
+    - { brand: American Express, number: '378282246310005', cvc: any 4 digits, exp: any future date }
+    - { brand: American Express, number: '371449635398431', cvc: any 4 digits, exp: any future date }
+    - { brand: Discover, number: '6011111111111117', cvc: any 3 digits, exp: any future date }
+    - { brand: Discover, number: '6011000990139424', cvc: any 3 digits, exp: any future date }
+    - { brand: Discover (debit), number: '6011981111111113', cvc: any 3 digits, exp: any future date }
+    - { brand: Diners Club, number: '3056930009020004', cvc: any 3 digits, exp: any future date }
+    - { brand: Diners Club (14-digit), number: '36227206271667', cvc: any 3 digits, exp: any future date }
+    - { brand: BCcard and DinaCard, number: '6555900000604105', cvc: any 3 digits, exp: any future date }
+    - { brand: JCB, number: '3566002020360505', cvc: any 3 digits, exp: any future date }
+    - { brand: UnionPay, number: '6200000000000005', cvc: any 3 digits, exp: any future date }
+    - { brand: UnionPay (debit), number: '6200000000000047', cvc: any 3 digits, exp: any future date }
+    - { brand: UnionPay (19-digit), number: '6205500000000000004', cvc: any 3 digits, exp: any future date }
+  note: >-
+    Values published verbatim by Appcharge's Sandbox Payment Methods page (these
+    are the standard processor test PANs). Use to simulate successful payments.

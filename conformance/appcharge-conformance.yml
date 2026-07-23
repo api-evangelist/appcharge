@@ -1,0 +1,41 @@
+generated: '2026-07-17'
+method: searched
+source: https://docs.appcharge.com/merchant-of-record/security/about-security-at-appcharge + openapi/appcharge-openapi.yml
+description: >-
+  Standards and compliance posture Appcharge conforms to, from the published
+  Security Policy and derived from the OpenAPI.
+standards:
+  - id: pci-dss
+    level: Level 1
+    conforms: true
+    evidence: >-
+      "Appcharge is fully compliant with PCI-DSS at Level 1 – the highest level";
+      annual PCI audits and network scans by independent QSAs.
+    source: https://docs.appcharge.com/merchant-of-record/security/about-security-at-appcharge
+  - id: soc2-type2
+    conforms: true
+    evidence: >-
+      SOC 2 Type II examinations by independent auditors covering security,
+      availability, and confidentiality; report available under NDA.
+    source: https://docs.appcharge.com/merchant-of-record/security/about-security-at-appcharge
+  - id: oauth2
+    conforms: true
+    evidence: RFC 8414 authorization-server metadata (authorization_code + PKCE S256) backs the MCP server.
+    source: https://api.appcharge.com/.well-known/oauth-authorization-server
+  - id: mutual-tls
+    conforms: true
+    evidence: mTLS supported for server-to-server integrations (Security Policy section 2.1).
+  - id: hmac-webhook-signing
+    conforms: true
+    evidence: HMAC-SHA256 signed webhooks with timestamp + replay window.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: REST errors use a custom { errorCode, errorMessage } envelope, not application/problem+json.
+  - id: rfc8594-sunset-header
+    conforms: false
+    evidence: Deprecation is announced via docs (6-month policy), no Sunset/Deprecation headers observed.
+compliance_program:
+  published: true
+  frameworks: [PCI DSS Level 1, SOC 2 Type II]
+  practices: [encryption at rest/in transit, penetration testing, incident response, DDoS mitigation, Wiz cloud scanning]
+  page: https://docs.appcharge.com/merchant-of-record/security/about-security-at-appcharge

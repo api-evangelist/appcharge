@@ -1,0 +1,19 @@
+generated: '2026-07-17'
+method: searched
+source: openapi/appcharge-openapi.yml (429 response) + https://docs.appcharge.com/api-reference
+description: >-
+  Appcharge documents a global request quota on its REST API. Exceeding it
+  returns HTTP 429. No per-plan tiers or rate-limit response headers are
+  documented at capture time.
+limits:
+  - scope: global
+    limit_count: 5000
+    window: 1m
+    unit: requests
+    enforcement: HTTP 429 Too Many Requests
+    documented_on: 429 response in the OpenAPI (get-transactions and others)
+headers:
+  documented: false
+retry_guidance: >-
+  Back off on 429 and retry; Appcharge's own outbound webhooks use a
+  15s / 15s / 15min retry schedule (see conventions/).

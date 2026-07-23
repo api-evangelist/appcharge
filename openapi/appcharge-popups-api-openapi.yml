@@ -1,0 +1,334 @@
+openapi: 3.0.3
+info:
+  title: Appcharge Assets Popups API
+  version: 1.0.0
+  description: Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.
+  contact:
+    name: Appcharge Developer Support
+    url: https://docs.appcharge.com/
+  x-apievangelist-source: https://docs.appcharge.com/api-reference (Mintlify embedded OpenAPI fragments)
+  x-apievangelist-method: searched
+  x-apievangelist-generated: '2026-07-17'
+servers:
+- url: https://api.appcharge.com
+  description: Production
+- url: https://api-sandbox.appcharge.com
+  description: Sandbox
+tags:
+- name: Popups
+paths:
+  /offering/offer/popup:
+    post:
+      tags:
+      - Popups
+      operationId: create-post-purchase-popup
+      parameters:
+      - name: x-publisher-token
+        required: true
+        in: header
+        description: The publisher token
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePopupDto'
+      responses:
+        '201':
+          description: Create a new Offer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PopupDtoResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  requestUrl:
+                    type: string
+                  body:
+                    type: string
+        '401':
+          description: Not Authorized
+components:
+  schemas:
+    ProductsSequenceResponse:
+      type: object
+      properties:
+        index:
+          type: number
+        playerAvailability:
+          type: number
+        priceInUsdCents:
+          type: number
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductsSetResponse'
+    ProductsSequence:
+      type: object
+      properties:
+        index:
+          type: number
+        priceInUsdCents:
+          type: number
+        playerAvailability:
+          type: number
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductsSet'
+      required:
+      - index
+      - priceInUsdCents
+      - products
+    PopupDtoResponse:
+      type: object
+      properties:
+        offerId:
+          type: string
+          description: The Id of the offer.
+          example: 655dc8a546822b3e7586b7b7
+        publisherOfferId:
+          type: string
+          description: The publisher offer Id.
+          example: offer1
+        name:
+          type: string
+          description: The name of the offer.
+          example: Test_PopUp
+        displayName:
+          type: string
+          description: The display name of the offer. If not specified, the offer name will be used. Conditionally returned.
+        description:
+          type: string
+          description: The description of the offer, At least 3 letters. Conditionally returned.
+          example: N/A
+        type:
+          type: string
+          description: 'The type of the offer. In this case: PopUp.'
+          example: PopUp
+        subType:
+          type: string
+          description: Price of the products set in cents. Will be returned as 0 since subtype daily bonus.
+        createdBy:
+          type: string
+          description: The platform which the offer was created from (Dashboard, API)
+          example: API
+        offerUi:
+          $ref: '#/components/schemas/OfferUiDto'
+        active:
+          type: boolean
+          description: Is the offer active? true/false.
+          example: 'true'
+        coolDownInHours:
+          type: number
+          description: 'Used for cooldown between orders. **DEPRECATION WARNING**: This field will be removed in future releases.'
+          example: '1'
+        segments:
+          type: array
+          items:
+            type: string
+          description: 'The Ids of the player segments to be used in the segmentation algorithm. for example: [“NewUser”, “BigSpender”].'
+          example: '[NewUser]'
+        productsSequence:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductsSequenceResponse'
+          description: The products sequense containing the sets of products.
+        startOver:
+          type: boolean
+          description: If true, popup will repeat itself.
+        priority:
+          type: number
+          description: Defines the order of priority of for displaying popup.
+        showAfter:
+          type: string
+          description: Event for which only after the popup appear.
+        createdAt:
+          format: date-time
+          type: string
+          description: the time when the offer was created, in UTC.
+          example: '2023-07-05T12:01:06.113Z'
+        updatedAt:
+          format: date-time
+          type: string
+          description: the time when the offer was updated, in UTC.
+          example: '2023-07-05T12:01:06.113Z'
+    ProductsSet:
+      type: object
+      properties:
+        quantity:
+          type: number
+        publisherProductId:
+          type: string
+      required:
+      - quantity
+      - publisherProductId
+    ProductDto:
+      type: object
+      properties:
+        publisherProductId:
+          type: string
+        name:
+          type: string
+        textFontColorHex:
+          type: string
+        type:
+          type: string
+        prefix:
+          type: string
+        suffix:
+          type: string
+        priority:
+          type: string
+        images:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              url:
+                type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        productId:
+          type: string
+    OfferUiDto:
+      type: object
+      properties:
+        offerUiId:
+          type: string
+        externalId:
+          type: string
+        active:
+          type: boolean
+        offerUiType:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        backgroundImage:
+          type: string
+        specialOffer:
+          type: object
+          properties:
+            templateType:
+              type: string
+            presentOfferEndTimer:
+              type: boolean
+            title:
+              type: string
+            fontSize:
+              type: number
+            fontWeight:
+              type: string
+            fontColor:
+              type: object
+              properties:
+                colorOne:
+                  type: string
+                colorTwo:
+                  type: string
+                direction:
+                  type: string
+            backgroundColor:
+              type: object
+              properties:
+                colorOne:
+                  type: string
+                colorTwo:
+                  type: string
+                direction:
+                  type: string
+    ProductsSetResponse:
+      type: object
+      properties:
+        quantity:
+          type: number
+        product:
+          $ref: '#/components/schemas/ProductDto'
+    CreatePopupDto:
+      type: object
+      properties:
+        publisherOfferId:
+          type: string
+          description: The publisher offer Id.
+          example: offer1
+        name:
+          type: string
+          description: The name of the offer. At least 3 letters.
+          example: Test_PopUp
+        displayName:
+          type: string
+          description: The display name of the offer. If not specified, the offer name will be used.
+        description:
+          type: string
+          description: The description of the offer, At least 3 letters.
+          example: Best offer ever.
+        type:
+          type: string
+          description: The type of the offer, in this case 'PopUp'.
+          example: PopUp
+        subType:
+          type: string
+          description: The type of popup. In this case 'DailyBonus'.
+        priority:
+          type: number
+          description: Choose the priority of the order in which the popups will be displayed, 1 being first
+        offerUiId:
+          type: string
+          description: The Internal ID for the Offer UI. The Offer UI is responsible to add UI elements to the offers such as background image and title. Once you create the Offer UI using the dashboard, you will get the internal ID.
+          example: 64a55b82e06998282d3d9b59
+        offerExternalUiId:
+          type: string
+          description: The offer UI ID as configured by the publisher. If offerExternalUiId is provided, then offerUiId will not be required.
+          example: b9c1e7a3d1f8b2a4c6e5d8f3
+        active:
+          type: boolean
+          description: Is the offer active? true/false.
+          example: 'true'
+        segments:
+          type: array
+          items:
+            type: string
+          description: 'The Ids of the player segments to be used in the segmentation algorithm. for example: [“NewUser”, “BigSpender”]. This param is required but can be left empty.'
+          example: NewUser
+        startOver:
+          type: boolean
+          description: If true, popup will repeat itself.
+        productsSequence:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductsSequence'
+          description: An array of product sequences, where each sequence represents a day. Only one product sequence is displayed per day.
+      required:
+      - publisherOfferId
+      - name
+      - type
+      - offerUiId
+      - active
+      - segments
+      - productsSequence
+      - subType
+      - priority
+      - startOver
+  securitySchemes:
+    PublisherTokenAuth:
+      type: apiKey
+      in: header
+      name: x-publisher-token
+      description: Publisher token, as displayed in the Publisher Dashboard.

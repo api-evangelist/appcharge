@@ -1,0 +1,23 @@
+generated: '2026-07-17'
+method: searched
+source: https://docs.appcharge.com/merchant-of-record/security/about-security-at-appcharge
+description: >-
+  Appcharge publishes a detailed Security Policy (its trust/security posture)
+  covering data security, secure communication, DDoS prevention, fraud
+  prevention, and compliance. No dedicated trust.appcharge.com portal was found;
+  this page is the canonical security/trust document.
+url: https://docs.appcharge.com/merchant-of-record/security/about-security-at-appcharge
+certifications: [PCI DSS Level 1, SOC 2 Type II]
+practices:
+  - Encryption at rest and in transit (TLS/HTTPS enforced)
+  - Secure Development Lifecycle (OWASP, code review, SAST, dependency scanning, threat modeling)
+  - mTLS for sensitive server-to-server integrations
+  - Signed webhooks (HMAC) with replay protection
+  - VPC network isolation, WAF, hardened servers
+  - Automated DDoS mitigation + CDN
+  - Continuous monitoring with Wiz; infrastructure as code (Terraform)
+  - Real-time fraud/transaction monitoring, least-privilege access, internal audits
+  - Third-party penetration testing
+  - Employee background checks + security awareness training + incident response plan
+status_page: https://appcharge.instatus.com
+report_availability: SOC 2 Type II report furnished under NDA on request.

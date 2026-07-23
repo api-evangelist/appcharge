@@ -1,0 +1,38 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/Appcharge/appcharge-skills (skills/*/SKILL.md, saved verbatim)
+description: >-
+  Appcharge's official Agent Skills library (MIT, github.com/Appcharge/appcharge-skills)
+  teaches AI coding agents how to implement the four publisher-side Appcharge
+  callbacks. Saved verbatim; each skill grounds in a real callback operation in
+  openapi/appcharge-openapi.yml.
+skills:
+  - file: appcharge-grant-award-callback.md
+    name: grant-award-callback
+    api: openapi/appcharge-openapi.yml
+    operations: [grant-award]
+    summary: >-
+      Implement the Grant Award callback (fulfillment) on a Go/Python publisher
+      server: verify token + HMAC signature, grant inventory idempotently by
+      orderId/purchaseId, return publisherPurchaseId.
+  - file: appcharge-personalize-webstore-callback.md
+    name: personalize-webstore-callback
+    api: openapi/appcharge-openapi.yml
+    operations: [personalize-webstore]
+    summary: >-
+      Implement the Personalize Web Store callback: return personalization JSON
+      (version 2) with offers, balances, segments and sessionMetadata per player.
+  - file: appcharge-authenticate-player-callback.md
+    name: authenticate-player-callback
+    api: openapi/appcharge-openapi.yml
+    operations: [authenticate-player]
+    summary: >-
+      Implement the Authenticate Player callback: validate SSO/OTP/password
+      logins and return publisherPlayerId, playerName, sessionMetadata.
+  - file: appcharge-initiate-game-auth-callback.md
+    name: initiate-game-auth-callback
+    api: openapi/appcharge-openapi.yml
+    operations: [game-authentication-endpoint]
+    summary: >-
+      Implement the Initiate Game Auth callback for Game Redirect Login: return
+      deepLink + accessToken after signature verification, before OTP.

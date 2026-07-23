@@ -1,0 +1,869 @@
+asyncapi: 3.0.0
+info:
+  title: Appcharge Events (V2) Webhooks
+  version: 2.0.0
+  description: 'Appcharge sends real-time, structured webhook events (Events V2) to a publisher-registered HTTPS endpoint
+    for order lifecycle, web store and game portal interactions, logins, and disputes. Each request is an HTTPS POST with
+    application/json, signed with HMAC-SHA256 over ''{timestamp}.{payload}'' in a `signature: t=...,v1=...` header (plus x-publisher-token
+    and x-project-id), and validated against a ~5-minute replay window. Failed deliveries are retried immediate / +15s / +15s
+    / +15min (max 4 attempts). Events are enabled per type in the Publisher Dashboard Events Center.'
+  x-apievangelist-source: https://docs.appcharge.com/api-reference/events/v2/introduction
+  x-apievangelist-method: searched
+  x-apievangelist-note: Channel/message inventory harvested from the published event catalog; per-event payload fields are
+    not fully expanded (docs mark many fields optional).
+defaultContentType: application/json
+servers:
+  publisher:
+    host: publisher-defined
+    protocol: https
+    description: Publisher-registered webhook endpoint; Appcharge POSTs events here.
+channels:
+  order_canceled:
+    address: /{publisherWebhookUrl}
+    title: Order Canceled
+    description: Webhook channel delivering the order_canceled event via HTTPS POST to the publisher-registered endpoint.
+    messages:
+      order_canceled:
+        $ref: '#/components/messages/order_canceled'
+  order_completed:
+    address: /{publisherWebhookUrl}
+    title: Order Completed
+    description: Webhook channel delivering the order_completed event via HTTPS POST to the publisher-registered endpoint.
+    messages:
+      order_completed:
+        $ref: '#/components/messages/order_completed'
+  order_created:
+    address: /{publisherWebhookUrl}
+    title: Order Created
+    description: Webhook channel delivering the order_created event via HTTPS POST to the publisher-registered endpoint.
+    messages:
+      order_created:
+        $ref: '#/components/messages/order_created'
+  order_dispute_opened:
+    address: /{publisherWebhookUrl}
+    title: Order Dispute Opened
+    description: Webhook channel delivering the order_dispute_opened event via HTTPS POST to the publisher-registered endpoint.
+    messages:
+      order_dispute_opened:
+        $ref: '#/components/messages/order_dispute_opened'
+  order_dispute_resolved:
+    address: /{publisherWebhookUrl}
+    title: Order Dispute Resolved
+    description: Webhook channel delivering the order_dispute_resolved event via HTTPS POST to the publisher-registered endpoint.
+    messages:
+      order_dispute_resolved:
+        $ref: '#/components/messages/order_dispute_resolved'
+  order_payment_resolved:
+    address: /{publisherWebhookUrl}
+    title: Order Payment Resolved
+    description: Webhook channel delivering the order_payment_resolved event via HTTPS POST to the publisher-registered endpoint.
+    messages:
+      order_payment_resolved:
+        $ref: '#/components/messages/order_payment_resolved'
+  order_refunded:
+    address: /{publisherWebhookUrl}
+    title: Order Refunded
+    description: Webhook channel delivering the order_refunded event via HTTPS POST to the publisher-registered endpoint.
+    messages:
+      order_refunded:
+        $ref: '#/components/messages/order_refunded'
+  portal_login_canceled:
+    address: /{publisherWebhookUrl}
+    title: Portal Login Canceled
+    description: Webhook channel delivering the portal_login_canceled event via HTTPS POST to the publisher-registered endpoint.
+    messages:
+      portal_login_canceled:
+        $ref: '#/components/messages/portal_login_canceled'
+  portal_login_completed:
+    address: /{publisherWebhookUrl}
+    title: Portal Login Completed
+    description: Webhook channel delivering the portal_login_completed event via HTTPS POST to the publisher-registered endpoint.
+    messages:
+      portal_login_completed:
+        $ref: '#/components/messages/portal_login_completed'
+  portal_login_displayed:
+    address: /{publisherWebhookUrl}
+    title: Portal Login Displayed
+    description: Webhook channel delivering the portal_login_displayed event via HTTPS POST to the publisher-registered endpoint.
+    messages:
+      portal_login_displayed:
+        $ref: '#/components/messages/portal_login_displayed'
+  portal_login_method_selected:
+    address: /{publisherWebhookUrl}
+    title: Portal Login Method Selected
+    description: Webhook channel delivering the portal_login_method_selected event via HTTPS POST to the publisher-registered
+      endpoint.
+    messages:
+      portal_login_method_selected:
+        $ref: '#/components/messages/portal_login_method_selected'
+  portal_approval_request_closed:
+    address: /{publisherWebhookUrl}
+    title: Portal Approval Request Closed
+    description: Webhook channel delivering the portal_approval_request_closed event via HTTPS POST to the publisher-registered
+      endpoint.
+    messages:
+      portal_approval_request_closed:
+        $ref: '#/components/messages/portal_approval_request_closed'
+  portal_approval_request_displayed:
+    address: /{publisherWebhookUrl}
+    title: Portal Approval Request Displayed
+    description: Webhook channel delivering the portal_approval_request_displayed event via HTTPS POST to the publisher-registered
+      endpoint.
+    messages:
+      portal_approval_request_displayed:
+        $ref: '#/components/messages/portal_approval_request_displayed'
+  portal_block_clicked:
+    address: /{publisherWebhookUrl}
+    title: Portal Block Clicked
+    description: Webhook channel delivering the portal_block_clicked event via HTTPS POST to the publisher-registered endpoint.
+    messages:
+      portal_block_clicked:
+        $ref: '#/components/messages/portal_block_clicked'
+  portal_content_displayed:
+    address: /{publisherWebhookUrl}
+    title: Portal Content Displayed
+    description: Webhook channel delivering the portal_content_displayed event via HTTPS POST to the publisher-registered
+      endpoint.
+    messages:
+      portal_content_displayed:
+        $ref: '#/components/messages/portal_content_displayed'
+  portal_footer_clicked:
+    address: /{publisherWebhookUrl}
+    title: Portal Footer Clicked
+    description: Webhook channel delivering the portal_footer_clicked event via HTTPS POST to the publisher-registered endpoint.
+    messages:
+      portal_footer_clicked:
+        $ref: '#/components/messages/portal_footer_clicked'
+  portal_page_displayed:
+    address: /{publisherWebhookUrl}
+    title: Portal Page Displayed
+    description: Webhook channel delivering the portal_page_displayed event via HTTPS POST to the publisher-registered endpoint.
+    messages:
+      portal_page_displayed:
+        $ref: '#/components/messages/portal_page_displayed'
+  invalid_property:
+    address: /{publisherWebhookUrl}
+    title: Invalid Property
+    description: Webhook channel delivering the invalid_property event via HTTPS POST to the publisher-registered endpoint.
+    messages:
+      invalid_property:
+        $ref: '#/components/messages/invalid_property'
+  webstore_login_canceled:
+    address: /{publisherWebhookUrl}
+    title: Webstore Login Canceled
+    description: Webhook channel delivering the webstore_login_canceled event via HTTPS POST to the publisher-registered endpoint.
+    messages:
+      webstore_login_canceled:
+        $ref: '#/components/messages/webstore_login_canceled'
+  webstore_login_completed:
+    address: /{publisherWebhookUrl}
+    title: Webstore Login Completed
+    description: Webhook channel delivering the webstore_login_completed event via HTTPS POST to the publisher-registered
+      endpoint.
+    messages:
+      webstore_login_completed:
+        $ref: '#/components/messages/webstore_login_completed'
+  webstore_login_displayed:
+    address: /{publisherWebhookUrl}
+    title: Webstore Login Displayed
+    description: Webhook channel delivering the webstore_login_displayed event via HTTPS POST to the publisher-registered
+      endpoint.
+    messages:
+      webstore_login_displayed:
+        $ref: '#/components/messages/webstore_login_displayed'
+  webstore_login_method_selected:
+    address: /{publisherWebhookUrl}
+    title: Webstore Login Method Selected
+    description: Webhook channel delivering the webstore_login_method_selected event via HTTPS POST to the publisher-registered
+      endpoint.
+    messages:
+      webstore_login_method_selected:
+        $ref: '#/components/messages/webstore_login_method_selected'
+  webstore_store_displayed:
+    address: /{publisherWebhookUrl}
+    title: Webstore Store Displayed
+    description: Webhook channel delivering the webstore_store_displayed event via HTTPS POST to the publisher-registered
+      endpoint.
+    messages:
+      webstore_store_displayed:
+        $ref: '#/components/messages/webstore_store_displayed'
+  approval_request_closed:
+    address: /{publisherWebhookUrl}
+    title: Approval Request Closed
+    description: Webhook channel delivering the approval_request_closed event via HTTPS POST to the publisher-registered endpoint.
+    messages:
+      approval_request_closed:
+        $ref: '#/components/messages/approval_request_closed'
+  approval_request_displayed:
+    address: /{publisherWebhookUrl}
+    title: Approval Request Displayed
+    description: Webhook channel delivering the approval_request_displayed event via HTTPS POST to the publisher-registered
+      endpoint.
+    messages:
+      approval_request_displayed:
+        $ref: '#/components/messages/approval_request_displayed'
+  offer_popup_closed:
+    address: /{publisherWebhookUrl}
+    title: Offer Popup Closed
+    description: Webhook channel delivering the offer_popup_closed event via HTTPS POST to the publisher-registered endpoint.
+    messages:
+      offer_popup_closed:
+        $ref: '#/components/messages/offer_popup_closed'
+  offers_displayed:
+    address: /{publisherWebhookUrl}
+    title: Offers Displayed
+    description: Webhook channel delivering the offers_displayed event via HTTPS POST to the publisher-registered endpoint.
+    messages:
+      offers_displayed:
+        $ref: '#/components/messages/offers_displayed'
+  offers_loaded:
+    address: /{publisherWebhookUrl}
+    title: Offers Loaded
+    description: Webhook channel delivering the offers_loaded event via HTTPS POST to the publisher-registered endpoint.
+    messages:
+      offers_loaded:
+        $ref: '#/components/messages/offers_loaded'
+  progress_bar_mission_completed:
+    address: /{publisherWebhookUrl}
+    title: Progress Bar Mission Completed
+    description: Webhook channel delivering the progress_bar_mission_completed event via HTTPS POST to the publisher-registered
+      endpoint.
+    messages:
+      progress_bar_mission_completed:
+        $ref: '#/components/messages/progress_bar_mission_completed'
+  progress_bar_mission_started:
+    address: /{publisherWebhookUrl}
+    title: Progress Bar Mission Started
+    description: Webhook channel delivering the progress_bar_mission_started event via HTTPS POST to the publisher-registered
+      endpoint.
+    messages:
+      progress_bar_mission_started:
+        $ref: '#/components/messages/progress_bar_mission_started'
+  progress_bar_points_granted:
+    address: /{publisherWebhookUrl}
+    title: Progress Bar Points Granted
+    description: Webhook channel delivering the progress_bar_points_granted event via HTTPS POST to the publisher-registered
+      endpoint.
+    messages:
+      progress_bar_points_granted:
+        $ref: '#/components/messages/progress_bar_points_granted'
+  personalization_response_error:
+    address: /{publisherWebhookUrl}
+    title: Personalization Response Error
+    description: Webhook channel delivering the personalization_response_error event via HTTPS POST to the publisher-registered
+      endpoint.
+    messages:
+      personalization_response_error:
+        $ref: '#/components/messages/personalization_response_error'
+operations:
+  onOrderCanceled:
+    action: receive
+    summary: Receive the Order Canceled event.
+    channel:
+      $ref: '#/channels/order_canceled'
+    messages:
+    - $ref: '#/channels/order_canceled/messages/order_canceled'
+  onOrderCompleted:
+    action: receive
+    summary: Receive the Order Completed event.
+    channel:
+      $ref: '#/channels/order_completed'
+    messages:
+    - $ref: '#/channels/order_completed/messages/order_completed'
+  onOrderCreated:
+    action: receive
+    summary: Receive the Order Created event.
+    channel:
+      $ref: '#/channels/order_created'
+    messages:
+    - $ref: '#/channels/order_created/messages/order_created'
+  onOrderDisputeOpened:
+    action: receive
+    summary: Receive the Order Dispute Opened event.
+    channel:
+      $ref: '#/channels/order_dispute_opened'
+    messages:
+    - $ref: '#/channels/order_dispute_opened/messages/order_dispute_opened'
+  onOrderDisputeResolved:
+    action: receive
+    summary: Receive the Order Dispute Resolved event.
+    channel:
+      $ref: '#/channels/order_dispute_resolved'
+    messages:
+    - $ref: '#/channels/order_dispute_resolved/messages/order_dispute_resolved'
+  onOrderPaymentResolved:
+    action: receive
+    summary: Receive the Order Payment Resolved event.
+    channel:
+      $ref: '#/channels/order_payment_resolved'
+    messages:
+    - $ref: '#/channels/order_payment_resolved/messages/order_payment_resolved'
+  onOrderRefunded:
+    action: receive
+    summary: Receive the Order Refunded event.
+    channel:
+      $ref: '#/channels/order_refunded'
+    messages:
+    - $ref: '#/channels/order_refunded/messages/order_refunded'
+  onPortalLoginCanceled:
+    action: receive
+    summary: Receive the Portal Login Canceled event.
+    channel:
+      $ref: '#/channels/portal_login_canceled'
+    messages:
+    - $ref: '#/channels/portal_login_canceled/messages/portal_login_canceled'
+  onPortalLoginCompleted:
+    action: receive
+    summary: Receive the Portal Login Completed event.
+    channel:
+      $ref: '#/channels/portal_login_completed'
+    messages:
+    - $ref: '#/channels/portal_login_completed/messages/portal_login_completed'
+  onPortalLoginDisplayed:
+    action: receive
+    summary: Receive the Portal Login Displayed event.
+    channel:
+      $ref: '#/channels/portal_login_displayed'
+    messages:
+    - $ref: '#/channels/portal_login_displayed/messages/portal_login_displayed'
+  onPortalLoginMethodSelected:
+    action: receive
+    summary: Receive the Portal Login Method Selected event.
+    channel:
+      $ref: '#/channels/portal_login_method_selected'
+    messages:
+    - $ref: '#/channels/portal_login_method_selected/messages/portal_login_method_selected'
+  onPortalApprovalRequestClosed:
+    action: receive
+    summary: Receive the Portal Approval Request Closed event.
+    channel:
+      $ref: '#/channels/portal_approval_request_closed'
+    messages:
+    - $ref: '#/channels/portal_approval_request_closed/messages/portal_approval_request_closed'
+  onPortalApprovalRequestDisplayed:
+    action: receive
+    summary: Receive the Portal Approval Request Displayed event.
+    channel:
+      $ref: '#/channels/portal_approval_request_displayed'
+    messages:
+    - $ref: '#/channels/portal_approval_request_displayed/messages/portal_approval_request_displayed'
+  onPortalBlockClicked:
+    action: receive
+    summary: Receive the Portal Block Clicked event.
+    channel:
+      $ref: '#/channels/portal_block_clicked'
+    messages:
+    - $ref: '#/channels/portal_block_clicked/messages/portal_block_clicked'
+  onPortalContentDisplayed:
+    action: receive
+    summary: Receive the Portal Content Displayed event.
+    channel:
+      $ref: '#/channels/portal_content_displayed'
+    messages:
+    - $ref: '#/channels/portal_content_displayed/messages/portal_content_displayed'
+  onPortalFooterClicked:
+    action: receive
+    summary: Receive the Portal Footer Clicked event.
+    channel:
+      $ref: '#/channels/portal_footer_clicked'
+    messages:
+    - $ref: '#/channels/portal_footer_clicked/messages/portal_footer_clicked'
+  onPortalPageDisplayed:
+    action: receive
+    summary: Receive the Portal Page Displayed event.
+    channel:
+      $ref: '#/channels/portal_page_displayed'
+    messages:
+    - $ref: '#/channels/portal_page_displayed/messages/portal_page_displayed'
+  onInvalidProperty:
+    action: receive
+    summary: Receive the Invalid Property event.
+    channel:
+      $ref: '#/channels/invalid_property'
+    messages:
+    - $ref: '#/channels/invalid_property/messages/invalid_property'
+  onWebstoreLoginCanceled:
+    action: receive
+    summary: Receive the Webstore Login Canceled event.
+    channel:
+      $ref: '#/channels/webstore_login_canceled'
+    messages:
+    - $ref: '#/channels/webstore_login_canceled/messages/webstore_login_canceled'
+  onWebstoreLoginCompleted:
+    action: receive
+    summary: Receive the Webstore Login Completed event.
+    channel:
+      $ref: '#/channels/webstore_login_completed'
+    messages:
+    - $ref: '#/channels/webstore_login_completed/messages/webstore_login_completed'
+  onWebstoreLoginDisplayed:
+    action: receive
+    summary: Receive the Webstore Login Displayed event.
+    channel:
+      $ref: '#/channels/webstore_login_displayed'
+    messages:
+    - $ref: '#/channels/webstore_login_displayed/messages/webstore_login_displayed'
+  onWebstoreLoginMethodSelected:
+    action: receive
+    summary: Receive the Webstore Login Method Selected event.
+    channel:
+      $ref: '#/channels/webstore_login_method_selected'
+    messages:
+    - $ref: '#/channels/webstore_login_method_selected/messages/webstore_login_method_selected'
+  onWebstoreStoreDisplayed:
+    action: receive
+    summary: Receive the Webstore Store Displayed event.
+    channel:
+      $ref: '#/channels/webstore_store_displayed'
+    messages:
+    - $ref: '#/channels/webstore_store_displayed/messages/webstore_store_displayed'
+  onApprovalRequestClosed:
+    action: receive
+    summary: Receive the Approval Request Closed event.
+    channel:
+      $ref: '#/channels/approval_request_closed'
+    messages:
+    - $ref: '#/channels/approval_request_closed/messages/approval_request_closed'
+  onApprovalRequestDisplayed:
+    action: receive
+    summary: Receive the Approval Request Displayed event.
+    channel:
+      $ref: '#/channels/approval_request_displayed'
+    messages:
+    - $ref: '#/channels/approval_request_displayed/messages/approval_request_displayed'
+  onOfferPopupClosed:
+    action: receive
+    summary: Receive the Offer Popup Closed event.
+    channel:
+      $ref: '#/channels/offer_popup_closed'
+    messages:
+    - $ref: '#/channels/offer_popup_closed/messages/offer_popup_closed'
+  onOffersDisplayed:
+    action: receive
+    summary: Receive the Offers Displayed event.
+    channel:
+      $ref: '#/channels/offers_displayed'
+    messages:
+    - $ref: '#/channels/offers_displayed/messages/offers_displayed'
+  onOffersLoaded:
+    action: receive
+    summary: Receive the Offers Loaded event.
+    channel:
+      $ref: '#/channels/offers_loaded'
+    messages:
+    - $ref: '#/channels/offers_loaded/messages/offers_loaded'
+  onProgressBarMissionCompleted:
+    action: receive
+    summary: Receive the Progress Bar Mission Completed event.
+    channel:
+      $ref: '#/channels/progress_bar_mission_completed'
+    messages:
+    - $ref: '#/channels/progress_bar_mission_completed/messages/progress_bar_mission_completed'
+  onProgressBarMissionStarted:
+    action: receive
+    summary: Receive the Progress Bar Mission Started event.
+    channel:
+      $ref: '#/channels/progress_bar_mission_started'
+    messages:
+    - $ref: '#/channels/progress_bar_mission_started/messages/progress_bar_mission_started'
+  onProgressBarPointsGranted:
+    action: receive
+    summary: Receive the Progress Bar Points Granted event.
+    channel:
+      $ref: '#/channels/progress_bar_points_granted'
+    messages:
+    - $ref: '#/channels/progress_bar_points_granted/messages/progress_bar_points_granted'
+  onPersonalizationResponseError:
+    action: receive
+    summary: Receive the Personalization Response Error event.
+    channel:
+      $ref: '#/channels/personalization_response_error'
+    messages:
+    - $ref: '#/channels/personalization_response_error/messages/personalization_response_error'
+components:
+  messages:
+    order_canceled:
+      name: order_canceled
+      title: Order Canceled
+      summary: Appcharge Order Canceled webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the order_canceled event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    order_completed:
+      name: order_completed
+      title: Order Completed
+      summary: Appcharge Order Completed webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the order_completed event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    order_created:
+      name: order_created
+      title: Order Created
+      summary: Appcharge Order Created webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the order_created event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    order_dispute_opened:
+      name: order_dispute_opened
+      title: Order Dispute Opened
+      summary: Appcharge Order Dispute Opened webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the order_dispute_opened event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    order_dispute_resolved:
+      name: order_dispute_resolved
+      title: Order Dispute Resolved
+      summary: Appcharge Order Dispute Resolved webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the order_dispute_resolved event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    order_payment_resolved:
+      name: order_payment_resolved
+      title: Order Payment Resolved
+      summary: Appcharge Order Payment Resolved webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the order_payment_resolved event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    order_refunded:
+      name: order_refunded
+      title: Order Refunded
+      summary: Appcharge Order Refunded webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the order_refunded event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    portal_login_canceled:
+      name: portal_login_canceled
+      title: Portal Login Canceled
+      summary: Appcharge Portal Login Canceled webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the portal_login_canceled event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    portal_login_completed:
+      name: portal_login_completed
+      title: Portal Login Completed
+      summary: Appcharge Portal Login Completed webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the portal_login_completed event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    portal_login_displayed:
+      name: portal_login_displayed
+      title: Portal Login Displayed
+      summary: Appcharge Portal Login Displayed webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the portal_login_displayed event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    portal_login_method_selected:
+      name: portal_login_method_selected
+      title: Portal Login Method Selected
+      summary: Appcharge Portal Login Method Selected webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the portal_login_method_selected event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    portal_approval_request_closed:
+      name: portal_approval_request_closed
+      title: Portal Approval Request Closed
+      summary: Appcharge Portal Approval Request Closed webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the portal_approval_request_closed event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    portal_approval_request_displayed:
+      name: portal_approval_request_displayed
+      title: Portal Approval Request Displayed
+      summary: Appcharge Portal Approval Request Displayed webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the portal_approval_request_displayed event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    portal_block_clicked:
+      name: portal_block_clicked
+      title: Portal Block Clicked
+      summary: Appcharge Portal Block Clicked webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the portal_block_clicked event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    portal_content_displayed:
+      name: portal_content_displayed
+      title: Portal Content Displayed
+      summary: Appcharge Portal Content Displayed webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the portal_content_displayed event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    portal_footer_clicked:
+      name: portal_footer_clicked
+      title: Portal Footer Clicked
+      summary: Appcharge Portal Footer Clicked webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the portal_footer_clicked event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    portal_page_displayed:
+      name: portal_page_displayed
+      title: Portal Page Displayed
+      summary: Appcharge Portal Page Displayed webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the portal_page_displayed event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    invalid_property:
+      name: invalid_property
+      title: Invalid Property
+      summary: Appcharge Invalid Property webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the invalid_property event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    webstore_login_canceled:
+      name: webstore_login_canceled
+      title: Webstore Login Canceled
+      summary: Appcharge Webstore Login Canceled webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the webstore_login_canceled event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    webstore_login_completed:
+      name: webstore_login_completed
+      title: Webstore Login Completed
+      summary: Appcharge Webstore Login Completed webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the webstore_login_completed event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    webstore_login_displayed:
+      name: webstore_login_displayed
+      title: Webstore Login Displayed
+      summary: Appcharge Webstore Login Displayed webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the webstore_login_displayed event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    webstore_login_method_selected:
+      name: webstore_login_method_selected
+      title: Webstore Login Method Selected
+      summary: Appcharge Webstore Login Method Selected webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the webstore_login_method_selected event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    webstore_store_displayed:
+      name: webstore_store_displayed
+      title: Webstore Store Displayed
+      summary: Appcharge Webstore Store Displayed webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the webstore_store_displayed event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    approval_request_closed:
+      name: approval_request_closed
+      title: Approval Request Closed
+      summary: Appcharge Approval Request Closed webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the approval_request_closed event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    approval_request_displayed:
+      name: approval_request_displayed
+      title: Approval Request Displayed
+      summary: Appcharge Approval Request Displayed webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the approval_request_displayed event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    offer_popup_closed:
+      name: offer_popup_closed
+      title: Offer Popup Closed
+      summary: Appcharge Offer Popup Closed webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the offer_popup_closed event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    offers_displayed:
+      name: offers_displayed
+      title: Offers Displayed
+      summary: Appcharge Offers Displayed webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the offers_displayed event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    offers_loaded:
+      name: offers_loaded
+      title: Offers Loaded
+      summary: Appcharge Offers Loaded webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the offers_loaded event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    progress_bar_mission_completed:
+      name: progress_bar_mission_completed
+      title: Progress Bar Mission Completed
+      summary: Appcharge Progress Bar Mission Completed webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the progress_bar_mission_completed event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    progress_bar_mission_started:
+      name: progress_bar_mission_started
+      title: Progress Bar Mission Started
+      summary: Appcharge Progress Bar Mission Started webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the progress_bar_mission_started event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    progress_bar_points_granted:
+      name: progress_bar_points_granted
+      title: Progress Bar Points Granted
+      summary: Appcharge Progress Bar Points Granted webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the progress_bar_points_granted event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+    personalization_response_error:
+      name: personalization_response_error
+      title: Personalization Response Error
+      summary: Appcharge Personalization Response Error webhook event.
+      contentType: application/json
+      payload:
+        type: object
+        description: Payload for the personalization_response_error event; fields vary by event type and may be optional.
+        properties:
+          sessionId:
+            type: string
+            description: Player session identifier (present on some events).
+  messageTraits: {}

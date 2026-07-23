@@ -1,0 +1,31 @@
+generated: '2026-07-17'
+method: searched
+source: https://docs.appcharge.com/api-reference/versioning-policy
+description: >-
+  Appcharge's API versioning, deprecation, SLA and status posture.
+versioning:
+  scheme: uri-path
+  current: v2 (offers/events); v3 checkout cancel; v1 legacy still supported
+  docs: https://docs.appcharge.com/api-reference/versioning-policy
+  breaking_change_policy: >-
+    Breaking changes (removing/renaming a property, changing a type, changing an
+    endpoint URL, changing paging) ship as a new API version. Non-breaking
+    changes (adding properties, adding enum members, updating error codes,
+    reordering properties) are made in place.
+deprecation:
+  policy_url: https://docs.appcharge.com/api-reference/versioning-policy
+  notices_url: https://docs.appcharge.com/api-reference/whats-new/deprecation-notices
+  notice_period: 6 months
+  sunset_header: false
+  note: >-
+    6-month deprecation notice before an API version is retired; during the
+    window the old version keeps working. Customer success + engineering assist
+    with migration near end-of-life.
+  announced:
+    - { item: Events V1, replaced_by: Events V2, date: 2026-01-15 }
+    - { item: Offers V1 (Offers/Popups/Rolling Offer), replaced_by: Offers V2, date: 2026-01-15 }
+    - { item: Invalid Property Error event, replaced_by: Personalization Response Error event, date: 2026-03-05 }
+status_page: https://appcharge.instatus.com
+sla:
+  documented: false
+changelog: https://docs.appcharge.com/api-reference/whats-new/release-notes

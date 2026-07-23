@@ -1,0 +1,58 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/appcharge-openapi.yml
+format: appcharge-error-envelope
+envelope:
+  fields:
+    errorCode: integer (type of failure)
+    errorMessage: string (human-readable detail)
+  alternate: "{ message } for auth / blocked-player responses"
+  note: >-
+    Appcharge does not use RFC 9457 application/problem+json; errors return a
+    JSON body with errorCode + errorMessage. See conventions/ for the envelope.
+problems:
+  - status: 400
+    title: Bad Request
+    meaning: Invalid parameters / client error in the request body.
+    occurrences: 36
+  - status: 401
+    title: Unauthorized
+    meaning: Missing or invalid publisher token (x-publisher-token).
+    occurrences: 25
+  - status: 403
+    title: Forbidden
+    meaning: >-
+      Insufficient permissions, or a blocked player (create-checkout-session
+      returns "Blocked player" for players on the dashboard block list).
+    occurrences: 5
+  - status: 404
+    title: Not Found
+    meaning: Referenced resource (asset, badge, content, coupon, offer, price point) does not exist.
+    occurrences: 26
+  - status: 409
+    title: Conflict
+    meaning: >-
+      Resource with the same identity already exists (duplicate coupon name,
+      duplicate promo codes, existing price point, existing slug).
+    occurrences: 7
+  - status: 413
+    title: Payload Too Large
+    meaning: Request payload exceeds the accepted size.
+    occurrences: 1
+  - status: 422
+    title: Unprocessable Entity
+    meaning: Request understood but semantically invalid.
+    occurrences: 1
+  - status: 429
+    title: Too Many Requests
+    meaning: Rate limit exceeded (5,000 requests per minute).
+    occurrences: 1
+    see: rate-limits/appcharge-rate-limits.yml
+  - status: 500
+    title: Internal Server Error
+    meaning: Unexpected server-side error; safe to retry idempotent reads.
+    occurrences: 17
+service_specific:
+  price_localization:
+    docs: https://docs.appcharge.com/api-reference/checkout/price-localization/error-messages
+    note: Price Localization API publishes a dedicated error-messages reference page.

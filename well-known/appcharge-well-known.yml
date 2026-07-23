@@ -1,0 +1,33 @@
+generated: '2026-07-17'
+method: searched
+source: live probes of Appcharge API + docs + MCP hosts
+notes: >-
+  Appcharge exposes RFC 8414 OAuth 2.0 Authorization Server metadata on the API
+  host and RFC 9728 OAuth Protected Resource metadata on the MCP host — these
+  back the hosted MCP server (mcp.appcharge.com) with authorization_code + PKCE
+  (S256) and dynamic client registration, scopes mcp:read / mcp:write. No
+  /.well-known/security.txt is published (the root host returns the SPA shell).
+hosts:
+  - host: https://api.appcharge.com
+    documents:
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        file: appcharge-oauth-authorization-server.json
+      - path: /.well-known/openid-configuration
+        status: 406
+      - path: /.well-known/security.txt
+        status: 406
+  - host: https://mcp.appcharge.com
+    documents:
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        file: appcharge-oauth-protected-resource.json
+  - host: https://appcharge.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        note: returns SPA HTML (Next.js catch-all), not a valid RFC 9116 file — not saved
+  - host: https://docs.appcharge.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
