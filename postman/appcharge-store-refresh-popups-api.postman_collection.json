@@ -1,0 +1,500 @@
+{
+  "info": {
+    "_postman_id": "b684f628-530a-4e56-9f21-89c3212ae442",
+    "name": "Appcharge Assets Store Refresh Popups API",
+    "description": "Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.\n\nContact Support:\n Name: Appcharge Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:03:35.000Z",
+    "updatedAt": "2026-07-28T01:03:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b684f628-530a-4e56-9f21-89c3212ae442"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "offer",
+          "item": [
+            {
+              "name": "{publisherOfferId}",
+              "item": [
+                {
+                  "name": "Update an existing Store Refresh Popup",
+                  "id": "bf24172b-f914-43eb-bceb-68a01e24f866",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "(Required) Publisher token used for authentication.",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"type\": \"PopUp\",\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"subType\": \"StoreRefresh\",\n  \"active\": \"<boolean>\",\n  \"priority\": \"<integer>\",\n  \"offerUiId\": \"<string>\",\n  \"offerExternalUiId\": \"<string>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"productsSequence\": [\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Main\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Main\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"playerAvailability\": \"<number>\",\n      \"hidePlayerAvailability\": false\n    },\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Sub\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Sub\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"playerAvailability\": \"<number>\",\n      \"hidePlayerAvailability\": false\n    }\n  ],\n  \"displayRule\": {\n    \"frequency\": \"<integer>\",\n    \"cooldownInMinutes\": \"<integer>\"\n  },\n  \"schedule\": {\n    \"timeFrames\": [\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      },\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      }\n    ],\n    \"permanent\": \"<boolean>\"\n  },\n  \"productSale\": {\n    \"sale\": \"<integer>\",\n    \"type\": \"percentage\"\n  },\n  \"priceDiscount\": {\n    \"discount\": \"<integer>\",\n    \"type\": \"percentage\"\n  },\n  \"badges\": [\n    {\n      \"publisherBadgeId\": \"<string>\"\n    },\n    {\n      \"publisherBadgeId\": \"<string>\"\n    }\n  ],\n  \"publisherSectionId\": \"<string>\",\n  \"publisherTabId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/offer/:publisherOfferId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "offer",
+                        ":publisherOfferId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "d38f1148-3b72-46dc-87a2-28dd6d551158",
+                          "key": "publisherOfferId",
+                          "value": "<string>",
+                          "description": "(Required) Store Refresh Popup ID. This is the offer's **External ID** value in the Publisher Dashboard."
+                        }
+                      ]
+                    },
+                    "description": "Updates a Store Refresh popup offer."
+                  },
+                  "response": [
+                    {
+                      "id": "4ee22bd4-7a24-44cb-82f5-ba2de3ea5464",
+                      "name": "Store refresh popup updated successfully.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token used for authentication.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"type\": \"PopUp\",\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"subType\": \"StoreRefresh\",\n  \"active\": \"<boolean>\",\n  \"priority\": \"<integer>\",\n  \"offerUiId\": \"<string>\",\n  \"offerExternalUiId\": \"<string>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"productsSequence\": [\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Main\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Main\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"playerAvailability\": \"<number>\",\n      \"hidePlayerAvailability\": false\n    },\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Sub\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Sub\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"playerAvailability\": \"<number>\",\n      \"hidePlayerAvailability\": false\n    }\n  ],\n  \"displayRule\": {\n    \"frequency\": \"<integer>\",\n    \"cooldownInMinutes\": \"<integer>\"\n  },\n  \"schedule\": {\n    \"timeFrames\": [\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      },\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      }\n    ],\n    \"permanent\": \"<boolean>\"\n  },\n  \"productSale\": {\n    \"sale\": \"<integer>\",\n    \"type\": \"percentage\"\n  },\n  \"priceDiscount\": {\n    \"discount\": \"<integer>\",\n    \"type\": \"percentage\"\n  },\n  \"badges\": [\n    {\n      \"publisherBadgeId\": \"<string>\"\n    },\n    {\n      \"publisherBadgeId\": \"<string>\"\n    }\n  ],\n  \"publisherSectionId\": \"<string>\",\n  \"publisherTabId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/offer/:publisherOfferId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "offer",
+                            ":publisherOfferId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "publisherOfferId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"publisherId\": \"<string>\",\n  \"offerId\": \"<string>\",\n  \"publisherOfferId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"type\": \"<string>\",\n  \"subType\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"priority\": \"<integer>\",\n  \"offerUi\": {\n    \"offerUiId\": \"<string>\",\n    \"offerExternalUiId\": \"<string>\",\n    \"active\": \"<boolean>\",\n    \"offerUiType\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n  },\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"productsSequence\": [\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Main\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Main\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"playerAvailability\": \"<number>\",\n      \"hidePlayerAvailability\": false\n    },\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Main\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Main\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"playerAvailability\": \"<number>\",\n      \"hidePlayerAvailability\": false\n    }\n  ],\n  \"displayRule\": {\n    \"frequency\": \"<integer>\",\n    \"cooldownInMinutes\": \"<integer>\"\n  },\n  \"schedule\": {\n    \"timeFrames\": [\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      },\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      }\n    ],\n    \"permanent\": \"<boolean>\"\n  },\n  \"productSale\": {\n    \"sale\": \"<integer>\",\n    \"type\": \"percentage\"\n  },\n  \"priceDiscount\": {\n    \"discount\": \"<integer>\",\n    \"type\": \"percentage\"\n  },\n  \"badges\": [\n    {\n      \"publisherBadgeId\": \"<string>\"\n    },\n    {\n      \"publisherBadgeId\": \"<string>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T01:03:36.000Z",
+                      "updatedAt": "2026-07-28T01:03:36.000Z",
+                      "uid": "35240-4ee22bd4-7a24-44cb-82f5-ba2de3ea5464"
+                    },
+                    {
+                      "id": "ff9153fb-87ad-4ed7-91da-e614bff6a11f",
+                      "name": "Bad request.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token used for authentication.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"type\": \"PopUp\",\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"subType\": \"StoreRefresh\",\n  \"active\": \"<boolean>\",\n  \"priority\": \"<integer>\",\n  \"offerUiId\": \"<string>\",\n  \"offerExternalUiId\": \"<string>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"productsSequence\": [\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Main\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Main\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"playerAvailability\": \"<number>\",\n      \"hidePlayerAvailability\": false\n    },\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Sub\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Sub\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"playerAvailability\": \"<number>\",\n      \"hidePlayerAvailability\": false\n    }\n  ],\n  \"displayRule\": {\n    \"frequency\": \"<integer>\",\n    \"cooldownInMinutes\": \"<integer>\"\n  },\n  \"schedule\": {\n    \"timeFrames\": [\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      },\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      }\n    ],\n    \"permanent\": \"<boolean>\"\n  },\n  \"productSale\": {\n    \"sale\": \"<integer>\",\n    \"type\": \"percentage\"\n  },\n  \"priceDiscount\": {\n    \"discount\": \"<integer>\",\n    \"type\": \"percentage\"\n  },\n  \"badges\": [\n    {\n      \"publisherBadgeId\": \"<string>\"\n    },\n    {\n      \"publisherBadgeId\": \"<string>\"\n    }\n  ],\n  \"publisherSectionId\": \"<string>\",\n  \"publisherTabId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/offer/:publisherOfferId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "offer",
+                            ":publisherOfferId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "publisherOfferId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:03:36.000Z",
+                      "updatedAt": "2026-07-28T01:03:36.000Z",
+                      "uid": "35240-ff9153fb-87ad-4ed7-91da-e614bff6a11f"
+                    },
+                    {
+                      "id": "7f9fadc4-db72-47b8-b639-cd26596b857a",
+                      "name": "Unauthorized.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token used for authentication.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"type\": \"PopUp\",\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"subType\": \"StoreRefresh\",\n  \"active\": \"<boolean>\",\n  \"priority\": \"<integer>\",\n  \"offerUiId\": \"<string>\",\n  \"offerExternalUiId\": \"<string>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"productsSequence\": [\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Main\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Main\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"playerAvailability\": \"<number>\",\n      \"hidePlayerAvailability\": false\n    },\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Sub\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Sub\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"playerAvailability\": \"<number>\",\n      \"hidePlayerAvailability\": false\n    }\n  ],\n  \"displayRule\": {\n    \"frequency\": \"<integer>\",\n    \"cooldownInMinutes\": \"<integer>\"\n  },\n  \"schedule\": {\n    \"timeFrames\": [\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      },\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      }\n    ],\n    \"permanent\": \"<boolean>\"\n  },\n  \"productSale\": {\n    \"sale\": \"<integer>\",\n    \"type\": \"percentage\"\n  },\n  \"priceDiscount\": {\n    \"discount\": \"<integer>\",\n    \"type\": \"percentage\"\n  },\n  \"badges\": [\n    {\n      \"publisherBadgeId\": \"<string>\"\n    },\n    {\n      \"publisherBadgeId\": \"<string>\"\n    }\n  ],\n  \"publisherSectionId\": \"<string>\",\n  \"publisherTabId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/offer/:publisherOfferId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "offer",
+                            ":publisherOfferId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "publisherOfferId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:03:36.000Z",
+                      "updatedAt": "2026-07-28T01:03:36.000Z",
+                      "uid": "35240-7f9fadc4-db72-47b8-b639-cd26596b857a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:03:36.000Z",
+                  "updatedAt": "2026-07-28T01:03:36.000Z",
+                  "uid": "35240-bf24172b-f914-43eb-bceb-68a01e24f866"
+                }
+              ],
+              "id": "2f731db1-6fc4-46d4-a7b2-2253558419e5",
+              "createdAt": "2026-07-28T01:03:36.000Z",
+              "updatedAt": "2026-07-28T01:03:36.000Z",
+              "uid": "35240-2f731db1-6fc4-46d4-a7b2-2253558419e5"
+            },
+            {
+              "name": "Create a new Store Refresh Popup",
+              "id": "0d39d540-9c8a-454b-a1b9-a26d01432c82",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Publisher token used for authentication.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"publisherOfferId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"PopUp\",\n  \"subType\": \"StoreRefresh\",\n  \"active\": \"<boolean>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"productsSequence\": [\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Sub\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Sub\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"playerAvailability\": \"<number>\",\n      \"hidePlayerAvailability\": false\n    },\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Main\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Sub\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"playerAvailability\": \"<number>\",\n      \"hidePlayerAvailability\": false\n    }\n  ],\n  \"priority\": \"<integer>\",\n  \"displayRule\": {\n    \"frequency\": \"<integer>\",\n    \"cooldownInMinutes\": \"<integer>\"\n  },\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"offerUiId\": \"<string>\",\n  \"offerExternalUiId\": \"<string>\",\n  \"schedule\": {\n    \"timeFrames\": [\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      },\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      }\n    ],\n    \"permanent\": \"<boolean>\"\n  },\n  \"productSale\": {\n    \"sale\": \"<integer>\",\n    \"type\": \"percentage\"\n  },\n  \"priceDiscount\": {\n    \"discount\": \"<integer>\",\n    \"type\": \"percentage\"\n  },\n  \"badges\": [\n    {\n      \"publisherBadgeId\": \"<string>\"\n    },\n    {\n      \"publisherBadgeId\": \"<string>\"\n    }\n  ],\n  \"publisherSectionId\": \"<string>\",\n  \"publisherTabId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v2/offer",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "offer"
+                  ]
+                },
+                "description": "Creates a Store Refresh popup offer. Triggered when a player refreshes the web store."
+              },
+              "response": [
+                {
+                  "id": "5405e025-aa7a-4ee7-9b63-5f18d7be1025",
+                  "name": "Store refresh popup created successfully.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Publisher token used for authentication.",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"publisherOfferId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"PopUp\",\n  \"subType\": \"StoreRefresh\",\n  \"active\": \"<boolean>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"productsSequence\": [\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Sub\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Sub\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"playerAvailability\": \"<number>\",\n      \"hidePlayerAvailability\": false\n    },\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Main\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Sub\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"playerAvailability\": \"<number>\",\n      \"hidePlayerAvailability\": false\n    }\n  ],\n  \"priority\": \"<integer>\",\n  \"displayRule\": {\n    \"frequency\": \"<integer>\",\n    \"cooldownInMinutes\": \"<integer>\"\n  },\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"offerUiId\": \"<string>\",\n  \"offerExternalUiId\": \"<string>\",\n  \"schedule\": {\n    \"timeFrames\": [\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      },\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      }\n    ],\n    \"permanent\": \"<boolean>\"\n  },\n  \"productSale\": {\n    \"sale\": \"<integer>\",\n    \"type\": \"percentage\"\n  },\n  \"priceDiscount\": {\n    \"discount\": \"<integer>\",\n    \"type\": \"percentage\"\n  },\n  \"badges\": [\n    {\n      \"publisherBadgeId\": \"<string>\"\n    },\n    {\n      \"publisherBadgeId\": \"<string>\"\n    }\n  ],\n  \"publisherSectionId\": \"<string>\",\n  \"publisherTabId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/offer",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "offer"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"publisherId\": \"<string>\",\n  \"offerId\": \"<string>\",\n  \"publisherOfferId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"type\": \"<string>\",\n  \"subType\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"priority\": \"<integer>\",\n  \"offerUi\": {\n    \"offerUiId\": \"<string>\",\n    \"offerExternalUiId\": \"<string>\",\n    \"active\": \"<boolean>\",\n    \"offerUiType\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n  },\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"productsSequence\": [\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Main\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Main\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"playerAvailability\": \"<number>\",\n      \"hidePlayerAvailability\": false\n    },\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Main\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Main\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"playerAvailability\": \"<number>\",\n      \"hidePlayerAvailability\": false\n    }\n  ],\n  \"displayRule\": {\n    \"frequency\": \"<integer>\",\n    \"cooldownInMinutes\": \"<integer>\"\n  },\n  \"schedule\": {\n    \"timeFrames\": [\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      },\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      }\n    ],\n    \"permanent\": \"<boolean>\"\n  },\n  \"productSale\": {\n    \"sale\": \"<integer>\",\n    \"type\": \"percentage\"\n  },\n  \"priceDiscount\": {\n    \"discount\": \"<integer>\",\n    \"type\": \"percentage\"\n  },\n  \"badges\": [\n    {\n      \"publisherBadgeId\": \"<string>\"\n    },\n    {\n      \"publisherBadgeId\": \"<string>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T01:03:36.000Z",
+                  "updatedAt": "2026-07-28T01:03:36.000Z",
+                  "uid": "35240-5405e025-aa7a-4ee7-9b63-5f18d7be1025"
+                },
+                {
+                  "id": "20ecc1a7-f8b2-4a43-adfb-c09c72f47143",
+                  "name": "Bad request.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Publisher token used for authentication.",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"publisherOfferId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"PopUp\",\n  \"subType\": \"StoreRefresh\",\n  \"active\": \"<boolean>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"productsSequence\": [\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Sub\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Sub\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"playerAvailability\": \"<number>\",\n      \"hidePlayerAvailability\": false\n    },\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Main\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Sub\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"playerAvailability\": \"<number>\",\n      \"hidePlayerAvailability\": false\n    }\n  ],\n  \"priority\": \"<integer>\",\n  \"displayRule\": {\n    \"frequency\": \"<integer>\",\n    \"cooldownInMinutes\": \"<integer>\"\n  },\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"offerUiId\": \"<string>\",\n  \"offerExternalUiId\": \"<string>\",\n  \"schedule\": {\n    \"timeFrames\": [\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      },\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      }\n    ],\n    \"permanent\": \"<boolean>\"\n  },\n  \"productSale\": {\n    \"sale\": \"<integer>\",\n    \"type\": \"percentage\"\n  },\n  \"priceDiscount\": {\n    \"discount\": \"<integer>\",\n    \"type\": \"percentage\"\n  },\n  \"badges\": [\n    {\n      \"publisherBadgeId\": \"<string>\"\n    },\n    {\n      \"publisherBadgeId\": \"<string>\"\n    }\n  ],\n  \"publisherSectionId\": \"<string>\",\n  \"publisherTabId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/offer",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "offer"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:03:36.000Z",
+                  "updatedAt": "2026-07-28T01:03:36.000Z",
+                  "uid": "35240-20ecc1a7-f8b2-4a43-adfb-c09c72f47143"
+                },
+                {
+                  "id": "af42fddf-fcbe-4649-b765-535f5d8c8759",
+                  "name": "Unauthorized.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Publisher token used for authentication.",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"publisherOfferId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"PopUp\",\n  \"subType\": \"StoreRefresh\",\n  \"active\": \"<boolean>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"productsSequence\": [\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Sub\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Sub\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"playerAvailability\": \"<number>\",\n      \"hidePlayerAvailability\": false\n    },\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Main\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"priority\": \"Sub\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"playerAvailability\": \"<number>\",\n      \"hidePlayerAvailability\": false\n    }\n  ],\n  \"priority\": \"<integer>\",\n  \"displayRule\": {\n    \"frequency\": \"<integer>\",\n    \"cooldownInMinutes\": \"<integer>\"\n  },\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"offerUiId\": \"<string>\",\n  \"offerExternalUiId\": \"<string>\",\n  \"schedule\": {\n    \"timeFrames\": [\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      },\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      }\n    ],\n    \"permanent\": \"<boolean>\"\n  },\n  \"productSale\": {\n    \"sale\": \"<integer>\",\n    \"type\": \"percentage\"\n  },\n  \"priceDiscount\": {\n    \"discount\": \"<integer>\",\n    \"type\": \"percentage\"\n  },\n  \"badges\": [\n    {\n      \"publisherBadgeId\": \"<string>\"\n    },\n    {\n      \"publisherBadgeId\": \"<string>\"\n    }\n  ],\n  \"publisherSectionId\": \"<string>\",\n  \"publisherTabId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/offer",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "offer"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:03:36.000Z",
+                  "updatedAt": "2026-07-28T01:03:36.000Z",
+                  "uid": "35240-af42fddf-fcbe-4649-b765-535f5d8c8759"
+                }
+              ],
+              "createdAt": "2026-07-28T01:03:36.000Z",
+              "updatedAt": "2026-07-28T01:03:36.000Z",
+              "uid": "35240-0d39d540-9c8a-454b-a1b9-a26d01432c82"
+            }
+          ],
+          "id": "c1d2ae75-a930-4ed4-a296-6b3dcc4051a7",
+          "createdAt": "2026-07-28T01:03:36.000Z",
+          "updatedAt": "2026-07-28T01:03:36.000Z",
+          "uid": "35240-c1d2ae75-a930-4ed4-a296-6b3dcc4051a7"
+        }
+      ],
+      "id": "342a3e81-87ea-4b4c-b564-fb99d6d81da4",
+      "createdAt": "2026-07-28T01:03:36.000Z",
+      "updatedAt": "2026-07-28T01:03:36.000Z",
+      "uid": "35240-342a3e81-87ea-4b4c-b564-fb99d6d81da4"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.appcharge.com"
+    }
+  ]
+}

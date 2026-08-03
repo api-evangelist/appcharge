@@ -1,0 +1,507 @@
+{
+  "info": {
+    "_postman_id": "02aa91c2-4121-4b39-934a-859ab5552c77",
+    "name": "Appcharge Assets Localization API",
+    "description": "Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.\n\nContact Support:\n Name: Appcharge Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:02:58.000Z",
+    "updatedAt": "2026-07-28T01:02:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-02aa91c2-4121-4b39-934a-859ab5552c77"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "translations",
+          "item": [
+            {
+              "name": "get-translations",
+              "id": "a85d794c-1e68-41e8-93d7-872022a9eba4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v1/translations?locale=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "translations"
+                  ],
+                  "query": [
+                    {
+                      "description": "The locale code. Both ISO-639 language code and ISO-3166 country code formats are supported.",
+                      "key": "locale",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Retrieves a list of all translatable fields and their translations. \n \n Use the `locale` parameter to return translations for a specific locale. If a field doesn't have a translation for the requested locale, the value defaults to English, `en`. \n \n  If no locale is specified, all translations are returned, including the default English values."
+              },
+              "response": [
+                {
+                  "id": "27d433b3-4d17-448f-8bd7-2d222ef51433",
+                  "name": "Translations retrieved successfully.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The publisher token.",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/translations?locale=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "translations"
+                      ],
+                      "query": [
+                        {
+                          "description": "The locale code. Both ISO-639 language code and ISO-3166 country code formats are supported.",
+                          "key": "locale",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"isoCode\": \"<string>\",\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T01:02:59.000Z",
+                  "updatedAt": "2026-07-28T01:02:59.000Z",
+                  "uid": "35240-27d433b3-4d17-448f-8bd7-2d222ef51433"
+                },
+                {
+                  "id": "d0c52d37-a626-489a-9999-b4b2ea1afcfe",
+                  "name": "Invalid request payload.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The publisher token.",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/translations?locale=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "translations"
+                      ],
+                      "query": [
+                        {
+                          "description": "The locale code. Both ISO-639 language code and ISO-3166 country code formats are supported.",
+                          "key": "locale",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:02:59.000Z",
+                  "updatedAt": "2026-07-28T01:02:59.000Z",
+                  "uid": "35240-d0c52d37-a626-489a-9999-b4b2ea1afcfe"
+                },
+                {
+                  "id": "3ee899fe-6646-4481-9184-c70c986680ed",
+                  "name": "Missing or invalid authentication.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The publisher token.",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/translations?locale=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "translations"
+                      ],
+                      "query": [
+                        {
+                          "description": "The locale code. Both ISO-639 language code and ISO-3166 country code formats are supported.",
+                          "key": "locale",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:02:59.000Z",
+                  "updatedAt": "2026-07-28T01:02:59.000Z",
+                  "uid": "35240-3ee899fe-6646-4481-9184-c70c986680ed"
+                },
+                {
+                  "id": "d652f0de-d624-46f8-a131-6cc2f4ca2cd6",
+                  "name": "Insufficient permissions.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The publisher token.",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/translations?locale=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "translations"
+                      ],
+                      "query": [
+                        {
+                          "description": "The locale code. Both ISO-639 language code and ISO-3166 country code formats are supported.",
+                          "key": "locale",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:02:59.000Z",
+                  "updatedAt": "2026-07-28T01:02:59.000Z",
+                  "uid": "35240-d652f0de-d624-46f8-a131-6cc2f4ca2cd6"
+                }
+              ],
+              "createdAt": "2026-07-28T01:02:59.000Z",
+              "updatedAt": "2026-07-28T01:02:59.000Z",
+              "uid": "35240-a85d794c-1e68-41e8-93d7-872022a9eba4"
+            },
+            {
+              "name": "set-translations",
+              "id": "ddb3bb2e-74a6-4fa7-8dd7-c8b03bfa74c9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The publisher token",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isoCode\": \"<string>\",\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v1/translations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "translations"
+                  ]
+                },
+                "description": "Sets translation content for translatable fields. \n \n Use this API to add new translations or update existing ones as needed. \n \n The request payload has a maximum size of 100 KB."
+              },
+              "response": [
+                {
+                  "id": "dfc09951-45ae-4e25-a05b-0dcd349032fa",
+                  "name": "Translations retrieved successfully.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) The publisher token",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"isoCode\": \"<string>\",\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/translations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "translations"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"isoCode\": \"<string>\",\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T01:02:59.000Z",
+                  "updatedAt": "2026-07-28T01:02:59.000Z",
+                  "uid": "35240-dfc09951-45ae-4e25-a05b-0dcd349032fa"
+                },
+                {
+                  "id": "3f719875-753d-43be-8c6a-4eee7365a50d",
+                  "name": "Invalid request payload.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) The publisher token",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"isoCode\": \"<string>\",\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/translations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "translations"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:02:59.000Z",
+                  "updatedAt": "2026-07-28T01:02:59.000Z",
+                  "uid": "35240-3f719875-753d-43be-8c6a-4eee7365a50d"
+                },
+                {
+                  "id": "64fd8ad7-c3a8-4229-adde-35ad4d4f905b",
+                  "name": "Missing or invalid authentication.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) The publisher token",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"isoCode\": \"<string>\",\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/translations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "translations"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:02:59.000Z",
+                  "updatedAt": "2026-07-28T01:02:59.000Z",
+                  "uid": "35240-64fd8ad7-c3a8-4229-adde-35ad4d4f905b"
+                },
+                {
+                  "id": "058477ed-09f8-46db-96a7-764ef3746c02",
+                  "name": "Insufficient permissions.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) The publisher token",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"isoCode\": \"<string>\",\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/translations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "translations"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:02:59.000Z",
+                  "updatedAt": "2026-07-28T01:02:59.000Z",
+                  "uid": "35240-058477ed-09f8-46db-96a7-764ef3746c02"
+                }
+              ],
+              "createdAt": "2026-07-28T01:02:59.000Z",
+              "updatedAt": "2026-07-28T01:02:59.000Z",
+              "uid": "35240-ddb3bb2e-74a6-4fa7-8dd7-c8b03bfa74c9"
+            }
+          ],
+          "id": "be421dbb-2da0-4129-aa95-c4da904a8f25",
+          "createdAt": "2026-07-28T01:02:59.000Z",
+          "updatedAt": "2026-07-28T01:02:59.000Z",
+          "uid": "35240-be421dbb-2da0-4129-aa95-c4da904a8f25"
+        }
+      ],
+      "id": "ab196c04-7507-4293-84ee-c3bf4af31e2d",
+      "createdAt": "2026-07-28T01:02:59.000Z",
+      "updatedAt": "2026-07-28T01:02:59.000Z",
+      "uid": "35240-ab196c04-7507-4293-84ee-c3bf4af31e2d"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.appcharge.com"
+    }
+  ]
+}

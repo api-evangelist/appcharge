@@ -1,0 +1,288 @@
+{
+  "info": {
+    "_postman_id": "0bc99884-71e2-4e23-a756-4a5ad0e0323b",
+    "name": "Appcharge Assets Orders API",
+    "description": "Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.\n\nContact Support:\n Name: Appcharge Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:03:01.000Z",
+    "updatedAt": "2026-07-28T01:03:02.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0bc99884-71e2-4e23-a756-4a5ad0e0323b"
+  },
+  "item": [
+    {
+      "name": "{YOUR_GRANT_AWARD_ENDPOINT}",
+      "item": [
+        {
+          "name": "grant-award",
+          "id": "a126e566-f3b4-49b2-add4-9e317bb05c86",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "description": "Publisher token.",
+                "key": "x-publisher-token",
+                "value": "<string>"
+              },
+              {
+                "description": "[Signature](/../../api-reference/appcharge-publisher-secure-communication).",
+                "key": "signature",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderId\": \"<string>\",\n  \"purchaseId\": \"<string>\",\n  \"appChargePaymentId\": \"<string>\",\n  \"purchaseDateAndTimeUtc\": \"<dateTime>\",\n  \"playerId\": \"<string>\",\n  \"bundleName\": \"<string>\",\n  \"bundleId\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"products\": [\n    {\n      \"amount\": \"<integer>\",\n      \"sku\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"amount\": \"<integer>\",\n      \"sku\": \"<string>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"priceInDollar\": \"<integer>\",\n  \"priceInCents\": \"<integer>\",\n  \"subTotal\": \"<integer>\",\n  \"tax\": \"<integer>\",\n  \"taxRate\": \"<float>\",\n  \"taxInDollar\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"currencyExchangeCost\": \"<float>\",\n  \"action\": \"purchase\",\n  \"actionStatus\": \"completed\",\n  \"originalPriceInDollar\": \"<integer>\",\n  \"paymentPriceInDollar\": \"<integer>\",\n  \"paymentMethod\": \"<string>\",\n  \"countryCode2\": \"<string>\",\n  \"priceTotalInDollar\": \"<integer>\",\n  \"playerEmail\": \"<string>\",\n  \"sessionMetadata\": \"<string>\",\n  \"receiptId\": \"<string>\",\n  \"estimatedPublisherNetAmount\": \"<float>\",\n  \"estimatedAppchargeFee\": \"<float>\",\n  \"pricePointMetadata\": \"<integer>\",\n  \"createdByIp\": \"<string>\",\n  \"zipCode\": \"<string>\",\n  \"awardFlow\": \"manual_retry\",\n  \"promoCodeName\": \"<string>\",\n  \"discount\": \"<float>\",\n  \"discountRatePoints\": \"<number>\",\n  \"storeMetadata\": {\n    \"productsSequenceIndex\": \"<integer>\",\n    \"offerType\": \"SpecialOffer\",\n    \"utms\": {\n      \"utmSource\": \"<string>\",\n      \"utmMedium\": \"<string>\",\n      \"utmCampaign\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/:YOUR_GRANT_AWARD_ENDPOINT",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":YOUR_GRANT_AWARD_ENDPOINT"
+              ],
+              "variable": [
+                {
+                  "id": "20fc5e34-e9ed-4aec-ae8b-8cd68d76b698",
+                  "key": "YOUR_GRANT_AWARD_ENDPOINT"
+                }
+              ]
+            },
+            "description": "<Note> This is a callback API. Appcharge calls this endpoint on your server when specific events occur. </Note> \n\n Notifies your system to grant an award to a customer. \n \n Appcharge calls this endpoint after a customer payment is finalized or when a free offer is collected. \n\n When your server responds with a valid `publisherPurchaseId`, Appcharge redirects the customer to the success page confirming their purchase. \n\n <Warning>Your server must return a valid `publisherPurchaseId` value to confirm the award has been sucessfully granted. If the property is missing or invalid, the award is marked as unsuccessful, and an alert is triggered. </Warning>"
+          },
+          "response": [
+            {
+              "id": "50ce70c8-2833-47d2-8d1f-d9a4102025a3",
+              "name": "Successfully granted award to customer.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "[Signature](/../../api-reference/appcharge-publisher-secure-communication).",
+                    "key": "signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"<string>\",\n  \"purchaseId\": \"<string>\",\n  \"appChargePaymentId\": \"<string>\",\n  \"purchaseDateAndTimeUtc\": \"<dateTime>\",\n  \"playerId\": \"<string>\",\n  \"bundleName\": \"<string>\",\n  \"bundleId\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"products\": [\n    {\n      \"amount\": \"<integer>\",\n      \"sku\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"amount\": \"<integer>\",\n      \"sku\": \"<string>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"priceInDollar\": \"<integer>\",\n  \"priceInCents\": \"<integer>\",\n  \"subTotal\": \"<integer>\",\n  \"tax\": \"<integer>\",\n  \"taxRate\": \"<float>\",\n  \"taxInDollar\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"currencyExchangeCost\": \"<float>\",\n  \"action\": \"purchase\",\n  \"actionStatus\": \"completed\",\n  \"originalPriceInDollar\": \"<integer>\",\n  \"paymentPriceInDollar\": \"<integer>\",\n  \"paymentMethod\": \"<string>\",\n  \"countryCode2\": \"<string>\",\n  \"priceTotalInDollar\": \"<integer>\",\n  \"playerEmail\": \"<string>\",\n  \"sessionMetadata\": \"<string>\",\n  \"receiptId\": \"<string>\",\n  \"estimatedPublisherNetAmount\": \"<float>\",\n  \"estimatedAppchargeFee\": \"<float>\",\n  \"pricePointMetadata\": \"<integer>\",\n  \"createdByIp\": \"<string>\",\n  \"zipCode\": \"<string>\",\n  \"awardFlow\": \"manual_retry\",\n  \"promoCodeName\": \"<string>\",\n  \"discount\": \"<float>\",\n  \"discountRatePoints\": \"<number>\",\n  \"storeMetadata\": {\n    \"productsSequenceIndex\": \"<integer>\",\n    \"offerType\": \"SpecialOffer\",\n    \"utms\": {\n      \"utmSource\": \"<string>\",\n      \"utmMedium\": \"<string>\",\n      \"utmCampaign\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/:YOUR_GRANT_AWARD_ENDPOINT",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":YOUR_GRANT_AWARD_ENDPOINT"
+                  ],
+                  "variable": [
+                    {
+                      "key": "YOUR_GRANT_AWARD_ENDPOINT"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"publisherPurchaseId\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:03:02.000Z",
+              "updatedAt": "2026-07-28T01:03:02.000Z",
+              "uid": "35240-50ce70c8-2833-47d2-8d1f-d9a4102025a3"
+            },
+            {
+              "id": "81202995-7741-475b-a9ad-e9aa4e31ff7b",
+              "name": "Award request failed because of a client error. The response body must include `publisherErrorMessage`.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "[Signature](/../../api-reference/appcharge-publisher-secure-communication).",
+                    "key": "signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"<string>\",\n  \"purchaseId\": \"<string>\",\n  \"appChargePaymentId\": \"<string>\",\n  \"purchaseDateAndTimeUtc\": \"<dateTime>\",\n  \"playerId\": \"<string>\",\n  \"bundleName\": \"<string>\",\n  \"bundleId\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"products\": [\n    {\n      \"amount\": \"<integer>\",\n      \"sku\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"amount\": \"<integer>\",\n      \"sku\": \"<string>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"priceInDollar\": \"<integer>\",\n  \"priceInCents\": \"<integer>\",\n  \"subTotal\": \"<integer>\",\n  \"tax\": \"<integer>\",\n  \"taxRate\": \"<float>\",\n  \"taxInDollar\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"currencyExchangeCost\": \"<float>\",\n  \"action\": \"purchase\",\n  \"actionStatus\": \"completed\",\n  \"originalPriceInDollar\": \"<integer>\",\n  \"paymentPriceInDollar\": \"<integer>\",\n  \"paymentMethod\": \"<string>\",\n  \"countryCode2\": \"<string>\",\n  \"priceTotalInDollar\": \"<integer>\",\n  \"playerEmail\": \"<string>\",\n  \"sessionMetadata\": \"<string>\",\n  \"receiptId\": \"<string>\",\n  \"estimatedPublisherNetAmount\": \"<float>\",\n  \"estimatedAppchargeFee\": \"<float>\",\n  \"pricePointMetadata\": \"<integer>\",\n  \"createdByIp\": \"<string>\",\n  \"zipCode\": \"<string>\",\n  \"awardFlow\": \"manual_retry\",\n  \"promoCodeName\": \"<string>\",\n  \"discount\": \"<float>\",\n  \"discountRatePoints\": \"<number>\",\n  \"storeMetadata\": {\n    \"productsSequenceIndex\": \"<integer>\",\n    \"offerType\": \"SpecialOffer\",\n    \"utms\": {\n      \"utmSource\": \"<string>\",\n      \"utmMedium\": \"<string>\",\n      \"utmCampaign\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/:YOUR_GRANT_AWARD_ENDPOINT",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":YOUR_GRANT_AWARD_ENDPOINT"
+                  ],
+                  "variable": [
+                    {
+                      "key": "YOUR_GRANT_AWARD_ENDPOINT"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"publisherErrorMessage\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:03:02.000Z",
+              "updatedAt": "2026-07-28T01:03:02.000Z",
+              "uid": "35240-81202995-7741-475b-a9ad-e9aa4e31ff7b"
+            },
+            {
+              "id": "bcfb4eb1-3f86-40d8-8fc5-077887f1470a",
+              "name": "Award request failed because of a server error. The response body must include `publisherErrorMessage`.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "[Signature](/../../api-reference/appcharge-publisher-secure-communication).",
+                    "key": "signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"<string>\",\n  \"purchaseId\": \"<string>\",\n  \"appChargePaymentId\": \"<string>\",\n  \"purchaseDateAndTimeUtc\": \"<dateTime>\",\n  \"playerId\": \"<string>\",\n  \"bundleName\": \"<string>\",\n  \"bundleId\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"products\": [\n    {\n      \"amount\": \"<integer>\",\n      \"sku\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"amount\": \"<integer>\",\n      \"sku\": \"<string>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"priceInDollar\": \"<integer>\",\n  \"priceInCents\": \"<integer>\",\n  \"subTotal\": \"<integer>\",\n  \"tax\": \"<integer>\",\n  \"taxRate\": \"<float>\",\n  \"taxInDollar\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"currencyExchangeCost\": \"<float>\",\n  \"action\": \"purchase\",\n  \"actionStatus\": \"completed\",\n  \"originalPriceInDollar\": \"<integer>\",\n  \"paymentPriceInDollar\": \"<integer>\",\n  \"paymentMethod\": \"<string>\",\n  \"countryCode2\": \"<string>\",\n  \"priceTotalInDollar\": \"<integer>\",\n  \"playerEmail\": \"<string>\",\n  \"sessionMetadata\": \"<string>\",\n  \"receiptId\": \"<string>\",\n  \"estimatedPublisherNetAmount\": \"<float>\",\n  \"estimatedAppchargeFee\": \"<float>\",\n  \"pricePointMetadata\": \"<integer>\",\n  \"createdByIp\": \"<string>\",\n  \"zipCode\": \"<string>\",\n  \"awardFlow\": \"manual_retry\",\n  \"promoCodeName\": \"<string>\",\n  \"discount\": \"<float>\",\n  \"discountRatePoints\": \"<number>\",\n  \"storeMetadata\": {\n    \"productsSequenceIndex\": \"<integer>\",\n    \"offerType\": \"SpecialOffer\",\n    \"utms\": {\n      \"utmSource\": \"<string>\",\n      \"utmMedium\": \"<string>\",\n      \"utmCampaign\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/:YOUR_GRANT_AWARD_ENDPOINT",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":YOUR_GRANT_AWARD_ENDPOINT"
+                  ],
+                  "variable": [
+                    {
+                      "key": "YOUR_GRANT_AWARD_ENDPOINT"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"publisherErrorMessage\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:03:02.000Z",
+              "updatedAt": "2026-07-28T01:03:02.000Z",
+              "uid": "35240-bcfb4eb1-3f86-40d8-8fc5-077887f1470a"
+            }
+          ],
+          "createdAt": "2026-07-28T01:03:02.000Z",
+          "updatedAt": "2026-07-28T01:03:02.000Z",
+          "uid": "35240-a126e566-f3b4-49b2-add4-9e317bb05c86"
+        }
+      ],
+      "id": "94614c43-ead5-482d-8330-97f761a5a4a2",
+      "createdAt": "2026-07-28T01:03:02.000Z",
+      "updatedAt": "2026-07-28T01:03:02.000Z",
+      "uid": "35240-94614c43-ead5-482d-8330-97f761a5a4a2"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.appcharge.com"
+    }
+  ]
+}

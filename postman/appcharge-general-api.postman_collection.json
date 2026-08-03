@@ -1,0 +1,2577 @@
+{
+  "info": {
+    "_postman_id": "bd67840c-769c-4d2c-ba87-53a005edd757",
+    "name": "Appcharge Assets General API",
+    "description": "Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.\n\nContact Support:\n Name: Appcharge Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:02:57.000Z",
+    "updatedAt": "2026-07-28T01:02:57.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-bd67840c-769c-4d2c-ba87-53a005edd757"
+  },
+  "item": [
+    {
+      "name": "checkout",
+      "item": [
+        {
+          "name": "v3",
+          "item": [
+            {
+              "name": "cancel",
+              "item": [
+                {
+                  "name": "Cancel Checkout Session",
+                  "id": "cafea420-73ec-40cb-bca0-0653d093d271",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/checkout/v3/cancel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "checkout",
+                        "v3",
+                        "cancel"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "15c1c118-e335-457c-91c4-76742df50450",
+                      "name": "Result.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/checkout/v3/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "checkout",
+                            "v3",
+                            "cancel"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"isOrderCancelled\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T01:02:58.000Z",
+                      "updatedAt": "2026-07-28T01:02:58.000Z",
+                      "uid": "35240-15c1c118-e335-457c-91c4-76742df50450"
+                    },
+                    {
+                      "id": "1f17528f-78f5-4cbb-b25e-1808a615219e",
+                      "name": "Bad request.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/checkout/v3/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "checkout",
+                            "v3",
+                            "cancel"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:02:58.000Z",
+                      "updatedAt": "2026-07-28T01:02:58.000Z",
+                      "uid": "35240-1f17528f-78f5-4cbb-b25e-1808a615219e"
+                    },
+                    {
+                      "id": "4139f9d9-11ca-4df8-ac4b-8836c7db28cb",
+                      "name": "Unauthorized - invalid or missing token.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/checkout/v3/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "checkout",
+                            "v3",
+                            "cancel"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:02:58.000Z",
+                      "updatedAt": "2026-07-28T01:02:58.000Z",
+                      "uid": "35240-4139f9d9-11ca-4df8-ac4b-8836c7db28cb"
+                    },
+                    {
+                      "id": "840a7ddf-57c7-49e4-a085-c0cd6f641121",
+                      "name": "Internal server error.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/checkout/v3/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "checkout",
+                            "v3",
+                            "cancel"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:02:58.000Z",
+                      "updatedAt": "2026-07-28T01:02:58.000Z",
+                      "uid": "35240-840a7ddf-57c7-49e4-a085-c0cd6f641121"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:02:58.000Z",
+                  "updatedAt": "2026-07-28T01:02:58.000Z",
+                  "uid": "35240-cafea420-73ec-40cb-bca0-0653d093d271"
+                }
+              ],
+              "id": "71e9d715-9f4b-4f91-8d3b-04274349eb8d",
+              "createdAt": "2026-07-28T01:02:58.000Z",
+              "updatedAt": "2026-07-28T01:02:58.000Z",
+              "uid": "35240-71e9d715-9f4b-4f91-8d3b-04274349eb8d"
+            }
+          ],
+          "id": "a775cd39-947d-4903-92af-d681da417357",
+          "createdAt": "2026-07-28T01:02:58.000Z",
+          "updatedAt": "2026-07-28T01:02:58.000Z",
+          "uid": "35240-a775cd39-947d-4903-92af-d681da417357"
+        },
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "session",
+              "item": [
+                {
+                  "name": "Create Checkout Session",
+                  "id": "7532a96b-c2a3-46f2-b38d-c39f5d40a1ba",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Your checkout token that will be presented at Appcharge's dashboard under Admin section -> Integration tab -> Publisher token",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"priceDetails\": {\n    \"price\": 1000,\n    \"currency\": \"USD\"\n  },\n  \"offer\": {\n    \"name\": \"<string>\",\n    \"sku\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"pricePointMetadata\": \"<integer>\"\n  },\n  \"customer\": {\n    \"id\": \"<string>\",\n    \"email\": \"<email>\",\n    \"identitySignals\": {\n      \"firstSeenAt\": \"<dateTime>\"\n    }\n  },\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"assetUrl\": \"<uri>\",\n      \"quantityDisplay\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"assetUrl\": \"<uri>\",\n      \"quantityDisplay\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  ],\n  \"countryCode2\": \"<string>\",\n  \"receiptMetadata\": {\n    \"locale\": \"en\"\n  },\n  \"sessionMetadata\": {},\n  \"attributes\": {},\n  \"redirectUrl\": \"<uri>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/checkout/v1/session",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "checkout",
+                        "v1",
+                        "session"
+                      ]
+                    },
+                    "description": "Creates a checkout session."
+                  },
+                  "response": [
+                    {
+                      "id": "e6aad602-ab01-4905-97c8-3e2b4731af47",
+                      "name": "Checkout session created successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Your checkout token that will be presented at Appcharge's dashboard under Admin section -> Integration tab -> Publisher token",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"priceDetails\": {\n    \"price\": 1000,\n    \"currency\": \"USD\"\n  },\n  \"offer\": {\n    \"name\": \"<string>\",\n    \"sku\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"pricePointMetadata\": \"<integer>\"\n  },\n  \"customer\": {\n    \"id\": \"<string>\",\n    \"email\": \"<email>\",\n    \"identitySignals\": {\n      \"firstSeenAt\": \"<dateTime>\"\n    }\n  },\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"assetUrl\": \"<uri>\",\n      \"quantityDisplay\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"assetUrl\": \"<uri>\",\n      \"quantityDisplay\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  ],\n  \"countryCode2\": \"<string>\",\n  \"receiptMetadata\": {\n    \"locale\": \"en\"\n  },\n  \"sessionMetadata\": {},\n  \"attributes\": {},\n  \"redirectUrl\": \"<uri>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/checkout/v1/session",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "checkout",
+                            "v1",
+                            "session"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"checkoutSessionToken\": \"<string>\",\n  \"purchaseId\": \"<string>\",\n  \"url\": \"<string>\",\n  \"parsedUrl\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:02:58.000Z",
+                      "updatedAt": "2026-07-28T01:02:58.000Z",
+                      "uid": "35240-e6aad602-ab01-4905-97c8-3e2b4731af47"
+                    },
+                    {
+                      "id": "7181354a-549c-4a59-9f92-ba45d4ad47d9",
+                      "name": "Invalid input",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Your checkout token that will be presented at Appcharge's dashboard under Admin section -> Integration tab -> Publisher token",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"priceDetails\": {\n    \"price\": 1000,\n    \"currency\": \"USD\"\n  },\n  \"offer\": {\n    \"name\": \"<string>\",\n    \"sku\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"pricePointMetadata\": \"<integer>\"\n  },\n  \"customer\": {\n    \"id\": \"<string>\",\n    \"email\": \"<email>\",\n    \"identitySignals\": {\n      \"firstSeenAt\": \"<dateTime>\"\n    }\n  },\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"assetUrl\": \"<uri>\",\n      \"quantityDisplay\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"assetUrl\": \"<uri>\",\n      \"quantityDisplay\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  ],\n  \"countryCode2\": \"<string>\",\n  \"receiptMetadata\": {\n    \"locale\": \"en\"\n  },\n  \"sessionMetadata\": {},\n  \"attributes\": {},\n  \"redirectUrl\": \"<uri>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/checkout/v1/session",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "checkout",
+                            "v1",
+                            "session"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:02:58.000Z",
+                      "updatedAt": "2026-07-28T01:02:58.000Z",
+                      "uid": "35240-7181354a-549c-4a59-9f92-ba45d4ad47d9"
+                    },
+                    {
+                      "id": "125d97e3-8fd1-412a-9518-71bbd21a2a92",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Your checkout token that will be presented at Appcharge's dashboard under Admin section -> Integration tab -> Publisher token",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"priceDetails\": {\n    \"price\": 1000,\n    \"currency\": \"USD\"\n  },\n  \"offer\": {\n    \"name\": \"<string>\",\n    \"sku\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"pricePointMetadata\": \"<integer>\"\n  },\n  \"customer\": {\n    \"id\": \"<string>\",\n    \"email\": \"<email>\",\n    \"identitySignals\": {\n      \"firstSeenAt\": \"<dateTime>\"\n    }\n  },\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"assetUrl\": \"<uri>\",\n      \"quantityDisplay\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"assetUrl\": \"<uri>\",\n      \"quantityDisplay\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  ],\n  \"countryCode2\": \"<string>\",\n  \"receiptMetadata\": {\n    \"locale\": \"en\"\n  },\n  \"sessionMetadata\": {},\n  \"attributes\": {},\n  \"redirectUrl\": \"<uri>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/checkout/v1/session",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "checkout",
+                            "v1",
+                            "session"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:02:58.000Z",
+                      "updatedAt": "2026-07-28T01:02:58.000Z",
+                      "uid": "35240-125d97e3-8fd1-412a-9518-71bbd21a2a92"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:02:58.000Z",
+                  "updatedAt": "2026-07-28T01:02:58.000Z",
+                  "uid": "35240-7532a96b-c2a3-46f2-b38d-c39f5d40a1ba"
+                }
+              ],
+              "id": "6a4d090a-95a1-4ce5-9d8d-6f89c410ab5d",
+              "createdAt": "2026-07-28T01:02:58.000Z",
+              "updatedAt": "2026-07-28T01:02:58.000Z",
+              "uid": "35240-6a4d090a-95a1-4ce5-9d8d-6f89c410ab5d"
+            }
+          ],
+          "id": "0bfdc509-c8bf-4830-811a-5b1ae0dd226d",
+          "createdAt": "2026-07-28T01:02:58.000Z",
+          "updatedAt": "2026-07-28T01:02:58.000Z",
+          "uid": "35240-0bfdc509-c8bf-4830-811a-5b1ae0dd226d"
+        },
+        {
+          "name": "api",
+          "item": [
+            {
+              "name": "v1",
+              "item": [
+                {
+                  "name": "order",
+                  "item": [
+                    {
+                      "name": "{orderId}",
+                      "item": [
+                        {
+                          "name": "refund",
+                          "item": [
+                            {
+                              "name": "Initiate Refund",
+                              "id": "4464bede-2f47-4fbf-b1b9-5ebd3f5528b7",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "(Required) The publisher token used for authentication.",
+                                    "key": "x-publisher-token",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "description": "(Required) The user ID initiating the refund for the order.",
+                                    "key": "x-user-id",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/checkout/api/v1/order/:orderId/refund",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "checkout",
+                                    "api",
+                                    "v1",
+                                    "order",
+                                    ":orderId",
+                                    "refund"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "21f3315d-634a-48b5-adb0-b87ce04068d0",
+                                      "key": "orderId",
+                                      "value": "<string>",
+                                      "description": "(Required) Order ID to refund."
+                                    }
+                                  ]
+                                },
+                                "description": "Initiates a full refund for a specified order. <br /> <br /> Once the API call is successful, the refund process begins. The result of the refund, whether it succeeds or fails, is communicated asynchronously when the order status updates to\u00a0`Refunded`\u00a0or\u00a0`Refund Failed`. You can track the order status in the **Orders** tab of the Publisher Dashboard. <br /> <br /> If the refund is completed successfully, the total order amount is reimbursed, and the [Order Refunded](../../events/v2/order/order_refunded) event is triggered. <br /> <br /> **Note:** This action is final and can't be undone."
+                              },
+                              "response": [
+                                {
+                                  "id": "b3b79b63-fca4-4efa-aa2e-9061d6e3f737",
+                                  "name": "Refund initiated successfully.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "description": "(Required) The publisher token used for authentication.",
+                                        "key": "x-publisher-token",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "description": "(Required) The user ID initiating the refund for the order.",
+                                        "key": "x-user-id",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/checkout/api/v1/order/:orderId/refund",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "checkout",
+                                        "api",
+                                        "v1",
+                                        "order",
+                                        ":orderId",
+                                        "refund"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "orderId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Created",
+                                  "code": 201,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{}",
+                                  "createdAt": "2026-07-28T01:02:58.000Z",
+                                  "updatedAt": "2026-07-28T01:02:58.000Z",
+                                  "uid": "35240-b3b79b63-fca4-4efa-aa2e-9061d6e3f737"
+                                },
+                                {
+                                  "id": "b7800f64-2f87-4474-8e78-dd7fe55731d4",
+                                  "name": "Forbidden",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "description": "(Required) The publisher token used for authentication.",
+                                        "key": "x-publisher-token",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "description": "(Required) The user ID initiating the refund for the order.",
+                                        "key": "x-user-id",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/checkout/api/v1/order/:orderId/refund",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "checkout",
+                                        "api",
+                                        "v1",
+                                        "order",
+                                        ":orderId",
+                                        "refund"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "orderId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"result\": \"<string>\",\n  \"errCode\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:02:58.000Z",
+                                  "updatedAt": "2026-07-28T01:02:58.000Z",
+                                  "uid": "35240-b7800f64-2f87-4474-8e78-dd7fe55731d4"
+                                },
+                                {
+                                  "id": "9f8dc627-58a3-41a1-9650-77059c971bb3",
+                                  "name": "Not Found",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "description": "(Required) The publisher token used for authentication.",
+                                        "key": "x-publisher-token",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "description": "(Required) The user ID initiating the refund for the order.",
+                                        "key": "x-user-id",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/checkout/api/v1/order/:orderId/refund",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "checkout",
+                                        "api",
+                                        "v1",
+                                        "order",
+                                        ":orderId",
+                                        "refund"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "orderId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:02:58.000Z",
+                                  "updatedAt": "2026-07-28T01:02:58.000Z",
+                                  "uid": "35240-9f8dc627-58a3-41a1-9650-77059c971bb3"
+                                },
+                                {
+                                  "id": "7e91fc3f-56a4-42af-b36e-06dc99f55837",
+                                  "name": "Unprocessable Entity",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "description": "(Required) The publisher token used for authentication.",
+                                        "key": "x-publisher-token",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "description": "(Required) The user ID initiating the refund for the order.",
+                                        "key": "x-user-id",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/checkout/api/v1/order/:orderId/refund",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "checkout",
+                                        "api",
+                                        "v1",
+                                        "order",
+                                        ":orderId",
+                                        "refund"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "orderId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                                  "code": 422,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:02:58.000Z",
+                                  "updatedAt": "2026-07-28T01:02:58.000Z",
+                                  "uid": "35240-7e91fc3f-56a4-42af-b36e-06dc99f55837"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:02:58.000Z",
+                              "updatedAt": "2026-07-28T01:02:58.000Z",
+                              "uid": "35240-4464bede-2f47-4fbf-b1b9-5ebd3f5528b7"
+                            }
+                          ],
+                          "id": "2c35fcf9-51cb-4078-abb8-40425bd4f149",
+                          "createdAt": "2026-07-28T01:02:58.000Z",
+                          "updatedAt": "2026-07-28T01:02:58.000Z",
+                          "uid": "35240-2c35fcf9-51cb-4078-abb8-40425bd4f149"
+                        }
+                      ],
+                      "id": "12e66764-1b34-4a64-a1f2-da56217ea75d",
+                      "createdAt": "2026-07-28T01:02:58.000Z",
+                      "updatedAt": "2026-07-28T01:02:58.000Z",
+                      "uid": "35240-12e66764-1b34-4a64-a1f2-da56217ea75d"
+                    }
+                  ],
+                  "id": "c0a66cdd-5a57-46b0-a980-065d6ced8de3",
+                  "createdAt": "2026-07-28T01:02:58.000Z",
+                  "updatedAt": "2026-07-28T01:02:58.000Z",
+                  "uid": "35240-c0a66cdd-5a57-46b0-a980-065d6ced8de3"
+                }
+              ],
+              "id": "34760673-6f44-405c-94ab-d03b84343367",
+              "createdAt": "2026-07-28T01:02:58.000Z",
+              "updatedAt": "2026-07-28T01:02:58.000Z",
+              "uid": "35240-34760673-6f44-405c-94ab-d03b84343367"
+            }
+          ],
+          "id": "068fbb52-be1c-42f2-bcd7-57b8ce06a89f",
+          "createdAt": "2026-07-28T01:02:58.000Z",
+          "updatedAt": "2026-07-28T01:02:58.000Z",
+          "uid": "35240-068fbb52-be1c-42f2-bcd7-57b8ce06a89f"
+        }
+      ],
+      "id": "6e9afaaf-4047-405a-92f2-1e477fc20751",
+      "createdAt": "2026-07-28T01:02:58.000Z",
+      "updatedAt": "2026-07-28T01:02:58.000Z",
+      "uid": "35240-6e9afaaf-4047-405a-92f2-1e477fc20751"
+    },
+    {
+      "name": "reporting",
+      "item": [
+        {
+          "name": "financial-data",
+          "item": [
+            {
+              "name": "transactions",
+              "item": [
+                {
+                  "name": "Get Transactions",
+                  "id": "835efa86-6a02-42ee-a049-39082a4bb0bd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Publisher token.",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reporting/financial-data/transactions?startDate=<dateTime>&endDate=<dateTime>&limit=10&sortDirection=asc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reporting",
+                        "financial-data",
+                        "transactions"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Start date of the query in [UTC ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.",
+                          "key": "startDate",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "(Required) End date of the query in [UTC ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.",
+                          "key": "endDate",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Maximum number of transactions to return per page. \n\n **Min:** 1 \n **Max:** 10,000",
+                          "key": "limit",
+                          "value": "10"
+                        },
+                        {
+                          "description": "Sort order of the results based on the `timestamp` field.",
+                          "key": "sortDirection",
+                          "value": "asc"
+                        }
+                      ]
+                    },
+                    "description": "Retrieves transaction data for a given time period."
+                  },
+                  "response": [
+                    {
+                      "id": "79f253f9-8dfa-4e2f-b518-7795465cea9c",
+                      "name": "Successfully retrieved transactions.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reporting/financial-data/transactions?startDate=<dateTime>&endDate=<dateTime>&limit=10&sortDirection=asc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reporting",
+                            "financial-data",
+                            "transactions"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Start date of the query in [UTC ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.",
+                              "key": "startDate",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "(Required) End date of the query in [UTC ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.",
+                              "key": "endDate",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Maximum number of transactions to return per page. \n\n **Min:** 1 \n **Max:** 10,000",
+                              "key": "limit",
+                              "value": "10"
+                            },
+                            {
+                              "description": "Sort order of the results based on the `timestamp` field.",
+                              "key": "sortDirection",
+                              "value": "asc"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"totalCount\": \"<integer>\",\n  \"nextCursor\": \"<string>\",\n  \"nextPageQuery\": \"<string>\",\n  \"results\": [\n    {\n      \"orderId\": \"<string>\",\n      \"purchaseId\": \"<string>\",\n      \"publisherTransactionId\": \"<string>\",\n      \"timestamp\": \"<dateTime>\",\n      \"customerDetails\": {\n        \"id\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"geolocation\": {\n        \"countryCode2\": \"<string>\",\n        \"region\": \"<string>\",\n        \"ipAddress\": \"<string>\",\n        \"zipCode\": \"<string>\"\n      },\n      \"offerDetails\": {\n        \"offerId\": \"<string>\",\n        \"offerName\": \"<string>\",\n        \"type\": \"<string>\",\n        \"products\": [\n          {\n            \"name\": \"<string>\",\n            \"sku\": \"<string>\",\n            \"quantity\": \"<number>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"sku\": \"<string>\",\n            \"quantity\": \"<number>\"\n          }\n        ]\n      },\n      \"transactionDetails\": {\n        \"id\": \"<string>\",\n        \"type\": \"refund\",\n        \"amount\": \"<number>\",\n        \"amountUsd\": \"<number>\",\n        \"totalTaxAmount\": \"<number>\",\n        \"totalTaxAmountUsd\": \"<number>\",\n        \"currencyExchangeCostUsd\": \"<number>\",\n        \"chargebackFeeUsd\": \"<number>\",\n        \"transactionFeeUsd\": \"<number>\",\n        \"publisherNetAmountUsd\": \"<number>\",\n        \"currencyCode\": \"<string>\",\n        \"currencySymbol\": \"<string>\",\n        \"paymentMethod\": \"<string>\"\n      }\n    },\n    {\n      \"orderId\": \"<string>\",\n      \"purchaseId\": \"<string>\",\n      \"publisherTransactionId\": \"<string>\",\n      \"timestamp\": \"<dateTime>\",\n      \"customerDetails\": {\n        \"id\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"geolocation\": {\n        \"countryCode2\": \"<string>\",\n        \"region\": \"<string>\",\n        \"ipAddress\": \"<string>\",\n        \"zipCode\": \"<string>\"\n      },\n      \"offerDetails\": {\n        \"offerId\": \"<string>\",\n        \"offerName\": \"<string>\",\n        \"type\": \"<string>\",\n        \"products\": [\n          {\n            \"name\": \"<string>\",\n            \"sku\": \"<string>\",\n            \"quantity\": \"<number>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"sku\": \"<string>\",\n            \"quantity\": \"<number>\"\n          }\n        ]\n      },\n      \"transactionDetails\": {\n        \"id\": \"<string>\",\n        \"type\": \"dispute_funds_reinstated\",\n        \"amount\": \"<number>\",\n        \"amountUsd\": \"<number>\",\n        \"totalTaxAmount\": \"<number>\",\n        \"totalTaxAmountUsd\": \"<number>\",\n        \"currencyExchangeCostUsd\": \"<number>\",\n        \"chargebackFeeUsd\": \"<number>\",\n        \"transactionFeeUsd\": \"<number>\",\n        \"publisherNetAmountUsd\": \"<number>\",\n        \"currencyCode\": \"<string>\",\n        \"currencySymbol\": \"<string>\",\n        \"paymentMethod\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:02:58.000Z",
+                      "updatedAt": "2026-07-28T01:02:58.000Z",
+                      "uid": "35240-79f253f9-8dfa-4e2f-b518-7795465cea9c"
+                    },
+                    {
+                      "id": "4dae8ef3-06fe-4d30-a10e-7175095495f0",
+                      "name": "Bad request - invalid parameters.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reporting/financial-data/transactions?startDate=<dateTime>&endDate=<dateTime>&limit=10&sortDirection=asc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reporting",
+                            "financial-data",
+                            "transactions"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Start date of the query in [UTC ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.",
+                              "key": "startDate",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "(Required) End date of the query in [UTC ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.",
+                              "key": "endDate",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Maximum number of transactions to return per page. \n\n **Min:** 1 \n **Max:** 10,000",
+                              "key": "limit",
+                              "value": "10"
+                            },
+                            {
+                              "description": "Sort order of the results based on the `timestamp` field.",
+                              "key": "sortDirection",
+                              "value": "asc"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"statusCode\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": [\n    {\n      \"validationErrorNumber\": \"<integer>\",\n      \"error\": \"<string>\"\n    },\n    {\n      \"validationErrorNumber\": \"<integer>\",\n      \"error\": \"<string>\"\n    }\n  ],\n  \"requestUrl\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:02:58.000Z",
+                      "updatedAt": "2026-07-28T01:02:58.000Z",
+                      "uid": "35240-4dae8ef3-06fe-4d30-a10e-7175095495f0"
+                    },
+                    {
+                      "id": "ffebc7b3-ae18-4d8e-a022-75fbc5c6cff9",
+                      "name": "Unauthorized - authentication failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reporting/financial-data/transactions?startDate=<dateTime>&endDate=<dateTime>&limit=10&sortDirection=asc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reporting",
+                            "financial-data",
+                            "transactions"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Start date of the query in [UTC ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.",
+                              "key": "startDate",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "(Required) End date of the query in [UTC ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.",
+                              "key": "endDate",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Maximum number of transactions to return per page. \n\n **Min:** 1 \n **Max:** 10,000",
+                              "key": "limit",
+                              "value": "10"
+                            },
+                            {
+                              "description": "Sort order of the results based on the `timestamp` field.",
+                              "key": "sortDirection",
+                              "value": "asc"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"statusCode\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": [\n    {\n      \"validationErrorNumber\": \"<integer>\",\n      \"error\": \"<string>\"\n    },\n    {\n      \"validationErrorNumber\": \"<integer>\",\n      \"error\": \"<string>\"\n    }\n  ],\n  \"requestUrl\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:02:58.000Z",
+                      "updatedAt": "2026-07-28T01:02:58.000Z",
+                      "uid": "35240-ffebc7b3-ae18-4d8e-a022-75fbc5c6cff9"
+                    },
+                    {
+                      "id": "54105b02-c346-4394-9e23-d9f4dab1fb6c",
+                      "name": "Internal server error.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reporting/financial-data/transactions?startDate=<dateTime>&endDate=<dateTime>&limit=10&sortDirection=asc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reporting",
+                            "financial-data",
+                            "transactions"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Start date of the query in [UTC ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.",
+                              "key": "startDate",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "(Required) End date of the query in [UTC ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.",
+                              "key": "endDate",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Maximum number of transactions to return per page. \n\n **Min:** 1 \n **Max:** 10,000",
+                              "key": "limit",
+                              "value": "10"
+                            },
+                            {
+                              "description": "Sort order of the results based on the `timestamp` field.",
+                              "key": "sortDirection",
+                              "value": "asc"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"statusCode\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": [\n    {\n      \"validationErrorNumber\": \"<integer>\",\n      \"error\": \"<string>\"\n    },\n    {\n      \"validationErrorNumber\": \"<integer>\",\n      \"error\": \"<string>\"\n    }\n  ],\n  \"requestUrl\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:02:58.000Z",
+                      "updatedAt": "2026-07-28T01:02:58.000Z",
+                      "uid": "35240-54105b02-c346-4394-9e23-d9f4dab1fb6c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:02:58.000Z",
+                  "updatedAt": "2026-07-28T01:02:58.000Z",
+                  "uid": "35240-835efa86-6a02-42ee-a049-39082a4bb0bd"
+                }
+              ],
+              "id": "cbabf12a-bd00-4b7a-8601-e693e141e2d6",
+              "createdAt": "2026-07-28T01:02:58.000Z",
+              "updatedAt": "2026-07-28T01:02:58.000Z",
+              "uid": "35240-cbabf12a-bd00-4b7a-8601-e693e141e2d6"
+            }
+          ],
+          "id": "f49ece9c-6d2c-4895-9728-4da07148e1b8",
+          "createdAt": "2026-07-28T01:02:58.000Z",
+          "updatedAt": "2026-07-28T01:02:58.000Z",
+          "uid": "35240-f49ece9c-6d2c-4895-9728-4da07148e1b8"
+        }
+      ],
+      "id": "4ee401b1-2d50-47ca-ba0b-c7d4c01f976f",
+      "createdAt": "2026-07-28T01:02:58.000Z",
+      "updatedAt": "2026-07-28T01:02:58.000Z",
+      "uid": "35240-4ee401b1-2d50-47ca-ba0b-c7d4c01f976f"
+    },
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "price-points",
+          "item": [
+            {
+              "name": "{priceInUsdCents}",
+              "item": [
+                {
+                  "name": "Delete a Price Point",
+                  "id": "9705faf2-5f7f-4d66-bba1-bd3487d2e096",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/price-points/:priceInUsdCents",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "price-points",
+                        ":priceInUsdCents"
+                      ],
+                      "variable": [
+                        {
+                          "id": "da5f169a-0502-4246-aab2-670749813056",
+                          "key": "priceInUsdCents",
+                          "value": "<number>",
+                          "description": "(Required) Base price in USD cents."
+                        }
+                      ]
+                    },
+                    "description": "Deletes a specific price point."
+                  },
+                  "response": [
+                    {
+                      "id": "9a9ab11b-80f7-41ad-9015-f273b2dd87a0",
+                      "name": "Price point deleted successfully.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/price-points/:priceInUsdCents",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "price-points",
+                            ":priceInUsdCents"
+                          ],
+                          "variable": [
+                            {
+                              "key": "priceInUsdCents"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"priceInUsdCents\": \"<number>\",\n  \"lastUpdate\": \"<dateTime>\",\n  \"priceByCountry\": [\n    {\n      \"price\": \"<number>\",\n      \"currencyCode\": \"<string>\",\n      \"isOverridden\": \"<boolean>\",\n      \"taxModel\": \"Included\",\n      \"taxRate\": \"<number>\",\n      \"country\": \"<string>\",\n      \"countryCode2\": \"<string>\",\n      \"usdExchangeRateOnCalc\": \"<number>\",\n      \"exchangeRateDrift\": \"<string>\"\n    },\n    {\n      \"price\": \"<number>\",\n      \"currencyCode\": \"<string>\",\n      \"isOverridden\": \"<boolean>\",\n      \"taxModel\": \"Excluded\",\n      \"taxRate\": \"<number>\",\n      \"country\": \"<string>\",\n      \"countryCode2\": \"<string>\",\n      \"usdExchangeRateOnCalc\": \"<number>\",\n      \"exchangeRateDrift\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:02:58.000Z",
+                      "updatedAt": "2026-07-28T01:02:58.000Z",
+                      "uid": "35240-9a9ab11b-80f7-41ad-9015-f273b2dd87a0"
+                    },
+                    {
+                      "id": "4980fb4e-776e-4b5f-9def-9baac66ad3b9",
+                      "name": "Price point not found.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/price-points/:priceInUsdCents",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "price-points",
+                            ":priceInUsdCents"
+                          ],
+                          "variable": [
+                            {
+                              "key": "priceInUsdCents"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:02:58.000Z",
+                      "updatedAt": "2026-07-28T01:02:58.000Z",
+                      "uid": "35240-4980fb4e-776e-4b5f-9def-9baac66ad3b9"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:02:58.000Z",
+                  "updatedAt": "2026-07-28T01:02:58.000Z",
+                  "uid": "35240-9705faf2-5f7f-4d66-bba1-bd3487d2e096"
+                },
+                {
+                  "name": "Get a Price Point",
+                  "id": "b2356404-70af-4b7e-b2e7-acb6e09325ca",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/price-points/:priceInUsdCents",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "price-points",
+                        ":priceInUsdCents"
+                      ],
+                      "variable": [
+                        {
+                          "id": "4de16fe4-6706-4715-84af-c243945f2d2c",
+                          "key": "priceInUsdCents",
+                          "value": "<number>",
+                          "description": "(Required) Base price in USD cents."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a specific price point by its base price in USD cents. The API returns localized prices for this price point."
+                  },
+                  "response": [
+                    {
+                      "id": "8f23472b-41c6-43a4-be24-91c05571504a",
+                      "name": "Price point retrieved successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/price-points/:priceInUsdCents",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "price-points",
+                            ":priceInUsdCents"
+                          ],
+                          "variable": [
+                            {
+                              "key": "priceInUsdCents"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"priceInUsdCents\": \"<number>\",\n  \"lastUpdate\": \"<dateTime>\",\n  \"priceByCountry\": [\n    {\n      \"price\": \"<number>\",\n      \"currencyCode\": \"<string>\",\n      \"isOverridden\": \"<boolean>\",\n      \"taxModel\": \"Included\",\n      \"taxRate\": \"<number>\",\n      \"country\": \"<string>\",\n      \"countryCode2\": \"<string>\",\n      \"usdExchangeRateOnCalc\": \"<number>\",\n      \"exchangeRateDrift\": \"<string>\"\n    },\n    {\n      \"price\": \"<number>\",\n      \"currencyCode\": \"<string>\",\n      \"isOverridden\": \"<boolean>\",\n      \"taxModel\": \"Excluded\",\n      \"taxRate\": \"<number>\",\n      \"country\": \"<string>\",\n      \"countryCode2\": \"<string>\",\n      \"usdExchangeRateOnCalc\": \"<number>\",\n      \"exchangeRateDrift\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:02:58.000Z",
+                      "updatedAt": "2026-07-28T01:02:58.000Z",
+                      "uid": "35240-8f23472b-41c6-43a4-be24-91c05571504a"
+                    },
+                    {
+                      "id": "2504de57-734c-4399-9293-bb4cd83d8415",
+                      "name": "Price point not found.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/price-points/:priceInUsdCents",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "price-points",
+                            ":priceInUsdCents"
+                          ],
+                          "variable": [
+                            {
+                              "key": "priceInUsdCents"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:02:58.000Z",
+                      "updatedAt": "2026-07-28T01:02:58.000Z",
+                      "uid": "35240-2504de57-734c-4399-9293-bb4cd83d8415"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:02:58.000Z",
+                  "updatedAt": "2026-07-28T01:02:58.000Z",
+                  "uid": "35240-b2356404-70af-4b7e-b2e7-acb6e09325ca"
+                },
+                {
+                  "name": "Update a Price Point",
+                  "id": "0c703f82-6016-4b6f-a740-99fa24daf8e7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"updatedPriceInUsdCents\": \"<number>\",\n  \"priceOverrides\": [\n    {\n      \"countryCode2\": \"<string>\",\n      \"price\": \"<number>\"\n    },\n    {\n      \"countryCode2\": \"<string>\",\n      \"price\": \"<number>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/price-points/:priceInUsdCents",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "price-points",
+                        ":priceInUsdCents"
+                      ],
+                      "variable": [
+                        {
+                          "id": "d6f5a969-3948-49e8-ae39-8797ebd1bf97",
+                          "key": "priceInUsdCents",
+                          "value": "<number>",
+                          "description": "(Required) Base price in USD cents."
+                        }
+                      ]
+                    },
+                    "description": "Updates a price point.\n\nWhen a price point is updated, Appcharge recalculates all localized prices. If both `priceInUsdCents` and `priceOverrides` are provided in the same request, Appcharge first recalculates localized prices from the updated base price and then applies the override values."
+                  },
+                  "response": [
+                    {
+                      "id": "f7bef0f6-5e94-4546-b0cb-8ba155eeffdb",
+                      "name": "Price point updated successfully.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"updatedPriceInUsdCents\": \"<number>\",\n  \"priceOverrides\": [\n    {\n      \"countryCode2\": \"<string>\",\n      \"price\": \"<number>\"\n    },\n    {\n      \"countryCode2\": \"<string>\",\n      \"price\": \"<number>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/price-points/:priceInUsdCents",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "price-points",
+                            ":priceInUsdCents"
+                          ],
+                          "variable": [
+                            {
+                              "key": "priceInUsdCents"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"priceInUsdCents\": \"<number>\",\n  \"lastUpdate\": \"<dateTime>\",\n  \"priceByCountry\": [\n    {\n      \"price\": \"<number>\",\n      \"currencyCode\": \"<string>\",\n      \"isOverridden\": \"<boolean>\",\n      \"taxModel\": \"Included\",\n      \"taxRate\": \"<number>\",\n      \"country\": \"<string>\",\n      \"countryCode2\": \"<string>\",\n      \"usdExchangeRateOnCalc\": \"<number>\",\n      \"exchangeRateDrift\": \"<string>\"\n    },\n    {\n      \"price\": \"<number>\",\n      \"currencyCode\": \"<string>\",\n      \"isOverridden\": \"<boolean>\",\n      \"taxModel\": \"Excluded\",\n      \"taxRate\": \"<number>\",\n      \"country\": \"<string>\",\n      \"countryCode2\": \"<string>\",\n      \"usdExchangeRateOnCalc\": \"<number>\",\n      \"exchangeRateDrift\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:02:58.000Z",
+                      "updatedAt": "2026-07-28T01:02:58.000Z",
+                      "uid": "35240-f7bef0f6-5e94-4546-b0cb-8ba155eeffdb"
+                    },
+                    {
+                      "id": "7d59a300-4e3a-4f02-a8cd-7f38e48e453f",
+                      "name": "Bad request. This can occur due to a schema validation error or an invalid country code.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"updatedPriceInUsdCents\": \"<number>\",\n  \"priceOverrides\": [\n    {\n      \"countryCode2\": \"<string>\",\n      \"price\": \"<number>\"\n    },\n    {\n      \"countryCode2\": \"<string>\",\n      \"price\": \"<number>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/price-points/:priceInUsdCents",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "price-points",
+                            ":priceInUsdCents"
+                          ],
+                          "variable": [
+                            {
+                              "key": "priceInUsdCents"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:02:58.000Z",
+                      "updatedAt": "2026-07-28T01:02:58.000Z",
+                      "uid": "35240-7d59a300-4e3a-4f02-a8cd-7f38e48e453f"
+                    },
+                    {
+                      "id": "d6c62b6e-b028-48fa-94c9-e5401a474513",
+                      "name": "Price point not found.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"updatedPriceInUsdCents\": \"<number>\",\n  \"priceOverrides\": [\n    {\n      \"countryCode2\": \"<string>\",\n      \"price\": \"<number>\"\n    },\n    {\n      \"countryCode2\": \"<string>\",\n      \"price\": \"<number>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/price-points/:priceInUsdCents",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "price-points",
+                            ":priceInUsdCents"
+                          ],
+                          "variable": [
+                            {
+                              "key": "priceInUsdCents"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:02:58.000Z",
+                      "updatedAt": "2026-07-28T01:02:58.000Z",
+                      "uid": "35240-d6c62b6e-b028-48fa-94c9-e5401a474513"
+                    },
+                    {
+                      "id": "36bc6172-7f7b-4446-922a-a65c8923fb92",
+                      "name": "Conflict. The price point already exists.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"updatedPriceInUsdCents\": \"<number>\",\n  \"priceOverrides\": [\n    {\n      \"countryCode2\": \"<string>\",\n      \"price\": \"<number>\"\n    },\n    {\n      \"countryCode2\": \"<string>\",\n      \"price\": \"<number>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/price-points/:priceInUsdCents",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "price-points",
+                            ":priceInUsdCents"
+                          ],
+                          "variable": [
+                            {
+                              "key": "priceInUsdCents"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:02:58.000Z",
+                      "updatedAt": "2026-07-28T01:02:58.000Z",
+                      "uid": "35240-36bc6172-7f7b-4446-922a-a65c8923fb92"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:02:58.000Z",
+                  "updatedAt": "2026-07-28T01:02:58.000Z",
+                  "uid": "35240-0c703f82-6016-4b6f-a740-99fa24daf8e7"
+                }
+              ],
+              "id": "ad06ca9a-7424-411f-9745-c8e627cebfce",
+              "createdAt": "2026-07-28T01:02:58.000Z",
+              "updatedAt": "2026-07-28T01:02:58.000Z",
+              "uid": "35240-ad06ca9a-7424-411f-9745-c8e627cebfce"
+            },
+            {
+              "name": "localized",
+              "item": [
+                {
+                  "name": "lookup",
+                  "item": [
+                    {
+                      "name": "Get Price Points for a Country",
+                      "id": "b69c96cc-8caf-402a-b19e-8d49095353ad",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"pricesInUsdCents\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"countryCode2\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/price-points/localized/lookup",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "price-points",
+                            "localized",
+                            "lookup"
+                          ]
+                        },
+                        "description": "Retrieves price points localized for a specific country.\n\nPass price points in USD cents and a country code. The API returns each requested price point with its localized price in the currency for that country."
+                      },
+                      "response": [
+                        {
+                          "id": "e42ca8f6-aadf-4ba1-be5c-9f19fc5dfb19",
+                          "name": "Localized price points retrieved successfully.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"pricesInUsdCents\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"countryCode2\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/price-points/localized/lookup",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "price-points",
+                                "localized",
+                                "lookup"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"currencyCode\": \"<string>\",\n  \"pricePoints\": {\n    \"pariatur_56\": {\n      \"price\": \"<integer>\",\n      \"displayPrice\": \"<string>\"\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T01:02:58.000Z",
+                          "updatedAt": "2026-07-28T01:02:58.000Z",
+                          "uid": "35240-e42ca8f6-aadf-4ba1-be5c-9f19fc5dfb19"
+                        },
+                        {
+                          "id": "40a7edd1-1e11-412d-bf3a-44397c77594d",
+                          "name": "Bad request. All errors return a `message` property.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"pricesInUsdCents\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"countryCode2\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/price-points/localized/lookup",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "price-points",
+                                "localized",
+                                "lookup"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:02:58.000Z",
+                          "updatedAt": "2026-07-28T01:02:58.000Z",
+                          "uid": "35240-40a7edd1-1e11-412d-bf3a-44397c77594d"
+                        },
+                        {
+                          "id": "011e12f5-9578-4c9c-869a-d613372d0d55",
+                          "name": "Unauthorized.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"pricesInUsdCents\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"countryCode2\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/price-points/localized/lookup",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "price-points",
+                                "localized",
+                                "lookup"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:02:58.000Z",
+                          "updatedAt": "2026-07-28T01:02:58.000Z",
+                          "uid": "35240-011e12f5-9578-4c9c-869a-d613372d0d55"
+                        },
+                        {
+                          "id": "caf8260b-69f0-4b84-b027-ca4a99ba23da",
+                          "name": "Too many requests. The rate limit is 5,000 requests per minute.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"pricesInUsdCents\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"countryCode2\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/price-points/localized/lookup",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "price-points",
+                                "localized",
+                                "lookup"
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:02:58.000Z",
+                          "updatedAt": "2026-07-28T01:02:58.000Z",
+                          "uid": "35240-caf8260b-69f0-4b84-b027-ca4a99ba23da"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:02:58.000Z",
+                      "updatedAt": "2026-07-28T01:02:58.000Z",
+                      "uid": "35240-b69c96cc-8caf-402a-b19e-8d49095353ad"
+                    }
+                  ],
+                  "id": "bbf63d17-92f5-4481-9acd-52a01e043463",
+                  "createdAt": "2026-07-28T01:02:58.000Z",
+                  "updatedAt": "2026-07-28T01:02:58.000Z",
+                  "uid": "35240-bbf63d17-92f5-4481-9acd-52a01e043463"
+                }
+              ],
+              "id": "358644e8-338e-49e7-b7a5-73731178f6af",
+              "createdAt": "2026-07-28T01:02:58.000Z",
+              "updatedAt": "2026-07-28T01:02:58.000Z",
+              "uid": "35240-358644e8-338e-49e7-b7a5-73731178f6af"
+            },
+            {
+              "name": "Create a Price Point",
+              "id": "36cd9f09-6d83-427e-9a81-e01c870976ab",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"priceInUsdCents\": \"<number>\",\n  \"priceOverrides\": [\n    {\n      \"countryCode2\": \"<string>\",\n      \"price\": \"<number>\"\n    },\n    {\n      \"countryCode2\": \"<string>\",\n      \"price\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v1/price-points",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "price-points"
+                  ]
+                },
+                "description": "Creates a price point.\n\nWhen you pass the base price in USD, the API returns localized prices for this price point in all currencies supported by Appcharge. Learn more about [how localized prices are calculated](./introduction#how-localized-prices-are-calculated).\n\nTo override automatically calculated prices for specific countries, pass the `priceOverrides` property with the relevant country codes and your custom prices."
+              },
+              "response": [
+                {
+                  "id": "3cee4923-3986-4fb9-8421-836f48d1b308",
+                  "name": "Price point created successfully.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"priceInUsdCents\": \"<number>\",\n  \"priceOverrides\": [\n    {\n      \"countryCode2\": \"<string>\",\n      \"price\": \"<number>\"\n    },\n    {\n      \"countryCode2\": \"<string>\",\n      \"price\": \"<number>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/price-points",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "price-points"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"priceInUsdCents\": \"<number>\",\n  \"lastUpdate\": \"<dateTime>\",\n  \"priceByCountry\": [\n    {\n      \"price\": \"<number>\",\n      \"currencyCode\": \"<string>\",\n      \"isOverridden\": \"<boolean>\",\n      \"taxModel\": \"Included\",\n      \"taxRate\": \"<number>\",\n      \"country\": \"<string>\",\n      \"countryCode2\": \"<string>\",\n      \"usdExchangeRateOnCalc\": \"<number>\",\n      \"exchangeRateDrift\": \"<string>\"\n    },\n    {\n      \"price\": \"<number>\",\n      \"currencyCode\": \"<string>\",\n      \"isOverridden\": \"<boolean>\",\n      \"taxModel\": \"Excluded\",\n      \"taxRate\": \"<number>\",\n      \"country\": \"<string>\",\n      \"countryCode2\": \"<string>\",\n      \"usdExchangeRateOnCalc\": \"<number>\",\n      \"exchangeRateDrift\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:02:58.000Z",
+                  "updatedAt": "2026-07-28T01:02:58.000Z",
+                  "uid": "35240-3cee4923-3986-4fb9-8421-836f48d1b308"
+                },
+                {
+                  "id": "6dee6a09-e286-491e-b72f-981246b0bbc6",
+                  "name": "Bad request. This can occur due to a schema validation error or an invalid country code.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"priceInUsdCents\": \"<number>\",\n  \"priceOverrides\": [\n    {\n      \"countryCode2\": \"<string>\",\n      \"price\": \"<number>\"\n    },\n    {\n      \"countryCode2\": \"<string>\",\n      \"price\": \"<number>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/price-points",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "price-points"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:02:58.000Z",
+                  "updatedAt": "2026-07-28T01:02:58.000Z",
+                  "uid": "35240-6dee6a09-e286-491e-b72f-981246b0bbc6"
+                },
+                {
+                  "id": "868e99c3-6733-4606-936d-34b1d81eee92",
+                  "name": "Conflict. The price point already exists.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"priceInUsdCents\": \"<number>\",\n  \"priceOverrides\": [\n    {\n      \"countryCode2\": \"<string>\",\n      \"price\": \"<number>\"\n    },\n    {\n      \"countryCode2\": \"<string>\",\n      \"price\": \"<number>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/price-points",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "price-points"
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:02:58.000Z",
+                  "updatedAt": "2026-07-28T01:02:58.000Z",
+                  "uid": "35240-868e99c3-6733-4606-936d-34b1d81eee92"
+                }
+              ],
+              "createdAt": "2026-07-28T01:02:58.000Z",
+              "updatedAt": "2026-07-28T01:02:58.000Z",
+              "uid": "35240-36cd9f09-6d83-427e-9a81-e01c870976ab"
+            },
+            {
+              "name": "Get all Price Points",
+              "id": "59f3c07e-2faf-4421-b899-861c7bff8317",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v1/price-points",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "price-points"
+                  ]
+                },
+                "description": "Retrieves a list of all price points in USD cents."
+              },
+              "response": [
+                {
+                  "id": "ddd0c1d5-f4e3-4e22-b0cc-38226ab6e954",
+                  "name": "Price points retrieved successfully.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/price-points",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "price-points"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"pricePoints\": [\n    {\n      \"priceInUsdCents\": \"<number>\",\n      \"lastUpdate\": \"<dateTime>\"\n    },\n    {\n      \"priceInUsdCents\": \"<number>\",\n      \"lastUpdate\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:02:58.000Z",
+                  "updatedAt": "2026-07-28T01:02:58.000Z",
+                  "uid": "35240-ddd0c1d5-f4e3-4e22-b0cc-38226ab6e954"
+                }
+              ],
+              "createdAt": "2026-07-28T01:02:58.000Z",
+              "updatedAt": "2026-07-28T01:02:58.000Z",
+              "uid": "35240-59f3c07e-2faf-4421-b899-861c7bff8317"
+            }
+          ],
+          "id": "dfaa5383-0ff1-4fbd-85ca-664868c98e75",
+          "createdAt": "2026-07-28T01:02:58.000Z",
+          "updatedAt": "2026-07-28T01:02:58.000Z",
+          "uid": "35240-dfaa5383-0ff1-4fbd-85ca-664868c98e75"
+        }
+      ],
+      "id": "8fcc0870-6659-491d-887a-73ce843513c3",
+      "createdAt": "2026-07-28T01:02:58.000Z",
+      "updatedAt": "2026-07-28T01:02:58.000Z",
+      "uid": "35240-8fcc0870-6659-491d-887a-73ce843513c3"
+    },
+    {
+      "name": "refresh-specific-active-players",
+      "item": [
+        {
+          "name": "Triggers the Personalization API",
+          "id": "4f1d2a1e-7379-4a3b-88d5-0dc159f6dd9b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "description": "(Required) Publisher token.",
+                "key": "x-publisher-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"playerIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/refresh-specific-active-players",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "refresh-specific-active-players"
+              ]
+            },
+            "description": "Triggers the [Personalize Web Store Callback](./personalize-webstore-callback) by player ID."
+          },
+          "response": [
+            {
+              "id": "b72b2926-2bf9-4b97-890a-dd949021770e",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"playerIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/refresh-specific-active-players",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "refresh-specific-active-players"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:02:58.000Z",
+              "updatedAt": "2026-07-28T01:02:58.000Z",
+              "uid": "35240-b72b2926-2bf9-4b97-890a-dd949021770e"
+            },
+            {
+              "id": "fdbfc215-47d0-49b1-b56a-e0d25180fb64",
+              "name": "Bad Request.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"playerIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/refresh-specific-active-players",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "refresh-specific-active-players"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"requestUrl\": \"<string>\",\n  \"body\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:02:58.000Z",
+              "updatedAt": "2026-07-28T01:02:58.000Z",
+              "uid": "35240-fdbfc215-47d0-49b1-b56a-e0d25180fb64"
+            }
+          ],
+          "createdAt": "2026-07-28T01:02:58.000Z",
+          "updatedAt": "2026-07-28T01:02:58.000Z",
+          "uid": "35240-4f1d2a1e-7379-4a3b-88d5-0dc159f6dd9b"
+        }
+      ],
+      "id": "591e470e-aa64-45b9-abc9-966a30e1381e",
+      "createdAt": "2026-07-28T01:02:58.000Z",
+      "updatedAt": "2026-07-28T01:02:58.000Z",
+      "uid": "35240-591e470e-aa64-45b9-abc9-966a30e1381e"
+    },
+    {
+      "name": "refresh-active-players",
+      "item": [
+        {
+          "name": "Triggers the Personalization API",
+          "id": "99d623f0-4553-4f63-adda-35a520d3362f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "description": "(Required) Publisher token.",
+                "key": "x-publisher-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/refresh-active-players",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "refresh-active-players"
+              ]
+            },
+            "description": "Triggers the [Personalize Web Store Callback](./personalize-webstore-callback) for all players. \n\n When refreshing data for all active players, Appcharge identifies everyone currently browsing the web store, and updates their store view in real time."
+          },
+          "response": [
+            {
+              "id": "9de6ba4d-7786-455d-bcec-8b94b335a395",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/refresh-active-players",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "refresh-active-players"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:02:58.000Z",
+              "updatedAt": "2026-07-28T01:02:58.000Z",
+              "uid": "35240-9de6ba4d-7786-455d-bcec-8b94b335a395"
+            },
+            {
+              "id": "fb491be3-0208-497e-98d1-a9d87a69e4d1",
+              "name": "Bad request. Missing or invalid parameters.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/refresh-active-players",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "refresh-active-players"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:02:58.000Z",
+              "updatedAt": "2026-07-28T01:02:58.000Z",
+              "uid": "35240-fb491be3-0208-497e-98d1-a9d87a69e4d1"
+            },
+            {
+              "id": "ce0d2a6d-a87b-4156-a7d3-5faa2eee911c",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/refresh-active-players",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "refresh-active-players"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:02:58.000Z",
+              "updatedAt": "2026-07-28T01:02:58.000Z",
+              "uid": "35240-ce0d2a6d-a87b-4156-a7d3-5faa2eee911c"
+            }
+          ],
+          "createdAt": "2026-07-28T01:02:58.000Z",
+          "updatedAt": "2026-07-28T01:02:58.000Z",
+          "uid": "35240-99d623f0-4553-4f63-adda-35a520d3362f"
+        }
+      ],
+      "id": "38575940-2889-46e0-9d4b-1b6a31329e6e",
+      "createdAt": "2026-07-28T01:02:58.000Z",
+      "updatedAt": "2026-07-28T01:02:58.000Z",
+      "uid": "35240-38575940-2889-46e0-9d4b-1b6a31329e6e"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.appcharge.com"
+    }
+  ]
+}

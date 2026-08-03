@@ -1,0 +1,731 @@
+{
+  "info": {
+    "_postman_id": "894e93cb-1556-4029-8709-6f5c3a4061f6",
+    "name": "Appcharge Assets Badges API",
+    "description": "Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.\n\nContact Support:\n Name: Appcharge Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:02:55.000Z",
+    "updatedAt": "2026-07-28T01:02:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-894e93cb-1556-4029-8709-6f5c3a4061f6"
+  },
+  "item": [
+    {
+      "name": "components",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "badge",
+              "item": [
+                {
+                  "name": "{externalId}",
+                  "item": [
+                    {
+                      "name": "delete Components V1Badge Externalid",
+                      "id": "0ad81be6-f29a-4386-81f0-e77f46254b58",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/components/v1/badge/:externalId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "components",
+                            "v1",
+                            "badge",
+                            ":externalId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "6e5df365-6cfe-46aa-856b-a8c2479a83a8",
+                              "key": "externalId",
+                              "value": "<string>",
+                              "description": "(Required) External ID that you defined."
+                            }
+                          ]
+                        },
+                        "description": "Deletes a badge."
+                      },
+                      "response": [
+                        {
+                          "id": "7350c8aa-f4e2-439b-b2b1-fee290a51549",
+                          "name": "Badge deleted successfully.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/components/v1/badge/:externalId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "components",
+                                "v1",
+                                "badge",
+                                ":externalId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "externalId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"publisherBadgeId\": \"<string>\",\n  \"type\": \"emblem\",\n  \"badgeImageUrl\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:02:55.000Z",
+                          "updatedAt": "2026-07-28T01:02:55.000Z",
+                          "uid": "35240-7350c8aa-f4e2-439b-b2b1-fee290a51549"
+                        },
+                        {
+                          "id": "40af7ce7-8948-4690-8e63-595aa5d21551",
+                          "name": "Badge not found.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/components/v1/badge/:externalId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "components",
+                                "v1",
+                                "badge",
+                                ":externalId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "externalId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:02:55.000Z",
+                          "updatedAt": "2026-07-28T01:02:55.000Z",
+                          "uid": "35240-40af7ce7-8948-4690-8e63-595aa5d21551"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:02:55.000Z",
+                      "updatedAt": "2026-07-28T01:02:55.000Z",
+                      "uid": "35240-0ad81be6-f29a-4386-81f0-e77f46254b58"
+                    },
+                    {
+                      "name": "get Components V1Badge Externalid",
+                      "id": "56541e21-ff05-48a6-8fac-f58a360cde0c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/components/v1/badge/:externalId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "components",
+                            "v1",
+                            "badge",
+                            ":externalId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "9b4c2658-9261-40b5-90fd-351f966d0dcd",
+                              "key": "externalId",
+                              "value": "<string>",
+                              "description": "(Required) External ID that you defined."
+                            }
+                          ]
+                        },
+                        "description": "Retrieves a specific badge."
+                      },
+                      "response": [
+                        {
+                          "id": "f8f4d07c-96e2-476c-86a6-03f1b7d87376",
+                          "name": "Badge details retrieved successfully.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/components/v1/badge/:externalId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "components",
+                                "v1",
+                                "badge",
+                                ":externalId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "externalId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"publisherBadgeId\": \"<string>\",\n  \"type\": \"emblem\",\n  \"badgeImageUrl\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:02:55.000Z",
+                          "updatedAt": "2026-07-28T01:02:55.000Z",
+                          "uid": "35240-f8f4d07c-96e2-476c-86a6-03f1b7d87376"
+                        },
+                        {
+                          "id": "a08e6556-9108-4b5f-bc5d-6926f378481b",
+                          "name": "Badge not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/components/v1/badge/:externalId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "components",
+                                "v1",
+                                "badge",
+                                ":externalId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "externalId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:02:55.000Z",
+                          "updatedAt": "2026-07-28T01:02:55.000Z",
+                          "uid": "35240-a08e6556-9108-4b5f-bc5d-6926f378481b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:02:55.000Z",
+                      "updatedAt": "2026-07-28T01:02:55.000Z",
+                      "uid": "35240-56541e21-ff05-48a6-8fac-f58a360cde0c"
+                    },
+                    {
+                      "name": "put Components V1Badge Externalid",
+                      "id": "fce14f80-ca60-4b26-917a-0a468e5c0fc0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"publisherBadgeId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"badgeImageUrl\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/components/v1/badge/:externalId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "components",
+                            "v1",
+                            "badge",
+                            ":externalId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "8477ae5d-6202-4ab5-a23c-fe5ad9a80333",
+                              "key": "externalId",
+                              "value": "<string>",
+                              "description": "(Required) External ID that you defined."
+                            }
+                          ]
+                        },
+                        "description": "Updates a badge."
+                      },
+                      "response": [
+                        {
+                          "id": "157f51f3-0181-4ee0-a00a-7dda3a404645",
+                          "name": "Badge updated successfully.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"publisherBadgeId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"badgeImageUrl\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/components/v1/badge/:externalId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "components",
+                                "v1",
+                                "badge",
+                                ":externalId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "externalId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"publisherBadgeId\": \"<string>\",\n  \"type\": \"emblem\",\n  \"badgeImageUrl\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:02:55.000Z",
+                          "updatedAt": "2026-07-28T01:02:55.000Z",
+                          "uid": "35240-157f51f3-0181-4ee0-a00a-7dda3a404645"
+                        },
+                        {
+                          "id": "73ec1dfa-8858-408f-896c-fd9b7adcea46",
+                          "name": "Bad request. Invalid input or validation failure.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"publisherBadgeId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"badgeImageUrl\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/components/v1/badge/:externalId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "components",
+                                "v1",
+                                "badge",
+                                ":externalId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "externalId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:02:55.000Z",
+                          "updatedAt": "2026-07-28T01:02:55.000Z",
+                          "uid": "35240-73ec1dfa-8858-408f-896c-fd9b7adcea46"
+                        },
+                        {
+                          "id": "4b3d398c-4e52-4b80-8870-0b9d47d9f203",
+                          "name": "Badge not found.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"publisherBadgeId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"badgeImageUrl\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/components/v1/badge/:externalId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "components",
+                                "v1",
+                                "badge",
+                                ":externalId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "externalId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:02:55.000Z",
+                          "updatedAt": "2026-07-28T01:02:55.000Z",
+                          "uid": "35240-4b3d398c-4e52-4b80-8870-0b9d47d9f203"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:02:55.000Z",
+                      "updatedAt": "2026-07-28T01:02:55.000Z",
+                      "uid": "35240-fce14f80-ca60-4b26-917a-0a468e5c0fc0"
+                    }
+                  ],
+                  "id": "5c0483e6-7349-4bd4-a110-d88d1ba72dda",
+                  "createdAt": "2026-07-28T01:02:55.000Z",
+                  "updatedAt": "2026-07-28T01:02:55.000Z",
+                  "uid": "35240-5c0483e6-7349-4bd4-a110-d88d1ba72dda"
+                },
+                {
+                  "name": "post Components V1Badge",
+                  "id": "f212305c-d179-45d4-9931-ec1ba8870506",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"badgeImageUrl\": \"<string>\",\n  \"name\": \"<string>\",\n  \"publisherBadgeId\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/components/v1/badge",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "components",
+                        "v1",
+                        "badge"
+                      ]
+                    },
+                    "description": "Creates a badge."
+                  },
+                  "response": [
+                    {
+                      "id": "d53c3579-35a5-49c9-9732-d21caacfa062",
+                      "name": "Badge created successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"badgeImageUrl\": \"<string>\",\n  \"name\": \"<string>\",\n  \"publisherBadgeId\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/components/v1/badge",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "components",
+                            "v1",
+                            "badge"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"publisherBadgeId\": \"<string>\",\n  \"type\": \"emblem\",\n  \"badgeImageUrl\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:02:55.000Z",
+                      "updatedAt": "2026-07-28T01:02:55.000Z",
+                      "uid": "35240-d53c3579-35a5-49c9-9732-d21caacfa062"
+                    },
+                    {
+                      "id": "c88dccd6-ddf9-4760-9399-c8b3ce045580",
+                      "name": "Bad request. Invalid input or validation failure.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"badgeImageUrl\": \"<string>\",\n  \"name\": \"<string>\",\n  \"publisherBadgeId\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/components/v1/badge",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "components",
+                            "v1",
+                            "badge"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:02:55.000Z",
+                      "updatedAt": "2026-07-28T01:02:55.000Z",
+                      "uid": "35240-c88dccd6-ddf9-4760-9399-c8b3ce045580"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:02:55.000Z",
+                  "updatedAt": "2026-07-28T01:02:55.000Z",
+                  "uid": "35240-f212305c-d179-45d4-9931-ec1ba8870506"
+                },
+                {
+                  "name": "get Components V1Badge",
+                  "id": "12c50915-9bea-4fd2-a69f-bf413edb6fff",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/components/v1/badge",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "components",
+                        "v1",
+                        "badge"
+                      ]
+                    },
+                    "description": "Retrieves a list of all badges."
+                  },
+                  "response": [
+                    {
+                      "id": "45db9e68-f34c-430d-b41b-9ca26a1511ae",
+                      "name": "Badges retrieved successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/components/v1/badge",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "components",
+                            "v1",
+                            "badge"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"getAllBadgesResponse\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"publisherBadgeId\": \"<string>\",\n      \"type\": \"ribbon\",\n      \"badgeImageUrl\": \"<string>\",\n      \"text\": \"<string>\",\n      \"backgroundColor\": {\n        \"colorOne\": \"#000000\",\n        \"colorTwo\": \"#feeBbD\",\n        \"gradientDirection\": \"to bottom\"\n      },\n      \"textColor\": {\n        \"colorOne\": \"#9CFb67\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"publisherBadgeId\": \"<string>\",\n      \"type\": \"emblem\",\n      \"badgeImageUrl\": \"<string>\",\n      \"text\": \"<string>\",\n      \"backgroundColor\": {\n        \"colorOne\": \"#000000\",\n        \"colorTwo\": \"#ac48Ed\",\n        \"gradientDirection\": \"to bottom\"\n      },\n      \"textColor\": {\n        \"colorOne\": \"#E7Dd1b\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:02:55.000Z",
+                      "updatedAt": "2026-07-28T01:02:55.000Z",
+                      "uid": "35240-45db9e68-f34c-430d-b41b-9ca26a1511ae"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:02:55.000Z",
+                  "updatedAt": "2026-07-28T01:02:55.000Z",
+                  "uid": "35240-12c50915-9bea-4fd2-a69f-bf413edb6fff"
+                }
+              ],
+              "id": "96d45577-9a66-4560-bf52-bab8642aa7a4",
+              "createdAt": "2026-07-28T01:02:55.000Z",
+              "updatedAt": "2026-07-28T01:02:55.000Z",
+              "uid": "35240-96d45577-9a66-4560-bf52-bab8642aa7a4"
+            }
+          ],
+          "id": "3a0c066c-c0da-422b-9047-e536b9e46ac6",
+          "createdAt": "2026-07-28T01:02:55.000Z",
+          "updatedAt": "2026-07-28T01:02:55.000Z",
+          "uid": "35240-3a0c066c-c0da-422b-9047-e536b9e46ac6"
+        }
+      ],
+      "id": "d9607ba4-c1d2-48ba-935b-523600b6d325",
+      "createdAt": "2026-07-28T01:02:55.000Z",
+      "updatedAt": "2026-07-28T01:02:55.000Z",
+      "uid": "35240-d9607ba4-c1d2-48ba-935b-523600b6d325"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.appcharge.com"
+    }
+  ]
+}

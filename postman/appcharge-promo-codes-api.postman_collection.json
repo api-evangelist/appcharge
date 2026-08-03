@@ -1,0 +1,1174 @@
+{
+  "info": {
+    "_postman_id": "799ec603-79a4-4337-bc20-714d54da7f51",
+    "name": "Appcharge Assets Promo Codes API",
+    "description": "Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.\n\nContact Support:\n Name: Appcharge Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:03:33.000Z",
+    "updatedAt": "2026-07-28T01:03:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-799ec603-79a4-4337-bc20-714d54da7f51"
+  },
+  "item": [
+    {
+      "name": "coupons",
+      "item": [
+        {
+          "name": "coupon",
+          "item": [
+            {
+              "name": "{couponName}",
+              "item": [
+                {
+                  "name": "promo-codes",
+                  "item": [
+                    {
+                      "name": "set-activation",
+                      "item": [
+                        {
+                          "name": "patch Coupons Coupon Couponname Promo Codes Set Activation",
+                          "id": "ebfec517-c336-4d93-89a0-d740aa033693",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"active\": \"<boolean>\",\n  \"promoCodeNames\": [\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/coupons/coupon/:couponName/promo-codes/set-activation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "coupons",
+                                "coupon",
+                                ":couponName",
+                                "promo-codes",
+                                "set-activation"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "937b8567-c171-47cb-965d-f72002204994",
+                                  "key": "couponName",
+                                  "value": "<string>",
+                                  "description": "(Required) Coupon name."
+                                }
+                              ]
+                            },
+                            "description": "Activates or deactivates promo codes for a specific coupon. <br/><br/> Maximum of 1,000 promo code names allowed per request."
+                          },
+                          "response": [
+                            {
+                              "id": "79a71945-7e62-445c-b84f-b46d81e3db0d",
+                              "name": "Promo codes updated successfully.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"active\": \"<boolean>\",\n  \"promoCodeNames\": [\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/coupons/coupon/:couponName/promo-codes/set-activation",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "coupons",
+                                    "coupon",
+                                    ":couponName",
+                                    "promo-codes",
+                                    "set-activation"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "couponName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"promoCodes\": [\n    {\n      \"name\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"maxRedemptions\": \"<integer>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"redemptions\": \"<integer>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"maxRedemptions\": \"<integer>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"redemptions\": \"<integer>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:03:34.000Z",
+                              "updatedAt": "2026-07-28T01:03:34.000Z",
+                              "uid": "35240-79a71945-7e62-445c-b84f-b46d81e3db0d"
+                            },
+                            {
+                              "id": "8c4ed41b-2f10-49d4-80d3-4153251b59c6",
+                              "name": "Bad request. Invalid input or validation failure.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"active\": \"<boolean>\",\n  \"promoCodeNames\": [\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/coupons/coupon/:couponName/promo-codes/set-activation",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "coupons",
+                                    "coupon",
+                                    ":couponName",
+                                    "promo-codes",
+                                    "set-activation"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "couponName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:03:34.000Z",
+                              "updatedAt": "2026-07-28T01:03:34.000Z",
+                              "uid": "35240-8c4ed41b-2f10-49d4-80d3-4153251b59c6"
+                            },
+                            {
+                              "id": "8acb2e73-3e25-4cb2-ae7f-ff9dcd7c9ab0",
+                              "name": "Coupon not found.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"active\": \"<boolean>\",\n  \"promoCodeNames\": [\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/coupons/coupon/:couponName/promo-codes/set-activation",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "coupons",
+                                    "coupon",
+                                    ":couponName",
+                                    "promo-codes",
+                                    "set-activation"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "couponName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:03:34.000Z",
+                              "updatedAt": "2026-07-28T01:03:34.000Z",
+                              "uid": "35240-8acb2e73-3e25-4cb2-ae7f-ff9dcd7c9ab0"
+                            },
+                            {
+                              "id": "4647b975-2fca-44c6-8218-2f076acc34a1",
+                              "name": "Unexpected error.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"active\": \"<boolean>\",\n  \"promoCodeNames\": [\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/coupons/coupon/:couponName/promo-codes/set-activation",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "coupons",
+                                    "coupon",
+                                    ":couponName",
+                                    "promo-codes",
+                                    "set-activation"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "couponName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:03:34.000Z",
+                              "updatedAt": "2026-07-28T01:03:34.000Z",
+                              "uid": "35240-4647b975-2fca-44c6-8218-2f076acc34a1"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:03:34.000Z",
+                          "updatedAt": "2026-07-28T01:03:34.000Z",
+                          "uid": "35240-ebfec517-c336-4d93-89a0-d740aa033693"
+                        }
+                      ],
+                      "id": "11517f22-0f17-402f-9978-99ebf3f8f2a2",
+                      "createdAt": "2026-07-28T01:03:34.000Z",
+                      "updatedAt": "2026-07-28T01:03:34.000Z",
+                      "uid": "35240-11517f22-0f17-402f-9978-99ebf3f8f2a2"
+                    },
+                    {
+                      "name": "post Coupons Coupon Couponname Promo Codes",
+                      "id": "c45a5ca7-e477-483e-9030-3c9911b19ee3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"promoCodes\": [\n    {\n      \"name\": \"<string>\",\n      \"maxRedemptions\": \"<integer>\",\n      \"active\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"maxRedemptions\": \"<integer>\",\n      \"active\": \"<boolean>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/coupons/coupon/:couponName/promo-codes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "coupons",
+                            "coupon",
+                            ":couponName",
+                            "promo-codes"
+                          ],
+                          "variable": [
+                            {
+                              "id": "54d99881-a3b7-43da-b5ca-437ffad3dc6e",
+                              "key": "couponName",
+                              "value": "<string>",
+                              "description": "(Required) Coupon name."
+                            }
+                          ]
+                        },
+                        "description": "Creates multiple promo codes for a specific coupon. <br/><br/> Maximum of 1,000 promo codes allowed per request."
+                      },
+                      "response": [
+                        {
+                          "id": "e1a696ed-f411-4c9f-9e2e-c76a1fdf4b3f",
+                          "name": "Promo codes created successfully.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"promoCodes\": [\n    {\n      \"name\": \"<string>\",\n      \"maxRedemptions\": \"<integer>\",\n      \"active\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"maxRedemptions\": \"<integer>\",\n      \"active\": \"<boolean>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/coupons/coupon/:couponName/promo-codes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "coupons",
+                                "coupon",
+                                ":couponName",
+                                "promo-codes"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "couponName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"promoCodes\": [\n    {\n      \"name\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"maxRedemptions\": \"<integer>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"maxRedemptions\": \"<integer>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:03:34.000Z",
+                          "updatedAt": "2026-07-28T01:03:34.000Z",
+                          "uid": "35240-e1a696ed-f411-4c9f-9e2e-c76a1fdf4b3f"
+                        },
+                        {
+                          "id": "f901faf0-c125-46dc-ace3-97acdee0dbcd",
+                          "name": "Bad request. Invalid input or validation failure.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"promoCodes\": [\n    {\n      \"name\": \"<string>\",\n      \"maxRedemptions\": \"<integer>\",\n      \"active\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"maxRedemptions\": \"<integer>\",\n      \"active\": \"<boolean>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/coupons/coupon/:couponName/promo-codes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "coupons",
+                                "coupon",
+                                ":couponName",
+                                "promo-codes"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "couponName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:03:34.000Z",
+                          "updatedAt": "2026-07-28T01:03:34.000Z",
+                          "uid": "35240-f901faf0-c125-46dc-ace3-97acdee0dbcd"
+                        },
+                        {
+                          "id": "0e3504c4-a56a-45b1-914a-079c4c0bfec8",
+                          "name": "Coupon not found.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"promoCodes\": [\n    {\n      \"name\": \"<string>\",\n      \"maxRedemptions\": \"<integer>\",\n      \"active\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"maxRedemptions\": \"<integer>\",\n      \"active\": \"<boolean>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/coupons/coupon/:couponName/promo-codes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "coupons",
+                                "coupon",
+                                ":couponName",
+                                "promo-codes"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "couponName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:03:34.000Z",
+                          "updatedAt": "2026-07-28T01:03:34.000Z",
+                          "uid": "35240-0e3504c4-a56a-45b1-914a-079c4c0bfec8"
+                        },
+                        {
+                          "id": "a1f0f941-0de3-48a1-b3ab-a3377920b755",
+                          "name": "Conflict. One or more promo codes already exist and are active on another coupon.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"promoCodes\": [\n    {\n      \"name\": \"<string>\",\n      \"maxRedemptions\": \"<integer>\",\n      \"active\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"maxRedemptions\": \"<integer>\",\n      \"active\": \"<boolean>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/coupons/coupon/:couponName/promo-codes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "coupons",
+                                "coupon",
+                                ":couponName",
+                                "promo-codes"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "couponName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Conflict",
+                          "code": 409,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:03:34.000Z",
+                          "updatedAt": "2026-07-28T01:03:34.000Z",
+                          "uid": "35240-a1f0f941-0de3-48a1-b3ab-a3377920b755"
+                        },
+                        {
+                          "id": "34add850-0eec-440d-9b53-5b8d69aef083",
+                          "name": "Unexpected error.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"promoCodes\": [\n    {\n      \"name\": \"<string>\",\n      \"maxRedemptions\": \"<integer>\",\n      \"active\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"maxRedemptions\": \"<integer>\",\n      \"active\": \"<boolean>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/coupons/coupon/:couponName/promo-codes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "coupons",
+                                "coupon",
+                                ":couponName",
+                                "promo-codes"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "couponName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:03:34.000Z",
+                          "updatedAt": "2026-07-28T01:03:34.000Z",
+                          "uid": "35240-34add850-0eec-440d-9b53-5b8d69aef083"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:03:34.000Z",
+                      "updatedAt": "2026-07-28T01:03:34.000Z",
+                      "uid": "35240-c45a5ca7-e477-483e-9030-3c9911b19ee3"
+                    },
+                    {
+                      "name": "get Coupons Coupon Couponname Promo Codes",
+                      "id": "d6f399e9-3400-4c9f-8523-bd0596de6876",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/coupons/coupon/:couponName/promo-codes?limit=<integer>&page=<integer>&sortDirection=asc&isActive=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "coupons",
+                            "coupon",
+                            ":couponName",
+                            "promo-codes"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of promo codes to return.",
+                              "key": "limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Page number to retrieve.",
+                              "key": "page",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Sort direction of results by `createdAt`.",
+                              "key": "sortDirection",
+                              "value": "asc"
+                            },
+                            {
+                              "description": "Filter by active status.",
+                              "key": "isActive",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "21d51d15-7b1d-43e1-bc9f-13e11b4e1ade",
+                              "key": "couponName",
+                              "value": "<string>",
+                              "description": "(Required) Coupon name."
+                            }
+                          ]
+                        },
+                        "description": "Retrieves a paginated list of up to 1,000 promo codes for a specific coupon."
+                      },
+                      "response": [
+                        {
+                          "id": "5bffee98-17a9-4b5c-8ede-81d4f7972003",
+                          "name": "Promo codes retrieved successfully.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/coupons/coupon/:couponName/promo-codes?limit=<integer>&page=<integer>&sortDirection=asc&isActive=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "coupons",
+                                "coupon",
+                                ":couponName",
+                                "promo-codes"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of promo codes to return.",
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Page number to retrieve.",
+                                  "key": "page",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Sort direction of results by `createdAt`.",
+                                  "key": "sortDirection",
+                                  "value": "asc"
+                                },
+                                {
+                                  "description": "Filter by active status.",
+                                  "key": "isActive",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "couponName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"promoCodes\": [\n    {\n      \"name\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"maxRedemptions\": \"<integer>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"redemptions\": \"<integer>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"maxRedemptions\": \"<integer>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"redemptions\": \"<integer>\"\n    }\n  ],\n  \"totalCount\": \"<integer>\",\n  \"totalPages\": \"<integer>\",\n  \"hasNextPage\": \"<boolean>\",\n  \"page\": \"<integer>\",\n  \"limit\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T01:03:34.000Z",
+                          "updatedAt": "2026-07-28T01:03:34.000Z",
+                          "uid": "35240-5bffee98-17a9-4b5c-8ede-81d4f7972003"
+                        },
+                        {
+                          "id": "ce4d2963-f4a9-4302-aff2-30e482269244",
+                          "name": "Coupon not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/coupons/coupon/:couponName/promo-codes?limit=<integer>&page=<integer>&sortDirection=asc&isActive=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "coupons",
+                                "coupon",
+                                ":couponName",
+                                "promo-codes"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of promo codes to return.",
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Page number to retrieve.",
+                                  "key": "page",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Sort direction of results by `createdAt`.",
+                                  "key": "sortDirection",
+                                  "value": "asc"
+                                },
+                                {
+                                  "description": "Filter by active status.",
+                                  "key": "isActive",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "couponName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:03:34.000Z",
+                          "updatedAt": "2026-07-28T01:03:34.000Z",
+                          "uid": "35240-ce4d2963-f4a9-4302-aff2-30e482269244"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:03:34.000Z",
+                      "updatedAt": "2026-07-28T01:03:34.000Z",
+                      "uid": "35240-d6f399e9-3400-4c9f-8523-bd0596de6876"
+                    }
+                  ],
+                  "id": "a46c48c8-2a6c-4ec2-bb55-bd011712413b",
+                  "createdAt": "2026-07-28T01:03:34.000Z",
+                  "updatedAt": "2026-07-28T01:03:34.000Z",
+                  "uid": "35240-a46c48c8-2a6c-4ec2-bb55-bd011712413b"
+                },
+                {
+                  "name": "promo-code",
+                  "item": [
+                    {
+                      "name": "{promoCodeName}",
+                      "item": [
+                        {
+                          "name": "get Coupons Coupon Couponname Promo Code Promocodename",
+                          "id": "e669770f-e52b-4c37-b126-0c65238abc56",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/coupons/coupon/:couponName/promo-code/:promoCodeName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "coupons",
+                                "coupon",
+                                ":couponName",
+                                "promo-code",
+                                ":promoCodeName"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "64c9044a-47f6-4732-96c9-e85b6d160a8f",
+                                  "key": "couponName",
+                                  "value": "<string>",
+                                  "description": "(Required) Coupon name."
+                                },
+                                {
+                                  "id": "4e23dcbc-580c-4bcc-85a0-2ba6fe848377",
+                                  "key": "promoCodeName",
+                                  "value": "<string>",
+                                  "description": "(Required) Promo code name."
+                                }
+                              ]
+                            },
+                            "description": "Retrieves a specific promo code."
+                          },
+                          "response": [
+                            {
+                              "id": "f6e284c8-590b-4494-a8bf-240b70092436",
+                              "name": "Promo code retrieved successfully.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/coupons/coupon/:couponName/promo-code/:promoCodeName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "coupons",
+                                    "coupon",
+                                    ":couponName",
+                                    "promo-code",
+                                    ":promoCodeName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "couponName"
+                                    },
+                                    {
+                                      "key": "promoCodeName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"name\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"maxRedemptions\": \"<integer>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"redemptions\": \"<integer>\"\n}",
+                              "createdAt": "2026-07-28T01:03:34.000Z",
+                              "updatedAt": "2026-07-28T01:03:34.000Z",
+                              "uid": "35240-f6e284c8-590b-4494-a8bf-240b70092436"
+                            },
+                            {
+                              "id": "0cc6268e-b37c-4550-9f99-0f6dea16935d",
+                              "name": "Bad request. Invalid input or validation failure.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/coupons/coupon/:couponName/promo-code/:promoCodeName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "coupons",
+                                    "coupon",
+                                    ":couponName",
+                                    "promo-code",
+                                    ":promoCodeName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "couponName"
+                                    },
+                                    {
+                                      "key": "promoCodeName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:03:34.000Z",
+                              "updatedAt": "2026-07-28T01:03:34.000Z",
+                              "uid": "35240-0cc6268e-b37c-4550-9f99-0f6dea16935d"
+                            },
+                            {
+                              "id": "791a66c9-6801-4ffb-afe8-875f7183423b",
+                              "name": "Promo code or coupon not found.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/coupons/coupon/:couponName/promo-code/:promoCodeName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "coupons",
+                                    "coupon",
+                                    ":couponName",
+                                    "promo-code",
+                                    ":promoCodeName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "couponName"
+                                    },
+                                    {
+                                      "key": "promoCodeName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:03:34.000Z",
+                              "updatedAt": "2026-07-28T01:03:34.000Z",
+                              "uid": "35240-791a66c9-6801-4ffb-afe8-875f7183423b"
+                            },
+                            {
+                              "id": "a3bf9a8d-94f8-48f5-89bd-9e60dddc1328",
+                              "name": "Unexpected error.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/coupons/coupon/:couponName/promo-code/:promoCodeName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "coupons",
+                                    "coupon",
+                                    ":couponName",
+                                    "promo-code",
+                                    ":promoCodeName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "couponName"
+                                    },
+                                    {
+                                      "key": "promoCodeName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:03:34.000Z",
+                              "updatedAt": "2026-07-28T01:03:34.000Z",
+                              "uid": "35240-a3bf9a8d-94f8-48f5-89bd-9e60dddc1328"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:03:34.000Z",
+                          "updatedAt": "2026-07-28T01:03:34.000Z",
+                          "uid": "35240-e669770f-e52b-4c37-b126-0c65238abc56"
+                        }
+                      ],
+                      "id": "c527222c-8dac-483b-ab2f-b388c6969c59",
+                      "createdAt": "2026-07-28T01:03:34.000Z",
+                      "updatedAt": "2026-07-28T01:03:34.000Z",
+                      "uid": "35240-c527222c-8dac-483b-ab2f-b388c6969c59"
+                    }
+                  ],
+                  "id": "d31ceefd-2d94-4ac2-9946-5adeeaca1315",
+                  "createdAt": "2026-07-28T01:03:34.000Z",
+                  "updatedAt": "2026-07-28T01:03:34.000Z",
+                  "uid": "35240-d31ceefd-2d94-4ac2-9946-5adeeaca1315"
+                }
+              ],
+              "id": "cf638b24-2f94-4b26-94c6-36fb7f1b9d8b",
+              "createdAt": "2026-07-28T01:03:34.000Z",
+              "updatedAt": "2026-07-28T01:03:34.000Z",
+              "uid": "35240-cf638b24-2f94-4b26-94c6-36fb7f1b9d8b"
+            }
+          ],
+          "id": "6dc40e08-d3de-49a7-ab67-65cfebe1493c",
+          "createdAt": "2026-07-28T01:03:34.000Z",
+          "updatedAt": "2026-07-28T01:03:34.000Z",
+          "uid": "35240-6dc40e08-d3de-49a7-ab67-65cfebe1493c"
+        }
+      ],
+      "id": "f83a1eae-2289-49a7-9b8b-737ffaa657a6",
+      "createdAt": "2026-07-28T01:03:34.000Z",
+      "updatedAt": "2026-07-28T01:03:34.000Z",
+      "uid": "35240-f83a1eae-2289-49a7-9b8b-737ffaa657a6"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.appcharge.com"
+    }
+  ]
+}

@@ -1,0 +1,619 @@
+{
+  "info": {
+    "_postman_id": "ff385193-a533-404e-ba94-20e8f5525c96",
+    "name": "Appcharge Assets Offer Designs API",
+    "description": "Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.\n\nContact Support:\n Name: Appcharge Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:02:59.000Z",
+    "updatedAt": "2026-07-28T01:02:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ff385193-a533-404e-ba94-20e8f5525c96"
+  },
+  "item": [
+    {
+      "name": "components",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "offer-design",
+              "item": [
+                {
+                  "name": "{externalId}",
+                  "item": [
+                    {
+                      "name": "delete Components V1Offer Design Externalid",
+                      "id": "b9e30f1d-e33f-4b5b-97c4-b491136870ba",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/components/v1/offer-design/:externalId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "components",
+                            "v1",
+                            "offer-design",
+                            ":externalId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "fae886ca-2947-4de9-8c47-08c272c8d82f",
+                              "key": "externalId",
+                              "value": "<string>",
+                              "description": "(Required) Design ID that you defined."
+                            }
+                          ]
+                        },
+                        "description": "Deletes a post purchase popup design."
+                      },
+                      "response": [
+                        {
+                          "id": "76527d56-825f-4e87-9f33-1922bfa441da",
+                          "name": "Post purchase popup design deleted successfully.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/components/v1/offer-design/:externalId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "components",
+                                "v1",
+                                "offer-design",
+                                ":externalId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "externalId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"offerUiType\": \"PopUp\",\n  \"name\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"backgroundImageUrl\": \"<string>\",\n  \"title\": {\n    \"text\": \"<string>\",\n    \"fontColor\": \"<string>\",\n    \"fontSize\": \"<number>\",\n    \"fontWeight\": \"<string>\"\n  },\n  \"externalBackgroundImageUrl\": \"<string>\",\n  \"offerUiSubType\": \"PostPurchase\"\n}",
+                          "createdAt": "2026-07-28T01:03:00.000Z",
+                          "updatedAt": "2026-07-28T01:03:00.000Z",
+                          "uid": "35240-76527d56-825f-4e87-9f33-1922bfa441da"
+                        },
+                        {
+                          "id": "3c4f4788-a0f6-4cae-9153-11c9bcf1d186",
+                          "name": "Offer design not found.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/components/v1/offer-design/:externalId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "components",
+                                "v1",
+                                "offer-design",
+                                ":externalId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "externalId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:03:00.000Z",
+                          "updatedAt": "2026-07-28T01:03:00.000Z",
+                          "uid": "35240-3c4f4788-a0f6-4cae-9153-11c9bcf1d186"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:03:00.000Z",
+                      "updatedAt": "2026-07-28T01:03:00.000Z",
+                      "uid": "35240-b9e30f1d-e33f-4b5b-97c4-b491136870ba"
+                    },
+                    {
+                      "name": "put Components V1Offer Design Externalid",
+                      "id": "9eaba0f3-3180-488f-9523-5dd6e0a124dd",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"offerUiType\": \"PopUp\",\n  \"name\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"backgroundImageUrl\": \"<string>\",\n  \"title\": {\n    \"text\": \"<string>\",\n    \"fontColor\": \"<string>\",\n    \"fontSize\": \"<number>\",\n    \"fontWeight\": \"<string>\"\n  },\n  \"offerUiSubType\": \"PostPurchase\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/components/v1/offer-design/:externalId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "components",
+                            "v1",
+                            "offer-design",
+                            ":externalId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "338cb8ae-61bb-483a-87bb-f49901ccd7f9",
+                              "key": "externalId",
+                              "value": "<string>",
+                              "description": "(Required) Design ID that you defined."
+                            }
+                          ]
+                        },
+                        "description": "Updates a post purchase popup design."
+                      },
+                      "response": [
+                        {
+                          "id": "f2aa4815-1c46-4cd4-9834-ddb2480ede1d",
+                          "name": "Offer design updated successfully.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"offerUiType\": \"PopUp\",\n  \"name\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"backgroundImageUrl\": \"<string>\",\n  \"title\": {\n    \"text\": \"<string>\",\n    \"fontColor\": \"<string>\",\n    \"fontSize\": \"<number>\",\n    \"fontWeight\": \"<string>\"\n  },\n  \"offerUiSubType\": \"PostPurchase\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/components/v1/offer-design/:externalId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "components",
+                                "v1",
+                                "offer-design",
+                                ":externalId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "externalId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"offerUiType\": \"PopUp\",\n  \"name\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"backgroundImageUrl\": \"<string>\",\n  \"title\": {\n    \"text\": \"<string>\",\n    \"fontColor\": \"<string>\",\n    \"fontSize\": \"<number>\",\n    \"fontWeight\": \"<string>\"\n  },\n  \"externalBackgroundImageUrl\": \"<string>\",\n  \"offerUiSubType\": \"PostPurchase\"\n}",
+                          "createdAt": "2026-07-28T01:03:00.000Z",
+                          "updatedAt": "2026-07-28T01:03:00.000Z",
+                          "uid": "35240-f2aa4815-1c46-4cd4-9834-ddb2480ede1d"
+                        },
+                        {
+                          "id": "69e76160-5e93-4088-9ad4-1d1c8f6abb37",
+                          "name": "Bad request. Invalid input or validation failure.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"offerUiType\": \"PopUp\",\n  \"name\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"backgroundImageUrl\": \"<string>\",\n  \"title\": {\n    \"text\": \"<string>\",\n    \"fontColor\": \"<string>\",\n    \"fontSize\": \"<number>\",\n    \"fontWeight\": \"<string>\"\n  },\n  \"offerUiSubType\": \"PostPurchase\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/components/v1/offer-design/:externalId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "components",
+                                "v1",
+                                "offer-design",
+                                ":externalId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "externalId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:03:00.000Z",
+                          "updatedAt": "2026-07-28T01:03:00.000Z",
+                          "uid": "35240-69e76160-5e93-4088-9ad4-1d1c8f6abb37"
+                        },
+                        {
+                          "id": "b5f9015b-b439-4375-8386-03e5634c24f1",
+                          "name": "Offer design not found.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"offerUiType\": \"PopUp\",\n  \"name\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"backgroundImageUrl\": \"<string>\",\n  \"title\": {\n    \"text\": \"<string>\",\n    \"fontColor\": \"<string>\",\n    \"fontSize\": \"<number>\",\n    \"fontWeight\": \"<string>\"\n  },\n  \"offerUiSubType\": \"PostPurchase\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/components/v1/offer-design/:externalId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "components",
+                                "v1",
+                                "offer-design",
+                                ":externalId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "externalId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:03:00.000Z",
+                          "updatedAt": "2026-07-28T01:03:00.000Z",
+                          "uid": "35240-b5f9015b-b439-4375-8386-03e5634c24f1"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:03:00.000Z",
+                      "updatedAt": "2026-07-28T01:03:00.000Z",
+                      "uid": "35240-9eaba0f3-3180-488f-9523-5dd6e0a124dd"
+                    }
+                  ],
+                  "id": "e48864f3-fef1-4c34-b9dd-f418518144fc",
+                  "createdAt": "2026-07-28T01:03:00.000Z",
+                  "updatedAt": "2026-07-28T01:03:00.000Z",
+                  "uid": "35240-e48864f3-fef1-4c34-b9dd-f418518144fc"
+                },
+                {
+                  "name": "post Components V1Offer Design",
+                  "id": "0f1bd63e-1ff7-4435-9422-add8b7ad9ccc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"offerUiType\": \"PopUp\",\n  \"name\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"backgroundImageUrl\": \"<string>\",\n  \"offerUiSubType\": \"PostPurchase\",\n  \"title\": {\n    \"text\": \"<string>\",\n    \"fontColor\": \"<string>\",\n    \"fontSize\": \"<number>\",\n    \"fontWeight\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/components/v1/offer-design",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "components",
+                        "v1",
+                        "offer-design"
+                      ]
+                    },
+                    "description": "Creates a post purchase popup design."
+                  },
+                  "response": [
+                    {
+                      "id": "1b9419dd-dcca-4517-bb2a-5e50d0db3a2f",
+                      "name": "Offer design created successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"offerUiType\": \"PopUp\",\n  \"name\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"backgroundImageUrl\": \"<string>\",\n  \"offerUiSubType\": \"PostPurchase\",\n  \"title\": {\n    \"text\": \"<string>\",\n    \"fontColor\": \"<string>\",\n    \"fontSize\": \"<number>\",\n    \"fontWeight\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/components/v1/offer-design",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "components",
+                            "v1",
+                            "offer-design"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"offerUiType\": \"PopUp\",\n  \"name\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"backgroundImageUrl\": \"<string>\",\n  \"title\": {\n    \"text\": \"<string>\",\n    \"fontColor\": \"<string>\",\n    \"fontSize\": \"<number>\",\n    \"fontWeight\": \"<string>\"\n  },\n  \"externalBackgroundImageUrl\": \"<string>\",\n  \"offerUiSubType\": \"PostPurchase\"\n}",
+                      "createdAt": "2026-07-28T01:03:00.000Z",
+                      "updatedAt": "2026-07-28T01:03:00.000Z",
+                      "uid": "35240-1b9419dd-dcca-4517-bb2a-5e50d0db3a2f"
+                    },
+                    {
+                      "id": "b93e0a37-c0e3-4835-ad01-f4053ed1dd7b",
+                      "name": "Bad request. Invalid input or validation failure.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"offerUiType\": \"PopUp\",\n  \"name\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"backgroundImageUrl\": \"<string>\",\n  \"offerUiSubType\": \"PostPurchase\",\n  \"title\": {\n    \"text\": \"<string>\",\n    \"fontColor\": \"<string>\",\n    \"fontSize\": \"<number>\",\n    \"fontWeight\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/components/v1/offer-design",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "components",
+                            "v1",
+                            "offer-design"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:03:00.000Z",
+                      "updatedAt": "2026-07-28T01:03:00.000Z",
+                      "uid": "35240-b93e0a37-c0e3-4835-ad01-f4053ed1dd7b"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:03:00.000Z",
+                  "updatedAt": "2026-07-28T01:03:00.000Z",
+                  "uid": "35240-0f1bd63e-1ff7-4435-9422-add8b7ad9ccc"
+                },
+                {
+                  "name": "Get Offer Designs",
+                  "id": "5293eaf7-16ae-4756-91fd-93253cc1c334",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Publisher token, as displayed in the Publisher Dashboard.",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/components/v1/offer-design",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "components",
+                        "v1",
+                        "offer-design"
+                      ]
+                    },
+                    "description": "Retrieves a list of all offer designs."
+                  },
+                  "response": [
+                    {
+                      "id": "451d2207-2ea1-4230-90f4-2b42e6ddbf15",
+                      "name": "Offer designs retrieved successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token, as displayed in the Publisher Dashboard.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/components/v1/offer-design",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "components",
+                            "v1",
+                            "offer-design"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"offerUiType\": \"SpecialOffer\",\n    \"offerUiSubType\": \"PostPurchase\",\n    \"name\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"backgroundImageUrl\": \"<string>\",\n    \"externalBackgroundImageUrl\": \"<string>\",\n    \"backgroundExternalImageUrl\": \"<string>\",\n    \"title\": {\n      \"text\": \"<string>\",\n      \"fontColor\": {\n        \"colorOne\": \"<string>\",\n        \"colorTwo\": \"<string>\",\n        \"direction\": \"<string>\",\n        \"velit15\": true,\n        \"Excepteur_e0\": \"anim Excepteur reprehenderit\"\n      },\n      \"fontSize\": \"<number>\",\n      \"fontWeight\": \"<string>\"\n    },\n    \"buttonSuffixImage\": \"<string>\",\n    \"buttonSuffixAnimation\": \"<string>\",\n    \"backgroundColor\": {\n      \"colorOne\": \"<string>\",\n      \"colorTwo\": \"<string>\",\n      \"gradientDirection\": \"to top right\",\n      \"Excepteurbbd\": -49029059\n    },\n    \"backgroundOpacity\": \"<number>\",\n    \"headerImage\": \"<string>\",\n    \"arrowColor\": \"<string>\",\n    \"borderColor\": {\n      \"colorOne\": \"<string>\",\n      \"colorTwo\": \"<string>\",\n      \"direction\": \"<string>\"\n    },\n    \"borderWidth\": \"<number>\",\n    \"subRollingOffer\": {\n      \"backgroundImageUrl\": \"<string>\",\n      \"backgroundExternalImageUrl\": \"<string>\",\n      \"collectText\": \"<string>\"\n    },\n    \"rewardCalendar\": {\n      \"collectibleBadgeImage\": \"<string>\",\n      \"lockedBadgeImage\": \"<string>\",\n      \"backgroundColor\": \"#fD4FC5\",\n      \"collectIconImage\": \"<string>\",\n      \"lockedIconImage\": \"<string>\",\n      \"dayFontColor\": \"#170F8D\",\n      \"subRewardBackgroundImage\": \"<string>\",\n      \"mainRewardBackgroundImage\": \"<string>\",\n      \"headerImage\": \"<string>\"\n    }\n  },\n  {\n    \"id\": \"<string>\",\n    \"offerUiType\": \"Bundle\",\n    \"offerUiSubType\": \"PostPurchase\",\n    \"name\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"backgroundImageUrl\": \"<string>\",\n    \"externalBackgroundImageUrl\": \"<string>\",\n    \"backgroundExternalImageUrl\": \"<string>\",\n    \"title\": {\n      \"text\": \"<string>\",\n      \"fontColor\": {\n        \"colorOne\": \"<string>\",\n        \"colorTwo\": \"<string>\",\n        \"direction\": \"<string>\"\n      },\n      \"fontSize\": \"<number>\",\n      \"fontWeight\": \"<string>\"\n    },\n    \"buttonSuffixImage\": \"<string>\",\n    \"buttonSuffixAnimation\": \"<string>\",\n    \"backgroundColor\": {\n      \"colorOne\": \"<string>\",\n      \"colorTwo\": \"<string>\",\n      \"gradientDirection\": \"to top\",\n      \"in_83\": \"magna\",\n      \"laborum__31\": 72786421,\n      \"cillum2\": \"pa\"\n    },\n    \"backgroundOpacity\": \"<number>\",\n    \"headerImage\": \"<string>\",\n    \"arrowColor\": \"<string>\",\n    \"borderColor\": {\n      \"colorOne\": \"<string>\",\n      \"colorTwo\": \"<string>\",\n      \"direction\": \"<string>\"\n    },\n    \"borderWidth\": \"<number>\",\n    \"subRollingOffer\": {\n      \"backgroundImageUrl\": \"<string>\",\n      \"backgroundExternalImageUrl\": \"<string>\",\n      \"collectText\": \"<string>\"\n    },\n    \"rewardCalendar\": {\n      \"collectibleBadgeImage\": \"<string>\",\n      \"lockedBadgeImage\": \"<string>\",\n      \"backgroundColor\": \"#bd1Ef1\",\n      \"collectIconImage\": \"<string>\",\n      \"lockedIconImage\": \"<string>\",\n      \"dayFontColor\": \"#1C59F1\",\n      \"subRewardBackgroundImage\": \"<string>\",\n      \"mainRewardBackgroundImage\": \"<string>\",\n      \"headerImage\": \"<string>\"\n    }\n  }\n]",
+                      "createdAt": "2026-07-28T01:03:00.000Z",
+                      "updatedAt": "2026-07-28T01:03:00.000Z",
+                      "uid": "35240-451d2207-2ea1-4230-90f4-2b42e6ddbf15"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:03:00.000Z",
+                  "updatedAt": "2026-07-28T01:03:00.000Z",
+                  "uid": "35240-5293eaf7-16ae-4756-91fd-93253cc1c334"
+                }
+              ],
+              "id": "2a3314d8-c0f8-41da-aa54-fcaa5ce040be",
+              "createdAt": "2026-07-28T01:03:00.000Z",
+              "updatedAt": "2026-07-28T01:03:00.000Z",
+              "uid": "35240-2a3314d8-c0f8-41da-aa54-fcaa5ce040be"
+            }
+          ],
+          "id": "126788cf-588a-41d6-8e67-58d6484a8ed7",
+          "createdAt": "2026-07-28T01:03:00.000Z",
+          "updatedAt": "2026-07-28T01:03:00.000Z",
+          "uid": "35240-126788cf-588a-41d6-8e67-58d6484a8ed7"
+        }
+      ],
+      "id": "03c56056-6528-4173-bdad-fefa6cfcbd5e",
+      "createdAt": "2026-07-28T01:03:00.000Z",
+      "updatedAt": "2026-07-28T01:03:00.000Z",
+      "uid": "35240-03c56056-6528-4173-bdad-fefa6cfcbd5e"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.appcharge.com"
+    }
+  ]
+}

@@ -1,0 +1,805 @@
+{
+  "info": {
+    "_postman_id": "4a2cef7a-917b-4dce-8456-5a5ace94ebbb",
+    "name": "Appcharge Assets Coupons API",
+    "description": "Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.\n\nContact Support:\n Name: Appcharge Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:02:56.000Z",
+    "updatedAt": "2026-07-28T01:02:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4a2cef7a-917b-4dce-8456-5a5ace94ebbb"
+  },
+  "item": [
+    {
+      "name": "coupons",
+      "item": [
+        {
+          "name": "coupon",
+          "item": [
+            {
+              "name": "{couponName}",
+              "item": [
+                {
+                  "name": "get Coupons Coupon Couponname",
+                  "id": "67f40c69-9152-4054-bd0f-0bd6ec43894c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/coupons/coupon/:couponName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "coupons",
+                        "coupon",
+                        ":couponName"
+                      ],
+                      "variable": [
+                        {
+                          "id": "89d8b198-b550-48d1-a688-73bb44c7d286",
+                          "key": "couponName",
+                          "value": "<string>",
+                          "description": "(Required) Coupon name."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a specific coupon by name."
+                  },
+                  "response": [
+                    {
+                      "id": "2b6f0773-4714-4af5-b5ee-22fe704840d5",
+                      "name": "Coupon retrieved successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/coupons/coupon/:couponName",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "coupons",
+                            "coupon",
+                            ":couponName"
+                          ],
+                          "variable": [
+                            {
+                              "key": "couponName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"name\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"discountPercentage\": \"<number>\",\n  \"maxRedemptionsPerCustomer\": \"<integer>\",\n  \"expiredBy\": \"<dateTime>\",\n  \"startsAt\": \"<dateTime>\",\n  \"supportedOfferExternalIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"firstTimePurchase\": \"<boolean>\",\n  \"allowedPlayers\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T01:02:56.000Z",
+                      "updatedAt": "2026-07-28T01:02:56.000Z",
+                      "uid": "35240-2b6f0773-4714-4af5-b5ee-22fe704840d5"
+                    },
+                    {
+                      "id": "63047649-3e46-48cb-9ff9-3de531c9de64",
+                      "name": "Invalid coupon name.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/coupons/coupon/:couponName",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "coupons",
+                            "coupon",
+                            ":couponName"
+                          ],
+                          "variable": [
+                            {
+                              "key": "couponName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:02:56.000Z",
+                      "updatedAt": "2026-07-28T01:02:56.000Z",
+                      "uid": "35240-63047649-3e46-48cb-9ff9-3de531c9de64"
+                    },
+                    {
+                      "id": "e39b6438-056d-46df-af10-2b2776c2fd9d",
+                      "name": "Coupon not found.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/coupons/coupon/:couponName",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "coupons",
+                            "coupon",
+                            ":couponName"
+                          ],
+                          "variable": [
+                            {
+                              "key": "couponName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:02:56.000Z",
+                      "updatedAt": "2026-07-28T01:02:56.000Z",
+                      "uid": "35240-e39b6438-056d-46df-af10-2b2776c2fd9d"
+                    },
+                    {
+                      "id": "8cddc4c1-45a5-47d6-aa49-3b0d7178b0ac",
+                      "name": "Unexpected error.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/coupons/coupon/:couponName",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "coupons",
+                            "coupon",
+                            ":couponName"
+                          ],
+                          "variable": [
+                            {
+                              "key": "couponName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:02:56.000Z",
+                      "updatedAt": "2026-07-28T01:02:56.000Z",
+                      "uid": "35240-8cddc4c1-45a5-47d6-aa49-3b0d7178b0ac"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:02:56.000Z",
+                  "updatedAt": "2026-07-28T01:02:56.000Z",
+                  "uid": "35240-67f40c69-9152-4054-bd0f-0bd6ec43894c"
+                },
+                {
+                  "name": "patch Coupons Coupon Couponname",
+                  "id": "9d9d0f63-4629-4b9a-b21f-0268e447243d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"active\": \"<boolean>\",\n  \"maxRedemptionsPerCustomer\": \"<integer>\",\n  \"expiredBy\": \"<dateTime>\",\n  \"startsAt\": \"<dateTime>\",\n  \"supportedOfferExternalIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"firstTimePurchase\": \"<boolean>\",\n  \"allowedPlayers\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/coupons/coupon/:couponName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "coupons",
+                        "coupon",
+                        ":couponName"
+                      ],
+                      "variable": [
+                        {
+                          "id": "21638440-f4ad-45de-88a5-471e66ade18c",
+                          "key": "couponName",
+                          "value": "<string>",
+                          "description": "(Required) Coupon name."
+                        }
+                      ]
+                    },
+                    "description": "Updates an existing coupon. Only the fields provided in the request body will be updated."
+                  },
+                  "response": [
+                    {
+                      "id": "4089b6a1-0969-4587-8a06-5c61d6e81d18",
+                      "name": "Coupon updated successfully.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"active\": \"<boolean>\",\n  \"maxRedemptionsPerCustomer\": \"<integer>\",\n  \"expiredBy\": \"<dateTime>\",\n  \"startsAt\": \"<dateTime>\",\n  \"supportedOfferExternalIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"firstTimePurchase\": \"<boolean>\",\n  \"allowedPlayers\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/coupons/coupon/:couponName",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "coupons",
+                            "coupon",
+                            ":couponName"
+                          ],
+                          "variable": [
+                            {
+                              "key": "couponName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"name\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"discountPercentage\": \"<number>\",\n  \"maxRedemptionsPerCustomer\": \"<integer>\",\n  \"expiredBy\": \"<dateTime>\",\n  \"startsAt\": \"<dateTime>\",\n  \"supportedOfferExternalIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"firstTimePurchase\": \"<boolean>\",\n  \"allowedPlayers\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T01:02:56.000Z",
+                      "updatedAt": "2026-07-28T01:02:56.000Z",
+                      "uid": "35240-4089b6a1-0969-4587-8a06-5c61d6e81d18"
+                    },
+                    {
+                      "id": "01650728-1b59-44c1-82e8-2bfac8e975db",
+                      "name": "Bad request. Invalid input or validation failure.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"active\": \"<boolean>\",\n  \"maxRedemptionsPerCustomer\": \"<integer>\",\n  \"expiredBy\": \"<dateTime>\",\n  \"startsAt\": \"<dateTime>\",\n  \"supportedOfferExternalIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"firstTimePurchase\": \"<boolean>\",\n  \"allowedPlayers\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/coupons/coupon/:couponName",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "coupons",
+                            "coupon",
+                            ":couponName"
+                          ],
+                          "variable": [
+                            {
+                              "key": "couponName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:02:56.000Z",
+                      "updatedAt": "2026-07-28T01:02:56.000Z",
+                      "uid": "35240-01650728-1b59-44c1-82e8-2bfac8e975db"
+                    },
+                    {
+                      "id": "87e054a3-fe05-4a5b-bb16-dc43258a2c95",
+                      "name": "Coupon not found.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"active\": \"<boolean>\",\n  \"maxRedemptionsPerCustomer\": \"<integer>\",\n  \"expiredBy\": \"<dateTime>\",\n  \"startsAt\": \"<dateTime>\",\n  \"supportedOfferExternalIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"firstTimePurchase\": \"<boolean>\",\n  \"allowedPlayers\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/coupons/coupon/:couponName",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "coupons",
+                            "coupon",
+                            ":couponName"
+                          ],
+                          "variable": [
+                            {
+                              "key": "couponName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:02:56.000Z",
+                      "updatedAt": "2026-07-28T01:02:56.000Z",
+                      "uid": "35240-87e054a3-fe05-4a5b-bb16-dc43258a2c95"
+                    },
+                    {
+                      "id": "515e4bdf-55dc-46b4-8d3f-1cb4742d43fb",
+                      "name": "Unexpected error.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"active\": \"<boolean>\",\n  \"maxRedemptionsPerCustomer\": \"<integer>\",\n  \"expiredBy\": \"<dateTime>\",\n  \"startsAt\": \"<dateTime>\",\n  \"supportedOfferExternalIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"firstTimePurchase\": \"<boolean>\",\n  \"allowedPlayers\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/coupons/coupon/:couponName",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "coupons",
+                            "coupon",
+                            ":couponName"
+                          ],
+                          "variable": [
+                            {
+                              "key": "couponName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:02:56.000Z",
+                      "updatedAt": "2026-07-28T01:02:56.000Z",
+                      "uid": "35240-515e4bdf-55dc-46b4-8d3f-1cb4742d43fb"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:02:56.000Z",
+                  "updatedAt": "2026-07-28T01:02:56.000Z",
+                  "uid": "35240-9d9d0f63-4629-4b9a-b21f-0268e447243d"
+                }
+              ],
+              "id": "77e6fc75-373e-4c0c-a206-605056eee18f",
+              "createdAt": "2026-07-28T01:02:56.000Z",
+              "updatedAt": "2026-07-28T01:02:56.000Z",
+              "uid": "35240-77e6fc75-373e-4c0c-a206-605056eee18f"
+            },
+            {
+              "name": "post Coupons Coupon",
+              "id": "1894401a-9e84-4806-9457-6864187822dc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"discountPercentage\": \"<number>\",\n  \"active\": true,\n  \"maxRedemptionsPerCustomer\": \"<integer>\",\n  \"expiredBy\": \"<dateTime>\",\n  \"startsAt\": \"<dateTime>\",\n  \"supportedOfferExternalIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"firstTimePurchase\": false,\n  \"allowedPlayers\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/coupons/coupon",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "coupons",
+                    "coupon"
+                  ]
+                },
+                "description": "Creates a coupon."
+              },
+              "response": [
+                {
+                  "id": "6f8b8e6a-db2e-4233-b661-f91dce6c4151",
+                  "name": "Coupon created successfully.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"discountPercentage\": \"<number>\",\n  \"active\": true,\n  \"maxRedemptionsPerCustomer\": \"<integer>\",\n  \"expiredBy\": \"<dateTime>\",\n  \"startsAt\": \"<dateTime>\",\n  \"supportedOfferExternalIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"firstTimePurchase\": false,\n  \"allowedPlayers\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/coupons/coupon",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "coupons",
+                        "coupon"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"name\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"discountPercentage\": \"<number>\",\n  \"maxRedemptionsPerCustomer\": \"<integer>\",\n  \"expiredBy\": \"<dateTime>\",\n  \"startsAt\": \"<dateTime>\",\n  \"supportedOfferExternalIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"firstTimePurchase\": \"<boolean>\",\n  \"allowedPlayers\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T01:02:56.000Z",
+                  "updatedAt": "2026-07-28T01:02:56.000Z",
+                  "uid": "35240-6f8b8e6a-db2e-4233-b661-f91dce6c4151"
+                },
+                {
+                  "id": "6b9f6f8d-713a-46f8-809d-a9bc7d3be7cb",
+                  "name": "Bad request. Invalid input or validation failure.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"discountPercentage\": \"<number>\",\n  \"active\": true,\n  \"maxRedemptionsPerCustomer\": \"<integer>\",\n  \"expiredBy\": \"<dateTime>\",\n  \"startsAt\": \"<dateTime>\",\n  \"supportedOfferExternalIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"firstTimePurchase\": false,\n  \"allowedPlayers\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/coupons/coupon",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "coupons",
+                        "coupon"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:02:56.000Z",
+                  "updatedAt": "2026-07-28T01:02:56.000Z",
+                  "uid": "35240-6b9f6f8d-713a-46f8-809d-a9bc7d3be7cb"
+                },
+                {
+                  "id": "85a29bc7-3bca-491b-9332-0b1d2f020622",
+                  "name": "Conflict. A coupon with the same name already exists.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"discountPercentage\": \"<number>\",\n  \"active\": true,\n  \"maxRedemptionsPerCustomer\": \"<integer>\",\n  \"expiredBy\": \"<dateTime>\",\n  \"startsAt\": \"<dateTime>\",\n  \"supportedOfferExternalIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"firstTimePurchase\": false,\n  \"allowedPlayers\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/coupons/coupon",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "coupons",
+                        "coupon"
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:02:56.000Z",
+                  "updatedAt": "2026-07-28T01:02:56.000Z",
+                  "uid": "35240-85a29bc7-3bca-491b-9332-0b1d2f020622"
+                },
+                {
+                  "id": "c6a22300-2023-47a7-8bd1-4a2e017ad35b",
+                  "name": "Unexpected error.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"discountPercentage\": \"<number>\",\n  \"active\": true,\n  \"maxRedemptionsPerCustomer\": \"<integer>\",\n  \"expiredBy\": \"<dateTime>\",\n  \"startsAt\": \"<dateTime>\",\n  \"supportedOfferExternalIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"firstTimePurchase\": false,\n  \"allowedPlayers\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/coupons/coupon",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "coupons",
+                        "coupon"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:02:56.000Z",
+                  "updatedAt": "2026-07-28T01:02:56.000Z",
+                  "uid": "35240-c6a22300-2023-47a7-8bd1-4a2e017ad35b"
+                }
+              ],
+              "createdAt": "2026-07-28T01:02:56.000Z",
+              "updatedAt": "2026-07-28T01:02:56.000Z",
+              "uid": "35240-1894401a-9e84-4806-9457-6864187822dc"
+            }
+          ],
+          "id": "717e1901-0513-471c-8e08-025b5a990ef3",
+          "createdAt": "2026-07-28T01:02:56.000Z",
+          "updatedAt": "2026-07-28T01:02:56.000Z",
+          "uid": "35240-717e1901-0513-471c-8e08-025b5a990ef3"
+        }
+      ],
+      "id": "b287c92e-be17-4ce3-b4bd-e895a1c7b55c",
+      "createdAt": "2026-07-28T01:02:56.000Z",
+      "updatedAt": "2026-07-28T01:02:56.000Z",
+      "uid": "35240-b287c92e-be17-4ce3-b4bd-e895a1c7b55c"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.appcharge.com"
+    }
+  ]
+}

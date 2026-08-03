@@ -1,0 +1,834 @@
+{
+  "info": {
+    "_postman_id": "550c29a8-f573-42b2-95ce-fb19681ae398",
+    "name": "Appcharge Assets API",
+    "description": "Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.\n\nContact Support:\n Name: Appcharge Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:02:46.000Z",
+    "updatedAt": "2026-07-28T01:02:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-550c29a8-f573-42b2-95ce-fb19681ae398"
+  },
+  "item": [
+    {
+      "name": "components",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "asset",
+              "item": [
+                {
+                  "name": "{name}",
+                  "item": [
+                    {
+                      "name": "delete Components V1Asset Name",
+                      "id": "6f96afc5-5b3e-4559-9b7b-a2e645139c1c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/components/v1/asset/:name",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "components",
+                            "v1",
+                            "asset",
+                            ":name"
+                          ],
+                          "variable": [
+                            {
+                              "id": "1df1a4db-2b23-411e-9332-b50a1b163d36",
+                              "key": "name",
+                              "value": "<string>",
+                              "description": "(Required) Asset name."
+                            }
+                          ]
+                        },
+                        "description": "Deletes an asset in the Assets Library."
+                      },
+                      "response": [
+                        {
+                          "id": "aae6b900-b99d-4162-b04b-61e43ef6a901",
+                          "name": "Asset deleted successfully.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/components/v1/asset/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "components",
+                                "v1",
+                                "asset",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "name"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"backToGameButtonImage\",\n  \"imageUrl\": \"<string>\",\n  \"contentType\": \"<string>\",\n  \"externalImageUrl\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:02:47.000Z",
+                          "updatedAt": "2026-07-28T01:02:47.000Z",
+                          "uid": "35240-aae6b900-b99d-4162-b04b-61e43ef6a901"
+                        },
+                        {
+                          "id": "64ed029b-3b0a-4aa2-a28c-9110ade83043",
+                          "name": "Asset not found.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/components/v1/asset/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "components",
+                                "v1",
+                                "asset",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "name"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:02:47.000Z",
+                          "updatedAt": "2026-07-28T01:02:47.000Z",
+                          "uid": "35240-64ed029b-3b0a-4aa2-a28c-9110ade83043"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:02:47.000Z",
+                      "updatedAt": "2026-07-28T01:02:47.000Z",
+                      "uid": "35240-6f96afc5-5b3e-4559-9b7b-a2e645139c1c"
+                    },
+                    {
+                      "name": "get Components V1Asset Name",
+                      "id": "f21e2905-0000-476e-b30b-00eff8ae8835",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/components/v1/asset/:name",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "components",
+                            "v1",
+                            "asset",
+                            ":name"
+                          ],
+                          "variable": [
+                            {
+                              "id": "0b54ed4b-118c-4b81-ba75-4a8689a09e8c",
+                              "key": "name",
+                              "value": "<string>",
+                              "description": "(Required) Asset name."
+                            }
+                          ]
+                        },
+                        "description": "Retrieves a specific asset in the Assets Library."
+                      },
+                      "response": [
+                        {
+                          "id": "63dfcb81-8829-43b4-87cd-9d6acba37fed",
+                          "name": "Asset details retrieved successfully.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/components/v1/asset/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "components",
+                                "v1",
+                                "asset",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "name"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"backToGameButtonImage\",\n  \"imageUrl\": \"<string>\",\n  \"contentType\": \"<string>\",\n  \"externalImageUrl\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:02:47.000Z",
+                          "updatedAt": "2026-07-28T01:02:47.000Z",
+                          "uid": "35240-63dfcb81-8829-43b4-87cd-9d6acba37fed"
+                        },
+                        {
+                          "id": "2b305fa1-75d5-417b-acea-7e371f12c53a",
+                          "name": "Asset not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/components/v1/asset/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "components",
+                                "v1",
+                                "asset",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "name"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:02:47.000Z",
+                          "updatedAt": "2026-07-28T01:02:47.000Z",
+                          "uid": "35240-2b305fa1-75d5-417b-acea-7e371f12c53a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:02:47.000Z",
+                      "updatedAt": "2026-07-28T01:02:47.000Z",
+                      "uid": "35240-f21e2905-0000-476e-b30b-00eff8ae8835"
+                    },
+                    {
+                      "name": "put Components V1Asset Name",
+                      "id": "35c0be8a-509c-45c9-a468-99d4d29414b0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "Asset category. (This can only be one of product,badge,bgMobile,bgDesk,logo,favicon,bgBundle,bgPopup,general,section,productPrefix,playerLevel,banner,addToHomeButtonImage,addToHomeIconImage,playerProfileImage,offerHeader,backToGameButtonImage,animation,trait)",
+                              "key": "type",
+                              "value": "bgBundle",
+                              "type": "text"
+                            },
+                            {
+                              "description": "Asset name.",
+                              "key": "name",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "description": "A valid PNG or JPEG image file. Maximum size is 2 MB.",
+                              "key": "file",
+                              "type": "file",
+                              "value": null
+                            },
+                            {
+                              "description": "URL to a valid, publicly accessible image. Appcharge saves and uses this URL as-is and doesn't download, copy, upload, or host the image on Appcharge CDN. The image must remain available at the provided URL.\n\nWe recommend uploading image files instead of using external URLs when possible. Appcharge hosts uploaded files on its CDN. Maximum size is 2 MB. Must be in PNG or JPEG format.",
+                              "key": "externalImageUrl",
+                              "value": "<string>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/components/v1/asset/:name",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "components",
+                            "v1",
+                            "asset",
+                            ":name"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a13c69f5-e647-4d63-830d-4c7e3eea7c7b",
+                              "key": "name",
+                              "value": "<string>",
+                              "description": "(Required) Asset name."
+                            }
+                          ]
+                        },
+                        "description": "Updates an asset in the Assets Library."
+                      },
+                      "response": [
+                        {
+                          "id": "839cc09c-cd27-45e0-a29a-1ab064492d83",
+                          "name": "Asset updated successfully.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "multipart/form-data"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "formdata",
+                              "formdata": [
+                                {
+                                  "description": "Asset category. (This can only be one of product,badge,bgMobile,bgDesk,logo,favicon,bgBundle,bgPopup,general,section,productPrefix,playerLevel,banner,addToHomeButtonImage,addToHomeIconImage,playerProfileImage,offerHeader,backToGameButtonImage,animation,trait)",
+                                  "key": "type",
+                                  "value": "bgBundle",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "Asset name.",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "A valid PNG or JPEG image file. Maximum size is 2 MB.",
+                                  "key": "file",
+                                  "type": "file"
+                                },
+                                {
+                                  "description": "URL to a valid, publicly accessible image. Appcharge saves and uses this URL as-is and doesn't download, copy, upload, or host the image on Appcharge CDN. The image must remain available at the provided URL.\n\nWe recommend uploading image files instead of using external URLs when possible. Appcharge hosts uploaded files on its CDN. Maximum size is 2 MB. Must be in PNG or JPEG format.",
+                                  "key": "externalImageUrl",
+                                  "value": "<string>",
+                                  "type": "text"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/components/v1/asset/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "components",
+                                "v1",
+                                "asset",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "name"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"backToGameButtonImage\",\n  \"imageUrl\": \"<string>\",\n  \"contentType\": \"<string>\",\n  \"externalImageUrl\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:02:47.000Z",
+                          "updatedAt": "2026-07-28T01:02:47.000Z",
+                          "uid": "35240-839cc09c-cd27-45e0-a29a-1ab064492d83"
+                        },
+                        {
+                          "id": "50b4121f-6f56-4a24-b517-ef42e4a685f5",
+                          "name": "Bad request. Invalid input or validation failure.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "multipart/form-data"
+                              }
+                            ],
+                            "body": {
+                              "mode": "formdata",
+                              "formdata": [
+                                {
+                                  "description": "Asset category. (This can only be one of product,badge,bgMobile,bgDesk,logo,favicon,bgBundle,bgPopup,general,section,productPrefix,playerLevel,banner,addToHomeButtonImage,addToHomeIconImage,playerProfileImage,offerHeader,backToGameButtonImage,animation,trait)",
+                                  "key": "type",
+                                  "value": "bgBundle",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "Asset name.",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "A valid PNG or JPEG image file. Maximum size is 2 MB.",
+                                  "key": "file",
+                                  "type": "file"
+                                },
+                                {
+                                  "description": "URL to a valid, publicly accessible image. Appcharge saves and uses this URL as-is and doesn't download, copy, upload, or host the image on Appcharge CDN. The image must remain available at the provided URL.\n\nWe recommend uploading image files instead of using external URLs when possible. Appcharge hosts uploaded files on its CDN. Maximum size is 2 MB. Must be in PNG or JPEG format.",
+                                  "key": "externalImageUrl",
+                                  "value": "<string>",
+                                  "type": "text"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/components/v1/asset/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "components",
+                                "v1",
+                                "asset",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "name"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:02:47.000Z",
+                          "updatedAt": "2026-07-28T01:02:47.000Z",
+                          "uid": "35240-50b4121f-6f56-4a24-b517-ef42e4a685f5"
+                        },
+                        {
+                          "id": "f1bb2bc5-4be8-44ea-a845-684bcc8ce956",
+                          "name": "Asset not found.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "multipart/form-data"
+                              }
+                            ],
+                            "body": {
+                              "mode": "formdata",
+                              "formdata": [
+                                {
+                                  "description": "Asset category. (This can only be one of product,badge,bgMobile,bgDesk,logo,favicon,bgBundle,bgPopup,general,section,productPrefix,playerLevel,banner,addToHomeButtonImage,addToHomeIconImage,playerProfileImage,offerHeader,backToGameButtonImage,animation,trait)",
+                                  "key": "type",
+                                  "value": "bgBundle",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "Asset name.",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "A valid PNG or JPEG image file. Maximum size is 2 MB.",
+                                  "key": "file",
+                                  "type": "file"
+                                },
+                                {
+                                  "description": "URL to a valid, publicly accessible image. Appcharge saves and uses this URL as-is and doesn't download, copy, upload, or host the image on Appcharge CDN. The image must remain available at the provided URL.\n\nWe recommend uploading image files instead of using external URLs when possible. Appcharge hosts uploaded files on its CDN. Maximum size is 2 MB. Must be in PNG or JPEG format.",
+                                  "key": "externalImageUrl",
+                                  "value": "<string>",
+                                  "type": "text"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/components/v1/asset/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "components",
+                                "v1",
+                                "asset",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "name"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:02:47.000Z",
+                          "updatedAt": "2026-07-28T01:02:47.000Z",
+                          "uid": "35240-f1bb2bc5-4be8-44ea-a845-684bcc8ce956"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:02:47.000Z",
+                      "updatedAt": "2026-07-28T01:02:47.000Z",
+                      "uid": "35240-35c0be8a-509c-45c9-a468-99d4d29414b0"
+                    }
+                  ],
+                  "id": "e5bebbaa-bdca-4548-aab2-d0a12688908a",
+                  "createdAt": "2026-07-28T01:02:47.000Z",
+                  "updatedAt": "2026-07-28T01:02:47.000Z",
+                  "uid": "35240-e5bebbaa-bdca-4548-aab2-d0a12688908a"
+                },
+                {
+                  "name": "post Components V1Asset",
+                  "id": "f4ace152-5740-4108-b1ca-4ecfe70479fa",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "key": "type",
+                          "value": "trait",
+                          "type": "text"
+                        },
+                        {
+                          "key": "name",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "file",
+                          "value": "<binary>",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/components/v1/asset",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "components",
+                        "v1",
+                        "asset"
+                      ]
+                    },
+                    "description": "Creates an asset in the Assets Library."
+                  },
+                  "response": [
+                    {
+                      "id": "0d5b8b88-2b13-4a10-a7f1-13e824067b13",
+                      "name": "Asset uploaded successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "key": "type",
+                              "value": "trait",
+                              "type": "text"
+                            },
+                            {
+                              "key": "name",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "file",
+                              "value": "<binary>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/components/v1/asset",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "components",
+                            "v1",
+                            "asset"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"backToGameButtonImage\",\n  \"imageUrl\": \"<string>\",\n  \"contentType\": \"<string>\",\n  \"externalImageUrl\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:02:47.000Z",
+                      "updatedAt": "2026-07-28T01:02:47.000Z",
+                      "uid": "35240-0d5b8b88-2b13-4a10-a7f1-13e824067b13"
+                    },
+                    {
+                      "id": "e93a5a35-c3f5-4138-bbd4-89ecba838f6c",
+                      "name": "Bad request. Invalid input or validation failure.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "key": "type",
+                              "value": "trait",
+                              "type": "text"
+                            },
+                            {
+                              "key": "name",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "file",
+                              "value": "<binary>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/components/v1/asset",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "components",
+                            "v1",
+                            "asset"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:02:47.000Z",
+                      "updatedAt": "2026-07-28T01:02:47.000Z",
+                      "uid": "35240-e93a5a35-c3f5-4138-bbd4-89ecba838f6c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:02:47.000Z",
+                  "updatedAt": "2026-07-28T01:02:47.000Z",
+                  "uid": "35240-f4ace152-5740-4108-b1ca-4ecfe70479fa"
+                },
+                {
+                  "name": "get Components V1Asset",
+                  "id": "4bea50f2-2210-44e7-bbf9-0f8f9233c07b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/components/v1/asset",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "components",
+                        "v1",
+                        "asset"
+                      ]
+                    },
+                    "description": "Retrieves a list of all assets in the Assets Library."
+                  },
+                  "response": [
+                    {
+                      "id": "11c99e5c-162c-4dd5-aecb-0fecb814de38",
+                      "name": "Assets retrieved successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/components/v1/asset",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "components",
+                            "v1",
+                            "asset"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"getAllAssetsResponse\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"offerHeader\",\n      \"imageUrl\": \"<string>\",\n      \"contentType\": \"<string>\",\n      \"externalImageUrl\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"general\",\n      \"imageUrl\": \"<string>\",\n      \"contentType\": \"<string>\",\n      \"externalImageUrl\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:02:47.000Z",
+                      "updatedAt": "2026-07-28T01:02:47.000Z",
+                      "uid": "35240-11c99e5c-162c-4dd5-aecb-0fecb814de38"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:02:47.000Z",
+                  "updatedAt": "2026-07-28T01:02:47.000Z",
+                  "uid": "35240-4bea50f2-2210-44e7-bbf9-0f8f9233c07b"
+                }
+              ],
+              "id": "8f56e48c-9042-40d6-b8b2-fd736f2a5d8b",
+              "createdAt": "2026-07-28T01:02:47.000Z",
+              "updatedAt": "2026-07-28T01:02:47.000Z",
+              "uid": "35240-8f56e48c-9042-40d6-b8b2-fd736f2a5d8b"
+            }
+          ],
+          "id": "da89fe05-5f43-4cb3-a475-33a6459de938",
+          "createdAt": "2026-07-28T01:02:47.000Z",
+          "updatedAt": "2026-07-28T01:02:47.000Z",
+          "uid": "35240-da89fe05-5f43-4cb3-a475-33a6459de938"
+        }
+      ],
+      "id": "21d5fe06-514b-476e-befc-c635067c7ef3",
+      "createdAt": "2026-07-28T01:02:47.000Z",
+      "updatedAt": "2026-07-28T01:02:47.000Z",
+      "uid": "35240-21d5fe06-514b-476e-befc-c635067c7ef3"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.appcharge.com"
+    }
+  ]
+}

@@ -1,0 +1,263 @@
+{
+  "info": {
+    "_postman_id": "04511805-d77c-4254-b4a6-115be521c1cf",
+    "name": "Appcharge Assets Popups API",
+    "description": "Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.\n\nContact Support:\n Name: Appcharge Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:03:03.000Z",
+    "updatedAt": "2026-07-28T01:03:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-04511805-d77c-4254-b4a6-115be521c1cf"
+  },
+  "item": [
+    {
+      "name": "offering",
+      "item": [
+        {
+          "name": "offer",
+          "item": [
+            {
+              "name": "popup",
+              "item": [
+                {
+                  "name": "create-post-purchase-popup",
+                  "id": "f10cba3f-ec6c-48d1-8b16-158bc0c5f1d2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) The publisher token",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"publisherOfferId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"offerUiId\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"productsSequence\": [\n    {\n      \"index\": \"<number>\",\n      \"priceInUsdCents\": \"<number>\",\n      \"products\": [\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        },\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        }\n      ],\n      \"playerAvailability\": \"<number>\"\n    },\n    {\n      \"index\": \"<number>\",\n      \"priceInUsdCents\": \"<number>\",\n      \"products\": [\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        },\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        }\n      ],\n      \"playerAvailability\": \"<number>\"\n    }\n  ],\n  \"subType\": \"<string>\",\n  \"priority\": \"<number>\",\n  \"startOver\": \"<boolean>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"offerExternalUiId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/offering/offer/popup",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "offering",
+                        "offer",
+                        "popup"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "ebac76f0-61c9-48a3-a32a-73053183ed78",
+                      "name": "Create a new Offer",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) The publisher token",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"publisherOfferId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"offerUiId\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"productsSequence\": [\n    {\n      \"index\": \"<number>\",\n      \"priceInUsdCents\": \"<number>\",\n      \"products\": [\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        },\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        }\n      ],\n      \"playerAvailability\": \"<number>\"\n    },\n    {\n      \"index\": \"<number>\",\n      \"priceInUsdCents\": \"<number>\",\n      \"products\": [\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        },\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        }\n      ],\n      \"playerAvailability\": \"<number>\"\n    }\n  ],\n  \"subType\": \"<string>\",\n  \"priority\": \"<number>\",\n  \"startOver\": \"<boolean>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"offerExternalUiId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/offering/offer/popup",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "offering",
+                            "offer",
+                            "popup"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"offerId\": \"<string>\",\n  \"publisherOfferId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"type\": \"<string>\",\n  \"subType\": \"<string>\",\n  \"createdBy\": \"<string>\",\n  \"offerUi\": {\n    \"offerUiId\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"active\": \"<boolean>\",\n    \"offerUiType\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"backgroundImage\": \"<string>\",\n    \"specialOffer\": {\n      \"templateType\": \"<string>\",\n      \"presentOfferEndTimer\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"fontSize\": \"<number>\",\n      \"fontWeight\": \"<string>\",\n      \"fontColor\": {\n        \"colorOne\": \"<string>\",\n        \"colorTwo\": \"<string>\",\n        \"direction\": \"<string>\"\n      },\n      \"backgroundColor\": {\n        \"colorOne\": \"<string>\",\n        \"colorTwo\": \"<string>\",\n        \"direction\": \"<string>\"\n      }\n    }\n  },\n  \"active\": \"<boolean>\",\n  \"coolDownInHours\": \"<number>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"productsSequence\": [\n    {\n      \"index\": \"<number>\",\n      \"playerAvailability\": \"<number>\",\n      \"priceInUsdCents\": \"<number>\",\n      \"products\": [\n        {\n          \"quantity\": \"<number>\",\n          \"product\": {\n            \"publisherProductId\": \"<string>\",\n            \"name\": \"<string>\",\n            \"textFontColorHex\": \"<string>\",\n            \"type\": \"<string>\",\n            \"prefix\": \"<string>\",\n            \"suffix\": \"<string>\",\n            \"priority\": \"<string>\",\n            \"images\": [\n              {\n                \"type\": \"<string>\",\n                \"url\": \"<string>\"\n              },\n              {\n                \"type\": \"<string>\",\n                \"url\": \"<string>\"\n              }\n            ],\n            \"createdAt\": \"<dateTime>\",\n            \"updatedAt\": \"<dateTime>\",\n            \"productId\": \"<string>\"\n          }\n        },\n        {\n          \"quantity\": \"<number>\",\n          \"product\": {\n            \"publisherProductId\": \"<string>\",\n            \"name\": \"<string>\",\n            \"textFontColorHex\": \"<string>\",\n            \"type\": \"<string>\",\n            \"prefix\": \"<string>\",\n            \"suffix\": \"<string>\",\n            \"priority\": \"<string>\",\n            \"images\": [\n              {\n                \"type\": \"<string>\",\n                \"url\": \"<string>\"\n              },\n              {\n                \"type\": \"<string>\",\n                \"url\": \"<string>\"\n              }\n            ],\n            \"createdAt\": \"<dateTime>\",\n            \"updatedAt\": \"<dateTime>\",\n            \"productId\": \"<string>\"\n          }\n        }\n      ]\n    },\n    {\n      \"index\": \"<number>\",\n      \"playerAvailability\": \"<number>\",\n      \"priceInUsdCents\": \"<number>\",\n      \"products\": [\n        {\n          \"quantity\": \"<number>\",\n          \"product\": {\n            \"publisherProductId\": \"<string>\",\n            \"name\": \"<string>\",\n            \"textFontColorHex\": \"<string>\",\n            \"type\": \"<string>\",\n            \"prefix\": \"<string>\",\n            \"suffix\": \"<string>\",\n            \"priority\": \"<string>\",\n            \"images\": [\n              {\n                \"type\": \"<string>\",\n                \"url\": \"<string>\"\n              },\n              {\n                \"type\": \"<string>\",\n                \"url\": \"<string>\"\n              }\n            ],\n            \"createdAt\": \"<dateTime>\",\n            \"updatedAt\": \"<dateTime>\",\n            \"productId\": \"<string>\"\n          }\n        },\n        {\n          \"quantity\": \"<number>\",\n          \"product\": {\n            \"publisherProductId\": \"<string>\",\n            \"name\": \"<string>\",\n            \"textFontColorHex\": \"<string>\",\n            \"type\": \"<string>\",\n            \"prefix\": \"<string>\",\n            \"suffix\": \"<string>\",\n            \"priority\": \"<string>\",\n            \"images\": [\n              {\n                \"type\": \"<string>\",\n                \"url\": \"<string>\"\n              },\n              {\n                \"type\": \"<string>\",\n                \"url\": \"<string>\"\n              }\n            ],\n            \"createdAt\": \"<dateTime>\",\n            \"updatedAt\": \"<dateTime>\",\n            \"productId\": \"<string>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"startOver\": \"<boolean>\",\n  \"priority\": \"<number>\",\n  \"showAfter\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T01:03:04.000Z",
+                      "updatedAt": "2026-07-28T01:03:04.000Z",
+                      "uid": "35240-ebac76f0-61c9-48a3-a32a-73053183ed78"
+                    },
+                    {
+                      "id": "3dc1ba92-9f58-46ef-a7f8-6c566336e396",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) The publisher token",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"publisherOfferId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"offerUiId\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"productsSequence\": [\n    {\n      \"index\": \"<number>\",\n      \"priceInUsdCents\": \"<number>\",\n      \"products\": [\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        },\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        }\n      ],\n      \"playerAvailability\": \"<number>\"\n    },\n    {\n      \"index\": \"<number>\",\n      \"priceInUsdCents\": \"<number>\",\n      \"products\": [\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        },\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        }\n      ],\n      \"playerAvailability\": \"<number>\"\n    }\n  ],\n  \"subType\": \"<string>\",\n  \"priority\": \"<number>\",\n  \"startOver\": \"<boolean>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"offerExternalUiId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/offering/offer/popup",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "offering",
+                            "offer",
+                            "popup"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"requestUrl\": \"<string>\",\n  \"body\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:03:04.000Z",
+                      "updatedAt": "2026-07-28T01:03:04.000Z",
+                      "uid": "35240-3dc1ba92-9f58-46ef-a7f8-6c566336e396"
+                    },
+                    {
+                      "id": "aced276a-76c4-4d64-9bbf-09fc0fd61e37",
+                      "name": "Not Authorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) The publisher token",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"publisherOfferId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"offerUiId\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"productsSequence\": [\n    {\n      \"index\": \"<number>\",\n      \"priceInUsdCents\": \"<number>\",\n      \"products\": [\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        },\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        }\n      ],\n      \"playerAvailability\": \"<number>\"\n    },\n    {\n      \"index\": \"<number>\",\n      \"priceInUsdCents\": \"<number>\",\n      \"products\": [\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        },\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        }\n      ],\n      \"playerAvailability\": \"<number>\"\n    }\n  ],\n  \"subType\": \"<string>\",\n  \"priority\": \"<number>\",\n  \"startOver\": \"<boolean>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"offerExternalUiId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/offering/offer/popup",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "offering",
+                            "offer",
+                            "popup"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:03:04.000Z",
+                      "updatedAt": "2026-07-28T01:03:04.000Z",
+                      "uid": "35240-aced276a-76c4-4d64-9bbf-09fc0fd61e37"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:03:04.000Z",
+                  "updatedAt": "2026-07-28T01:03:04.000Z",
+                  "uid": "35240-f10cba3f-ec6c-48d1-8b16-158bc0c5f1d2"
+                }
+              ],
+              "id": "c3d377cb-08f5-470c-9951-9daadb764266",
+              "createdAt": "2026-07-28T01:03:04.000Z",
+              "updatedAt": "2026-07-28T01:03:04.000Z",
+              "uid": "35240-c3d377cb-08f5-470c-9951-9daadb764266"
+            }
+          ],
+          "id": "8d15e581-b48a-4099-b999-3b1871c0c0cc",
+          "createdAt": "2026-07-28T01:03:04.000Z",
+          "updatedAt": "2026-07-28T01:03:04.000Z",
+          "uid": "35240-8d15e581-b48a-4099-b999-3b1871c0c0cc"
+        }
+      ],
+      "id": "074d77a3-75a8-4a99-8036-91b2dd1a6b39",
+      "createdAt": "2026-07-28T01:03:04.000Z",
+      "updatedAt": "2026-07-28T01:03:04.000Z",
+      "uid": "35240-074d77a3-75a8-4a99-8036-91b2dd1a6b39"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.appcharge.com"
+    }
+  ]
+}

@@ -1,0 +1,2320 @@
+{
+  "info": {
+    "_postman_id": "1fec000f-5f1b-4222-9feb-cf5af741d675",
+    "name": "Appcharge Assets Portal Content API",
+    "description": "Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.\n\nContact Support:\n Name: Appcharge Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:03:30.000Z",
+    "updatedAt": "2026-07-28T01:03:30.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1fec000f-5f1b-4222-9feb-cf5af741d675"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "portal-content",
+          "item": [
+            {
+              "name": "{contentId}",
+              "item": [
+                {
+                  "name": "translations",
+                  "item": [
+                    {
+                      "name": "{isoCode}",
+                      "item": [
+                        {
+                          "name": "Upsert Content Translation",
+                          "id": "26265b94-0fbf-4dde-99d7-3ad804747db9",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "description": "(Required) Publisher token.",
+                                "key": "x-publisher-token",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/portal-content/:contentId/translations/:isoCode",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "portal-content",
+                                ":contentId",
+                                "translations",
+                                ":isoCode"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "66d1580a-504e-4572-8a40-242d432ca7f3",
+                                  "key": "contentId",
+                                  "value": "<string>",
+                                  "description": "(Required) Content ID."
+                                },
+                                {
+                                  "id": "a232c001-ec77-48f0-af7e-c4586ad2737e",
+                                  "key": "isoCode",
+                                  "value": "<string>",
+                                  "description": "(Required) The locale code. Both [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code and [ISO-3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code formats are supported."
+                                }
+                              ]
+                            },
+                            "description": "Creates or updates a translation for a content item in a specific locale. <br/><br/>This operation doesn't modify translations in other locales or other content fields.<br /> <Note>You must first [add the locale in the Publisher Dashboard](/../../guides/translations/add-and-manage-languages) before adding its translation.</Note>"
+                          },
+                          "response": [
+                            {
+                              "id": "62ccad2e-20fe-47b5-bd36-01cf9e4afa7a",
+                              "name": "Translation upserted successfully. Returns the full updated content item.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "description": "(Required) Publisher token.",
+                                    "key": "x-publisher-token",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/portal-content/:contentId/translations/:isoCode",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "portal-content",
+                                    ":contentId",
+                                    "translations",
+                                    ":isoCode"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contentId"
+                                    },
+                                    {
+                                      "key": "isoCode"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"hidden\",\n  \"contentType\": \"news\",\n  \"publishDate\": \"<dateTime>\",\n  \"slug\": \"<string>\",\n  \"visibility\": \"public\",\n  \"tag\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"translations\": [\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"pages\": [\n    {\n      \"id\": \"<string>\",\n      \"pageName\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"pageName\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:03:30.000Z",
+                              "updatedAt": "2026-07-28T01:03:30.000Z",
+                              "uid": "35240-62ccad2e-20fe-47b5-bd36-01cf9e4afa7a"
+                            },
+                            {
+                              "id": "b936031e-f4b5-4729-b792-622f9cbbf0e7",
+                              "name": "Invalid request body or validation error.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "description": "(Required) Publisher token.",
+                                    "key": "x-publisher-token",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/portal-content/:contentId/translations/:isoCode",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "portal-content",
+                                    ":contentId",
+                                    "translations",
+                                    ":isoCode"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contentId"
+                                    },
+                                    {
+                                      "key": "isoCode"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:03:30.000Z",
+                              "updatedAt": "2026-07-28T01:03:30.000Z",
+                              "uid": "35240-b936031e-f4b5-4729-b792-622f9cbbf0e7"
+                            },
+                            {
+                              "id": "87ac6b22-9e05-4bcb-9aad-4d2b96681647",
+                              "name": "Invalid or missing publisher token.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "description": "(Required) Publisher token.",
+                                    "key": "x-publisher-token",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/portal-content/:contentId/translations/:isoCode",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "portal-content",
+                                    ":contentId",
+                                    "translations",
+                                    ":isoCode"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contentId"
+                                    },
+                                    {
+                                      "key": "isoCode"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:03:30.000Z",
+                              "updatedAt": "2026-07-28T01:03:30.000Z",
+                              "uid": "35240-87ac6b22-9e05-4bcb-9aad-4d2b96681647"
+                            },
+                            {
+                              "id": "7f923538-023d-4812-88ac-47f5a6256617",
+                              "name": "Content not found.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "description": "(Required) Publisher token.",
+                                    "key": "x-publisher-token",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/portal-content/:contentId/translations/:isoCode",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "portal-content",
+                                    ":contentId",
+                                    "translations",
+                                    ":isoCode"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contentId"
+                                    },
+                                    {
+                                      "key": "isoCode"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:03:30.000Z",
+                              "updatedAt": "2026-07-28T01:03:30.000Z",
+                              "uid": "35240-7f923538-023d-4812-88ac-47f5a6256617"
+                            },
+                            {
+                              "id": "28b44173-7641-4520-a62b-62bd479737b3",
+                              "name": "Slug conflict.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "description": "(Required) Publisher token.",
+                                    "key": "x-publisher-token",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/portal-content/:contentId/translations/:isoCode",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "portal-content",
+                                    ":contentId",
+                                    "translations",
+                                    ":isoCode"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contentId"
+                                    },
+                                    {
+                                      "key": "isoCode"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Conflict",
+                              "code": 409,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:03:30.000Z",
+                              "updatedAt": "2026-07-28T01:03:30.000Z",
+                              "uid": "35240-28b44173-7641-4520-a62b-62bd479737b3"
+                            },
+                            {
+                              "id": "91dbb0ba-18a9-4d44-b9ad-210c8ea96916",
+                              "name": "Request payload is too large.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "description": "(Required) Publisher token.",
+                                    "key": "x-publisher-token",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/portal-content/:contentId/translations/:isoCode",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "portal-content",
+                                    ":contentId",
+                                    "translations",
+                                    ":isoCode"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contentId"
+                                    },
+                                    {
+                                      "key": "isoCode"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Request Entity Too Large",
+                              "code": 413,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:03:30.000Z",
+                              "updatedAt": "2026-07-28T01:03:30.000Z",
+                              "uid": "35240-91dbb0ba-18a9-4d44-b9ad-210c8ea96916"
+                            },
+                            {
+                              "id": "c95b0ac2-c468-41fc-9ce0-8b436ce0a626",
+                              "name": "Server error.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "description": "(Required) Publisher token.",
+                                    "key": "x-publisher-token",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/portal-content/:contentId/translations/:isoCode",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "portal-content",
+                                    ":contentId",
+                                    "translations",
+                                    ":isoCode"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contentId"
+                                    },
+                                    {
+                                      "key": "isoCode"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:03:30.000Z",
+                              "updatedAt": "2026-07-28T01:03:30.000Z",
+                              "uid": "35240-c95b0ac2-c468-41fc-9ce0-8b436ce0a626"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:03:30.000Z",
+                          "updatedAt": "2026-07-28T01:03:30.000Z",
+                          "uid": "35240-26265b94-0fbf-4dde-99d7-3ad804747db9"
+                        }
+                      ],
+                      "id": "194d48e6-0a9c-4e71-8530-e6d82d6c3917",
+                      "createdAt": "2026-07-28T01:03:30.000Z",
+                      "updatedAt": "2026-07-28T01:03:30.000Z",
+                      "uid": "35240-194d48e6-0a9c-4e71-8530-e6d82d6c3917"
+                    },
+                    {
+                      "name": "Get Content Translations",
+                      "id": "d4141d08-f5fe-4f31-99bf-36a6d0034848",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/portal-content/:contentId/translations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "portal-content",
+                            ":contentId",
+                            "translations"
+                          ],
+                          "variable": [
+                            {
+                              "id": "145cbf0f-a0e4-4ad6-ab52-1ba0eead8b3f",
+                              "key": "contentId",
+                              "value": "<string>",
+                              "description": "(Required) Content ID."
+                            }
+                          ]
+                        },
+                        "description": "Retrieves all existing translations for a content item."
+                      },
+                      "response": [
+                        {
+                          "id": "3096163c-c112-4149-94a2-fc3bd1da1618",
+                          "name": "Translations retrieved successfully.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "(Required) Publisher token.",
+                                "key": "x-publisher-token",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/portal-content/:contentId/translations",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "portal-content",
+                                ":contentId",
+                                "translations"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"items\": [\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:03:30.000Z",
+                          "updatedAt": "2026-07-28T01:03:30.000Z",
+                          "uid": "35240-3096163c-c112-4149-94a2-fc3bd1da1618"
+                        },
+                        {
+                          "id": "ec14c0e7-8ae8-44e0-ad99-6e4472d13539",
+                          "name": "Invalid or missing publisher token.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "(Required) Publisher token.",
+                                "key": "x-publisher-token",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/portal-content/:contentId/translations",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "portal-content",
+                                ":contentId",
+                                "translations"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:03:30.000Z",
+                          "updatedAt": "2026-07-28T01:03:30.000Z",
+                          "uid": "35240-ec14c0e7-8ae8-44e0-ad99-6e4472d13539"
+                        },
+                        {
+                          "id": "4dbbcb28-06d0-4e0a-9e6d-1ac85bd27795",
+                          "name": "Content not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "(Required) Publisher token.",
+                                "key": "x-publisher-token",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/portal-content/:contentId/translations",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "portal-content",
+                                ":contentId",
+                                "translations"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:03:30.000Z",
+                          "updatedAt": "2026-07-28T01:03:30.000Z",
+                          "uid": "35240-4dbbcb28-06d0-4e0a-9e6d-1ac85bd27795"
+                        },
+                        {
+                          "id": "ecb6fd13-b153-44d9-a8bc-77a15bead837",
+                          "name": "Server error.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "(Required) Publisher token.",
+                                "key": "x-publisher-token",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/portal-content/:contentId/translations",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "portal-content",
+                                ":contentId",
+                                "translations"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:03:30.000Z",
+                          "updatedAt": "2026-07-28T01:03:30.000Z",
+                          "uid": "35240-ecb6fd13-b153-44d9-a8bc-77a15bead837"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:03:30.000Z",
+                      "updatedAt": "2026-07-28T01:03:30.000Z",
+                      "uid": "35240-d4141d08-f5fe-4f31-99bf-36a6d0034848"
+                    }
+                  ],
+                  "id": "191ed515-680a-4a1f-a856-d7e8c8326462",
+                  "createdAt": "2026-07-28T01:03:30.000Z",
+                  "updatedAt": "2026-07-28T01:03:30.000Z",
+                  "uid": "35240-191ed515-680a-4a1f-a856-d7e8c8326462"
+                },
+                {
+                  "name": "Delete Content",
+                  "id": "a1bd22c7-c509-4b0e-a6a5-e3ed9bd6fc23",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "(Required) Publisher token.",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/portal-content/:contentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "portal-content",
+                        ":contentId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "4955469f-bbd4-42d4-b3c4-3bdf65a8fdb8",
+                          "key": "contentId",
+                          "value": "<string>",
+                          "description": "(Required) Content ID."
+                        }
+                      ]
+                    },
+                    "description": "Deletes a content item."
+                  },
+                  "response": [
+                    {
+                      "id": "cf79ee4d-4c2f-4a59-8797-df2456148055",
+                      "name": "Content deleted successfully.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/portal-content/:contentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "portal-content",
+                            ":contentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:03:30.000Z",
+                      "updatedAt": "2026-07-28T01:03:30.000Z",
+                      "uid": "35240-cf79ee4d-4c2f-4a59-8797-df2456148055"
+                    },
+                    {
+                      "id": "91c26705-6539-47ea-a321-c8cd671e1c5b",
+                      "name": "Invalid content ID or deletion error.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/portal-content/:contentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "portal-content",
+                            ":contentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:03:30.000Z",
+                      "updatedAt": "2026-07-28T01:03:30.000Z",
+                      "uid": "35240-91c26705-6539-47ea-a321-c8cd671e1c5b"
+                    },
+                    {
+                      "id": "d7f8bd99-8d36-4902-88e8-a17da30b1d16",
+                      "name": "Invalid or missing publisher token.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/portal-content/:contentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "portal-content",
+                            ":contentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:03:30.000Z",
+                      "updatedAt": "2026-07-28T01:03:30.000Z",
+                      "uid": "35240-d7f8bd99-8d36-4902-88e8-a17da30b1d16"
+                    },
+                    {
+                      "id": "8cd90dfd-f7a6-44c4-bfd4-132bcf4dbe74",
+                      "name": "Content not found.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/portal-content/:contentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "portal-content",
+                            ":contentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:03:30.000Z",
+                      "updatedAt": "2026-07-28T01:03:30.000Z",
+                      "uid": "35240-8cd90dfd-f7a6-44c4-bfd4-132bcf4dbe74"
+                    },
+                    {
+                      "id": "e91a18ba-998d-4f3d-9960-ea3bf53a67bc",
+                      "name": "Server error.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/portal-content/:contentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "portal-content",
+                            ":contentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:03:30.000Z",
+                      "updatedAt": "2026-07-28T01:03:30.000Z",
+                      "uid": "35240-e91a18ba-998d-4f3d-9960-ea3bf53a67bc"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:03:30.000Z",
+                  "updatedAt": "2026-07-28T01:03:30.000Z",
+                  "uid": "35240-a1bd22c7-c509-4b0e-a6a5-e3ed9bd6fc23"
+                },
+                {
+                  "name": "Get Content By ID",
+                  "id": "4e9261ba-af2a-4113-88d4-4ccc3598a3c9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Publisher token.",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/portal-content/:contentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "portal-content",
+                        ":contentId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "b4425de8-d920-4970-b24f-6da39717ea4f",
+                          "key": "contentId",
+                          "value": "<string>",
+                          "description": "(Required) Content ID."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a specific content item by its ID."
+                  },
+                  "response": [
+                    {
+                      "id": "bcda97d7-9dbf-4547-84cb-5594222d5ab0",
+                      "name": "Content retrieved successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/portal-content/:contentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "portal-content",
+                            ":contentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"hidden\",\n  \"contentType\": \"news\",\n  \"publishDate\": \"<dateTime>\",\n  \"slug\": \"<string>\",\n  \"visibility\": \"public\",\n  \"tag\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"translations\": [\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"pages\": [\n    {\n      \"id\": \"<string>\",\n      \"pageName\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"pageName\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:03:30.000Z",
+                      "updatedAt": "2026-07-28T01:03:30.000Z",
+                      "uid": "35240-bcda97d7-9dbf-4547-84cb-5594222d5ab0"
+                    },
+                    {
+                      "id": "1802ebb5-420a-43bb-8f7d-2917b883409e",
+                      "name": "Invalid or missing publisher token.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/portal-content/:contentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "portal-content",
+                            ":contentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:03:30.000Z",
+                      "updatedAt": "2026-07-28T01:03:30.000Z",
+                      "uid": "35240-1802ebb5-420a-43bb-8f7d-2917b883409e"
+                    },
+                    {
+                      "id": "517e6967-319f-448b-a46d-d4d4d7365ed0",
+                      "name": "Content not found.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/portal-content/:contentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "portal-content",
+                            ":contentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:03:30.000Z",
+                      "updatedAt": "2026-07-28T01:03:30.000Z",
+                      "uid": "35240-517e6967-319f-448b-a46d-d4d4d7365ed0"
+                    },
+                    {
+                      "id": "40a0ed98-46ab-4017-84a0-2eb56046e9d4",
+                      "name": "Server error.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/portal-content/:contentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "portal-content",
+                            ":contentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:03:30.000Z",
+                      "updatedAt": "2026-07-28T01:03:30.000Z",
+                      "uid": "35240-40a0ed98-46ab-4017-84a0-2eb56046e9d4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:03:30.000Z",
+                  "updatedAt": "2026-07-28T01:03:30.000Z",
+                  "uid": "35240-4e9261ba-af2a-4113-88d4-4ccc3598a3c9"
+                },
+                {
+                  "name": "Update Content",
+                  "id": "fcba5d64-d327-45a2-8a6e-11966db5b0e7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "(Required) Publisher token.",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"visible\",\n  \"contentType\": \"news\",\n  \"publishDate\": \"<dateTime>\",\n  \"pages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": \"<string>\",\n  \"visibility\": \"public\",\n  \"tag\": \"<string>\",\n  \"translations\": [\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/portal-content/:contentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "portal-content",
+                        ":contentId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ae7cf3c7-f424-4157-b390-384ae4c326a1",
+                          "key": "contentId",
+                          "value": "<string>",
+                          "description": "(Required) Content ID."
+                        }
+                      ]
+                    },
+                    "description": "Updates a content item."
+                  },
+                  "response": [
+                    {
+                      "id": "77e530cd-7c71-4957-b844-56c72efff892",
+                      "name": "Content updated successfully.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"visible\",\n  \"contentType\": \"news\",\n  \"publishDate\": \"<dateTime>\",\n  \"pages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": \"<string>\",\n  \"visibility\": \"public\",\n  \"tag\": \"<string>\",\n  \"translations\": [\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/portal-content/:contentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "portal-content",
+                            ":contentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"hidden\",\n  \"contentType\": \"news\",\n  \"publishDate\": \"<dateTime>\",\n  \"slug\": \"<string>\",\n  \"visibility\": \"public\",\n  \"tag\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"translations\": [\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"pages\": [\n    {\n      \"id\": \"<string>\",\n      \"pageName\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"pageName\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:03:30.000Z",
+                      "updatedAt": "2026-07-28T01:03:30.000Z",
+                      "uid": "35240-77e530cd-7c71-4957-b844-56c72efff892"
+                    },
+                    {
+                      "id": "4ee032dc-373a-40e8-8a72-5f2671a7656b",
+                      "name": "Invalid request body or validation error.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"visible\",\n  \"contentType\": \"news\",\n  \"publishDate\": \"<dateTime>\",\n  \"pages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": \"<string>\",\n  \"visibility\": \"public\",\n  \"tag\": \"<string>\",\n  \"translations\": [\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/portal-content/:contentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "portal-content",
+                            ":contentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:03:30.000Z",
+                      "updatedAt": "2026-07-28T01:03:30.000Z",
+                      "uid": "35240-4ee032dc-373a-40e8-8a72-5f2671a7656b"
+                    },
+                    {
+                      "id": "a7223ca2-c78f-45fd-84ef-ca3fd6514f9d",
+                      "name": "Invalid or missing publisher token.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"visible\",\n  \"contentType\": \"news\",\n  \"publishDate\": \"<dateTime>\",\n  \"pages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": \"<string>\",\n  \"visibility\": \"public\",\n  \"tag\": \"<string>\",\n  \"translations\": [\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/portal-content/:contentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "portal-content",
+                            ":contentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:03:30.000Z",
+                      "updatedAt": "2026-07-28T01:03:30.000Z",
+                      "uid": "35240-a7223ca2-c78f-45fd-84ef-ca3fd6514f9d"
+                    },
+                    {
+                      "id": "fbe8627b-7dd4-4bcf-b101-eaf6f85d8ab9",
+                      "name": "Content not found.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"visible\",\n  \"contentType\": \"news\",\n  \"publishDate\": \"<dateTime>\",\n  \"pages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": \"<string>\",\n  \"visibility\": \"public\",\n  \"tag\": \"<string>\",\n  \"translations\": [\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/portal-content/:contentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "portal-content",
+                            ":contentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:03:30.000Z",
+                      "updatedAt": "2026-07-28T01:03:30.000Z",
+                      "uid": "35240-fbe8627b-7dd4-4bcf-b101-eaf6f85d8ab9"
+                    },
+                    {
+                      "id": "6f6df032-d114-4445-94ed-ca7726e0e6bf",
+                      "name": "Slug already exists.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"visible\",\n  \"contentType\": \"news\",\n  \"publishDate\": \"<dateTime>\",\n  \"pages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": \"<string>\",\n  \"visibility\": \"public\",\n  \"tag\": \"<string>\",\n  \"translations\": [\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/portal-content/:contentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "portal-content",
+                            ":contentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:03:30.000Z",
+                      "updatedAt": "2026-07-28T01:03:30.000Z",
+                      "uid": "35240-6f6df032-d114-4445-94ed-ca7726e0e6bf"
+                    },
+                    {
+                      "id": "5e4655ea-f021-4a11-aad7-ec255c3cea29",
+                      "name": "Server error.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "(Required) Publisher token.",
+                            "key": "x-publisher-token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"visible\",\n  \"contentType\": \"news\",\n  \"publishDate\": \"<dateTime>\",\n  \"pages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": \"<string>\",\n  \"visibility\": \"public\",\n  \"tag\": \"<string>\",\n  \"translations\": [\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/portal-content/:contentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "portal-content",
+                            ":contentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:03:30.000Z",
+                      "updatedAt": "2026-07-28T01:03:30.000Z",
+                      "uid": "35240-5e4655ea-f021-4a11-aad7-ec255c3cea29"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:03:30.000Z",
+                  "updatedAt": "2026-07-28T01:03:30.000Z",
+                  "uid": "35240-fcba5d64-d327-45a2-8a6e-11966db5b0e7"
+                }
+              ],
+              "id": "c15234e1-30d8-4163-92dc-94cda6fac08e",
+              "createdAt": "2026-07-28T01:03:30.000Z",
+              "updatedAt": "2026-07-28T01:03:30.000Z",
+              "uid": "35240-c15234e1-30d8-4163-92dc-94cda6fac08e"
+            },
+            {
+              "name": "Create Content",
+              "id": "ac5cda03-4e42-46cf-8f4b-6eaff323aee9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"contentType\": \"news\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"visible\",\n  \"publishDate\": \"<dateTime>\",\n  \"pages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": \"<string>\",\n  \"visibility\": \"public\",\n  \"tag\": \"<string>\",\n  \"translations\": [\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v1/portal-content",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "portal-content"
+                  ]
+                },
+                "description": "Creates a new content item."
+              },
+              "response": [
+                {
+                  "id": "501659a2-9e08-4879-b859-f5a94be4e41e",
+                  "name": "Content created successfully.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Publisher token.",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"contentType\": \"news\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"visible\",\n  \"publishDate\": \"<dateTime>\",\n  \"pages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": \"<string>\",\n  \"visibility\": \"public\",\n  \"tag\": \"<string>\",\n  \"translations\": [\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/portal-content",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "portal-content"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"hidden\",\n  \"contentType\": \"news\",\n  \"publishDate\": \"<dateTime>\",\n  \"slug\": \"<string>\",\n  \"visibility\": \"public\",\n  \"tag\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"translations\": [\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"pages\": [\n    {\n      \"id\": \"<string>\",\n      \"pageName\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"pageName\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:03:30.000Z",
+                  "updatedAt": "2026-07-28T01:03:30.000Z",
+                  "uid": "35240-501659a2-9e08-4879-b859-f5a94be4e41e"
+                },
+                {
+                  "id": "3d4b1bc9-d07d-4fdd-ac12-8ea0a8b1dbdd",
+                  "name": "Invalid request body or validation error.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Publisher token.",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"contentType\": \"news\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"visible\",\n  \"publishDate\": \"<dateTime>\",\n  \"pages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": \"<string>\",\n  \"visibility\": \"public\",\n  \"tag\": \"<string>\",\n  \"translations\": [\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/portal-content",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "portal-content"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:03:30.000Z",
+                  "updatedAt": "2026-07-28T01:03:30.000Z",
+                  "uid": "35240-3d4b1bc9-d07d-4fdd-ac12-8ea0a8b1dbdd"
+                },
+                {
+                  "id": "7043aee5-fda6-4459-bbb6-b71b5a55fde7",
+                  "name": "Invalid or missing publisher token.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Publisher token.",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"contentType\": \"news\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"visible\",\n  \"publishDate\": \"<dateTime>\",\n  \"pages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": \"<string>\",\n  \"visibility\": \"public\",\n  \"tag\": \"<string>\",\n  \"translations\": [\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/portal-content",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "portal-content"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:03:30.000Z",
+                  "updatedAt": "2026-07-28T01:03:30.000Z",
+                  "uid": "35240-7043aee5-fda6-4459-bbb6-b71b5a55fde7"
+                },
+                {
+                  "id": "0e00ab1f-8a23-41df-a8da-762f563bb9ea",
+                  "name": "Slug already exists.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Publisher token.",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"contentType\": \"news\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"visible\",\n  \"publishDate\": \"<dateTime>\",\n  \"pages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": \"<string>\",\n  \"visibility\": \"public\",\n  \"tag\": \"<string>\",\n  \"translations\": [\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/portal-content",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "portal-content"
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:03:30.000Z",
+                  "updatedAt": "2026-07-28T01:03:30.000Z",
+                  "uid": "35240-0e00ab1f-8a23-41df-a8da-762f563bb9ea"
+                },
+                {
+                  "id": "0a77a7bf-8932-4728-b35f-9afe68068efc",
+                  "name": "Server error.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Publisher token.",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"contentType\": \"news\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"visible\",\n  \"publishDate\": \"<dateTime>\",\n  \"pages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": \"<string>\",\n  \"visibility\": \"public\",\n  \"tag\": \"<string>\",\n  \"translations\": [\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"isoCode\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/portal-content",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "portal-content"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:03:30.000Z",
+                  "updatedAt": "2026-07-28T01:03:30.000Z",
+                  "uid": "35240-0a77a7bf-8932-4728-b35f-9afe68068efc"
+                }
+              ],
+              "createdAt": "2026-07-28T01:03:30.000Z",
+              "updatedAt": "2026-07-28T01:03:30.000Z",
+              "uid": "35240-ac5cda03-4e42-46cf-8f4b-6eaff323aee9"
+            },
+            {
+              "name": "Get Content",
+              "id": "3dd6d994-027c-4ba6-b639-3ce950b59bf6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v1/portal-content",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "portal-content"
+                  ]
+                },
+                "description": "Retrieves a list of all content items."
+              },
+              "response": [
+                {
+                  "id": "5c9f6816-36f5-4794-9157-0bd198943a5b",
+                  "name": "Content retrieved successfully.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Publisher token.",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/portal-content",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "portal-content"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"state\": \"hidden\",\n      \"contentType\": \"article\",\n      \"publishDate\": \"<dateTime>\",\n      \"slug\": \"<string>\",\n      \"visibility\": \"public\",\n      \"tag\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"pages\": [\n        {\n          \"id\": \"<string>\",\n          \"pageName\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"pageName\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"title\": \"<string>\",\n      \"subTitle\": \"<string>\",\n      \"bodyText\": \"<string>\",\n      \"headerImage\": \"<string>\",\n      \"thumbnailImage\": \"<string>\",\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"state\": \"hidden\",\n      \"contentType\": \"news\",\n      \"publishDate\": \"<dateTime>\",\n      \"slug\": \"<string>\",\n      \"visibility\": \"public\",\n      \"tag\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"pages\": [\n        {\n          \"id\": \"<string>\",\n          \"pageName\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"pageName\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:03:30.000Z",
+                  "updatedAt": "2026-07-28T01:03:30.000Z",
+                  "uid": "35240-5c9f6816-36f5-4794-9157-0bd198943a5b"
+                },
+                {
+                  "id": "fe91e79b-c503-4e9c-baaa-205917c4d971",
+                  "name": "Invalid or missing publisher token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Publisher token.",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/portal-content",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "portal-content"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:03:30.000Z",
+                  "updatedAt": "2026-07-28T01:03:30.000Z",
+                  "uid": "35240-fe91e79b-c503-4e9c-baaa-205917c4d971"
+                },
+                {
+                  "id": "5521809a-f74a-4b55-8b1c-a687cce489e0",
+                  "name": "Server error.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Publisher token.",
+                        "key": "x-publisher-token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/portal-content",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "portal-content"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:03:30.000Z",
+                  "updatedAt": "2026-07-28T01:03:30.000Z",
+                  "uid": "35240-5521809a-f74a-4b55-8b1c-a687cce489e0"
+                }
+              ],
+              "createdAt": "2026-07-28T01:03:30.000Z",
+              "updatedAt": "2026-07-28T01:03:30.000Z",
+              "uid": "35240-3dd6d994-027c-4ba6-b639-3ce950b59bf6"
+            }
+          ],
+          "id": "b4de64d3-4076-4bea-bee4-9060afcde4b9",
+          "createdAt": "2026-07-28T01:03:30.000Z",
+          "updatedAt": "2026-07-28T01:03:30.000Z",
+          "uid": "35240-b4de64d3-4076-4bea-bee4-9060afcde4b9"
+        }
+      ],
+      "id": "008499ca-7599-4a7e-af65-f1dbe94cb5b3",
+      "createdAt": "2026-07-28T01:03:30.000Z",
+      "updatedAt": "2026-07-28T01:03:30.000Z",
+      "uid": "35240-008499ca-7599-4a7e-af65-f1dbe94cb5b3"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.appcharge.com"
+    }
+  ]
+}
