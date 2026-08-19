@@ -1,0 +1,401 @@
+{
+  "item": [
+    {
+      "id": "9a838fa6-66bb-4002-92e2-faf5c724b6d6",
+      "name": "Rolling Offers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "66f93562-33d9-44ca-a825-047e9a583074",
+          "name": "Create a new rolling offer",
+          "request": {
+            "name": "Create a new rolling offer",
+            "description": {},
+            "url": {
+              "path": [
+                "offering",
+                "rolling-offer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The publisher token used for authentication.",
+                "key": "x-publisher-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"publisherOfferId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"productsSequence\": [\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"priceDiscount\": {\n        \"discount\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"productSale\": {\n        \"sale\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"badges\": [\n        {\n          \"publisherBadgeId\": \"<string>\"\n        },\n        {\n          \"publisherBadgeId\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"priceDiscount\": {\n        \"discount\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"productSale\": {\n        \"sale\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"badges\": [\n        {\n          \"publisherBadgeId\": \"<string>\"\n        },\n        {\n          \"publisherBadgeId\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"priority\": \"<integer>\",\n  \"offerUiId\": \"<string>\",\n  \"offerExternalUiId\": \"<string>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"schedule\": {\n    \"permanent\": \"<boolean>\",\n    \"timeFrames\": [\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      },\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c49a96ab-6325-4bff-b9b3-3b3cc9b9ac75",
+              "name": "Rolling offer created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offering",
+                    "rolling-offer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The publisher token used for authentication.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"publisherOfferId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"productsSequence\": [\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"priceDiscount\": {\n        \"discount\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"productSale\": {\n        \"sale\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"badges\": [\n        {\n          \"publisherBadgeId\": \"<string>\"\n        },\n        {\n          \"publisherBadgeId\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"priceDiscount\": {\n        \"discount\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"productSale\": {\n        \"sale\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"badges\": [\n        {\n          \"publisherBadgeId\": \"<string>\"\n        },\n        {\n          \"publisherBadgeId\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"priority\": \"<integer>\",\n  \"offerUiId\": \"<string>\",\n  \"offerExternalUiId\": \"<string>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"schedule\": {\n    \"permanent\": \"<boolean>\",\n    \"timeFrames\": [\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      },\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"publisherOfferId\": \"string\",\n  \"offerId\": \"string\",\n  \"name\": \"string\",\n  \"type\": \"string\",\n  \"active\": false,\n  \"priority\": 9607,\n  \"segments\": [\n    \"string\",\n    \"string\"\n  ],\n  \"offerUi\": {\n    \"offerUiId\": \"string\",\n    \"offerUIType\": \"string\",\n    \"description\": \"string\",\n    \"backgroundImage\": \"string\",\n    \"borderColor\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"borderWidth\": 2591,\n    \"externalId\": \"string\"\n  },\n  \"productsSequence\": [\n    {\n      \"index\": 4588,\n      \"priceInUsdCents\": 9617,\n      \"products\": [\n        {\n          \"publisherProductId\": \"string\",\n          \"quantity\": 3880\n        },\n        {\n          \"publisherProductId\": \"string\",\n          \"quantity\": 3040\n        }\n      ],\n      \"badges\": [\n        {\n          \"publisherBadgeId\": \"string\"\n        },\n        {\n          \"publisherBadgeId\": \"string\"\n        }\n      ]\n    },\n    {\n      \"index\": 6093,\n      \"priceInUsdCents\": 1726,\n      \"products\": [\n        {\n          \"publisherProductId\": \"string\",\n          \"quantity\": 8080\n        },\n        {\n          \"publisherProductId\": \"string\",\n          \"quantity\": 2419\n        }\n      ],\n      \"badges\": [\n        {\n          \"publisherBadgeId\": \"string\"\n        },\n        {\n          \"publisherBadgeId\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"schedule\": {\n    \"permanent\": true,\n    \"timeFrames\": [\n      {\n        \"startTime\": \"1992-01-27T08:36:39.890Z\",\n        \"endTime\": \"1968-03-28T18:39:30.309Z\",\n        \"notes\": \"string\"\n      },\n      {\n        \"startTime\": \"2007-08-11T07:23:46.936Z\",\n        \"endTime\": \"1960-09-06T08:44:31.710Z\",\n        \"notes\": \"string\"\n      }\n    ]\n  },\n  \"createdAt\": \"2018-10-28T20:16:36.722Z\",\n  \"updatedAt\": \"1948-07-10T11:09:12.815Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e4973038-ab00-464a-81bc-493ddc266a0d",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offering",
+                    "rolling-offer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The publisher token used for authentication.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"publisherOfferId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"productsSequence\": [\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"priceDiscount\": {\n        \"discount\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"productSale\": {\n        \"sale\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"badges\": [\n        {\n          \"publisherBadgeId\": \"<string>\"\n        },\n        {\n          \"publisherBadgeId\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"priceDiscount\": {\n        \"discount\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"productSale\": {\n        \"sale\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"badges\": [\n        {\n          \"publisherBadgeId\": \"<string>\"\n        },\n        {\n          \"publisherBadgeId\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"priority\": \"<integer>\",\n  \"offerUiId\": \"<string>\",\n  \"offerExternalUiId\": \"<string>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"schedule\": {\n    \"permanent\": \"<boolean>\",\n    \"timeFrames\": [\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      },\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "699e74cf-0b89-4fa1-8c55-d54717ed0c1f",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offering",
+                    "rolling-offer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The publisher token used for authentication.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"publisherOfferId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"productsSequence\": [\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"priceDiscount\": {\n        \"discount\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"productSale\": {\n        \"sale\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"badges\": [\n        {\n          \"publisherBadgeId\": \"<string>\"\n        },\n        {\n          \"publisherBadgeId\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"priceDiscount\": {\n        \"discount\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"productSale\": {\n        \"sale\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"badges\": [\n        {\n          \"publisherBadgeId\": \"<string>\"\n        },\n        {\n          \"publisherBadgeId\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"priority\": \"<integer>\",\n  \"offerUiId\": \"<string>\",\n  \"offerExternalUiId\": \"<string>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"schedule\": {\n    \"permanent\": \"<boolean>\",\n    \"timeFrames\": [\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      },\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ee1484d3-e072-4670-a878-baab47d5d0dc",
+          "name": "Update an existing rolling offer",
+          "request": {
+            "name": "Update an existing rolling offer",
+            "description": {},
+            "url": {
+              "path": [
+                "offering",
+                "rolling-offer",
+                ":rollingOfferSKU"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "publisherOfferId",
+                  "description": "(Required) The SKU of the rolling offer."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The publisher token used for authentication.",
+                "key": "x-publisher-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"productsSequence\": [\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"priceDiscount\": {\n        \"discount\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"productSale\": {\n        \"sale\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"badges\": [\n        {\n          \"publisherBadgeId\": \"<string>\"\n        },\n        {\n          \"publisherBadgeId\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"priceDiscount\": {\n        \"discount\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"productSale\": {\n        \"sale\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"badges\": [\n        {\n          \"publisherBadgeId\": \"<string>\"\n        },\n        {\n          \"publisherBadgeId\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"publisherOfferId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"priority\": \"<integer>\",\n  \"offerUiId\": \"<string>\",\n  \"offerExternalUiId\": \"<string>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"schedule\": {\n    \"permanent\": \"<boolean>\",\n    \"timeFrames\": [\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      },\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3d847ba8-1d1f-4bac-ae3b-f2cb537d4328",
+              "name": "Rolling offer updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offering",
+                    "rolling-offer",
+                    ":rollingOfferSKU"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "publisherOfferId",
+                      "description": "(Required) The SKU of the rolling offer."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The publisher token used for authentication.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"productsSequence\": [\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"priceDiscount\": {\n        \"discount\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"productSale\": {\n        \"sale\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"badges\": [\n        {\n          \"publisherBadgeId\": \"<string>\"\n        },\n        {\n          \"publisherBadgeId\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"priceDiscount\": {\n        \"discount\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"productSale\": {\n        \"sale\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"badges\": [\n        {\n          \"publisherBadgeId\": \"<string>\"\n        },\n        {\n          \"publisherBadgeId\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"publisherOfferId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"priority\": \"<integer>\",\n  \"offerUiId\": \"<string>\",\n  \"offerExternalUiId\": \"<string>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"schedule\": {\n    \"permanent\": \"<boolean>\",\n    \"timeFrames\": [\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      },\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"publisherOfferId\": \"string\",\n  \"offerId\": \"string\",\n  \"name\": \"string\",\n  \"type\": \"string\",\n  \"active\": false,\n  \"priority\": 3365,\n  \"segments\": [\n    \"string\",\n    \"string\"\n  ],\n  \"offerUi\": {\n    \"offerUiId\": \"string\",\n    \"offerUIType\": \"string\",\n    \"description\": \"string\",\n    \"backgroundImage\": \"string\",\n    \"borderColor\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\",\n      \"key_3\": \"string\",\n      \"key_4\": \"string\"\n    },\n    \"borderWidth\": 3229,\n    \"externalId\": \"string\"\n  },\n  \"productsSequence\": [\n    {\n      \"index\": 1422,\n      \"priceInUsdCents\": 7698,\n      \"products\": [\n        {\n          \"publisherProductId\": \"string\",\n          \"quantity\": 3209\n        },\n        {\n          \"publisherProductId\": \"string\",\n          \"quantity\": 7605\n        }\n      ],\n      \"badges\": [\n        {\n          \"publisherBadgeId\": \"string\"\n        },\n        {\n          \"publisherBadgeId\": \"string\"\n        }\n      ]\n    },\n    {\n      \"index\": 7922,\n      \"priceInUsdCents\": 5511,\n      \"products\": [\n        {\n          \"publisherProductId\": \"string\",\n          \"quantity\": 2403\n        },\n        {\n          \"publisherProductId\": \"string\",\n          \"quantity\": 8572\n        }\n      ],\n      \"badges\": [\n        {\n          \"publisherBadgeId\": \"string\"\n        },\n        {\n          \"publisherBadgeId\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"schedule\": {\n    \"permanent\": true,\n    \"timeFrames\": [\n      {\n        \"startTime\": \"2019-08-20T09:23:10.563Z\",\n        \"endTime\": \"2016-08-08T09:09:12.407Z\",\n        \"notes\": \"string\"\n      },\n      {\n        \"startTime\": \"1974-04-03T03:44:54.954Z\",\n        \"endTime\": \"1978-06-21T03:41:38.350Z\",\n        \"notes\": \"string\"\n      }\n    ]\n  },\n  \"createdAt\": \"1993-05-14T22:41:23.683Z\",\n  \"updatedAt\": \"1987-09-04T16:43:23.423Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3536b1f5-f07c-4e42-aaab-b8fae997ab80",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offering",
+                    "rolling-offer",
+                    ":rollingOfferSKU"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "publisherOfferId",
+                      "description": "(Required) The SKU of the rolling offer."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The publisher token used for authentication.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"productsSequence\": [\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"priceDiscount\": {\n        \"discount\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"productSale\": {\n        \"sale\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"badges\": [\n        {\n          \"publisherBadgeId\": \"<string>\"\n        },\n        {\n          \"publisherBadgeId\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"index\": \"<integer>\",\n      \"products\": [\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        },\n        {\n          \"publisherProductId\": \"<string>\",\n          \"quantity\": \"<integer>\"\n        }\n      ],\n      \"priceInUsdCents\": \"<integer>\",\n      \"priceDiscount\": {\n        \"discount\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"productSale\": {\n        \"sale\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      \"badges\": [\n        {\n          \"publisherBadgeId\": \"<string>\"\n        },\n        {\n          \"publisherBadgeId\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"publisherOfferId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"priority\": \"<integer>\",\n  \"offerUiId\": \"<string>\",\n  \"offerExternalUiId\": \"<string>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"schedule\": {\n    \"permanent\": \"<boolean>\",\n    \"timeFrames\": [\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      },\n      {\n        \"startTime\": \"<dateTime>\",\n        \"endTime\": \"<dateTime>\",\n        \"notes\": \"<string>\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.appcharge.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "245dc09c-016e-4fb1-884d-9d10a4a8234f",
+    "name": "Appcharge Assets Rolling Offers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.\n\nContact Support:\n Name: Appcharge Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

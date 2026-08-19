@@ -1,0 +1,2379 @@
+{
+  "item": [
+    {
+      "id": "8869031f-182a-4e1c-bea7-b13a74f28dfc",
+      "name": "General",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6d936748-be45-4574-8897-6ff80c5426a9",
+          "name": "Cancel Checkout Session",
+          "request": {
+            "name": "Cancel Checkout Session",
+            "description": {},
+            "url": {
+              "path": [
+                "checkout",
+                "v3",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "db098093-982b-4439-8532-cc6758e171b7",
+              "name": "Result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "v3",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authorization header in the format: `Bearer ${checkoutSessionToken}`. \n\n The checkout session token is retrieved from the [Create Checkout Session API](/../../api-reference/checkout/checkout-session/create-checkout-session) and serves as the checkout session ID.",
+                    "key": "Authorization",
+                    "value": "Bearer ba5af26a21ec497cb1551821c630d9f9"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"isOrderCancelled\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fbc563f5-d17d-4e46-a68d-86807987053c",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "v3",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authorization header in the format: `Bearer ${checkoutSessionToken}`. \n\n The checkout session token is retrieved from the [Create Checkout Session API](/../../api-reference/checkout/checkout-session/create-checkout-session) and serves as the checkout session ID.",
+                    "key": "Authorization",
+                    "value": "Bearer ba5af26a21ec497cb1551821c630d9f9"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f2bc9160-00de-4b99-8072-ac7e7e968f82",
+              "name": "Unauthorized - invalid or missing token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "v3",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authorization header in the format: `Bearer ${checkoutSessionToken}`. \n\n The checkout session token is retrieved from the [Create Checkout Session API](/../../api-reference/checkout/checkout-session/create-checkout-session) and serves as the checkout session ID.",
+                    "key": "Authorization",
+                    "value": "Bearer ba5af26a21ec497cb1551821c630d9f9"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4376abb8-5bbf-46f2-86c4-88f0650e5433",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "v3",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authorization header in the format: `Bearer ${checkoutSessionToken}`. \n\n The checkout session token is retrieved from the [Create Checkout Session API](/../../api-reference/checkout/checkout-session/create-checkout-session) and serves as the checkout session ID.",
+                    "key": "Authorization",
+                    "value": "Bearer ba5af26a21ec497cb1551821c630d9f9"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1facfbdd-229e-4b4f-ba1e-f7fc29fb4c65",
+          "name": "Create Checkout Session",
+          "request": {
+            "name": "Create Checkout Session",
+            "description": {
+              "content": "Creates a checkout session.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "checkout",
+                "v1",
+                "session"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Your checkout token that will be presented at Appcharge's dashboard under Admin section -> Integration tab -> Publisher token",
+                "key": "x-publisher-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"priceDetails\": {\n    \"price\": 1000,\n    \"currency\": \"USD\"\n  },\n  \"offer\": {\n    \"name\": \"<string>\",\n    \"sku\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"pricePointMetadata\": \"<integer>\"\n  },\n  \"customer\": {\n    \"id\": \"<string>\",\n    \"email\": \"<email>\",\n    \"identitySignals\": {\n      \"firstSeenAt\": \"<dateTime>\"\n    }\n  },\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"assetUrl\": \"<uri>\",\n      \"quantityDisplay\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"assetUrl\": \"<uri>\",\n      \"quantityDisplay\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  ],\n  \"countryCode2\": \"<string>\",\n  \"receiptMetadata\": {\n    \"locale\": \"en\"\n  },\n  \"sessionMetadata\": \"<object>\",\n  \"attributes\": \"<object>\",\n  \"redirectUrl\": \"<uri>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a2cbf5be-5c42-4de7-a9a8-3dafb7dc457f",
+              "name": "Checkout session created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "v1",
+                    "session"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Your checkout token that will be presented at Appcharge's dashboard under Admin section -> Integration tab -> Publisher token",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"priceDetails\": {\n    \"price\": 1000,\n    \"currency\": \"USD\"\n  },\n  \"offer\": {\n    \"name\": \"Treasure Chest\",\n    \"sku\": \"68452829c5e8\",\n    \"displayName\": \"<string>\",\n    \"pricePointMetadata\": \"<integer>\"\n  },\n  \"customer\": {\n    \"id\": \"7c99fba665c4a\",\n    \"email\": \"customer@appcharge.com\",\n    \"identitySignals\": {\n      \"firstSeenAt\": \"2021-01-01T00:00:00Z\"\n    }\n  },\n  \"items\": [\n    {\n      \"name\": \"coins\",\n      \"sku\": \"coins_386f9b\",\n      \"quantity\": 3300000,\n      \"assetUrl\": \"https://media-dev.appcharge.com/coin.png\",\n      \"quantityDisplay\": \"3.3M\",\n      \"displayName\": \"<string>\"\n    },\n    {\n      \"name\": \"coins\",\n      \"sku\": \"coins_386f9b\",\n      \"quantity\": 3300000,\n      \"assetUrl\": \"https://media-dev.appcharge.com/coin.png\",\n      \"quantityDisplay\": \"3.3M\",\n      \"displayName\": \"<string>\"\n    }\n  ],\n  \"countryCode2\": \"US\",\n  \"receiptMetadata\": {\n    \"locale\": \"fr-CA\"\n  },\n  \"sessionMetadata\": \"<object>\",\n  \"attributes\": \"<object>\",\n  \"redirectUrl\": \"<uri>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"checkoutSessionToken\": \"61ed143b22d24815a713e215e99b0ea6\",\n  \"purchaseId\": \"purchase_abc123def456\",\n  \"url\": \"https://checkout-v2.appcharge.com\",\n  \"parsedUrl\": \"https://pay.appcharge.com/61a164d563c54014b1959a5c78704964#boot={PUBLISHER_BOOT_DATA}\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "30e3742c-1b52-40c3-99e0-9db8c0fbdffc",
+              "name": "Invalid input",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "v1",
+                    "session"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Your checkout token that will be presented at Appcharge's dashboard under Admin section -> Integration tab -> Publisher token",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"priceDetails\": {\n    \"price\": 1000,\n    \"currency\": \"USD\"\n  },\n  \"offer\": {\n    \"name\": \"Treasure Chest\",\n    \"sku\": \"68452829c5e8\",\n    \"displayName\": \"<string>\",\n    \"pricePointMetadata\": \"<integer>\"\n  },\n  \"customer\": {\n    \"id\": \"7c99fba665c4a\",\n    \"email\": \"customer@appcharge.com\",\n    \"identitySignals\": {\n      \"firstSeenAt\": \"2021-01-01T00:00:00Z\"\n    }\n  },\n  \"items\": [\n    {\n      \"name\": \"coins\",\n      \"sku\": \"coins_386f9b\",\n      \"quantity\": 3300000,\n      \"assetUrl\": \"https://media-dev.appcharge.com/coin.png\",\n      \"quantityDisplay\": \"3.3M\",\n      \"displayName\": \"<string>\"\n    },\n    {\n      \"name\": \"coins\",\n      \"sku\": \"coins_386f9b\",\n      \"quantity\": 3300000,\n      \"assetUrl\": \"https://media-dev.appcharge.com/coin.png\",\n      \"quantityDisplay\": \"3.3M\",\n      \"displayName\": \"<string>\"\n    }\n  ],\n  \"countryCode2\": \"US\",\n  \"receiptMetadata\": {\n    \"locale\": \"fr-CA\"\n  },\n  \"sessionMetadata\": \"<object>\",\n  \"attributes\": \"<object>\",\n  \"redirectUrl\": \"<uri>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorCode\": 0,\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bdeac5a9-96d1-4478-904c-4f547d11bcf7",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "v1",
+                    "session"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Your checkout token that will be presented at Appcharge's dashboard under Admin section -> Integration tab -> Publisher token",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"priceDetails\": {\n    \"price\": 1000,\n    \"currency\": \"USD\"\n  },\n  \"offer\": {\n    \"name\": \"Treasure Chest\",\n    \"sku\": \"68452829c5e8\",\n    \"displayName\": \"<string>\",\n    \"pricePointMetadata\": \"<integer>\"\n  },\n  \"customer\": {\n    \"id\": \"7c99fba665c4a\",\n    \"email\": \"customer@appcharge.com\",\n    \"identitySignals\": {\n      \"firstSeenAt\": \"2021-01-01T00:00:00Z\"\n    }\n  },\n  \"items\": [\n    {\n      \"name\": \"coins\",\n      \"sku\": \"coins_386f9b\",\n      \"quantity\": 3300000,\n      \"assetUrl\": \"https://media-dev.appcharge.com/coin.png\",\n      \"quantityDisplay\": \"3.3M\",\n      \"displayName\": \"<string>\"\n    },\n    {\n      \"name\": \"coins\",\n      \"sku\": \"coins_386f9b\",\n      \"quantity\": 3300000,\n      \"assetUrl\": \"https://media-dev.appcharge.com/coin.png\",\n      \"quantityDisplay\": \"3.3M\",\n      \"displayName\": \"<string>\"\n    }\n  ],\n  \"countryCode2\": \"US\",\n  \"receiptMetadata\": {\n    \"locale\": \"fr-CA\"\n  },\n  \"sessionMetadata\": \"<object>\",\n  \"attributes\": \"<object>\",\n  \"redirectUrl\": \"<uri>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Blocked player: this player has been blocked. See the blocked player list in the dashboard for more info.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2032671b-1bed-4fdf-aa63-db8a419ceadd",
+          "name": "Get Transactions",
+          "request": {
+            "name": "Get Transactions",
+            "description": {
+              "content": "Retrieves transaction data for a given time period.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reporting",
+                "financial-data",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<dateTime>",
+                  "description": "(Required) Start date of the query in [UTC ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<dateTime>",
+                  "description": "(Required) End date of the query in [UTC ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Maximum number of transactions to return per page. \n\n **Min:** 1 \n **Max:** 10,000"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortDirection",
+                  "value": "asc",
+                  "description": "Sort order of the results based on the `timestamp` field."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Publisher token.",
+                "key": "x-publisher-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2979032f-3eda-4e21-998b-412d6e127934",
+              "name": "Successfully retrieved transactions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reporting",
+                    "financial-data",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "2025-05-26T00:00:00Z"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2025-07-24T23:59:59Z"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sortDirection",
+                      "value": "asc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalCount\": 4046,\n  \"nextCursor\": \"eyJpZCI6IjY0YzkidQ==\",\n  \"nextPageQuery\": \"?startDate=2025-05-26T00:00:00Z&endDate=2025-07-24T23:59:59Z&limit=100&sortDirection=asc&cursor=eyJpZCI6IjY0YzkidQ==\",\n  \"results\": [\n    {\n      \"orderId\": \"ac_order_98f3pb4\",\n      \"purchaseId\": \"pr-1234-5678-9012-34567\",\n      \"publisherTransactionId\": \"ca-9832-custom\",\n      \"timestamp\": \"2025-05-26T14:30:00.000Z\",\n      \"customerDetails\": {\n        \"id\": \"jane-doe\",\n        \"email\": \"jan.doe@example.com\"\n      },\n      \"geolocation\": {\n        \"countryCode2\": \"US\",\n        \"region\": \"CA\",\n        \"ipAddress\": \"192.168.1.10\",\n        \"zipCode\": \"94107\"\n      },\n      \"offerDetails\": {\n        \"offerId\": \"offer_7890\",\n        \"offerName\": \"Gem Pack\",\n        \"type\": \"Bundle\",\n        \"products\": [\n          {\n            \"name\": \"Gems\",\n            \"sku\": \"gems_100\",\n            \"quantity\": 100\n          },\n          {\n            \"name\": \"Gems\",\n            \"sku\": \"gems_100\",\n            \"quantity\": 100\n          }\n        ]\n      },\n      \"transactionDetails\": {\n        \"id\": \"64c9f6a12e1b4a3d9c7a5f1ef\",\n        \"type\": \"paid\",\n        \"amount\": 999,\n        \"amountUsd\": 999,\n        \"totalTaxAmount\": 90,\n        \"totalTaxAmountUsd\": 90,\n        \"currencyExchangeCostUsd\": 15,\n        \"chargebackFeeUsd\": 0,\n        \"transactionFeeUsd\": 35,\n        \"publisherNetAmountUsd\": 859,\n        \"currencyCode\": \"USD\",\n        \"currencySymbol\": \"$\",\n        \"paymentMethod\": \"credit_card\"\n      }\n    },\n    {\n      \"orderId\": \"ac_order_98f3pb4\",\n      \"purchaseId\": \"pr-1234-5678-9012-34567\",\n      \"publisherTransactionId\": \"ca-9832-custom\",\n      \"timestamp\": \"2025-05-26T14:30:00.000Z\",\n      \"customerDetails\": {\n        \"id\": \"jane-doe\",\n        \"email\": \"jan.doe@example.com\"\n      },\n      \"geolocation\": {\n        \"countryCode2\": \"US\",\n        \"region\": \"CA\",\n        \"ipAddress\": \"192.168.1.10\",\n        \"zipCode\": \"94107\"\n      },\n      \"offerDetails\": {\n        \"offerId\": \"offer_7890\",\n        \"offerName\": \"Gem Pack\",\n        \"type\": \"Bundle\",\n        \"products\": [\n          {\n            \"name\": \"Gems\",\n            \"sku\": \"gems_100\",\n            \"quantity\": 100\n          },\n          {\n            \"name\": \"Gems\",\n            \"sku\": \"gems_100\",\n            \"quantity\": 100\n          }\n        ]\n      },\n      \"transactionDetails\": {\n        \"id\": \"64c9f6a12e1b4a3d9c7a5f1ef\",\n        \"type\": \"paid\",\n        \"amount\": 999,\n        \"amountUsd\": 999,\n        \"totalTaxAmount\": 90,\n        \"totalTaxAmountUsd\": 90,\n        \"currencyExchangeCostUsd\": 15,\n        \"chargebackFeeUsd\": 0,\n        \"transactionFeeUsd\": 35,\n        \"publisherNetAmountUsd\": 859,\n        \"currencyCode\": \"USD\",\n        \"currencySymbol\": \"$\",\n        \"paymentMethod\": \"credit_card\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "095d8977-058a-4e36-9a4f-a64180a11839",
+              "name": "Bad request - invalid parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reporting",
+                    "financial-data",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "2025-05-26T00:00:00Z"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2025-07-24T23:59:59Z"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sortDirection",
+                      "value": "asc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": [\n    {\n      \"validationErrorNumber\": 1,\n      \"error\": \"endDate must be after startDate.\"\n    }\n  ],\n  \"requestUrl\": \"/reporting/financial-data/transactions?startDate=2025-07-24T00:00:00Z&endDate=2025-05-26T23:59:59Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0c12c898-11cb-4e3c-99ca-0e2fd3d1d606",
+              "name": "Unauthorized - authentication failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reporting",
+                    "financial-data",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "2025-05-26T00:00:00Z"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2025-07-24T23:59:59Z"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sortDirection",
+                      "value": "asc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 401,\n  \"error\": \"Unauthorized\",\n  \"message\": [\n    {\n      \"validationErrorNumber\": 1,\n      \"error\": \"Publisher token is required.\"\n    }\n  ],\n  \"requestUrl\": \"/reporting/financial-data/transactions?startDate=2025-05-26T00:00:00Z&endDate=2025-07-24T23:59:59Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "672086c1-452f-4a44-be21-25b55a2fb491",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reporting",
+                    "financial-data",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "2025-05-26T00:00:00Z"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2025-07-24T23:59:59Z"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sortDirection",
+                      "value": "asc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 500,\n  \"error\": \"Internal Server Error\",\n  \"message\": [\n    {\n      \"validationErrorNumber\": 1,\n      \"error\": \"Failed to get transactions\"\n    }\n  ],\n  \"requestUrl\": \"/reporting/financial-data/transactions?startDate=2025-05-26T00:00:00Z&endDate=2025-07-24T23:59:59Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "30b150a2-d8da-405d-bee1-a0c7ed44f710",
+          "name": "Create a Price Point",
+          "request": {
+            "name": "Create a Price Point",
+            "description": {
+              "content": "Creates a price point.\n\nWhen you pass the base price in USD, the API returns localized prices for this price point in all currencies supported by Appcharge. Learn more about [how localized prices are calculated](./introduction#how-localized-prices-are-calculated).\n\nTo override automatically calculated prices for specific countries, pass the `priceOverrides` property with the relevant country codes and your custom prices.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "price-points"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"priceInUsdCents\": \"<number>\",\n  \"priceOverrides\": [\n    {\n      \"countryCode2\": \"<string>\",\n      \"price\": \"<number>\"\n    },\n    {\n      \"countryCode2\": \"<string>\",\n      \"price\": \"<number>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "513c96f1-b0b0-4813-86ce-276d15e2d497",
+              "name": "Price point created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "price-points"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"priceInUsdCents\": 999,\n  \"priceOverrides\": [\n    {\n      \"countryCode2\": \"BR\",\n      \"price\": 29.99\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"priceInUsdCents\": 999,\n  \"lastUpdate\": \"2026-01-01T14:30:00Z\",\n  \"priceByCountry\": [\n    {\n      \"price\": 7.99,\n      \"currencyCode\": \"GBP\",\n      \"isOverridden\": false,\n      \"taxModel\": \"Included\",\n      \"taxRate\": 20,\n      \"country\": \"United Kingdom\",\n      \"countryCode2\": \"GB\",\n      \"usdExchangeRateOnCalc\": 0.79,\n      \"exchangeRateDrift\": \"-1.2%\"\n    },\n    {\n      \"price\": 7.99,\n      \"currencyCode\": \"GBP\",\n      \"isOverridden\": false,\n      \"taxModel\": \"Included\",\n      \"taxRate\": 20,\n      \"country\": \"United Kingdom\",\n      \"countryCode2\": \"GB\",\n      \"usdExchangeRateOnCalc\": 0.79,\n      \"exchangeRateDrift\": \"-1.2%\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fe81ea59-bca8-4aab-be25-74b88213a271",
+              "name": "Bad request. This can occur due to a schema validation error or an invalid country code.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "price-points"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"priceInUsdCents\": 999,\n  \"priceOverrides\": [\n    {\n      \"countryCode2\": \"BR\",\n      \"price\": 29.99\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid request body\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d80da73e-d93c-4d6e-9c5e-e677465e6407",
+              "name": "Conflict. The price point already exists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "price-points"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"priceInUsdCents\": 999,\n  \"priceOverrides\": [\n    {\n      \"countryCode2\": \"BR\",\n      \"price\": 29.99\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Cannot create new pricing. The price point already exists.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f62d0ab5-a7ee-484c-99d5-2fe65a8ecb23",
+          "name": "Get all Price Points",
+          "request": {
+            "name": "Get all Price Points",
+            "description": {
+              "content": "Retrieves a list of all price points in USD cents.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "price-points"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4be94c8d-197b-4c3e-b8d5-c0d805737be5",
+              "name": "Price points retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "price-points"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pricePoints\": [\n    {\n      \"priceInUsdCents\": 999,\n      \"lastUpdate\": \"2026-01-01T14:30:00Z\"\n    },\n    {\n      \"priceInUsdCents\": 999,\n      \"lastUpdate\": \"2026-01-01T14:30:00Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6cae2341-34e4-4497-8e47-aaf3274d9d1e",
+          "name": "Delete a Price Point",
+          "request": {
+            "name": "Delete a Price Point",
+            "description": {
+              "content": "Deletes a specific price point.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "price-points",
+                ":priceInUsdCents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "priceInUsdCents",
+                  "description": "(Required) Base price in USD cents."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "951abb00-a78e-4665-addd-8c969057ff76",
+              "name": "Price point deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "price-points",
+                    ":priceInUsdCents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "priceInUsdCents",
+                      "description": "(Required) Base price in USD cents."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"priceInUsdCents\": 999,\n  \"lastUpdate\": \"2026-01-01T14:30:00Z\",\n  \"priceByCountry\": [\n    {\n      \"price\": 7.99,\n      \"currencyCode\": \"GBP\",\n      \"isOverridden\": false,\n      \"taxModel\": \"Included\",\n      \"taxRate\": 20,\n      \"country\": \"United Kingdom\",\n      \"countryCode2\": \"GB\",\n      \"usdExchangeRateOnCalc\": 0.79,\n      \"exchangeRateDrift\": \"-1.2%\"\n    },\n    {\n      \"price\": 7.99,\n      \"currencyCode\": \"GBP\",\n      \"isOverridden\": false,\n      \"taxModel\": \"Included\",\n      \"taxRate\": 20,\n      \"country\": \"United Kingdom\",\n      \"countryCode2\": \"GB\",\n      \"usdExchangeRateOnCalc\": 0.79,\n      \"exchangeRateDrift\": \"-1.2%\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3abbc69-d246-4f4f-9d81-2126487dff8a",
+              "name": "Price point not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "price-points",
+                    ":priceInUsdCents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "priceInUsdCents",
+                      "description": "(Required) Base price in USD cents."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Price point 999 not found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d27858b7-ad08-4589-87d7-f6d2f57e35d1",
+          "name": "Get a Price Point",
+          "request": {
+            "name": "Get a Price Point",
+            "description": {
+              "content": "Retrieves a specific price point by its base price in USD cents. The API returns localized prices for this price point.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "price-points",
+                ":priceInUsdCents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "priceInUsdCents",
+                  "description": "(Required) Base price in USD cents."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f5da1e71-06d1-489a-8f0c-bb8a200e2963",
+              "name": "Price point retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "price-points",
+                    ":priceInUsdCents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "priceInUsdCents",
+                      "description": "(Required) Base price in USD cents."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"priceInUsdCents\": 999,\n  \"lastUpdate\": \"2026-01-01T14:30:00Z\",\n  \"priceByCountry\": [\n    {\n      \"price\": 7.99,\n      \"currencyCode\": \"GBP\",\n      \"isOverridden\": false,\n      \"taxModel\": \"Included\",\n      \"taxRate\": 20,\n      \"country\": \"United Kingdom\",\n      \"countryCode2\": \"GB\",\n      \"usdExchangeRateOnCalc\": 0.79,\n      \"exchangeRateDrift\": \"-1.2%\"\n    },\n    {\n      \"price\": 7.99,\n      \"currencyCode\": \"GBP\",\n      \"isOverridden\": false,\n      \"taxModel\": \"Included\",\n      \"taxRate\": 20,\n      \"country\": \"United Kingdom\",\n      \"countryCode2\": \"GB\",\n      \"usdExchangeRateOnCalc\": 0.79,\n      \"exchangeRateDrift\": \"-1.2%\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "579d440c-c7fe-479b-b17d-8c4e27d09ef5",
+              "name": "Price point not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "price-points",
+                    ":priceInUsdCents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "priceInUsdCents",
+                      "description": "(Required) Base price in USD cents."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Price point 999 not found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e22a209-37b0-4156-abd9-65acfe6ea66d",
+          "name": "Update a Price Point",
+          "request": {
+            "name": "Update a Price Point",
+            "description": {
+              "content": "Updates a price point.\n\nWhen a price point is updated, Appcharge recalculates all localized prices. If both `priceInUsdCents` and `priceOverrides` are provided in the same request, Appcharge first recalculates localized prices from the updated base price and then applies the override values.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "price-points",
+                ":priceInUsdCents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "priceInUsdCents",
+                  "description": "(Required) Base price in USD cents."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"updatedPriceInUsdCents\": \"<number>\",\n  \"priceOverrides\": [\n    {\n      \"countryCode2\": \"<string>\",\n      \"price\": \"<number>\"\n    },\n    {\n      \"countryCode2\": \"<string>\",\n      \"price\": \"<number>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ee498ddb-7d10-4d6b-a158-89cd2bba0f9b",
+              "name": "Price point updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "price-points",
+                    ":priceInUsdCents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "priceInUsdCents",
+                      "description": "(Required) Base price in USD cents."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updatedPriceInUsdCents\": 999,\n  \"priceOverrides\": [\n    {\n      \"countryCode2\": \"BR\",\n      \"price\": 29.99\n    },\n    {\n      \"countryCode2\": \"BR\",\n      \"price\": 29.99\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"priceInUsdCents\": 999,\n  \"lastUpdate\": \"2026-01-01T14:30:00Z\",\n  \"priceByCountry\": [\n    {\n      \"price\": 7.99,\n      \"currencyCode\": \"GBP\",\n      \"isOverridden\": false,\n      \"taxModel\": \"Included\",\n      \"taxRate\": 20,\n      \"country\": \"United Kingdom\",\n      \"countryCode2\": \"GB\",\n      \"usdExchangeRateOnCalc\": 0.79,\n      \"exchangeRateDrift\": \"-1.2%\"\n    },\n    {\n      \"price\": 7.99,\n      \"currencyCode\": \"GBP\",\n      \"isOverridden\": false,\n      \"taxModel\": \"Included\",\n      \"taxRate\": 20,\n      \"country\": \"United Kingdom\",\n      \"countryCode2\": \"GB\",\n      \"usdExchangeRateOnCalc\": 0.79,\n      \"exchangeRateDrift\": \"-1.2%\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "423ed21a-c470-4bd9-9604-1782ebdca0f9",
+              "name": "Bad request. This can occur due to a schema validation error or an invalid country code.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "price-points",
+                    ":priceInUsdCents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "priceInUsdCents",
+                      "description": "(Required) Base price in USD cents."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updatedPriceInUsdCents\": 999,\n  \"priceOverrides\": [\n    {\n      \"countryCode2\": \"BR\",\n      \"price\": 29.99\n    },\n    {\n      \"countryCode2\": \"BR\",\n      \"price\": 29.99\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid request body\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d62a3fa-8e7e-4412-bdfc-aae6da31cc18",
+              "name": "Price point not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "price-points",
+                    ":priceInUsdCents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "priceInUsdCents",
+                      "description": "(Required) Base price in USD cents."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updatedPriceInUsdCents\": 999,\n  \"priceOverrides\": [\n    {\n      \"countryCode2\": \"BR\",\n      \"price\": 29.99\n    },\n    {\n      \"countryCode2\": \"BR\",\n      \"price\": 29.99\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Price point 999 not found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "679793c0-b4d7-4ff4-9f18-fac0c9181d78",
+              "name": "Conflict. The price point already exists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "price-points",
+                    ":priceInUsdCents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "priceInUsdCents",
+                      "description": "(Required) Base price in USD cents."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updatedPriceInUsdCents\": 999,\n  \"priceOverrides\": [\n    {\n      \"countryCode2\": \"BR\",\n      \"price\": 29.99\n    },\n    {\n      \"countryCode2\": \"BR\",\n      \"price\": 29.99\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Cannot create new pricing. The price point already exists.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3ef3885-df91-41fa-a01e-e9feb4bd2a4e",
+          "name": "Get Price Points for a Country",
+          "request": {
+            "name": "Get Price Points for a Country",
+            "description": {
+              "content": "Retrieves price points localized for a specific country.\n\nPass price points in USD cents and a country code. The API returns each requested price point with its localized price in the currency for that country.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "price-points",
+                "localized",
+                "lookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pricesInUsdCents\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"countryCode2\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "27abd871-262e-49fc-9d14-e5bee50c4f1f",
+              "name": "Localized price points retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "price-points",
+                    "localized",
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pricesInUsdCents\": [\n    699,\n    4550,\n    9999\n  ],\n  \"countryCode2\": \"DE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"currencyCode\": \"EUR\",\n  \"pricePoints\": {\n    \"699\": {\n      \"price\": 664,\n      \"displayPrice\": \"6,64 €\"\n    },\n    \"4550\": {\n      \"price\": 4323,\n      \"displayPrice\": \"43,23 €\"\n    },\n    \"9999\": {\n      \"price\": 9499,\n      \"displayPrice\": \"94,99 €\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04a27737-23c4-4926-af16-3d666a6566d3",
+              "name": "Bad request. All errors return a `message` property.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "price-points",
+                    "localized",
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pricesInUsdCents\": [\n    699,\n    4550,\n    9999\n  ],\n  \"countryCode2\": \"DE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Too many price points used, maximum is 50.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "74a76e1b-1559-4ff8-b2a2-20d6d7e56847",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "price-points",
+                    "localized",
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pricesInUsdCents\": [\n    699,\n    4550,\n    9999\n  ],\n  \"countryCode2\": \"DE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e11c7918-11a1-4b71-b8b9-d091ca7624c5",
+              "name": "Too many requests. The rate limit is 5,000 requests per minute.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "price-points",
+                    "localized",
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pricesInUsdCents\": [\n    699,\n    4550,\n    9999\n  ],\n  \"countryCode2\": \"DE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Rate limit exceeded.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba4d688a-5f79-4a68-a049-85b95bbe3645",
+          "name": "Initiate Refund",
+          "request": {
+            "name": "Initiate Refund",
+            "description": {
+              "content": "Initiates a full refund for a specified order. <br /> <br /> Once the API call is successful, the refund process begins. The result of the refund, whether it succeeds or fails, is communicated asynchronously when the order status updates to `Refunded` or `Refund Failed`. You can track the order status in the **Orders** tab of the Publisher Dashboard. <br /> <br /> If the refund is completed successfully, the total order amount is reimbursed, and the [Order Refunded](../../events/v2/order/order_refunded) event is triggered. <br /> <br /> **Note:** This action is final and can't be undone.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "checkout",
+                "api",
+                "v1",
+                "order",
+                ":orderId",
+                "refund"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderId",
+                  "description": "(Required) Order ID to refund."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The publisher token used for authentication.",
+                "key": "x-publisher-token",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) The user ID initiating the refund for the order.",
+                "key": "x-user-id",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fca96240-1eab-45fa-8f93-a6de4035fa6e",
+              "name": "Refund initiated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "api",
+                    "v1",
+                    "order",
+                    ":orderId",
+                    "refund"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order ID to refund."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The publisher token used for authentication.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The user ID initiating the refund for the order.",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6f2c4ef3-4bee-4212-b936-4ae41bf0b18d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "api",
+                    "v1",
+                    "order",
+                    ":orderId",
+                    "refund"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order ID to refund."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The publisher token used for authentication.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The user ID initiating the refund for the order.",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": null,\n  \"errCode\": -1,\n  \"message\": \"Forbidden resource\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e7df224-d0f7-43c8-9e1f-ea76a71f80ac",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "api",
+                    "v1",
+                    "order",
+                    ":orderId",
+                    "refund"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order ID to refund."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The publisher token used for authentication.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The user ID initiating the refund for the order.",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Order does not exist or cannot be found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b051bf01-fa37-4a99-9d8b-a4e215179634",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "api",
+                    "v1",
+                    "order",
+                    ":orderId",
+                    "refund"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order ID to refund."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The publisher token used for authentication.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The user ID initiating the refund for the order.",
+                    "key": "x-user-id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Failed to initiate a refund request\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74035e73-5ecb-409c-b24b-6b6927712ce4",
+          "name": "Triggers the Personalization API",
+          "request": {
+            "name": "Triggers the Personalization API",
+            "description": {
+              "content": "Triggers the [Personalize Web Store Callback](./personalize-webstore-callback) by player ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "refresh-specific-active-players"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Publisher token.",
+                "key": "x-publisher-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"playerIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5d2e4a04-fd70-450d-a571-7be2391173af",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "refresh-specific-active-players"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"playerIds\": [\n    \"player123\",\n    \"player456\",\n    \"player789\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Event triggered for publisher 6422d554acc1a482bac4698e7\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa13df14-8961-4d55-90fc-19f4f101da3d",
+              "name": "Bad Request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "refresh-specific-active-players"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"playerIds\": [\n    \"player123\",\n    \"player456\",\n    \"player789\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Schema Validation Error\",\n  \"requestUrl\": \"/store/v1/personalization/refresh-specific-active-players\",\n  \"body\": \"Property playerIds has failed the following validations: each value in playerIds must be a string, playerIds must contain at least 1 elements, playerIds must be an array.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aa3527ea-8a80-4c46-a860-7b0cd93a186d",
+          "name": "Triggers the Personalization API",
+          "request": {
+            "name": "Triggers the Personalization API",
+            "description": {
+              "content": "Triggers the [Personalize Web Store Callback](./personalize-webstore-callback) for all players. \n\n When refreshing data for all active players, Appcharge identifies everyone currently browsing the web store, and updates their store view in real time.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "refresh-active-players"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Publisher token.",
+                "key": "x-publisher-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "735b00ef-3ce5-48ff-8ae3-d3ba8eb5a529",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "refresh-active-players"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Event triggered for publisher 6422d554acc1a482bac4698e7\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "395e5300-3df5-48ce-85b0-1abec705a45e",
+              "name": "Bad request. Missing or invalid parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "refresh-active-players"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "32a7cd0b-147b-4cd4-8759-2c1576ff4a57",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "refresh-active-players"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.appcharge.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2cfd4e36-5937-41a8-9343-48f7bb7933fc",
+    "name": "Appcharge Assets General API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.\n\nContact Support:\n Name: Appcharge Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

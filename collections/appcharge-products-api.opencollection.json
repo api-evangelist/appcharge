@@ -1,0 +1,105 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Appcharge Assets Products API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getComponentsV1Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.appcharge.com/components/v1/product"
+          },
+          "docs": "Retrieves a list of all products."
+        },
+        {
+          "info": {
+            "name": "postComponentsV1Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.appcharge.com/components/v1/product",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a product."
+        },
+        {
+          "info": {
+            "name": "getComponentsV1ProductExternalid",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.appcharge.com/components/v1/product/:externalId",
+            "params": [
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "path",
+                "description": "External ID that you defined."
+              }
+            ]
+          },
+          "docs": "Retrieves the details of a specific product."
+        },
+        {
+          "info": {
+            "name": "putComponentsV1ProductExternalid",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.appcharge.com/components/v1/product/:externalId",
+            "params": [
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "path",
+                "description": "External ID that you defined."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a product."
+        },
+        {
+          "info": {
+            "name": "deleteComponentsV1ProductExternalid",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.appcharge.com/components/v1/product/:externalId",
+            "params": [
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "path",
+                "description": "External ID that you defined."
+              }
+            ]
+          },
+          "docs": "Deletes a product."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

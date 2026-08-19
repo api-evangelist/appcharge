@@ -1,0 +1,888 @@
+{
+  "item": [
+    {
+      "id": "b8c1566b-ca2c-4df9-9b90-a9e8b3cd8cee",
+      "name": "Assets",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5015ce9d-3fe3-4af9-99f2-43240e34bd78",
+          "name": "post Components V1Asset",
+          "request": {
+            "name": "post Components V1Asset",
+            "description": {
+              "content": "Creates an asset in the Assets Library.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "components",
+                "v1",
+                "asset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "type",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "undefined"
+                },
+                {
+                  "key": "name",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "undefined"
+                },
+                {
+                  "key": "file",
+                  "value": "<binary>",
+                  "type": "text",
+                  "description": "undefined"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "83708cef-b1f0-48e8-bb67-55bfe321b3eb",
+              "name": "Asset uploaded successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "asset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "undefined",
+                        "type": "text/plain"
+                      },
+                      "key": "type",
+                      "value": "product",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "undefined",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "gold_coins_icon",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "undefined",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "gold_coins_icon.png",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"507f1f77bcf86cd799439011\",\n  \"name\": \"gold_coins_icon\",\n  \"type\": \"product\",\n  \"imageUrl\": \"https://media.appcharge.com/media/691d8c9f127412f152236889baf5\",\n  \"contentType\": \"image/png\",\n  \"externalImageUrl\": \"https://example.com/assets/gold_coins_icon.png\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a3c32f2-7602-47ab-873b-8870c4825055",
+              "name": "Bad request. Invalid input or validation failure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "asset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "undefined",
+                        "type": "text/plain"
+                      },
+                      "key": "type",
+                      "value": "product",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "undefined",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "gold_coins_icon",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "undefined",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "gold_coins_icon.png",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b5dd250a-449b-49d4-81cb-542e0dd42cc7",
+          "name": "get Components V1Asset",
+          "request": {
+            "name": "get Components V1Asset",
+            "description": {
+              "content": "Retrieves a list of all assets in the Assets Library.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "components",
+                "v1",
+                "asset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf5f1406-eea0-4643-9135-6cccdfc374c6",
+              "name": "Assets retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "asset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"getAllAssetsResponse\": [\n    {\n      \"id\": \"507f1f77bcf86cd799439011\",\n      \"name\": \"gold_coins_icon\",\n      \"type\": \"product\",\n      \"imageUrl\": \"https://media.appcharge.com/media/691d8c9f127412f152236889baf5\",\n      \"contentType\": \"image/png\",\n      \"externalImageUrl\": \"https://example.com/assets/gold_coins_icon.png\"\n    },\n    {\n      \"id\": \"507f1f77bcf86cd799439011\",\n      \"name\": \"gold_coins_icon\",\n      \"type\": \"product\",\n      \"imageUrl\": \"https://media.appcharge.com/media/691d8c9f127412f152236889baf5\",\n      \"contentType\": \"image/png\",\n      \"externalImageUrl\": \"https://example.com/assets/gold_coins_icon.png\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ca0c57d-0913-4500-8bd0-c1151d5feaaf",
+          "name": "delete Components V1Asset Name",
+          "request": {
+            "name": "delete Components V1Asset Name",
+            "description": {
+              "content": "Deletes an asset in the Assets Library.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "components",
+                "v1",
+                "asset",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) Asset name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1147c413-fb9a-4d11-b423-acfec6020679",
+              "name": "Asset deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "asset",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Asset name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"507f1f77bcf86cd799439011\",\n  \"name\": \"gold_coins_icon\",\n  \"type\": \"product\",\n  \"imageUrl\": \"https://media.appcharge.com/media/691d8c9f127412f152236889baf5\",\n  \"contentType\": \"image/png\",\n  \"externalImageUrl\": \"https://example.com/assets/gold_coins_icon.png\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82f303ed-4e7b-4a30-b805-0a20b1721ecb",
+              "name": "Asset not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "asset",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Asset name."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c355f9fa-14e5-4072-9892-2aa0d08a141b",
+          "name": "get Components V1Asset Name",
+          "request": {
+            "name": "get Components V1Asset Name",
+            "description": {
+              "content": "Retrieves a specific asset in the Assets Library.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "components",
+                "v1",
+                "asset",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) Asset name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1c65c1f7-033c-4f47-93dd-4631fcdaef5c",
+              "name": "Asset details retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "asset",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Asset name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"507f1f77bcf86cd799439011\",\n  \"name\": \"gold_coins_icon\",\n  \"type\": \"product\",\n  \"imageUrl\": \"https://media.appcharge.com/media/691d8c9f127412f152236889baf5\",\n  \"contentType\": \"image/png\",\n  \"externalImageUrl\": \"https://example.com/assets/gold_coins_icon.png\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6edc3d3f-1f75-43d7-a767-a36be874cf59",
+              "name": "Asset not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "asset",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Asset name."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed7d9813-6cd0-4076-9d8e-925ae589f780",
+          "name": "put Components V1Asset Name",
+          "request": {
+            "name": "put Components V1Asset Name",
+            "description": {
+              "content": "Updates an asset in the Assets Library.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "components",
+                "v1",
+                "asset",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) Asset name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "type",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Asset category. (This can only be one of product,badge,bgMobile,bgDesk,logo,favicon,bgBundle,bgPopup,general,section,productPrefix,playerLevel,banner,addToHomeButtonImage,addToHomeIconImage,playerProfileImage,offerHeader,backToGameButtonImage,animation,trait)"
+                },
+                {
+                  "key": "name",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Asset name."
+                },
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "A valid PNG or JPEG image file. Maximum size is 2 MB."
+                },
+                {
+                  "key": "externalImageUrl",
+                  "value": "<url>",
+                  "type": "text",
+                  "description": "URL to a valid, publicly accessible image. Appcharge saves and uses this URL as-is and doesn't download, copy, upload, or host the image on Appcharge CDN. The image must remain available at the provided URL.\n\nWe recommend uploading image files instead of using external URLs when possible. Appcharge hosts uploaded files on its CDN. Maximum size is 2 MB. Must be in PNG or JPEG format."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "035fb672-37a3-4301-834d-4fecd6ab2aa0",
+              "name": "Asset updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "asset",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Asset name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "Asset category. (This can only be one of product,badge,bgMobile,bgDesk,logo,favicon,bgBundle,bgPopup,general,section,productPrefix,playerLevel,banner,addToHomeButtonImage,addToHomeIconImage,playerProfileImage,offerHeader,backToGameButtonImage,animation,trait)",
+                        "type": "text/plain"
+                      },
+                      "key": "type",
+                      "value": "bgMobile",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Asset name.",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "main_menu_background",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "A valid PNG or JPEG image file. Maximum size is 2 MB.",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "gold_coins_icon.png",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "URL to a valid, publicly accessible image. Appcharge saves and uses this URL as-is and doesn't download, copy, upload, or host the image on Appcharge CDN. The image must remain available at the provided URL.\n\nWe recommend uploading image files instead of using external URLs when possible. Appcharge hosts uploaded files on its CDN. Maximum size is 2 MB. Must be in PNG or JPEG format.",
+                        "type": "text/plain"
+                      },
+                      "key": "externalImageUrl",
+                      "value": "https://example.com/assets/main_menu_background_updated.png",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"507f1f77bcf86cd799439011\",\n  \"name\": \"gold_coins_icon\",\n  \"type\": \"product\",\n  \"imageUrl\": \"https://media.appcharge.com/media/691d8c9f127412f152236889baf5\",\n  \"contentType\": \"image/png\",\n  \"externalImageUrl\": \"https://example.com/assets/gold_coins_icon.png\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a24ce297-4748-4733-8a7e-546cde24df52",
+              "name": "Bad request. Invalid input or validation failure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "asset",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Asset name."
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "Asset category. (This can only be one of product,badge,bgMobile,bgDesk,logo,favicon,bgBundle,bgPopup,general,section,productPrefix,playerLevel,banner,addToHomeButtonImage,addToHomeIconImage,playerProfileImage,offerHeader,backToGameButtonImage,animation,trait)",
+                        "type": "text/plain"
+                      },
+                      "key": "type",
+                      "value": "bgMobile",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Asset name.",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "main_menu_background",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "A valid PNG or JPEG image file. Maximum size is 2 MB.",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "gold_coins_icon.png",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "URL to a valid, publicly accessible image. Appcharge saves and uses this URL as-is and doesn't download, copy, upload, or host the image on Appcharge CDN. The image must remain available at the provided URL.\n\nWe recommend uploading image files instead of using external URLs when possible. Appcharge hosts uploaded files on its CDN. Maximum size is 2 MB. Must be in PNG or JPEG format.",
+                        "type": "text/plain"
+                      },
+                      "key": "externalImageUrl",
+                      "value": "https://example.com/assets/main_menu_background_updated.png",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6cad7a57-5c01-4f73-a518-d52c311a7a5c",
+              "name": "Asset not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "asset",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Asset name."
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "Asset category. (This can only be one of product,badge,bgMobile,bgDesk,logo,favicon,bgBundle,bgPopup,general,section,productPrefix,playerLevel,banner,addToHomeButtonImage,addToHomeIconImage,playerProfileImage,offerHeader,backToGameButtonImage,animation,trait)",
+                        "type": "text/plain"
+                      },
+                      "key": "type",
+                      "value": "bgMobile",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Asset name.",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "main_menu_background",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "A valid PNG or JPEG image file. Maximum size is 2 MB.",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "gold_coins_icon.png",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "URL to a valid, publicly accessible image. Appcharge saves and uses this URL as-is and doesn't download, copy, upload, or host the image on Appcharge CDN. The image must remain available at the provided URL.\n\nWe recommend uploading image files instead of using external URLs when possible. Appcharge hosts uploaded files on its CDN. Maximum size is 2 MB. Must be in PNG or JPEG format.",
+                        "type": "text/plain"
+                      },
+                      "key": "externalImageUrl",
+                      "value": "https://example.com/assets/main_menu_background_updated.png",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.appcharge.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "98aa823f-1754-444c-be31-0d4b71aeedbb",
+    "name": "Appcharge Assets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.\n\nContact Support:\n Name: Appcharge Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

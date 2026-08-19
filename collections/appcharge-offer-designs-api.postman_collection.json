@@ -1,0 +1,593 @@
+{
+  "item": [
+    {
+      "id": "f84b51bb-833a-4c94-a3ce-3f1a75cfc6c2",
+      "name": "Offer Designs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b17e1d68-d66c-4312-a104-9fad8ac54b63",
+          "name": "post Components V1Offer Design",
+          "request": {
+            "name": "post Components V1Offer Design",
+            "description": {
+              "content": "Creates a post purchase popup design.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "components",
+                "v1",
+                "offer-design"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offerUiType\": \"<string>\",\n  \"name\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"backgroundImageUrl\": \"<url>\",\n  \"offerUiSubType\": \"<string>\",\n  \"title\": {\n    \"text\": \"<string>\",\n    \"fontColor\": \"<string>\",\n    \"fontSize\": \"<number>\",\n    \"fontWeight\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d4a69eb7-502a-47fd-91ba-a3c4e72f6507",
+              "name": "Offer design created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "offer-design"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offerUiType\": \"PopUp\",\n  \"name\": \"Post Purchase Popup Design\",\n  \"externalId\": \"post-purchase-popup-design\",\n  \"backgroundImageUrl\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/background.png\",\n  \"offerUiSubType\": \"PostPurchase\",\n  \"title\": {\n    \"text\": \"Your daily bonus!\",\n    \"fontColor\": \"#FFFFFF\",\n    \"fontSize\": 20,\n    \"fontWeight\": \"normal\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"6a09aa1018b751228b09faed\",\n  \"offerUiType\": \"PopUp\",\n  \"name\": \"Post Purchase Popup Design\",\n  \"externalId\": \"post-purchase-popup-design\",\n  \"backgroundImageUrl\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/background.png\",\n  \"title\": {\n    \"text\": \"Your daily bonus!\",\n    \"fontColor\": \"#FFFFFF\",\n    \"fontSize\": 20,\n    \"fontWeight\": \"normal\"\n  },\n  \"externalBackgroundImageUrl\": \"https://cdn.example.com/assets/background.png\",\n  \"offerUiSubType\": \"PostPurchase\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "da448570-6e1c-4c12-ae8b-11928d274d67",
+              "name": "Bad request. Invalid input or validation failure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "offer-design"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offerUiType\": \"PopUp\",\n  \"name\": \"Post Purchase Popup Design\",\n  \"externalId\": \"post-purchase-popup-design\",\n  \"backgroundImageUrl\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/background.png\",\n  \"offerUiSubType\": \"PostPurchase\",\n  \"title\": {\n    \"text\": \"Your daily bonus!\",\n    \"fontColor\": \"#FFFFFF\",\n    \"fontSize\": 20,\n    \"fontWeight\": \"normal\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0595b002-6544-482e-8f66-9b3e9b2845ce",
+          "name": "Get Offer Designs",
+          "request": {
+            "name": "Get Offer Designs",
+            "description": {
+              "content": "Retrieves a list of all offer designs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "components",
+                "v1",
+                "offer-design"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Publisher token, as displayed in the Publisher Dashboard.",
+                "key": "x-publisher-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "07c38414-8576-48bf-ad17-41f7c6b54625",
+              "name": "Offer designs retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "offer-design"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Publisher token, as displayed in the Publisher Dashboard.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"68b3e3473e2ea6249862bddf\",\n    \"offerUiType\": \"Bundle\",\n    \"offerUiSubType\": \"DailyBonus\",\n    \"name\": \"Starter Bundle Design\",\n    \"externalId\": \"starter-bundle-design\",\n    \"backgroundImageUrl\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/background.png\",\n    \"externalBackgroundImageUrl\": \"https://cdn.example.com/assets/background.png\",\n    \"backgroundExternalImageUrl\": \"https://cdn.example.com/assets/background.png\",\n    \"title\": {\n      \"text\": \"Limited Time Offer\",\n      \"fontColor\": {\n        \"colorOne\": \"#FFFFFF\",\n        \"colorTwo\": \"#FDFCF9\",\n        \"direction\": \"to right\",\n        \"key_0\": true,\n        \"key_1\": 4864,\n        \"key_2\": \"string\"\n      },\n      \"fontSize\": 20,\n      \"fontWeight\": \"bold\"\n    },\n    \"buttonSuffixImage\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/bundle-button-suffix.png\",\n    \"buttonSuffixAnimation\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/bundle-button-suffix-animation.json\",\n    \"backgroundColor\": {\n      \"colorOne\": \"#E7CF88\",\n      \"colorTwo\": \"#FDFCF9\",\n      \"gradientDirection\": \"to right\"\n    },\n    \"backgroundOpacity\": 80,\n    \"headerImage\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/header.png\",\n    \"arrowColor\": \"#ffffff\",\n    \"borderColor\": {\n      \"colorOne\": \"#FFFFFF\",\n      \"colorTwo\": \"#FDFCF9\",\n      \"direction\": \"to right\"\n    },\n    \"borderWidth\": 2,\n    \"subRollingOffer\": {\n      \"backgroundImageUrl\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/sub-background.png\",\n      \"backgroundExternalImageUrl\": \"https://cdn.example.com/assets/background.png\",\n      \"collectText\": \"FREE\"\n    },\n    \"rewardCalendar\": {\n      \"collectibleBadgeImage\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/collectible-badge.png\",\n      \"lockedBadgeImage\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/locked-badge.png\",\n      \"backgroundColor\": \"#101225\",\n      \"collectIconImage\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/collect-icon.png\",\n      \"lockedIconImage\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/locked-icon.png\",\n      \"dayFontColor\": \"#FFFFFF\",\n      \"subRewardBackgroundImage\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/sub-reward-background.png\",\n      \"mainRewardBackgroundImage\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/main-reward-background.png\",\n      \"headerImage\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/header.png\"\n    }\n  },\n  {\n    \"id\": \"68b3e3473e2ea6249862bddf\",\n    \"offerUiType\": \"Bundle\",\n    \"offerUiSubType\": \"DailyBonus\",\n    \"name\": \"Starter Bundle Design\",\n    \"externalId\": \"starter-bundle-design\",\n    \"backgroundImageUrl\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/background.png\",\n    \"externalBackgroundImageUrl\": \"https://cdn.example.com/assets/background.png\",\n    \"backgroundExternalImageUrl\": \"https://cdn.example.com/assets/background.png\",\n    \"title\": {\n      \"text\": \"Limited Time Offer\",\n      \"fontColor\": {\n        \"colorOne\": \"#FFFFFF\",\n        \"colorTwo\": \"#FDFCF9\",\n        \"direction\": \"to right\"\n      },\n      \"fontSize\": 20,\n      \"fontWeight\": \"bold\"\n    },\n    \"buttonSuffixImage\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/bundle-button-suffix.png\",\n    \"buttonSuffixAnimation\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/bundle-button-suffix-animation.json\",\n    \"backgroundColor\": {\n      \"colorOne\": \"#E7CF88\",\n      \"colorTwo\": \"#FDFCF9\",\n      \"gradientDirection\": \"to right\",\n      \"key_0\": 2871,\n      \"key_1\": false\n    },\n    \"backgroundOpacity\": 80,\n    \"headerImage\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/header.png\",\n    \"arrowColor\": \"#ffffff\",\n    \"borderColor\": {\n      \"colorOne\": \"#FFFFFF\",\n      \"colorTwo\": \"#FDFCF9\",\n      \"direction\": \"to right\"\n    },\n    \"borderWidth\": 2,\n    \"subRollingOffer\": {\n      \"backgroundImageUrl\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/sub-background.png\",\n      \"backgroundExternalImageUrl\": \"https://cdn.example.com/assets/background.png\",\n      \"collectText\": \"FREE\"\n    },\n    \"rewardCalendar\": {\n      \"collectibleBadgeImage\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/collectible-badge.png\",\n      \"lockedBadgeImage\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/locked-badge.png\",\n      \"backgroundColor\": \"#101225\",\n      \"collectIconImage\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/collect-icon.png\",\n      \"lockedIconImage\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/locked-icon.png\",\n      \"dayFontColor\": \"#FFFFFF\",\n      \"subRewardBackgroundImage\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/sub-reward-background.png\",\n      \"mainRewardBackgroundImage\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/main-reward-background.png\",\n      \"headerImage\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/header.png\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "269584c9-f690-45f6-822f-ffe5575138d4",
+          "name": "delete Components V1Offer Design Externalid",
+          "request": {
+            "name": "delete Components V1Offer Design Externalid",
+            "description": {
+              "content": "Deletes a post purchase popup design.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "components",
+                "v1",
+                "offer-design",
+                ":externalId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "externalId",
+                  "description": "(Required) Design ID that you defined."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "15be31a4-07dd-4354-9f44-a7712adc7a61",
+              "name": "Post purchase popup design deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "offer-design",
+                    ":externalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externalId",
+                      "description": "(Required) Design ID that you defined."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"6a09aa1018b751228b09faed\",\n  \"offerUiType\": \"PopUp\",\n  \"name\": \"Post Purchase Popup Design\",\n  \"externalId\": \"post-purchase-popup-design\",\n  \"backgroundImageUrl\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/background.png\",\n  \"title\": {\n    \"text\": \"Your daily bonus!\",\n    \"fontColor\": \"#FFFFFF\",\n    \"fontSize\": 20,\n    \"fontWeight\": \"normal\"\n  },\n  \"externalBackgroundImageUrl\": \"https://cdn.example.com/assets/background.png\",\n  \"offerUiSubType\": \"PostPurchase\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "498d927a-6930-4711-9923-7f442d15f25f",
+              "name": "Offer design not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "offer-design",
+                    ":externalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externalId",
+                      "description": "(Required) Design ID that you defined."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08842766-c9b5-4727-a956-f34ff7fe8171",
+          "name": "put Components V1Offer Design Externalid",
+          "request": {
+            "name": "put Components V1Offer Design Externalid",
+            "description": {
+              "content": "Updates a post purchase popup design.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "components",
+                "v1",
+                "offer-design",
+                ":externalId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "externalId",
+                  "description": "(Required) Design ID that you defined."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offerUiType\": \"<string>\",\n  \"name\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"backgroundImageUrl\": \"<url>\",\n  \"title\": {\n    \"text\": \"<string>\",\n    \"fontColor\": \"<string>\",\n    \"fontSize\": \"<number>\",\n    \"fontWeight\": \"<string>\"\n  },\n  \"offerUiSubType\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "82fcf558-3f9d-49af-ae17-bedde6ee8683",
+              "name": "Offer design updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "offer-design",
+                    ":externalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externalId",
+                      "description": "(Required) Design ID that you defined."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offerUiType\": \"PopUp\",\n  \"name\": \"Post Purchase Popup Design Updated\",\n  \"externalId\": \"post-purchase-popup-design\",\n  \"backgroundImageUrl\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/background-v2.png\",\n  \"title\": {\n    \"text\": \"Your daily bonus!\",\n    \"fontColor\": \"#FFFFFF\",\n    \"fontSize\": 20,\n    \"fontWeight\": \"normal\"\n  },\n  \"offerUiSubType\": \"PostPurchase\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"6a09aa1018b751228b09faed\",\n  \"offerUiType\": \"PopUp\",\n  \"name\": \"Post Purchase Popup Design\",\n  \"externalId\": \"post-purchase-popup-design\",\n  \"backgroundImageUrl\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/background.png\",\n  \"title\": {\n    \"text\": \"Your daily bonus!\",\n    \"fontColor\": \"#FFFFFF\",\n    \"fontSize\": 20,\n    \"fontWeight\": \"normal\"\n  },\n  \"externalBackgroundImageUrl\": \"https://cdn.example.com/assets/background.png\",\n  \"offerUiSubType\": \"PostPurchase\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "edda9a73-7820-430c-a0e7-71e8d9d0c666",
+              "name": "Bad request. Invalid input or validation failure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "offer-design",
+                    ":externalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externalId",
+                      "description": "(Required) Design ID that you defined."
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offerUiType\": \"PopUp\",\n  \"name\": \"Post Purchase Popup Design Updated\",\n  \"externalId\": \"post-purchase-popup-design\",\n  \"backgroundImageUrl\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/background-v2.png\",\n  \"title\": {\n    \"text\": \"Your daily bonus!\",\n    \"fontColor\": \"#FFFFFF\",\n    \"fontSize\": 20,\n    \"fontWeight\": \"normal\"\n  },\n  \"offerUiSubType\": \"PostPurchase\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1bd5194c-8c40-418d-b96e-4622d606d44e",
+              "name": "Offer design not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "offer-design",
+                    ":externalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externalId",
+                      "description": "(Required) Design ID that you defined."
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offerUiType\": \"PopUp\",\n  \"name\": \"Post Purchase Popup Design Updated\",\n  \"externalId\": \"post-purchase-popup-design\",\n  \"backgroundImageUrl\": \"https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/background-v2.png\",\n  \"title\": {\n    \"text\": \"Your daily bonus!\",\n    \"fontColor\": \"#FFFFFF\",\n    \"fontSize\": 20,\n    \"fontWeight\": \"normal\"\n  },\n  \"offerUiSubType\": \"PostPurchase\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.appcharge.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a7fe6000-c2ce-4d37-8895-e85560000685",
+    "name": "Appcharge Assets Offer Designs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.\n\nContact Support:\n Name: Appcharge Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

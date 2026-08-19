@@ -1,0 +1,147 @@
+{
+  "item": [
+    {
+      "id": "0929b7e2-48a0-46c0-a5a4-9dd1b2ec966f",
+      "name": "Personalization",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "87d6f97e-e102-4f09-876d-e13e08efabf5",
+          "name": "Sync player information",
+          "request": {
+            "name": "Sync player information",
+            "description": {
+              "content": "<Note> This is a callback API. Appcharge calls this endpoint on your server when specific events occur. </Note> \n\n Notifies your system to personalize the web store for a player. <br /> <br /> Appcharge calls this endpoint when: <ul><li>A player logs in to your web store.</li><li>A player completes a purchase.</li><li>Every 5 minutes after the player’s last sync.</li></ul> Your server responds with the most current player data and all available offers for the player. Appcharge then updates the web store for the player accordingly.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":YOUR_PERSONALIZE_WEBSTORE_ENDPOINT"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Publisher token.",
+                "key": "x-publisher-token",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "The signed payload.",
+                "key": "signature",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"playerId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5d90476f-c518-4e88-b2e4-327f1ec75316",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":YOUR_PERSONALIZE_WEBSTORE_ENDPOINT"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The signed payload.",
+                    "key": "signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"playerId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"valid\",\n  \"sessionMetadata\": {},\n  \"version\": 2,\n  \"logo\": \"MY_LOGO_ASSET_ID\",\n  \"profileFrameId\": \"profileFrame123\",\n  \"playerLevelName\": \"playerLevelName\",\n  \"bannerExternalId\": \"playerLevelAssetId\",\n  \"playerLevel\": {\n    \"assetId\": \"playerLevel1\",\n    \"text\": \"10%\",\n    \"endsIn\": 1728283121000\n  },\n  \"playerLevelBanners\": [\n    {\n      \"assetId\": \"string\",\n      \"designId\": \"string\",\n      \"text\": [\n        {\n          \"id\": \"string\",\n          \"content\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"content\": \"string\"\n        }\n      ],\n      \"endsIn\": 6392.958269192698\n    },\n    {\n      \"assetId\": \"string\",\n      \"designId\": \"string\",\n      \"text\": [\n        {\n          \"id\": \"string\",\n          \"content\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"content\": \"string\"\n        }\n      ],\n      \"endsIn\": 8665.696226792368\n    }\n  ],\n  \"offersOrder\": \"priceLowToHigh\",\n  \"sectionsOrder\": [\n    \"string\",\n    \"string\"\n  ],\n  \"segments\": [\n    \"string\",\n    \"string\"\n  ],\n  \"focus\": {\n    \"publisherBundleId\": \"bundle123\"\n  },\n  \"attributes\": {},\n  \"storeTheme\": {\n    \"bgImageMobile\": \"mobile_bg_2\",\n    \"bgImageDesktop\": \"desktop_bg_2\",\n    \"logo\": \"store_logo_2\",\n    \"profileFrameImage\": \"profile_frame_2\",\n    \"bannerImage\": \"banner_2\",\n    \"playerLevelImage\": \"player_level_2\"\n  },\n  \"balances\": [\n    {\n      \"publisherProductId\": \"product123\",\n      \"quantity\": 5\n    },\n    {\n      \"publisherProductId\": \"product123\",\n      \"quantity\": 5\n    }\n  ],\n  \"offers\": [\n    {\n      \"publisherOfferId\": \"offer123\",\n      \"productsSequence\": [\n        {\n          \"index\": 3319,\n          \"products\": [\n            {\n              \"publisherProductId\": \"product123\",\n              \"quantity\": 2,\n              \"priority\": \"Main\",\n              \"traits\": [\n                {\n                  \"assetId\": \"burn_damage_icon\",\n                  \"text\": \"Burn Damage\"\n                },\n                {\n                  \"assetId\": \"burn_damage_icon\",\n                  \"text\": \"Burn Damage\"\n                }\n              ],\n              \"rarityProductInfo\": {\n                \"stars\": 5,\n                \"tooltip\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ]\n              }\n            },\n            {\n              \"publisherProductId\": \"product123\",\n              \"quantity\": 2,\n              \"priority\": \"Sub\",\n              \"traits\": [\n                {\n                  \"assetId\": \"burn_damage_icon\",\n                  \"text\": \"Burn Damage\"\n                },\n                {\n                  \"assetId\": \"burn_damage_icon\",\n                  \"text\": \"Burn Damage\"\n                }\n              ],\n              \"rarityProductInfo\": {\n                \"stars\": 5,\n                \"tooltip\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ]\n              }\n            }\n          ],\n          \"productSale\": {\n            \"amountBeforeSale\": 3323,\n            \"sale\": 735,\n            \"type\": \"string\"\n          },\n          \"priceDiscount\": {\n            \"discount\": 20,\n            \"type\": \"percentage\",\n            \"priceBeforeDiscount\": 100\n          },\n          \"badges\": [\n            {\n              \"publisherBadgeId\": \"badge123\",\n              \"position\": \"center\",\n              \"ribbonTextOverride\": \"string\"\n            },\n            {\n              \"publisherBadgeId\": \"badge123\",\n              \"position\": \"center\",\n              \"ribbonTextOverride\": \"string\"\n            }\n          ],\n          \"progressBarPoints\": [\n            {\n              \"publisherBarId\": \"progress-bar-1\",\n              \"points\": 1000\n            },\n            {\n              \"publisherBarId\": \"progress-bar-1\",\n              \"points\": 1000\n            }\n          ]\n        },\n        {\n          \"index\": 4975,\n          \"products\": [\n            {\n              \"publisherProductId\": \"product123\",\n              \"quantity\": 2,\n              \"priority\": \"Main\",\n              \"traits\": [\n                {\n                  \"assetId\": \"burn_damage_icon\",\n                  \"text\": \"Burn Damage\"\n                },\n                {\n                  \"assetId\": \"burn_damage_icon\",\n                  \"text\": \"Burn Damage\"\n                }\n              ],\n              \"rarityProductInfo\": {\n                \"stars\": 5,\n                \"tooltip\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ]\n              }\n            },\n            {\n              \"publisherProductId\": \"product123\",\n              \"quantity\": 2,\n              \"priority\": \"Sub\",\n              \"traits\": [\n                {\n                  \"assetId\": \"burn_damage_icon\",\n                  \"text\": \"Burn Damage\"\n                },\n                {\n                  \"assetId\": \"burn_damage_icon\",\n                  \"text\": \"Burn Damage\"\n                }\n              ],\n              \"rarityProductInfo\": {\n                \"stars\": 5,\n                \"tooltip\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ]\n              }\n            }\n          ],\n          \"productSale\": {\n            \"amountBeforeSale\": 8147,\n            \"sale\": 7753,\n            \"type\": \"string\"\n          },\n          \"priceDiscount\": {\n            \"discount\": 20,\n            \"type\": \"percentage\",\n            \"priceBeforeDiscount\": 100\n          },\n          \"badges\": [\n            {\n              \"publisherBadgeId\": \"badge123\",\n              \"position\": \"center\",\n              \"ribbonTextOverride\": \"string\"\n            },\n            {\n              \"publisherBadgeId\": \"badge123\",\n              \"position\": \"center\",\n              \"ribbonTextOverride\": \"string\"\n            }\n          ],\n          \"progressBarPoints\": [\n            {\n              \"publisherBarId\": \"progress-bar-1\",\n              \"points\": 1000\n            },\n            {\n              \"publisherBarId\": \"progress-bar-1\",\n              \"points\": 1000\n            }\n          ]\n        }\n      ],\n      \"endsIn\": 764.7151496534277,\n      \"offerDescriptionOverride\": \"string\",\n      \"offerDesignOverride\": {\n        \"offerDesignSubtitleTextOverride\": \"string\",\n        \"offerDesignId\": \"string\",\n        \"offerBackgroundImageOverride\": \"string\"\n      },\n      \"productSale\": {\n        \"amountBeforeSale\": 8667,\n        \"sale\": 4585,\n        \"type\": \"string\"\n      },\n      \"priceDiscount\": {\n        \"discount\": 20,\n        \"type\": \"percentage\",\n        \"priceBeforeDiscount\": 100\n      },\n      \"badges\": [\n        {\n          \"publisherBadgeId\": \"badge123\",\n          \"position\": \"center\",\n          \"ribbonTextOverride\": \"string\"\n        },\n        {\n          \"publisherBadgeId\": \"badge123\",\n          \"position\": \"center\",\n          \"ribbonTextOverride\": \"string\"\n        }\n      ],\n      \"dynamicOfferUi\": {\n        \"salePercentage\": 8510,\n        \"badges\": [\n          {\n            \"publisherBadgeId\": \"badge123\",\n            \"position\": \"center\",\n            \"ribbonTextOverride\": \"string\"\n          },\n          {\n            \"publisherBadgeId\": \"badge123\",\n            \"position\": \"center\",\n            \"ribbonTextOverride\": \"string\"\n          }\n        ],\n        \"amountBeforeSale\": 1071,\n        \"salePercentageDisplayType\": \"string\",\n        \"offerDesignId\": \"string\"\n      }\n    },\n    {\n      \"publisherOfferId\": \"offer123\",\n      \"productsSequence\": [\n        {\n          \"index\": 4649,\n          \"products\": [\n            {\n              \"publisherProductId\": \"product123\",\n              \"quantity\": 2,\n              \"priority\": \"Sub\",\n              \"traits\": [\n                {\n                  \"assetId\": \"burn_damage_icon\",\n                  \"text\": \"Burn Damage\"\n                },\n                {\n                  \"assetId\": \"burn_damage_icon\",\n                  \"text\": \"Burn Damage\"\n                }\n              ],\n              \"rarityProductInfo\": {\n                \"stars\": 5,\n                \"tooltip\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ]\n              }\n            },\n            {\n              \"publisherProductId\": \"product123\",\n              \"quantity\": 2,\n              \"priority\": \"Sub\",\n              \"traits\": [\n                {\n                  \"assetId\": \"burn_damage_icon\",\n                  \"text\": \"Burn Damage\"\n                },\n                {\n                  \"assetId\": \"burn_damage_icon\",\n                  \"text\": \"Burn Damage\"\n                }\n              ],\n              \"rarityProductInfo\": {\n                \"stars\": 5,\n                \"tooltip\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ]\n              }\n            }\n          ],\n          \"productSale\": {\n            \"amountBeforeSale\": 235,\n            \"sale\": 3322,\n            \"type\": \"string\"\n          },\n          \"priceDiscount\": {\n            \"discount\": 20,\n            \"type\": \"percentage\",\n            \"priceBeforeDiscount\": 100\n          },\n          \"badges\": [\n            {\n              \"publisherBadgeId\": \"badge123\",\n              \"position\": \"center\",\n              \"ribbonTextOverride\": \"string\"\n            },\n            {\n              \"publisherBadgeId\": \"badge123\",\n              \"position\": \"center\",\n              \"ribbonTextOverride\": \"string\"\n            }\n          ],\n          \"progressBarPoints\": [\n            {\n              \"publisherBarId\": \"progress-bar-1\",\n              \"points\": 1000\n            },\n            {\n              \"publisherBarId\": \"progress-bar-1\",\n              \"points\": 1000\n            }\n          ]\n        },\n        {\n          \"index\": 733,\n          \"products\": [\n            {\n              \"publisherProductId\": \"product123\",\n              \"quantity\": 2,\n              \"priority\": \"Sub\",\n              \"traits\": [\n                {\n                  \"assetId\": \"burn_damage_icon\",\n                  \"text\": \"Burn Damage\"\n                },\n                {\n                  \"assetId\": \"burn_damage_icon\",\n                  \"text\": \"Burn Damage\"\n                }\n              ],\n              \"rarityProductInfo\": {\n                \"stars\": 5,\n                \"tooltip\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ]\n              }\n            },\n            {\n              \"publisherProductId\": \"product123\",\n              \"quantity\": 2,\n              \"priority\": \"Main\",\n              \"traits\": [\n                {\n                  \"assetId\": \"burn_damage_icon\",\n                  \"text\": \"Burn Damage\"\n                },\n                {\n                  \"assetId\": \"burn_damage_icon\",\n                  \"text\": \"Burn Damage\"\n                }\n              ],\n              \"rarityProductInfo\": {\n                \"stars\": 5,\n                \"tooltip\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ]\n              }\n            }\n          ],\n          \"productSale\": {\n            \"amountBeforeSale\": 7121,\n            \"sale\": 2299,\n            \"type\": \"string\"\n          },\n          \"priceDiscount\": {\n            \"discount\": 20,\n            \"type\": \"percentage\",\n            \"priceBeforeDiscount\": 100\n          },\n          \"badges\": [\n            {\n              \"publisherBadgeId\": \"badge123\",\n              \"position\": \"center\",\n              \"ribbonTextOverride\": \"string\"\n            },\n            {\n              \"publisherBadgeId\": \"badge123\",\n              \"position\": \"center\",\n              \"ribbonTextOverride\": \"string\"\n            }\n          ],\n          \"progressBarPoints\": [\n            {\n              \"publisherBarId\": \"progress-bar-1\",\n              \"points\": 1000\n            },\n            {\n              \"publisherBarId\": \"progress-bar-1\",\n              \"points\": 1000\n            }\n          ]\n        }\n      ],\n      \"endsIn\": 6799.856504351581,\n      \"offerDescriptionOverride\": \"string\",\n      \"offerDesignOverride\": {\n        \"offerDesignSubtitleTextOverride\": \"string\",\n        \"offerDesignId\": \"string\",\n        \"offerBackgroundImageOverride\": \"string\"\n      },\n      \"productSale\": {\n        \"amountBeforeSale\": 7233,\n        \"sale\": 470,\n        \"type\": \"string\"\n      },\n      \"priceDiscount\": {\n        \"discount\": 20,\n        \"type\": \"percentage\",\n        \"priceBeforeDiscount\": 100\n      },\n      \"badges\": [\n        {\n          \"publisherBadgeId\": \"badge123\",\n          \"position\": \"center\",\n          \"ribbonTextOverride\": \"string\"\n        },\n        {\n          \"publisherBadgeId\": \"badge123\",\n          \"position\": \"center\",\n          \"ribbonTextOverride\": \"string\"\n        }\n      ],\n      \"dynamicOfferUi\": {\n        \"salePercentage\": 4041,\n        \"badges\": [\n          {\n            \"publisherBadgeId\": \"badge123\",\n            \"position\": \"center\",\n            \"ribbonTextOverride\": \"string\"\n          },\n          {\n            \"publisherBadgeId\": \"badge123\",\n            \"position\": \"center\",\n            \"ribbonTextOverride\": \"string\"\n          }\n        ],\n        \"amountBeforeSale\": 9642,\n        \"salePercentageDisplayType\": \"string\",\n        \"offerDesignId\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.appcharge.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f5e65b9e-eddf-481a-902a-3371893e7cb4",
+    "name": "Appcharge Assets Personalization API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.\n\nContact Support:\n Name: Appcharge Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

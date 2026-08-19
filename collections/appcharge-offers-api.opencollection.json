@@ -1,0 +1,157 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Appcharge Assets Offers API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Offers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "create-offer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.appcharge.com/offering/offer",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "delete-offer",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.appcharge.com/offering/offer/:publisherOfferId",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "publisherOfferId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "get-all-offers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.appcharge.com/offering/offer/get-offers",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "offerType",
+                "value": "SpecialOffer",
+                "type": "query",
+                "description": "Bundle, SpecialOffer, Popup"
+              },
+              {
+                "name": "recordLimit",
+                "value": "100",
+                "type": "query",
+                "description": "Record limit (0-500). Defaults to 100 if not defined."
+              },
+              {
+                "name": "offset",
+                "value": "10",
+                "type": "query",
+                "description": "Offset (non-negative value)."
+              },
+              {
+                "name": "publisherOfferId",
+                "value": "",
+                "type": "query",
+                "description": "To retrieve specific offers. If adding multiple, use ',' to separate."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "update-popup-by-Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.appcharge.com/offering/offer/popup/:offerSKU",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "offerSKU",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "update-offer-by-Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.appcharge.com/offering/offer/:offerSKU",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "offerSKU",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Appcharge Assets Orders API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "grant-award",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.appcharge.com/:YOUR_GRANT_AWARD_ENDPOINT",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              },
+              {
+                "name": "signature",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<Note> This is a callback API. Appcharge calls this endpoint on your server when specific events occur. </Note> \n\n Notifies your system to grant an award to a customer. \n \n Appcharge calls this endpoint after a customer payment is finalized or when a free offer is collected. \n\n When your server responds with a valid `publisherPurchaseId`, Appcharge redirects the customer to the success page confirming their purchase. \n\n <Warning>Your server must return a valid `publisherPurchaseId` value to conf"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Appcharge Assets Offer Designs API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Offer Designs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Offer Designs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.appcharge.com/components/v1/offer-design",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieves a list of all offer designs."
+        },
+        {
+          "info": {
+            "name": "postComponentsV1OfferDesign",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.appcharge.com/components/v1/offer-design",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a post purchase popup design."
+        },
+        {
+          "info": {
+            "name": "putComponentsV1OfferDesignExternalid",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.appcharge.com/components/v1/offer-design/:externalId",
+            "params": [
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "path",
+                "description": "Design ID that you defined."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a post purchase popup design."
+        },
+        {
+          "info": {
+            "name": "deleteComponentsV1OfferDesignExternalid",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.appcharge.com/components/v1/offer-design/:externalId",
+            "params": [
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "path",
+                "description": "Design ID that you defined."
+              }
+            ]
+          },
+          "docs": "Deletes a post purchase popup design."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

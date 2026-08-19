@@ -1,0 +1,268 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Appcharge Assets General API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "General",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cancel Checkout Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.appcharge.com/checkout/v3/cancel",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Cancel Checkout Session"
+        },
+        {
+          "info": {
+            "name": "Create Checkout Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.appcharge.com/checkout/v1/session",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a checkout session."
+        },
+        {
+          "info": {
+            "name": "Get Transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.appcharge.com/reporting/financial-data/transactions",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "Start date of the query in [UTC ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "End date of the query in [UTC ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of transactions to return per page. \n\n **Min:** 1 \n **Max:** 10,000"
+              },
+              {
+                "name": "sortDirection",
+                "value": "",
+                "type": "query",
+                "description": "Sort order of the results based on the `timestamp` field."
+              }
+            ]
+          },
+          "docs": "Retrieves transaction data for a given time period."
+        },
+        {
+          "info": {
+            "name": "Get all Price Points",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.appcharge.com/v1/price-points"
+          },
+          "docs": "Retrieves a list of all price points in USD cents."
+        },
+        {
+          "info": {
+            "name": "Create a Price Point",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.appcharge.com/v1/price-points",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a price point.\n\nWhen you pass the base price in USD, the API returns localized prices for this price point in all currencies supported by Appcharge. Learn more about [how localized prices are calculated](./introduction#how-localized-prices-are-calculated).\n\nTo override automatically calculated prices for specific countries, pass the `priceOverrides` property with the relevant country codes and your custom prices."
+        },
+        {
+          "info": {
+            "name": "Get a Price Point",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.appcharge.com/v1/price-points/:priceInUsdCents",
+            "params": [
+              {
+                "name": "priceInUsdCents",
+                "value": "",
+                "type": "path",
+                "description": "Base price in USD cents."
+              }
+            ]
+          },
+          "docs": "Retrieves a specific price point by its base price in USD cents. The API returns localized prices for this price point."
+        },
+        {
+          "info": {
+            "name": "Update a Price Point",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.appcharge.com/v1/price-points/:priceInUsdCents",
+            "params": [
+              {
+                "name": "priceInUsdCents",
+                "value": "",
+                "type": "path",
+                "description": "Base price in USD cents."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a price point.\n\nWhen a price point is updated, Appcharge recalculates all localized prices. If both `priceInUsdCents` and `priceOverrides` are provided in the same request, Appcharge first recalculates localized prices from the updated base price and then applies the override values."
+        },
+        {
+          "info": {
+            "name": "Delete a Price Point",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.appcharge.com/v1/price-points/:priceInUsdCents",
+            "params": [
+              {
+                "name": "priceInUsdCents",
+                "value": "",
+                "type": "path",
+                "description": "Base price in USD cents."
+              }
+            ]
+          },
+          "docs": "Deletes a specific price point."
+        },
+        {
+          "info": {
+            "name": "Get Price Points for a Country",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.appcharge.com/v1/price-points/localized/lookup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves price points localized for a specific country.\n\nPass price points in USD cents and a country code. The API returns each requested price point with its localized price in the currency for that country."
+        },
+        {
+          "info": {
+            "name": "Initiate Refund",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.appcharge.com/checkout/api/v1/order/:orderId/refund",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              },
+              {
+                "name": "x-user-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "path",
+                "description": "Order ID to refund."
+              }
+            ]
+          },
+          "docs": "Initiates a full refund for a specified order. <br /> <br /> Once the API call is successful, the refund process begins. The result of the refund, whether it succeeds or fails, is communicated asynchronously when the order status updates to `Refunded` or `Refund Failed`. You can track the order status in the **Orders** tab of the Publisher Dashboard. <br /> <br /> If the refund is completed successfully, the total order amount is reimbursed, and the [Order Refunded](../../events/v2/order/order_r"
+        },
+        {
+          "info": {
+            "name": "Triggers the Personalization API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.appcharge.com/refresh-specific-active-players",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Triggers the [Personalize Web Store Callback](./personalize-webstore-callback) by player ID."
+        },
+        {
+          "info": {
+            "name": "Triggers the Personalization API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.appcharge.com/refresh-active-players",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Triggers the [Personalize Web Store Callback](./personalize-webstore-callback) for all players. \n\n When refreshing data for all active players, Appcharge identifies everyone currently browsing the web store, and updates their store view in real time."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,105 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Appcharge Assets API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Assets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getComponentsV1Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.appcharge.com/components/v1/asset"
+          },
+          "docs": "Retrieves a list of all assets in the Assets Library."
+        },
+        {
+          "info": {
+            "name": "postComponentsV1Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.appcharge.com/components/v1/asset",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an asset in the Assets Library."
+        },
+        {
+          "info": {
+            "name": "getComponentsV1AssetName",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.appcharge.com/components/v1/asset/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Asset name."
+              }
+            ]
+          },
+          "docs": "Retrieves a specific asset in the Assets Library."
+        },
+        {
+          "info": {
+            "name": "putComponentsV1AssetName",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.appcharge.com/components/v1/asset/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Asset name."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an asset in the Assets Library."
+        },
+        {
+          "info": {
+            "name": "deleteComponentsV1AssetName",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.appcharge.com/components/v1/asset/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Asset name."
+              }
+            ]
+          },
+          "docs": "Deletes an asset in the Assets Library."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

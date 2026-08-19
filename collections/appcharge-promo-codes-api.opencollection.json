@@ -1,0 +1,132 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Appcharge Assets Promo Codes API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Promo Codes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getCouponsCouponCouponnamePromoCodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.appcharge.com/coupons/coupon/:couponName/promo-codes",
+            "params": [
+              {
+                "name": "couponName",
+                "value": "",
+                "type": "path",
+                "description": "Coupon name."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of promo codes to return."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number to retrieve."
+              },
+              {
+                "name": "sortDirection",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction of results by `createdAt`."
+              },
+              {
+                "name": "isActive",
+                "value": "",
+                "type": "query",
+                "description": "Filter by active status."
+              }
+            ]
+          },
+          "docs": "Retrieves a paginated list of up to 1,000 promo codes for a specific coupon."
+        },
+        {
+          "info": {
+            "name": "postCouponsCouponCouponnamePromoCodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.appcharge.com/coupons/coupon/:couponName/promo-codes",
+            "params": [
+              {
+                "name": "couponName",
+                "value": "",
+                "type": "path",
+                "description": "Coupon name."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates multiple promo codes for a specific coupon. <br/><br/> Maximum of 1,000 promo codes allowed per request."
+        },
+        {
+          "info": {
+            "name": "patchCouponsCouponCouponnamePromoCodesSetActivation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.appcharge.com/coupons/coupon/:couponName/promo-codes/set-activation",
+            "params": [
+              {
+                "name": "couponName",
+                "value": "",
+                "type": "path",
+                "description": "Coupon name."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Activates or deactivates promo codes for a specific coupon. <br/><br/> Maximum of 1,000 promo code names allowed per request."
+        },
+        {
+          "info": {
+            "name": "getCouponsCouponCouponnamePromoCodePromocodename",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.appcharge.com/coupons/coupon/:couponName/promo-code/:promoCodeName",
+            "params": [
+              {
+                "name": "couponName",
+                "value": "",
+                "type": "path",
+                "description": "Coupon name."
+              },
+              {
+                "name": "promoCodeName",
+                "value": "",
+                "type": "path",
+                "description": "Promo code name."
+              }
+            ]
+          },
+          "docs": "Retrieves a specific promo code."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

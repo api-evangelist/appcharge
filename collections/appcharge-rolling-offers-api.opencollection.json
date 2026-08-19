@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Appcharge Assets Rolling Offers API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Rolling Offers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a new rolling offer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.appcharge.com/offering/rolling-offer",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new rolling offer"
+        },
+        {
+          "info": {
+            "name": "Update an existing rolling offer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.appcharge.com/offering/rolling-offer/:rollingOfferSKU",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "publisherOfferId",
+                "value": "",
+                "type": "path",
+                "description": "The SKU of the rolling offer."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing rolling offer"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

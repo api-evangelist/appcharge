@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Appcharge Assets Coupons API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Coupons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "postCouponsCoupon",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.appcharge.com/coupons/coupon",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a coupon."
+        },
+        {
+          "info": {
+            "name": "getCouponsCouponCouponname",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.appcharge.com/coupons/coupon/:couponName",
+            "params": [
+              {
+                "name": "couponName",
+                "value": "",
+                "type": "path",
+                "description": "Coupon name."
+              }
+            ]
+          },
+          "docs": "Retrieves a specific coupon by name."
+        },
+        {
+          "info": {
+            "name": "patchCouponsCouponCouponname",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.appcharge.com/coupons/coupon/:couponName",
+            "params": [
+              {
+                "name": "couponName",
+                "value": "",
+                "type": "path",
+                "description": "Coupon name."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing coupon. Only the fields provided in the request body will be updated."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

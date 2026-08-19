@@ -1,0 +1,105 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Appcharge Assets Badges API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Badges",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getComponentsV1Badge",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.appcharge.com/components/v1/badge"
+          },
+          "docs": "Retrieves a list of all badges."
+        },
+        {
+          "info": {
+            "name": "postComponentsV1Badge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.appcharge.com/components/v1/badge",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a badge."
+        },
+        {
+          "info": {
+            "name": "getComponentsV1BadgeExternalid",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.appcharge.com/components/v1/badge/:externalId",
+            "params": [
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "path",
+                "description": "External ID that you defined."
+              }
+            ]
+          },
+          "docs": "Retrieves a specific badge."
+        },
+        {
+          "info": {
+            "name": "putComponentsV1BadgeExternalid",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.appcharge.com/components/v1/badge/:externalId",
+            "params": [
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "path",
+                "description": "External ID that you defined."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a badge."
+        },
+        {
+          "info": {
+            "name": "deleteComponentsV1BadgeExternalid",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.appcharge.com/components/v1/badge/:externalId",
+            "params": [
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "path",
+                "description": "External ID that you defined."
+              }
+            ]
+          },
+          "docs": "Deletes a badge."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

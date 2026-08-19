@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Appcharge Assets Store Refresh Popups API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Store Refresh Popups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a new Store Refresh Popup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.appcharge.com/v2/offer",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a Store Refresh popup offer. Triggered when a player refreshes the web store."
+        },
+        {
+          "info": {
+            "name": "Update an existing Store Refresh Popup",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.appcharge.com/v2/offer/:publisherOfferId",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "publisherOfferId",
+                "value": "",
+                "type": "path",
+                "description": "Store Refresh Popup ID. This is the offer's **External ID** value in the Publisher Dashboard."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a Store Refresh popup offer."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

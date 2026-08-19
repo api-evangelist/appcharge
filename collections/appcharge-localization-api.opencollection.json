@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Appcharge Assets Localization API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Localization",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get-translations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.appcharge.com/v1/translations",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "The locale code. Both ISO-639 language code and ISO-3166 country code formats are supported."
+              }
+            ]
+          },
+          "docs": "Retrieves a list of all translatable fields and their translations. \n \n Use the `locale` parameter to return translations for a specific locale. If a field doesn't have a translation for the requested locale, the value defaults to English, `en`. \n \n  If no locale is specified, all translations are returned, including the default English values."
+        },
+        {
+          "info": {
+            "name": "set-translations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.appcharge.com/v1/translations",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sets translation content for translatable fields. \n \n Use this API to add new translations or update existing ones as needed. \n \n The request payload has a maximum size of 100 KB."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

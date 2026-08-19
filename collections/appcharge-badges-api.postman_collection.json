@@ -1,0 +1,713 @@
+{
+  "item": [
+    {
+      "id": "513da84c-16f3-431a-9989-90bed6a84de3",
+      "name": "Badges",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bdc31d5a-21ef-40a1-8e45-831ce604b343",
+          "name": "post Components V1Badge",
+          "request": {
+            "name": "post Components V1Badge",
+            "description": {
+              "content": "Creates a badge.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "components",
+                "v1",
+                "badge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"badgeImageUrl\": \"<url>\",\n  \"name\": \"<string>\",\n  \"publisherBadgeId\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e6e3b487-b584-4282-b220-491376cc8e8f",
+              "name": "Badge created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "badge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"badgeImageUrl\": \"https://media.appcharge.com/media/69133d595af23405d8e843a5\",\n  \"name\": \"New Year Celebration\",\n  \"publisherBadgeId\": \"new_year_celebration\",\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"507f1f77bcf86cd799439011\",\n  \"name\": \"New Year Celebration\",\n  \"publisherBadgeId\": \"new_year_celebration\",\n  \"type\": \"emblem\",\n  \"badgeImageUrl\": \"https://media.appcharge.com/media/69133d595af23405d8e843a5\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce8e63c0-a1f0-407d-a32e-69237bb8bf46",
+              "name": "Bad request. Invalid input or validation failure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "badge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"badgeImageUrl\": \"https://media.appcharge.com/media/69133d595af23405d8e843a5\",\n  \"name\": \"New Year Celebration\",\n  \"publisherBadgeId\": \"new_year_celebration\",\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a1c77a87-1586-4e32-bc7e-da106050f7fd",
+          "name": "get Components V1Badge",
+          "request": {
+            "name": "get Components V1Badge",
+            "description": {
+              "content": "Retrieves a list of all badges.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "components",
+                "v1",
+                "badge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a82e6954-dfc0-474d-a207-9cdfacffcfd0",
+              "name": "Badges retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "badge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"getAllBadgesResponse\": [\n    {\n      \"id\": \"507f1f77bcf86cd799439011\",\n      \"name\": \"New Year Celebration\",\n      \"publisherBadgeId\": \"new_year_celebration\",\n      \"type\": \"ribbon\",\n      \"badgeImageUrl\": \"https://media.appcharge.com/media/69133d595af23405d8e843a5\",\n      \"text\": \"New Year Sale\",\n      \"backgroundColor\": {\n        \"colorOne\": \"#00c6ff\",\n        \"colorTwo\": \"#0072ff\",\n        \"gradientDirection\": \"to right\"\n      },\n      \"textColor\": {\n        \"colorOne\": \"#ffffff\"\n      }\n    },\n    {\n      \"id\": \"507f1f77bcf86cd799439011\",\n      \"name\": \"New Year Celebration\",\n      \"publisherBadgeId\": \"new_year_celebration\",\n      \"type\": \"ribbon\",\n      \"badgeImageUrl\": \"https://media.appcharge.com/media/69133d595af23405d8e843a5\",\n      \"text\": \"New Year Sale\",\n      \"backgroundColor\": {\n        \"colorOne\": \"#00c6ff\",\n        \"colorTwo\": \"#0072ff\",\n        \"gradientDirection\": \"to right\"\n      },\n      \"textColor\": {\n        \"colorOne\": \"#ffffff\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d02b1e05-3062-4c3f-af4b-3943a4cc98a8",
+          "name": "delete Components V1Badge Externalid",
+          "request": {
+            "name": "delete Components V1Badge Externalid",
+            "description": {
+              "content": "Deletes a badge.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "components",
+                "v1",
+                "badge",
+                ":externalId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "externalId",
+                  "description": "(Required) External ID that you defined."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ee59032-c8ba-4c50-8df3-b7f331ab7491",
+              "name": "Badge deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "badge",
+                    ":externalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externalId",
+                      "description": "(Required) External ID that you defined."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"507f1f77bcf86cd799439011\",\n  \"name\": \"New Year Celebration\",\n  \"publisherBadgeId\": \"new_year_celebration\",\n  \"type\": \"emblem\",\n  \"badgeImageUrl\": \"https://media.appcharge.com/media/69133d595af23405d8e843a5\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c44da812-e9b4-480e-8ad4-bf8ede35d49a",
+              "name": "Badge not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "badge",
+                    ":externalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externalId",
+                      "description": "(Required) External ID that you defined."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0fb2a33-bfc1-420f-b8a8-a7e2db31c605",
+          "name": "get Components V1Badge Externalid",
+          "request": {
+            "name": "get Components V1Badge Externalid",
+            "description": {
+              "content": "Retrieves a specific badge.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "components",
+                "v1",
+                "badge",
+                ":externalId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "externalId",
+                  "description": "(Required) External ID that you defined."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7d40f29f-fb7d-4803-bda6-8c9fe6659c56",
+              "name": "Badge details retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "badge",
+                    ":externalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externalId",
+                      "description": "(Required) External ID that you defined."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"507f1f77bcf86cd799439011\",\n  \"name\": \"New Year Celebration\",\n  \"publisherBadgeId\": \"new_year_celebration\",\n  \"type\": \"emblem\",\n  \"badgeImageUrl\": \"https://media.appcharge.com/media/69133d595af23405d8e843a5\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0f3ee4e3-8eae-43ab-8742-948d62313d45",
+              "name": "Badge not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "badge",
+                    ":externalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externalId",
+                      "description": "(Required) External ID that you defined."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5ceee981-2a8d-40f5-ba24-2372d5c1e275",
+          "name": "put Components V1Badge Externalid",
+          "request": {
+            "name": "put Components V1Badge Externalid",
+            "description": {
+              "content": "Updates a badge.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "components",
+                "v1",
+                "badge",
+                ":externalId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "externalId",
+                  "description": "(Required) External ID that you defined."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"publisherBadgeId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"badgeImageUrl\": \"<url>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2128a8e7-3d1c-465b-8f18-16bc67649ae3",
+              "name": "Badge updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "badge",
+                    ":externalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externalId",
+                      "description": "(Required) External ID that you defined."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"New Year Celebration\",\n  \"publisherBadgeId\": \"new_year_celebration\",\n  \"type\": \"<string>\",\n  \"badgeImageUrl\": \"https://media.appcharge.com/media/69133d595af23405d8e843a5\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"507f1f77bcf86cd799439011\",\n  \"name\": \"New Year Celebration\",\n  \"publisherBadgeId\": \"new_year_celebration\",\n  \"type\": \"emblem\",\n  \"badgeImageUrl\": \"https://media.appcharge.com/media/69133d595af23405d8e843a5\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4ea87c9-de97-4279-840a-fa3709372452",
+              "name": "Bad request. Invalid input or validation failure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "badge",
+                    ":externalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externalId",
+                      "description": "(Required) External ID that you defined."
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"New Year Celebration\",\n  \"publisherBadgeId\": \"new_year_celebration\",\n  \"type\": \"<string>\",\n  \"badgeImageUrl\": \"https://media.appcharge.com/media/69133d595af23405d8e843a5\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fca12d4d-e152-45be-91ec-26847a3dfd01",
+              "name": "Badge not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "components",
+                    "v1",
+                    "badge",
+                    ":externalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externalId",
+                      "description": "(Required) External ID that you defined."
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"New Year Celebration\",\n  \"publisherBadgeId\": \"new_year_celebration\",\n  \"type\": \"<string>\",\n  \"badgeImageUrl\": \"https://media.appcharge.com/media/69133d595af23405d8e843a5\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.appcharge.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6e15befe-66bc-4ccb-984e-a643ec2197ac",
+    "name": "Appcharge Assets Badges API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.\n\nContact Support:\n Name: Appcharge Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

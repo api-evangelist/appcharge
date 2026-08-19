@@ -1,0 +1,234 @@
+{
+  "item": [
+    {
+      "id": "9718637e-a3b2-477d-91bd-15e40bd6b83f",
+      "name": "Popups",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bee11710-28d8-49d3-ae9f-757341103d5a",
+          "name": "create-post-purchase-popup",
+          "request": {
+            "name": "create-post-purchase-popup",
+            "description": {},
+            "url": {
+              "path": [
+                "offering",
+                "offer",
+                "popup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The publisher token",
+                "key": "x-publisher-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"publisherOfferId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"offerUiId\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"productsSequence\": [\n    {\n      \"index\": \"<number>\",\n      \"priceInUsdCents\": \"<number>\",\n      \"products\": [\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        },\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        }\n      ],\n      \"playerAvailability\": \"<number>\"\n    },\n    {\n      \"index\": \"<number>\",\n      \"priceInUsdCents\": \"<number>\",\n      \"products\": [\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        },\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        }\n      ],\n      \"playerAvailability\": \"<number>\"\n    }\n  ],\n  \"subType\": \"<string>\",\n  \"priority\": \"<number>\",\n  \"startOver\": \"<boolean>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"offerExternalUiId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9943431f-8588-4857-8561-e4ff7ffbc89c",
+              "name": "Create a new Offer",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offering",
+                    "offer",
+                    "popup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The publisher token",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"publisherOfferId\": \"offer1\",\n  \"name\": \"Test_PopUp\",\n  \"type\": \"PopUp\",\n  \"offerUiId\": \"64a55b82e06998282d3d9b59\",\n  \"active\": \"<boolean>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"productsSequence\": [\n    {\n      \"index\": \"<number>\",\n      \"priceInUsdCents\": \"<number>\",\n      \"products\": [\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        },\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        }\n      ],\n      \"playerAvailability\": \"<number>\"\n    },\n    {\n      \"index\": \"<number>\",\n      \"priceInUsdCents\": \"<number>\",\n      \"products\": [\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        },\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        }\n      ],\n      \"playerAvailability\": \"<number>\"\n    }\n  ],\n  \"subType\": \"<string>\",\n  \"priority\": \"<number>\",\n  \"startOver\": \"<boolean>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"Best offer ever.\",\n  \"offerExternalUiId\": \"b9c1e7a3d1f8b2a4c6e5d8f3\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"offerId\": \"655dc8a546822b3e7586b7b7\",\n  \"publisherOfferId\": \"offer1\",\n  \"name\": \"Test_PopUp\",\n  \"displayName\": \"string\",\n  \"description\": \"N/A\",\n  \"type\": \"PopUp\",\n  \"subType\": \"string\",\n  \"createdBy\": \"API\",\n  \"offerUi\": {\n    \"offerUiId\": \"string\",\n    \"externalId\": \"string\",\n    \"active\": true,\n    \"offerUiType\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"backgroundImage\": \"string\",\n    \"specialOffer\": {\n      \"templateType\": \"string\",\n      \"presentOfferEndTimer\": false,\n      \"title\": \"string\",\n      \"fontSize\": 1849.9572347315884,\n      \"fontWeight\": \"string\",\n      \"fontColor\": {\n        \"colorOne\": \"string\",\n        \"colorTwo\": \"string\",\n        \"direction\": \"string\"\n      },\n      \"backgroundColor\": {\n        \"colorOne\": \"string\",\n        \"colorTwo\": \"string\",\n        \"direction\": \"string\"\n      }\n    }\n  },\n  \"active\": false,\n  \"coolDownInHours\": 5578.740441843752,\n  \"segments\": [\n    \"string\",\n    \"string\"\n  ],\n  \"productsSequence\": [\n    {\n      \"index\": 2086.2894927347575,\n      \"playerAvailability\": 3319.0033752528525,\n      \"priceInUsdCents\": 5925.445196291107,\n      \"products\": [\n        {\n          \"quantity\": 2989.750812214457,\n          \"product\": {\n            \"publisherProductId\": \"string\",\n            \"name\": \"string\",\n            \"textFontColorHex\": \"string\",\n            \"type\": \"string\",\n            \"prefix\": \"string\",\n            \"suffix\": \"string\",\n            \"priority\": \"string\",\n            \"images\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"createdAt\": \"1991-10-09T08:06:36.979Z\",\n            \"updatedAt\": \"1956-05-22T18:31:07.002Z\",\n            \"productId\": \"string\"\n          }\n        },\n        {\n          \"quantity\": 6560.881887073182,\n          \"product\": {\n            \"publisherProductId\": \"string\",\n            \"name\": \"string\",\n            \"textFontColorHex\": \"string\",\n            \"type\": \"string\",\n            \"prefix\": \"string\",\n            \"suffix\": \"string\",\n            \"priority\": \"string\",\n            \"images\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"createdAt\": \"2003-05-27T06:06:59.750Z\",\n            \"updatedAt\": \"2023-01-24T06:44:15.281Z\",\n            \"productId\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"index\": 7236.787312465909,\n      \"playerAvailability\": 8246.412777724308,\n      \"priceInUsdCents\": 8806.952522226167,\n      \"products\": [\n        {\n          \"quantity\": 6254.4511496746645,\n          \"product\": {\n            \"publisherProductId\": \"string\",\n            \"name\": \"string\",\n            \"textFontColorHex\": \"string\",\n            \"type\": \"string\",\n            \"prefix\": \"string\",\n            \"suffix\": \"string\",\n            \"priority\": \"string\",\n            \"images\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"createdAt\": \"1996-07-09T00:57:04.194Z\",\n            \"updatedAt\": \"1981-02-28T11:13:05.023Z\",\n            \"productId\": \"string\"\n          }\n        },\n        {\n          \"quantity\": 9008.312972385893,\n          \"product\": {\n            \"publisherProductId\": \"string\",\n            \"name\": \"string\",\n            \"textFontColorHex\": \"string\",\n            \"type\": \"string\",\n            \"prefix\": \"string\",\n            \"suffix\": \"string\",\n            \"priority\": \"string\",\n            \"images\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"createdAt\": \"1954-06-03T03:38:52.285Z\",\n            \"updatedAt\": \"1998-06-21T22:58:50.714Z\",\n            \"productId\": \"string\"\n          }\n        }\n      ]\n    }\n  ],\n  \"startOver\": false,\n  \"priority\": 8114.739739087896,\n  \"showAfter\": \"string\",\n  \"createdAt\": \"2023-07-05T12:01:06.113Z\",\n  \"updatedAt\": \"2023-07-05T12:01:06.113Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0004389a-9e24-45de-9787-23d2aebffc68",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offering",
+                    "offer",
+                    "popup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The publisher token",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"publisherOfferId\": \"offer1\",\n  \"name\": \"Test_PopUp\",\n  \"type\": \"PopUp\",\n  \"offerUiId\": \"64a55b82e06998282d3d9b59\",\n  \"active\": \"<boolean>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"productsSequence\": [\n    {\n      \"index\": \"<number>\",\n      \"priceInUsdCents\": \"<number>\",\n      \"products\": [\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        },\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        }\n      ],\n      \"playerAvailability\": \"<number>\"\n    },\n    {\n      \"index\": \"<number>\",\n      \"priceInUsdCents\": \"<number>\",\n      \"products\": [\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        },\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        }\n      ],\n      \"playerAvailability\": \"<number>\"\n    }\n  ],\n  \"subType\": \"<string>\",\n  \"priority\": \"<number>\",\n  \"startOver\": \"<boolean>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"Best offer ever.\",\n  \"offerExternalUiId\": \"b9c1e7a3d1f8b2a4c6e5d8f3\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"requestUrl\": \"string\",\n  \"body\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f39e195-f7cc-49f7-aaf0-7ef346ef63c4",
+              "name": "Not Authorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offering",
+                    "offer",
+                    "popup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The publisher token",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"publisherOfferId\": \"offer1\",\n  \"name\": \"Test_PopUp\",\n  \"type\": \"PopUp\",\n  \"offerUiId\": \"64a55b82e06998282d3d9b59\",\n  \"active\": \"<boolean>\",\n  \"segments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"productsSequence\": [\n    {\n      \"index\": \"<number>\",\n      \"priceInUsdCents\": \"<number>\",\n      \"products\": [\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        },\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        }\n      ],\n      \"playerAvailability\": \"<number>\"\n    },\n    {\n      \"index\": \"<number>\",\n      \"priceInUsdCents\": \"<number>\",\n      \"products\": [\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        },\n        {\n          \"quantity\": \"<number>\",\n          \"publisherProductId\": \"<string>\"\n        }\n      ],\n      \"playerAvailability\": \"<number>\"\n    }\n  ],\n  \"subType\": \"<string>\",\n  \"priority\": \"<number>\",\n  \"startOver\": \"<boolean>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"Best offer ever.\",\n  \"offerExternalUiId\": \"b9c1e7a3d1f8b2a4c6e5d8f3\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.appcharge.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "52522e80-ab81-4248-9f35-7b2464896d5f",
+    "name": "Appcharge Assets Popups API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.\n\nContact Support:\n Name: Appcharge Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

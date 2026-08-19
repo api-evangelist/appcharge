@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Appcharge Assets Personalization API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Personalization",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sync player information",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.appcharge.com/:YOUR_PERSONALIZE_WEBSTORE_ENDPOINT",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              },
+              {
+                "name": "signature",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<Note> This is a callback API. Appcharge calls this endpoint on your server when specific events occur. </Note> \n\n Notifies your system to personalize the web store for a player. <br /> <br /> Appcharge calls this endpoint when: <ul><li>A player logs in to your web store.</li><li>A player completes a purchase.</li><li>Every 5 minutes after the player’s last sync.</li></ul> Your server responds with the most current player data and all available offers for the player. Appcharge then updates the w"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

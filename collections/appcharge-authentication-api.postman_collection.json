@@ -1,0 +1,414 @@
+{
+  "item": [
+    {
+      "id": "3a4ab722-108e-40af-aae2-d48a8ed677be",
+      "name": "Authentication",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1189904e-a592-47e1-a4c9-38d081a280dc",
+          "name": "Authenticate Player",
+          "request": {
+            "name": "Authenticate Player",
+            "description": {
+              "content": "<Note> This is a callback API. Appcharge calls this endpoint on your server when specific events occur. </Note> \n\n Notifies your system to authenticate a player in your web store. <br /> <br /> Appcharge calls this endpoint when a player attempts to log in to your web store using one of the configured login methods. Your server identifies the player and responds with either the player data or an authentication error. <br /> <br /> If the response indicates a successful authentication, the player is logged in to the web store.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":YOUR_AUTHENTICATE_PLAYER_ENDPOINT"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Publisher token.",
+                "key": "x-publisher-token",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "The signed payload.",
+                "key": "signature",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"authMethod\": \"<string>\",\n  \"token\": \"<string,null>\",\n  \"date\": \"<dateTime>\",\n  \"appId\": \"<string>\",\n  \"userName\": \"<string,null>\",\n  \"password\": \"<string,null>\",\n  \"otp\": {\n    \"playerCode\": \"<string>\",\n    \"accessToken\": \"<string>\"\n  },\n  \"os\": \"<string>\",\n  \"utmSource\": \"<string>\",\n  \"utmMedium\": \"<string>\",\n  \"utmCampaign\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"playerLocation\": {\n    \"countryCode2\": \"<string>\",\n    \"state\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e9c896ed-e18f-45ec-82aa-e0a08f63660e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":YOUR_AUTHENTICATE_PLAYER_ENDPOINT"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The signed payload.",
+                    "key": "signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"authMethod\": \"facebook\",\n  \"token\": \"sdfddtt7\",\n  \"date\": \"2024-07-21T14:17:27.329Z\",\n  \"appId\": \"611392880818819\",\n  \"userName\": \"expertgamer1979\",\n  \"password\": \"732hf8820pk!\",\n  \"otp\": {\n    \"playerCode\": \"974018\",\n    \"accessToken\": \"9ac888fa33412197b\"\n  },\n  \"os\": \"android\",\n  \"utmSource\": \"Facebook\",\n  \"utmMedium\": \"email\",\n  \"utmCampaign\": \"spring_sale.\",\n  \"sessionId\": \"2e55b3fc-31ef-6dd7-8161-8aeb376b3a23\",\n  \"playerLocation\": {\n    \"countryCode2\": \"US\",\n    \"state\": \"NY\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"valid\",\n  \"publisherPlayerId\": \"vip2247691\",\n  \"playerName\": \"Jim Cardashian\",\n  \"playerProfileImage\": \"https://scontent-iad4-1.xx.fbcdn.net/v/t6.30597-1/84628273_176159830277856_972693363922829312_n.jpg?stp=c379.0.1290.1290a_cp0_dst-jpg_s50x50_tt6&ccb=1-7\",\n  \"sessionMetadata\": {\n    \"abTest\": \"group1\",\n    \"locale\": \"en-US\"\n  },\n  \"publisherErrorMessageType\": \"plainText\",\n  \"publisherErrorMessage\": \"Lost internet connection.\",\n  \"publisherErrorMessageTitle\": \"Whoops! Login Failed.\",\n  \"playerOverrideCountry\": \"CA\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f46c0763-96f3-4bba-8fc7-7354382d7061",
+          "name": "Initiate Game Auth",
+          "request": {
+            "name": "Initiate Game Auth",
+            "description": {
+              "content": "<Warning> This API endpoint is only relevant for the Game Redirect Login method. </Warning> <Note> This is a callback API. Appcharge calls this endpoint on your server when specific events occur. </Note> Notifies your system to initiate an authentication session in your game. <br /> <br /> Appcharge calls this endpoint when a player attempts to log in via [Game Redirect Login](/../../guides/webstore/player-authentication/game-redirect-login/about-game-redirect-login). Your server responds with either the data needed to redirect the player to your game for authentication, or an error.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":YOUR_INITIATE_GAME_AUTH_ENDPOINT"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Publisher token.",
+                "key": "x-publisher-token",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "The signed payload.",
+                "key": "signature",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"device\": \"<string>\",\n  \"date\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f090867a-29cd-4355-81e6-6c209ae64b04",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":YOUR_INITIATE_GAME_AUTH_ENDPOINT"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The signed payload.",
+                    "key": "signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"device\": \"DESKTOP\",\n  \"date\": \"2023-11-07T05:31:56Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"deepLink\": \"https://my-awesome-game/2298/bv45d674?key=549bc5151667f6216629efe46vf7bacd2812d82298\",\n  \"accessToken\": \"9ac8883227afa33412197b\",\n  \"desktopAutoRedirect\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c2574518-f424-4aa5-ae68-cc7cd71821ce",
+              "name": "Invalid signature",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":YOUR_INITIATE_GAME_AUTH_ENDPOINT"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The signed payload.",
+                    "key": "signature",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"device\": \"DESKTOP\",\n  \"date\": \"2023-11-07T05:31:56Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "db8907cf-5058-4c9b-98c0-58ca9f9d9b4f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":YOUR_INITIATE_GAME_AUTH_ENDPOINT"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The signed payload.",
+                    "key": "signature",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"device\": \"DESKTOP\",\n  \"date\": \"2023-11-07T05:31:56Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0b2b91ca-dbf9-47e7-bec3-de76b591db46",
+              "name": "Parameters not correct",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":YOUR_INITIATE_GAME_AUTH_ENDPOINT"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The signed payload.",
+                    "key": "signature",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"device\": \"DESKTOP\",\n  \"date\": \"2023-11-07T05:31:56Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.appcharge.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "58d98f52-bd08-47e0-90f8-27544da045a0",
+    "name": "Appcharge Assets Authentication API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.\n\nContact Support:\n Name: Appcharge Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

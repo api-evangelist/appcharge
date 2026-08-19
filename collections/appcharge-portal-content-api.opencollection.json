@@ -1,0 +1,195 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Appcharge Assets Portal Content API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Portal Content",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.appcharge.com/v1/portal-content",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieves a list of all content items."
+        },
+        {
+          "info": {
+            "name": "Create Content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.appcharge.com/v1/portal-content",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new content item."
+        },
+        {
+          "info": {
+            "name": "Get Content By ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.appcharge.com/v1/portal-content/:contentId",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contentId",
+                "value": "",
+                "type": "path",
+                "description": "Content ID."
+              }
+            ]
+          },
+          "docs": "Retrieves a specific content item by its ID."
+        },
+        {
+          "info": {
+            "name": "Update Content",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.appcharge.com/v1/portal-content/:contentId",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contentId",
+                "value": "",
+                "type": "path",
+                "description": "Content ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a content item."
+        },
+        {
+          "info": {
+            "name": "Delete Content",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.appcharge.com/v1/portal-content/:contentId",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contentId",
+                "value": "",
+                "type": "path",
+                "description": "Content ID."
+              }
+            ]
+          },
+          "docs": "Deletes a content item."
+        },
+        {
+          "info": {
+            "name": "Get Content Translations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.appcharge.com/v1/portal-content/:contentId/translations",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contentId",
+                "value": "",
+                "type": "path",
+                "description": "Content ID."
+              }
+            ]
+          },
+          "docs": "Retrieves all existing translations for a content item."
+        },
+        {
+          "info": {
+            "name": "Upsert Content Translation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.appcharge.com/v1/portal-content/:contentId/translations/:isoCode",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contentId",
+                "value": "",
+                "type": "path",
+                "description": "Content ID."
+              },
+              {
+                "name": "isoCode",
+                "value": "",
+                "type": "path",
+                "description": "The locale code. Both [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code and [ISO-3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code formats are supported."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or updates a translation for a content item in a specific locale. <br/><br/>This operation doesn't modify translations in other locales or other content fields.<br /> <Note>You must first [add the locale in the Publisher Dashboard](/../../guides/translations/add-and-manage-languages) before adding its translation.</Note>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

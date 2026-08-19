@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Appcharge Assets Triggered Popups API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Triggered Popups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Store Refresh Popup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.appcharge.com/v2/offer",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "publisherOfferIds",
+                "value": "",
+                "type": "query",
+                "description": "The unique identifier for the offer. To retrieve multiple store refresh popups, separate them with a comma."
+              }
+            ]
+          },
+          "docs": "Retrieves one or more store refresh popups."
+        },
+        {
+          "info": {
+            "name": "Delete Store Refresh Popup",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.appcharge.com/v2/offer/:publisherOfferId",
+            "headers": [
+              {
+                "name": "x-publisher-token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "publisherOfferId",
+                "value": "",
+                "type": "path",
+                "description": "The offer ID provided by the publisher. This is the offer's **External ID** value in the Publisher Dashboard."
+              }
+            ]
+          },
+          "docs": "Deletes a store refresh popup."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

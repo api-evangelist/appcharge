@@ -1,0 +1,500 @@
+{
+  "item": [
+    {
+      "id": "b15e2ffb-17d4-4f84-8fda-76a05966cc46",
+      "name": "Localization",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "68878e52-8921-4416-a044-e049c5174b60",
+          "name": "get-translations",
+          "request": {
+            "name": "get-translations",
+            "description": {
+              "content": "Retrieves a list of all translatable fields and their translations. \n \n Use the `locale` parameter to return translations for a specific locale. If a field doesn't have a translation for the requested locale, the value defaults to English, `en`. \n \n  If no locale is specified, all translations are returned, including the default English values.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "translations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "The locale code. Both ISO-639 language code and ISO-3166 country code formats are supported."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The publisher token.",
+                "key": "x-publisher-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dbee2380-af59-46d9-985f-8927c64dff09",
+              "name": "Translations retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "translations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "en-US"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"isoCode\": \"fr-FR\",\n  \"title\": \"Bienvenue dans notre jeu\",\n  \"subTitle\": \"Tout ce que vous devez savoir\",\n  \"bodyText\": \"Ceci est le contenu principal de l'article en français...\",\n  \"headerImage\": \"https://cdn.example.com/images/header-fr.jpg\",\n  \"thumbnailImage\": \"https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg\",\n  \"labels\": [\n    \"tutoriel\",\n    \"débutant\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8cb0d9c7-6b9e-4185-bb78-d4354e0a4828",
+              "name": "Invalid request payload.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "translations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "en-US"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fe1cb48c-099a-4d08-9a13-144909c15c1d",
+              "name": "Missing or invalid authentication.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "translations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "en-US"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b6dc5939-f8bb-4701-898b-12ad1cd215ab",
+              "name": "Insufficient permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "translations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "en-US"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The publisher token.",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0cb02c8b-ed5b-40c9-9100-6aa93d36befe",
+          "name": "set-translations",
+          "request": {
+            "name": "set-translations",
+            "description": {
+              "content": "Sets translation content for translatable fields. \n \n Use this API to add new translations or update existing ones as needed. \n \n The request payload has a maximum size of 100 KB.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "translations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The publisher token",
+                "key": "x-publisher-token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"isoCode\": \"<string>\",\n  \"title\": \"<string>\",\n  \"subTitle\": \"<string>\",\n  \"bodyText\": \"<string>\",\n  \"headerImage\": \"<string>\",\n  \"thumbnailImage\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9afd6c34-f6eb-4c6b-b8db-09e696083f4c",
+              "name": "Translations retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "translations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The publisher token",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isoCode\": \"fr-FR\",\n  \"title\": \"Bienvenue dans notre jeu\",\n  \"subTitle\": \"Tout ce que vous devez savoir\",\n  \"bodyText\": \"Ceci est le contenu principal de l'article en français...\",\n  \"headerImage\": \"https://cdn.example.com/images/header-fr.jpg\",\n  \"thumbnailImage\": \"https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg\",\n  \"labels\": [\n    \"tutoriel\",\n    \"débutant\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"isoCode\": \"fr-FR\",\n  \"title\": \"Bienvenue dans notre jeu\",\n  \"subTitle\": \"Tout ce que vous devez savoir\",\n  \"bodyText\": \"Ceci est le contenu principal de l'article en français...\",\n  \"headerImage\": \"https://cdn.example.com/images/header-fr.jpg\",\n  \"thumbnailImage\": \"https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg\",\n  \"labels\": [\n    \"tutoriel\",\n    \"débutant\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0098ba47-b8ff-48b7-bcd2-d745ef625030",
+              "name": "Invalid request payload.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "translations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The publisher token",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isoCode\": \"fr-FR\",\n  \"title\": \"Bienvenue dans notre jeu\",\n  \"subTitle\": \"Tout ce que vous devez savoir\",\n  \"bodyText\": \"Ceci est le contenu principal de l'article en français...\",\n  \"headerImage\": \"https://cdn.example.com/images/header-fr.jpg\",\n  \"thumbnailImage\": \"https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg\",\n  \"labels\": [\n    \"tutoriel\",\n    \"débutant\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "212db43e-b2e5-45ec-9243-520e4ae85fcb",
+              "name": "Missing or invalid authentication.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "translations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The publisher token",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isoCode\": \"fr-FR\",\n  \"title\": \"Bienvenue dans notre jeu\",\n  \"subTitle\": \"Tout ce que vous devez savoir\",\n  \"bodyText\": \"Ceci est le contenu principal de l'article en français...\",\n  \"headerImage\": \"https://cdn.example.com/images/header-fr.jpg\",\n  \"thumbnailImage\": \"https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg\",\n  \"labels\": [\n    \"tutoriel\",\n    \"débutant\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3c59c503-e5a2-496f-8a68-aa77078b7e92",
+              "name": "Insufficient permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "translations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The publisher token",
+                    "key": "x-publisher-token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isoCode\": \"fr-FR\",\n  \"title\": \"Bienvenue dans notre jeu\",\n  \"subTitle\": \"Tout ce que vous devez savoir\",\n  \"bodyText\": \"Ceci est le contenu principal de l'article en français...\",\n  \"headerImage\": \"https://cdn.example.com/images/header-fr.jpg\",\n  \"thumbnailImage\": \"https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg\",\n  \"labels\": [\n    \"tutoriel\",\n    \"débutant\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.appcharge.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "eb955e9a-938e-4dec-bc0e-2a7e8ca8589f",
+    "name": "Appcharge Assets Localization API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.\n\nContact Support:\n Name: Appcharge Developer Support",
+      "type": "text/plain"
+    }
+  }
+}
