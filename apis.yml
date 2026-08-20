@@ -46,6 +46,17 @@ tags:
 - Checkout
 - In-Game Purchases
 - Web Store
+- E-Commerce
+tags_raw:
+- Company
+- Payments
+- Monetization
+- Merchant of Record
+- Mobile Games
+- Gaming
+- Checkout
+- In-Game Purchases
+- Web Store
 - eCommerce
 apis:
 - aid: appcharge:appcharge-assets-api
@@ -101,7 +112,8 @@ apis:
   description: The General API from Appcharge — 9 operation(s) for general.
   humanURL: https://docs.appcharge.com/api-reference/introduction
   baseURL: https://api.appcharge.com
-  tags:
+  tags: []
+  tags_raw:
   - General
   properties:
   - type: OpenAPI
@@ -150,6 +162,8 @@ apis:
   humanURL: https://docs.appcharge.com/api-reference/introduction
   baseURL: https://api.appcharge.com
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
@@ -198,6 +212,8 @@ apis:
   humanURL: https://docs.appcharge.com/api-reference/introduction
   baseURL: https://api.appcharge.com
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
