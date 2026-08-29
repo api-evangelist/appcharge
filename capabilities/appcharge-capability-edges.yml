@@ -1,0 +1,35 @@
+slug: appcharge
+provider: Appcharge
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Media, Entertainment & Telecom Content
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Coupons
+  spec_file: appcharge-coupons-api-openapi.yml
+  capability_id: BC-440.30
+  capability_id_l1: BC-440
+  capability_name: Discount & Promotion Management
+  confidence: 0.85
+  evidence: 'POST /coupons/coupon; schemas: CreateCouponRequest, Coupon, UpdateCouponRequest'
+  reason: Operations create, read and update coupons/promo codes used to discount in-game offers, which
+    is discount and promotion administration. Wording of the vendor description ('coupons and promo codes')
+    corroborates; slight residual doubt only over whether the redemption side belongs to billing.
+- tag: Promo Codes
+  spec_file: appcharge-promo-codes-api-openapi.yml
+  capability_id: BC-440.30
+  capability_id_l1: BC-440
+  capability_name: Discount & Promotion Management
+  confidence: 0.85
+  evidence: POST /coupons/coupon/{couponName}/promo-codes; PATCH .../promo-codes/set-activation; schemas
+    CreatePromoCodesRequest, PromoCodeActivationRequest
+  reason: Operations create, list and activate promo codes under coupons — unambiguously discount and
+    promotion administration.
