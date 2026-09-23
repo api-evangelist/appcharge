@@ -1,8 +1,8 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Appcharge Assets Badges API
+  title: Appcharge Badges API
   version: 1.0.0
-  description: Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.
+  description: Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores.
   contact:
     name: Appcharge Developer Support
     url: https://docs.appcharge.com/
@@ -56,6 +56,8 @@ paths:
         '400':
           description: Bad request. Invalid input or validation failure.
       operationId: postComponentsV1Badge
+      summary: Post components V1 badge
+      x-summary-source: derived
     get:
       tags:
       - Badges
@@ -68,6 +70,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetAllBadgesResponse'
       operationId: getComponentsV1Badge
+      summary: Get components V1 badge
+      x-summary-source: derived
   /components/v1/badge/{externalId}:
     parameters:
     - in: path
@@ -91,6 +95,8 @@ paths:
         '404':
           description: Badge not found.
       operationId: deleteComponentsV1BadgeExternalid
+      summary: Delete components V1 badge externalid
+      x-summary-source: derived
     get:
       tags:
       - Badges
@@ -105,6 +111,8 @@ paths:
         '404':
           description: Badge not found.
       operationId: getComponentsV1BadgeExternalid
+      summary: Get components V1 badge externalid
+      x-summary-source: derived
     put:
       tags:
       - Badges
@@ -136,6 +144,8 @@ paths:
         '404':
           description: Badge not found.
       operationId: putComponentsV1BadgeExternalid
+      summary: Put components V1 badge externalid
+      x-summary-source: derived
 components:
   schemas:
     EmblemBadgeResponse:
@@ -165,145 +175,22 @@ components:
           format: url
           description: Badge image URL. For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL.
           example: https://media.appcharge.com/media/69133d595af23405d8e843a5
-    RibbonBadgeResponse:
-      title: Ribbon Badge
-      type: object
-      properties:
-        id:
-          type: string
-          description: Badge ID.
-          example: 507f1f77bcf86cd799439012
-        name:
-          type: string
-          description: Badge name.
-          example: New Year Celebration
-        publisherBadgeId:
-          type: string
-          description: Badge ID that you defined.
-          example: new_year_celebration
-        type:
-          type: string
-          enum:
-          - ribbon
-          description: Badge type.
-          example: ribbon
-        badgeImageUrl:
-          type: string
-          format: url
-          description: Badge image URL. For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL.
-          example: https://media.appcharge.com/media/69133d595af23405d8e843a5
-        text:
-          type: string
-          description: Badge text.
-          example: New Year Sale
-        backgroundColor:
-          allOf:
-          - $ref: '#/components/schemas/BackgroundColorGradient'
-          - description: Background color details.
-            example:
-              colorOne: '#00c6ff'
-              colorTwo: '#0072ff'
-              gradientDirection: to right
-        textColor:
-          type: object
-          properties:
-            colorOne:
-              type: string
-              pattern: ^#[0-9a-fA-F]{6}$
-              description: Text color in hex format.
-              example: '#ffffff'
-    EmblemBadgeUpdate:
+    EmblemBadgeCreate:
       title: Emblem Badge
       allOf:
       - $ref: '#/components/schemas/BadgeBase'
-      - description: Update an emblem badge.
+      - description: Create an emblem badge.
       - type: object
         properties:
-          name:
-            type: string
-            description: Badge name.
-            example: New Year Celebration
-          publisherBadgeId:
-            type: string
-            description: Badge ID that you define.
-            example: new_year_celebration
           type:
             type: string
             enum:
             - emblem
             description: Badge type.
             example: emblem
-          badgeImageUrl:
-            type: string
-            format: url
-            description: 'Badge image URL in PNG or JPEG format.
-
-
-              For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL. External image URLs are saved and used as-is, and Appcharge doesn''t download, copy, upload, or host them. Images must remain available at the provided URLs.
-
-
-              We recommend uploading image files instead of using external URLs when possible.'
-            example: https://media.appcharge.com/media/69133d595af23405d8e843a5
         required:
         - type
-    BadgeBase:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Badge name.
-          example: New Year Celebration
-        publisherBadgeId:
-          type: string
-          description: Badge ID that you define.
-          example: new_year_celebration
-        type:
-          type: string
-          description: Badge type.
-          example: ribbon
-        badgeImageUrl:
-          type: string
-          format: url
-          description: 'Badge image URL in PNG or JPEG format.
-
-
-            For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL. External image URLs are saved and used as-is, and Appcharge doesn''t download, copy, upload, or host them. Images must remain available at the provided URLs.
-
-
-            We recommend uploading image files instead of using external URLs when possible.'
-          example: https://media.appcharge.com/media/69133d595af23405d8e843a5
-      required:
-      - name
-      - publisherBadgeId
-      - type
-    BackgroundColorGradient:
-      type: object
-      properties:
-        colorOne:
-          type: string
-          default: '#000000'
-          pattern: ^#[0-9a-fA-F]{6}$
-          description: Primary gradient color in hex format.
-          example: '#00c6ff'
-        colorTwo:
-          type: string
-          pattern: ^#[0-9a-fA-F]{6}$
-          description: Secondary gradient color in hex format.
-          example: '#0072ff'
-        gradientDirection:
-          type: string
-          enum:
-          - to bottom
-          - to top
-          - to right
-          - to left
-          - to bottom right
-          - to top left
-          - to bottom left
-          - to top right
-          default: to bottom
-          description: Direction of gradient transition between `colorOne` and `colorTwo`.
-          example: to right
+        - badgeImageUrl
     RibbonBadgeUpdate:
       title: Ribbon Badge
       allOf:
@@ -358,53 +245,28 @@ components:
                 example: '#ffffff'
         required:
         - type
-    BadgeReadResponse:
-      oneOf:
-      - $ref: '#/components/schemas/EmblemBadgeResponse'
-      - $ref: '#/components/schemas/RibbonBadgeResponse'
-      discriminator:
-        propertyName: type
-        mapping:
-          emblem:
-            $ref: '#/components/schemas/EmblemBadgeResponse'
-          ribbon:
-            $ref: '#/components/schemas/RibbonBadgeResponse'
-    RibbonBadgeCreate:
-      title: Ribbon Badge
+    EmblemBadgeUpdate:
+      title: Emblem Badge
       allOf:
-      - $ref: '#/components/schemas/RibbonBadgeBase'
-      - description: Create a ribbon badge.
+      - $ref: '#/components/schemas/BadgeBase'
+      - description: Update an emblem badge.
       - type: object
         properties:
+          name:
+            type: string
+            description: Badge name.
+            example: New Year Celebration
+          publisherBadgeId:
+            type: string
+            description: Badge ID that you define.
+            example: new_year_celebration
           type:
             type: string
             enum:
-            - ribbon
+            - emblem
             description: Badge type.
-            example: ribbon
-          text:
-            type: string
-            description: Text displayed on ribbon badge.
-            example: New Year Sale
-          backgroundColor:
-            allOf:
-            - $ref: '#/components/schemas/BackgroundColorGradient'
-            - description: "Background color. \n If not provided, the value defaults to `{\"colorOne\": \"#000000\"}`."
-              example:
-                colorOne: '#00c6ff'
-                colorTwo: '#0072ff'
-                gradientDirection: to right
-          textColor:
-            type: object
-            description: "Text color. \n If not provided, the value defaults to `{\"colorOne\": \"#000000\"}`."
-            properties:
-              colorOne:
-                type: string
-                default: '#000000'
-                pattern: ^#[0-9a-fA-F]{6}$
-                description: Text color in hex format.
-                example: '#ffffff'
-          imageUrl:
+            example: emblem
+          badgeImageUrl:
             type: string
             format: url
             description: 'Badge image URL in PNG or JPEG format.
@@ -417,7 +279,34 @@ components:
             example: https://media.appcharge.com/media/69133d595af23405d8e843a5
         required:
         - type
-        - text
+    BackgroundColorGradient:
+      type: object
+      properties:
+        colorOne:
+          type: string
+          default: '#000000'
+          pattern: ^#[0-9a-fA-F]{6}$
+          description: Primary gradient color in hex format.
+          example: '#00c6ff'
+        colorTwo:
+          type: string
+          pattern: ^#[0-9a-fA-F]{6}$
+          description: Secondary gradient color in hex format.
+          example: '#0072ff'
+        gradientDirection:
+          type: string
+          enum:
+          - to bottom
+          - to top
+          - to right
+          - to left
+          - to bottom right
+          - to top left
+          - to bottom left
+          - to top right
+          default: to bottom
+          description: Direction of gradient transition between `colorOne` and `colorTwo`.
+          example: to right
     RibbonBadgeBase:
       type: object
       properties:
@@ -437,22 +326,53 @@ components:
       - name
       - publisherBadgeId
       - type
-    EmblemBadgeCreate:
-      title: Emblem Badge
-      allOf:
-      - $ref: '#/components/schemas/BadgeBase'
-      - description: Create an emblem badge.
-      - type: object
-        properties:
-          type:
-            type: string
-            enum:
-            - emblem
-            description: Badge type.
-            example: emblem
-        required:
-        - type
-        - badgeImageUrl
+    RibbonBadgeResponse:
+      title: Ribbon Badge
+      type: object
+      properties:
+        id:
+          type: string
+          description: Badge ID.
+          example: 507f1f77bcf86cd799439012
+        name:
+          type: string
+          description: Badge name.
+          example: New Year Celebration
+        publisherBadgeId:
+          type: string
+          description: Badge ID that you defined.
+          example: new_year_celebration
+        type:
+          type: string
+          enum:
+          - ribbon
+          description: Badge type.
+          example: ribbon
+        badgeImageUrl:
+          type: string
+          format: url
+          description: Badge image URL. For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL.
+          example: https://media.appcharge.com/media/69133d595af23405d8e843a5
+        text:
+          type: string
+          description: Badge text.
+          example: New Year Sale
+        backgroundColor:
+          allOf:
+          - $ref: '#/components/schemas/BackgroundColorGradient'
+          - description: Background color details.
+            example:
+              colorOne: '#00c6ff'
+              colorTwo: '#0072ff'
+              gradientDirection: to right
+        textColor:
+          type: object
+          properties:
+            colorOne:
+              type: string
+              pattern: ^#[0-9a-fA-F]{6}$
+              description: Text color in hex format.
+              example: '#ffffff'
     GetAllBadgesResponse:
       type: object
       properties:
@@ -506,6 +426,96 @@ components:
                     pattern: ^#[0-9a-fA-F]{6}$
                     description: Text color in hex format.
                     example: '#ffffff'
+    BadgeReadResponse:
+      oneOf:
+      - $ref: '#/components/schemas/EmblemBadgeResponse'
+      - $ref: '#/components/schemas/RibbonBadgeResponse'
+      discriminator:
+        propertyName: type
+        mapping:
+          emblem:
+            $ref: '#/components/schemas/EmblemBadgeResponse'
+          ribbon:
+            $ref: '#/components/schemas/RibbonBadgeResponse'
+    BadgeBase:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Badge name.
+          example: New Year Celebration
+        publisherBadgeId:
+          type: string
+          description: Badge ID that you define.
+          example: new_year_celebration
+        type:
+          type: string
+          description: Badge type.
+          example: ribbon
+        badgeImageUrl:
+          type: string
+          format: url
+          description: 'Badge image URL in PNG or JPEG format.
+
+
+            For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL. External image URLs are saved and used as-is, and Appcharge doesn''t download, copy, upload, or host them. Images must remain available at the provided URLs.
+
+
+            We recommend uploading image files instead of using external URLs when possible.'
+          example: https://media.appcharge.com/media/69133d595af23405d8e843a5
+      required:
+      - name
+      - publisherBadgeId
+      - type
+    RibbonBadgeCreate:
+      title: Ribbon Badge
+      allOf:
+      - $ref: '#/components/schemas/RibbonBadgeBase'
+      - description: Create a ribbon badge.
+      - type: object
+        properties:
+          type:
+            type: string
+            enum:
+            - ribbon
+            description: Badge type.
+            example: ribbon
+          text:
+            type: string
+            description: Text displayed on ribbon badge.
+            example: New Year Sale
+          backgroundColor:
+            allOf:
+            - $ref: '#/components/schemas/BackgroundColorGradient'
+            - description: "Background color. \n If not provided, the value defaults to `{\"colorOne\": \"#000000\"}`."
+              example:
+                colorOne: '#00c6ff'
+                colorTwo: '#0072ff'
+                gradientDirection: to right
+          textColor:
+            type: object
+            description: "Text color. \n If not provided, the value defaults to `{\"colorOne\": \"#000000\"}`."
+            properties:
+              colorOne:
+                type: string
+                default: '#000000'
+                pattern: ^#[0-9a-fA-F]{6}$
+                description: Text color in hex format.
+                example: '#ffffff'
+          imageUrl:
+            type: string
+            format: url
+            description: 'Badge image URL in PNG or JPEG format.
+
+
+              For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL. External image URLs are saved and used as-is, and Appcharge doesn''t download, copy, upload, or host them. Images must remain available at the provided URLs.
+
+
+              We recommend uploading image files instead of using external URLs when possible.'
+            example: https://media.appcharge.com/media/69133d595af23405d8e843a5
+        required:
+        - type
+        - text
   securitySchemes:
     PublisherTokenAuth:
       type: apiKey

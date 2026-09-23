@@ -1,8 +1,8 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Appcharge Assets Rolling Offers API
+  title: Appcharge Rolling Offers API
   version: 1.0.0
-  description: Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.
+  description: Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores.
   contact:
     name: Appcharge Developer Support
     url: https://docs.appcharge.com/
@@ -83,12 +83,10 @@ paths:
           description: Unauthorized.
 components:
   schemas:
-    CreateRollingOfferDto:
+    UpdateRollingOfferDto:
       type: object
       required:
-      - publisherOfferId
       - name
-      - type
       - active
       - productsSequence
       properties:
@@ -97,7 +95,7 @@ components:
           description: The unique identifier for the rolling offer.
         name:
           type: string
-          description: The name of the rolling offer (at least 3 characters).
+          description: The updated name of the rolling offer.
         type:
           type: string
           description: The type of offer - RollingOffer.
@@ -108,7 +106,7 @@ components:
           description: Whether the rolling offer is active.
         priority:
           type: integer
-          description: The priority level of the rolling offer. The priority starts from 1 and 1 is the highest priority.
+          description: The priority level of the rolling offer. Rolling offers will be sorted by priority, and only the rolling offer with the highest priority will be returned. Rolling offers with no priority will be sorted by the `createdAt` date.
         offerUiId:
           type: string
           description: Internal ID for the Offer UI (required if offerExternalUiId not provided).
@@ -302,10 +300,12 @@ components:
           type: string
           format: date-time
           description: Timestamp when the rolling offer was last updated.
-    UpdateRollingOfferDto:
+    CreateRollingOfferDto:
       type: object
       required:
+      - publisherOfferId
       - name
+      - type
       - active
       - productsSequence
       properties:
@@ -314,7 +314,7 @@ components:
           description: The unique identifier for the rolling offer.
         name:
           type: string
-          description: The updated name of the rolling offer.
+          description: The name of the rolling offer (at least 3 characters).
         type:
           type: string
           description: The type of offer - RollingOffer.
@@ -325,7 +325,7 @@ components:
           description: Whether the rolling offer is active.
         priority:
           type: integer
-          description: The priority level of the rolling offer. Rolling offers will be sorted by priority, and only the rolling offer with the highest priority will be returned. Rolling offers with no priority will be sorted by the `createdAt` date.
+          description: The priority level of the rolling offer. The priority starts from 1 and 1 is the highest priority.
         offerUiId:
           type: string
           description: Internal ID for the Offer UI (required if offerExternalUiId not provided).

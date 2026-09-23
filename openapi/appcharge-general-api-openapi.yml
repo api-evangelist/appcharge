@@ -1,8 +1,8 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Appcharge Assets General API
+  title: Appcharge General API
   version: 1.0.0
-  description: Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores. This API covers checkout sessions, refunds, coupons and promo codes, price localization, financial and analytics reporting, web store offers (bundles, daily bonuses, rolling/special offers, progress bars, reward calendars, triggered popups), offer components (products, badges, offer designs), game-portal content, media assets, translations, and player personalization/authentication callbacks. Authentication uses the x-publisher-token header; webhooks are signed with an HMAC-SHA256 signature.
+  description: Appcharge is a monetization platform for mobile games, providing a direct-to-consumer (D2C) web store, mobile Checkout SDK, and Payment Links so publishers can sell in-game offers outside the app stores.
   contact:
     name: Appcharge Developer Support
     url: https://docs.appcharge.com/
@@ -245,7 +245,7 @@ paths:
       description: 'Creates a price point.
 
 
-        When you pass the base price in USD, the API returns localized prices for this price point in all currencies supported by Appcharge. Learn more about [how localized prices are calculated](./introduction#how-localized-prices-are-calculated).
+        When you pass the base price in USD, the API returns localized prices for this price point in all currencies supported by Appcharge. Learn more about how localized prices are calculated.
 
 
         To override automatically calculated prices for specific countries, pass the `priceOverrides` property with the relevant country codes and your custom prices.'
@@ -550,7 +550,16 @@ paths:
   /checkout/api/v1/order/{orderId}/refund:
     post:
       summary: Initiate Refund
-      description: Initiates a full refund for a specified order. <br /> <br /> Once the API call is successful, the refund process begins. The result of the refund, whether it succeeds or fails, is communicated asynchronously when the order status updates to `Refunded` or `Refund Failed`. You can track the order status in the **Orders** tab of the Publisher Dashboard. <br /> <br /> If the refund is completed successfully, the total order amount is reimbursed, and the [Order Refunded](../../events/v2/order/order_refunded) event is triggered. <br /> <br /> **Note:** This action is final and can't be undone.
+      description: 'Initiates a full refund for a specified order.
+
+
+        Once the API call is successful, the refund process begins. The result of the refund, whether it succeeds or fails, is communicated asynchronously when the order status updates to `Refunded` or `Refund Failed`. You can track the order status in the **Orders** tab of the Publisher Dashboard.
+
+
+        If the refund is completed successfully, the total order amount is reimbursed, and the Order Refunded event is triggered.
+
+
+        **Note:** This action is final and can''t be undone.'
       operationId: createRefund
       parameters:
       - name: orderId
@@ -639,7 +648,7 @@ paths:
   /refresh-specific-active-players:
     post:
       summary: Triggers the Personalization API
-      description: Triggers the [Personalize Web Store Callback](./personalize-webstore-callback) by player ID.
+      description: Triggers the Personalize Web Store Callback by player ID.
       operationId: triggerPersonalization2
       parameters:
       - in: header
@@ -702,7 +711,10 @@ paths:
   /refresh-active-players:
     post:
       summary: Triggers the Personalization API
-      description: "Triggers the [Personalize Web Store Callback](./personalize-webstore-callback) for all players. \n\n When refreshing data for all active players, Appcharge identifies everyone currently browsing the web store, and updates their store view in real time."
+      description: 'Triggers the Personalize Web Store Callback for all players.
+
+
+        When refreshing data for all active players, Appcharge identifies everyone currently browsing the web store, and updates their store view in real time.'
       operationId: triggerPersonalization
       parameters:
       - in: header
@@ -731,246 +743,6 @@ paths:
       - General
 components:
   schemas:
-    CheckoutSessionRequest:
-      type: object
-      required:
-      - priceDetails
-      - offer
-      - customer
-      properties:
-        priceDetails:
-          type: object
-          required:
-          - price
-          - currency
-          properties:
-            price:
-              type: integer
-              description: Price in the smallest currency unit. For example, if the price is $10.00, pass `1000`, not `10.00`. For currencies with no subunit, such as JPY, the value represents the full unit. See [Supported Currencies](/../../merchant-of-record/finance/supported-currencies) for per-currency decimal rules.
-              default: 1000
-            currency:
-              type: string
-              description: Currency in ISO 4217 format.
-              default: USD
-        offer:
-          type: object
-          required:
-          - name
-          - sku
-          properties:
-            name:
-              type: string
-              description: Offer name. Cannot be an empty string.
-              example: Treasure Chest
-            sku:
-              type: string
-              description: Offer ID (SKU).
-              example: 68452829c5e8
-            displayName:
-              type: string
-              description: Localized offer name.
-            pricePointMetadata:
-              type: integer
-              description: Base price of the price point in USD cents.
-        items:
-          type: array
-          description: List of items in the offer.
-          items:
-            type: object
-            required:
-            - name
-            - sku
-            - quantity
-            properties:
-              name:
-                type: string
-                description: Item name.
-                example: coins
-              assetUrl:
-                type: string
-                format: uri
-                description: URL of the asset (should be on a CDN).
-                example: https://media-dev.appcharge.com/coin.png
-              sku:
-                type: string
-                description: Item SKU.
-                example: coins_386f9b
-              quantity:
-                type: integer
-                description: Item quantity. Should be minimum 0 and equal to or less than 30 digits long.
-                example: 3300000
-              quantityDisplay:
-                type: string
-                description: Overrides the `quantity` value displayed in the checkout. Useful for presenting time-based products or showing abbreviated values.
-                example: 3.3M
-              displayName:
-                type: string
-                description: Localized item name.
-        countryCode2:
-          type: string
-          description: "Two-letter country code of the player in [ISO-3166 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. This property is used for determining taxes in the Checkout. If not provided, Appcharge determines the customer's country from the player's IP address. \n\n **Note:** Manually setting a country will determine the applicable tax jurisdiction and rates. Ensure that any country values passed via the API comply with your regulatory and business requirements."
-          example: US
-        customer:
-          type: object
-          required:
-          - id
-          properties:
-            id:
-              type: string
-              description: Unique customer identifier.
-              example: 7c99fba665c4a
-            email:
-              type: string
-              format: email
-              description: Customer email address.
-              example: customer@appcharge.com
-            identitySignals:
-              type: object
-              description: Information regarding the player's identity. Pass this field to improve risk decisions and reduce false declines.
-              properties:
-                firstSeenAt:
-                  type: string
-                  format: date-time
-                  description: First time the player was observed on your monetization platform. For example, the player's account creation date in your game. Used to differentiate veteran players from new accounts during risk evaluation. Must be a past date.
-                  example: '2021-01-01T00:00:00Z'
-        receiptMetadata:
-          type: object
-          description: "Metadata for the receipt. \n\n **Note:** If you want the receipt to be sent in a specific language, first configure your translations in the Publisher Dashboard or via the [Translations API service](/../../api-reference/translations/introduction), and then include the desired locale here."
-          properties:
-            locale:
-              type: string
-              description: "The locale code. Both ISO-639 language code and ISO-3166 country code formats are supported. \n\n **Note:** This value must match the language code configured in the Publisher Dashboard, or the `locale` used in the [Set Translations API](/../../api-reference/translations/set-translations)."
-              default: en
-              example: fr-CA
-        sessionMetadata:
-          type: object
-          format: json
-          description: This entity serves as a versatile container for storing any pertinent information related to the player's session. You can add any additional data you wish to pass as a payload.
-        attributes:
-          type: object
-          description: "A set of custom key-value pairs that you can define to tag players for segmentation and A/B testing. These attributes can then be used to filter players in the Publisher Dashboard.\n\nExample:\n{\n  \"BF_test\": \"test\",\n  \"monetization_persona\": \"non_payer\"\n}"
-        redirectUrl:
-          type: string
-          format: uri
-          description: "A deeplink URL for redirecting the player to your domain, bringing them back to the game. For more information, see [Link Out Without SDK](/../../guides/payment-links/link-out-without-sdk). \n\n **Note:** This property is not relevant if you're using the Payment Links SDK."
-    CheckoutSessionResponse:
-      type: object
-      properties:
-        checkoutSessionToken:
-          type: string
-          description: Checkout session token. Use this token when calling the [Cancel Checkout Session API](./cancel-checkout-session) to cancel the session.
-          example: 61ed143b22d24815a713e215e99b0ea6
-        purchaseId:
-          type: string
-          description: Purchase ID.
-          example: purchase_abc123def456
-        url:
-          type: string
-          description: Checkout session URL hosted on Appcharge.
-          example: https://checkout-v2.appcharge.com
-          deprecated: true
-        parsedUrl:
-          type: string
-          description: New checkout session URL hosted on Appcharge.
-          example: https://pay.appcharge.com/61a164d563c54014b1959a5c78704964#boot={PUBLISHER_BOOT_DATA}
-    ConflictErrorResponse:
-      type: object
-      required:
-      - message
-      properties:
-        message:
-          type: string
-          description: Error message describing what went wrong.
-          example: Cannot create new pricing. The price point already exists.
-    BadRequestError:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          description: HTTP status code.
-          example: 400
-        error:
-          type: string
-          description: Error type.
-          example: Bad Request
-        message:
-          type: array
-          description: Array of error messages.
-          items:
-            type: object
-            properties:
-              validationErrorNumber:
-                type: integer
-                description: Error number.
-                example: 1
-              error:
-                type: string
-                description: Error message.
-                example: endDate must be after startDate.
-        requestUrl:
-          type: string
-          description: The request URL that caused the error.
-          example: /reporting/financial-data/transactions?startDate=2025-07-24T00:00:00Z&endDate=2025-05-26T23:59:59Z
-    PriceByCountryDetailed:
-      allOf:
-      - $ref: '#/components/schemas/PriceByCountry'
-    InternalServerError:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          description: HTTP status code.
-          example: 500
-        error:
-          type: string
-          description: Error type.
-          example: Internal Server Error
-        message:
-          type: array
-          description: Array of error messages.
-          items:
-            type: object
-            properties:
-              validationErrorNumber:
-                type: integer
-                description: Error number.
-                example: 1
-              error:
-                type: string
-                description: Error message.
-                example: Failed to get transactions.
-        requestUrl:
-          type: string
-          description: The request URL that caused the error.
-          example: /reporting/financial-data/transactions?startDate=2025-05-26T00:00:00Z&endDate=2025-07-24T23:59:59Z
-    PricePointDetailed:
-      type: object
-      properties:
-        priceInUsdCents:
-          type: number
-          description: Base price in USD cents.
-          example: 999
-        lastUpdate:
-          type: string
-          format: date-time
-          description: Timestamp indicating when the price point was last updated, in UTC ISO 8601 format.
-          example: '2026-01-01T14:30:00Z'
-        priceByCountry:
-          type: array
-          items:
-            $ref: '#/components/schemas/PriceByCountryDetailed'
-          description: List of localized prices by country, including overrides if present.
-    ErrorResponse:
-      type: object
-      properties:
-        errorCode:
-          type: integer
-          format: int32
-          description: Error code indicating the type of failure.
-          default: 0
-        errorMessage:
-          type: string
-          description: Detailed message describing the error.
     PriceByCountry:
       type: object
       properties:
@@ -1013,6 +785,205 @@ components:
           type: string
           description: Exchange rate drift since the last calculation.
           example: -1.2%
+    PriceByCountryDetailed:
+      allOf:
+      - $ref: '#/components/schemas/PriceByCountry'
+    UnauthorizedError:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          description: HTTP status code.
+          example: 401
+        error:
+          type: string
+          description: Error type.
+          example: Unauthorized
+        message:
+          type: array
+          description: Array of error messages.
+          items:
+            type: object
+            properties:
+              validationErrorNumber:
+                type: integer
+                description: Error number.
+                example: 1
+              error:
+                type: string
+                description: Error message.
+                example: Publisher token is required.
+        requestUrl:
+          type: string
+          description: The request URL that caused the error.
+          example: /reporting/financial-data/transactions?startDate=2025-05-26T00:00:00Z&endDate=2025-07-24T23:59:59Z
+    ConflictErrorResponse:
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
+          description: Error message describing what went wrong.
+          example: Cannot create new pricing. The price point already exists.
+    CheckoutSessionResponse:
+      type: object
+      properties:
+        checkoutSessionToken:
+          type: string
+          description: Checkout session token. Use this token when calling the [Cancel Checkout Session API](./cancel-checkout-session) to cancel the session.
+          example: 61ed143b22d24815a713e215e99b0ea6
+        purchaseId:
+          type: string
+          description: Purchase ID.
+          example: purchase_abc123def456
+        url:
+          type: string
+          description: Checkout session URL hosted on Appcharge.
+          example: https://checkout-v2.appcharge.com
+          deprecated: true
+        parsedUrl:
+          type: string
+          description: New checkout session URL hosted on Appcharge.
+          example: https://pay.appcharge.com/61a164d563c54014b1959a5c78704964#boot={PUBLISHER_BOOT_DATA}
+    ErrorResponse:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+          format: int32
+          description: Error code indicating the type of failure.
+          default: 0
+        errorMessage:
+          type: string
+          description: Detailed message describing the error.
+    InternalServerError:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          description: HTTP status code.
+          example: 500
+        error:
+          type: string
+          description: Error type.
+          example: Internal Server Error
+        message:
+          type: array
+          description: Array of error messages.
+          items:
+            type: object
+            properties:
+              validationErrorNumber:
+                type: integer
+                description: Error number.
+                example: 1
+              error:
+                type: string
+                description: Error message.
+                example: Failed to get transactions.
+        requestUrl:
+          type: string
+          description: The request URL that caused the error.
+          example: /reporting/financial-data/transactions?startDate=2025-05-26T00:00:00Z&endDate=2025-07-24T23:59:59Z
+    BadRequestError:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          description: HTTP status code.
+          example: 400
+        error:
+          type: string
+          description: Error type.
+          example: Bad Request
+        message:
+          type: array
+          description: Array of error messages.
+          items:
+            type: object
+            properties:
+              validationErrorNumber:
+                type: integer
+                description: Error number.
+                example: 1
+              error:
+                type: string
+                description: Error message.
+                example: endDate must be after startDate.
+        requestUrl:
+          type: string
+          description: The request URL that caused the error.
+          example: /reporting/financial-data/transactions?startDate=2025-07-24T00:00:00Z&endDate=2025-05-26T23:59:59Z
+    BadRequestErrorResponse:
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
+          description: Error message describing what went wrong.
+          example: 'Invalid priceInUsdCents value: must be a positive integer [invalid1, invalid2].'
+    PricePoint:
+      type: object
+      properties:
+        priceInUsdCents:
+          type: number
+          description: Base price in USD cents.
+          example: 999
+        lastUpdate:
+          type: string
+          format: date-time
+          description: Timestamp indicating when the price point was last updated, in UTC ISO 8601 format.
+          example: '2026-01-01T14:30:00Z'
+        priceByCountry:
+          type: array
+          items:
+            $ref: '#/components/schemas/PriceByCountry'
+          description: List of localized prices by country, including overrides if present.
+    LocalizedPricePointLookupResponse:
+      type: object
+      properties:
+        currencyCode:
+          type: string
+          description: ISO 4217 currency code of the resolved local currency. Pass this value as `priceDetails.currency` when creating a checkout session. Empty string when no local price is configured for any of the requested price points.
+          example: EUR
+        pricePoints:
+          type: object
+          description: Map of requested USD price points, as JSON string keys, to localized price objects. The value is `null` when no local price is configured for that price point.
+          additionalProperties:
+            type:
+            - object
+            - 'null'
+            properties:
+              price:
+                type: integer
+                description: Local price in the currency's lowest unit. For example, cents for USD, and whole yen for JPY. For a list of of supported currencies, their minor unit types, and applicable pricing limitations, see [Supported Currencies](/../../merchant-of-record/finance/supported-currencies#supported-currencies).
+                example: 664
+              displayPrice:
+                type: string
+                description: Locale-formatted display price.
+                example: 6,64 €
+    LocalizedPricePointLookupRequest:
+      type: object
+      required:
+      - pricesInUsdCents
+      - countryCode2
+      properties:
+        pricesInUsdCents:
+          type: array
+          description: List of base prices in USD.
+          items:
+            type: number
+          maxItems: 50
+          example:
+          - 699
+          - 4550
+          - 9999
+        countryCode2:
+          type: string
+          description: Country code in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+          example: DE
     Transaction:
       type: object
       properties:
@@ -1160,76 +1131,19 @@ components:
               type: string
               description: Payment method used.
               example: credit_card
-    BadRequestErrorResponse:
-      type: object
-      required:
-      - message
-      properties:
-        message:
-          type: string
-          description: Error message describing what went wrong.
-          example: 'Invalid priceInUsdCents value: must be a positive integer [invalid1, invalid2].'
-    UnauthorizedError:
+    PricePointSummary:
       type: object
       properties:
-        statusCode:
-          type: integer
-          description: HTTP status code.
-          example: 401
-        error:
-          type: string
-          description: Error type.
-          example: Unauthorized
-        message:
-          type: array
-          description: Array of error messages.
-          items:
-            type: object
-            properties:
-              validationErrorNumber:
-                type: integer
-                description: Error number.
-                example: 1
-              error:
-                type: string
-                description: Error message.
-                example: Publisher token is required.
-        requestUrl:
-          type: string
-          description: The request URL that caused the error.
-          example: /reporting/financial-data/transactions?startDate=2025-05-26T00:00:00Z&endDate=2025-07-24T23:59:59Z
-    LocalizedPricePointLookupRequest:
-      type: object
-      required:
-      - pricesInUsdCents
-      - countryCode2
-      properties:
-        pricesInUsdCents:
-          type: array
-          description: List of base prices in USD.
-          items:
-            type: number
-          maxItems: 50
-          example:
-          - 699
-          - 4550
-          - 9999
-        countryCode2:
-          type: string
-          description: Country code in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
-          example: DE
-    PriceOverride:
-      type: object
-      properties:
-        countryCode2:
-          type: string
-          description: Country code in ISO 3166-1 alpha-2 format.
-          example: BR
-        price:
+        priceInUsdCents:
           type: number
-          description: Override price amount. If the country's currency isn't enabled, the value is treated as USD and displayed in USD.
-          example: 29.99
-    PricePoint:
+          description: Base price in USD cents.
+          example: 999
+        lastUpdate:
+          type: string
+          format: date-time
+          description: Timestamp indicating when the price point was last updated, in UTC ISO 8601 format.
+          example: '2026-01-01T14:30:00Z'
+    PricePointDetailed:
       type: object
       properties:
         priceInUsdCents:
@@ -1244,43 +1158,141 @@ components:
         priceByCountry:
           type: array
           items:
-            $ref: '#/components/schemas/PriceByCountry'
+            $ref: '#/components/schemas/PriceByCountryDetailed'
           description: List of localized prices by country, including overrides if present.
-    LocalizedPricePointLookupResponse:
+    CheckoutSessionRequest:
       type: object
+      required:
+      - priceDetails
+      - offer
+      - customer
       properties:
-        currencyCode:
-          type: string
-          description: ISO 4217 currency code of the resolved local currency. Pass this value as `priceDetails.currency` when creating a checkout session. Empty string when no local price is configured for any of the requested price points.
-          example: EUR
-        pricePoints:
+        priceDetails:
           type: object
-          description: Map of requested USD price points, as JSON string keys, to localized price objects. The value is `null` when no local price is configured for that price point.
-          additionalProperties:
-            type:
-            - object
-            - 'null'
+          required:
+          - price
+          - currency
+          properties:
+            price:
+              type: integer
+              description: Price in the smallest currency unit. For example, if the price is $10.00, pass `1000`, not `10.00`. For currencies with no subunit, such as JPY, the value represents the full unit. See [Supported Currencies](/../../merchant-of-record/finance/supported-currencies) for per-currency decimal rules.
+              default: 1000
+            currency:
+              type: string
+              description: Currency in ISO 4217 format.
+              default: USD
+        offer:
+          type: object
+          required:
+          - name
+          - sku
+          properties:
+            name:
+              type: string
+              description: Offer name. Cannot be an empty string.
+              example: Treasure Chest
+            sku:
+              type: string
+              description: Offer ID (SKU).
+              example: 68452829c5e8
+            displayName:
+              type: string
+              description: Localized offer name.
+            pricePointMetadata:
+              type: integer
+              description: Base price of the price point in USD cents.
+        items:
+          type: array
+          description: List of items in the offer.
+          items:
+            type: object
+            required:
+            - name
+            - sku
+            - quantity
             properties:
-              price:
-                type: integer
-                description: Local price in the currency's lowest unit. For example, cents for USD, and whole yen for JPY. For a list of of supported currencies, their minor unit types, and applicable pricing limitations, see [Supported Currencies](/../../merchant-of-record/finance/supported-currencies#supported-currencies).
-                example: 664
-              displayPrice:
+              name:
                 type: string
-                description: Locale-formatted display price.
-                example: 6,64 €
-    PricePointSummary:
+                description: Item name.
+                example: coins
+              assetUrl:
+                type: string
+                format: uri
+                description: URL of the asset (should be on a CDN).
+                example: https://media-dev.appcharge.com/coin.png
+              sku:
+                type: string
+                description: Item SKU.
+                example: coins_386f9b
+              quantity:
+                type: integer
+                description: Item quantity. Should be minimum 0 and equal to or less than 30 digits long.
+                example: 3300000
+              quantityDisplay:
+                type: string
+                description: Overrides the `quantity` value displayed in the checkout. Useful for presenting time-based products or showing abbreviated values.
+                example: 3.3M
+              displayName:
+                type: string
+                description: Localized item name.
+        countryCode2:
+          type: string
+          description: "Two-letter country code of the player in [ISO-3166 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. This property is used for determining taxes in the Checkout. If not provided, Appcharge determines the customer's country from the player's IP address. \n\n **Note:** Manually setting a country will determine the applicable tax jurisdiction and rates. Ensure that any country values passed via the API comply with your regulatory and business requirements."
+          example: US
+        customer:
+          type: object
+          required:
+          - id
+          properties:
+            id:
+              type: string
+              description: Unique customer identifier.
+              example: 7c99fba665c4a
+            email:
+              type: string
+              format: email
+              description: Customer email address.
+              example: customer@appcharge.com
+            identitySignals:
+              type: object
+              description: Information regarding the player's identity. Pass this field to improve risk decisions and reduce false declines.
+              properties:
+                firstSeenAt:
+                  type: string
+                  format: date-time
+                  description: First time the player was observed on your monetization platform. For example, the player's account creation date in your game. Used to differentiate veteran players from new accounts during risk evaluation. Must be a past date.
+                  example: '2021-01-01T00:00:00Z'
+        receiptMetadata:
+          type: object
+          description: "Metadata for the receipt. \n\n **Note:** If you want the receipt to be sent in a specific language, first configure your translations in the Publisher Dashboard or via the [Translations API service](/../../api-reference/translations/introduction), and then include the desired locale here."
+          properties:
+            locale:
+              type: string
+              description: "The locale code. Both ISO-639 language code and ISO-3166 country code formats are supported. \n\n **Note:** This value must match the language code configured in the Publisher Dashboard, or the `locale` used in the [Set Translations API](/../../api-reference/translations/set-translations)."
+              default: en
+              example: fr-CA
+        sessionMetadata:
+          type: object
+          format: json
+          description: This entity serves as a versatile container for storing any pertinent information related to the player's session. You can add any additional data you wish to pass as a payload.
+        attributes:
+          type: object
+          description: "A set of custom key-value pairs that you can define to tag players for segmentation and A/B testing. These attributes can then be used to filter players in the Publisher Dashboard.\n\nExample:\n{\n  \"BF_test\": \"test\",\n  \"monetization_persona\": \"non_payer\"\n}"
+        redirectUrl:
+          type: string
+          format: uri
+          description: "A deeplink URL for redirecting the player to your domain, bringing them back to the game. For more information, see [Link Out Without SDK](/../../guides/payment-links/link-out-without-sdk). \n\n **Note:** This property is not relevant if you're using the Payment Links SDK."
+    PriceOverride:
       type: object
       properties:
-        priceInUsdCents:
-          type: number
-          description: Base price in USD cents.
-          example: 999
-        lastUpdate:
+        countryCode2:
           type: string
-          format: date-time
-          description: Timestamp indicating when the price point was last updated, in UTC ISO 8601 format.
-          example: '2026-01-01T14:30:00Z'
+          description: Country code in ISO 3166-1 alpha-2 format.
+          example: BR
+        price:
+          type: number
+          description: Override price amount. If the country's currency isn't enabled, the value is treated as USD and displayed in USD.
+          example: 29.99
   securitySchemes:
     PublisherTokenAuth:
       type: apiKey

@@ -1,23 +1,7 @@
 {
   "provider": "appcharge",
   "sources": [
-    "appcharge-assets-api-openapi.yml",
-    "appcharge-authentication-api-openapi.yml",
-    "appcharge-badges-api-openapi.yml",
-    "appcharge-coupons-api-openapi.yml",
-    "appcharge-general-api-openapi.yml",
-    "appcharge-localization-api-openapi.yml",
-    "appcharge-offer-designs-api-openapi.yml",
-    "appcharge-offers-api-openapi.yml",
-    "appcharge-orders-api-openapi.yml",
-    "appcharge-personalization-api-openapi.yml",
-    "appcharge-popups-api-openapi.yml",
-    "appcharge-portal-content-api-openapi.yml",
-    "appcharge-products-api-openapi.yml",
-    "appcharge-promo-codes-api-openapi.yml",
-    "appcharge-rolling-offers-api-openapi.yml",
-    "appcharge-store-refresh-popups-api-openapi.yml",
-    "appcharge-triggered-popups-api-openapi.yml"
+    "_original/appcharge-openapi.yml"
   ],
   "outputs": [
     "appcharge-assets-api-openapi.yml",
@@ -41,6 +25,28 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "appcharge-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "appcharge-assets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "appcharge-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "appcharge-badges-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "appcharge-coupons-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "appcharge-general-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "appcharge-localization-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "appcharge-offer-designs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "appcharge-offers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "appcharge-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "appcharge-personalization-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "appcharge-popups-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "appcharge-portal-content-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "appcharge-products-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "appcharge-promo-codes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "appcharge-rolling-offers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "appcharge-store-refresh-popups-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "appcharge-triggered-popups-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
