@@ -97,17 +97,6 @@ components:
           type: string
           description: Publisher purchase ID for this transaction. Return this value after granting the award so Appcharge can confirm fulfillment and pair it with the Appcharge `orderId` for reconciliation. Learn more in [Before you begin](/../../api-reference/checkout/awards/introduction#before-you-begin).
           example: '222673459829966773354378'
-    PlayerOrderReportError:
-      type: object
-      required:
-      - publisherErrorMessage
-      example:
-        publisherErrorMessage: Unable to grant the award because the inventory service is unavailable.
-      properties:
-        publisherErrorMessage:
-          type: string
-          description: Explanation of why the award request failed. Required when your endpoint returns a `4XX` or `5XX` response.
-          example: Unable to grant the award because the inventory service is unavailable.
     PlayerOrderReportRequest:
       type: object
       properties:
@@ -329,6 +318,17 @@ components:
                   type: string
                   description: The marketing campaign identifier (e.g., spring_sale).
                   example: spring_sale
+    PlayerOrderReportError:
+      type: object
+      required:
+      - publisherErrorMessage
+      example:
+        publisherErrorMessage: Unable to grant the award because the inventory service is unavailable.
+      properties:
+        publisherErrorMessage:
+          type: string
+          description: Explanation of why the award request failed. Required when your endpoint returns a `4XX` or `5XX` response.
+          example: Unable to grant the award because the inventory service is unavailable.
   securitySchemes:
     PublisherTokenAuth:
       type: apiKey

@@ -206,14 +206,56 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    Error:
+    Coupon:
       type: object
       properties:
-        error:
+        name:
           type: string
-          description: Error message describing what went wrong.
-    CouponResponse:
-      $ref: '#/components/schemas/Coupon'
+          description: Coupon name.
+          example: summer26
+        active:
+          type: boolean
+          description: Whether the coupon is active.
+          example: true
+        discountPercentage:
+          type: number
+          description: Discount percentage applied by the coupon.
+          example: 1
+        maxRedemptionsPerCustomer:
+          type: integer
+          description: Maximum number of times a customer can redeem this coupon.
+          example: 2
+        expiredBy:
+          type: string
+          format: date-time
+          description: Expiration date of the coupon.
+          example: '2025-04-02T06:54:51.670Z'
+        startsAt:
+          type: string
+          format: date-time
+          description: Start date of the coupon validity.
+          example: '2025-02-02T06:54:51.670Z'
+        supportedOfferExternalIds:
+          type: array
+          items:
+            type: string
+          description: List of offer external IDs that support this coupon. Empty array means all offers are supported.
+          example:
+          - bundle1
+          - rollingoffer3
+        firstTimePurchase:
+          type: boolean
+          description: Whether the coupon is only valid for first-time purchases.
+          example: false
+        allowedPlayers:
+          type: array
+          items:
+            type: string
+          description: List of player IDs allowed to use this coupon. Empty array means all players are allowed.
+          example:
+          - player123
+          - player456
+          - player789
     CreateCouponRequest:
       type: object
       properties:
@@ -265,6 +307,12 @@ components:
       required:
       - name
       - discountPercentage
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message describing what went wrong.
     UpdateCouponRequest:
       type: object
       properties:
@@ -310,56 +358,8 @@ components:
           example:
           - player123
           - player456
-    Coupon:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Coupon name.
-          example: summer26
-        active:
-          type: boolean
-          description: Whether the coupon is active.
-          example: true
-        discountPercentage:
-          type: number
-          description: Discount percentage applied by the coupon.
-          example: 1
-        maxRedemptionsPerCustomer:
-          type: integer
-          description: Maximum number of times a customer can redeem this coupon.
-          example: 2
-        expiredBy:
-          type: string
-          format: date-time
-          description: Expiration date of the coupon.
-          example: '2025-04-02T06:54:51.670Z'
-        startsAt:
-          type: string
-          format: date-time
-          description: Start date of the coupon validity.
-          example: '2025-02-02T06:54:51.670Z'
-        supportedOfferExternalIds:
-          type: array
-          items:
-            type: string
-          description: List of offer external IDs that support this coupon. Empty array means all offers are supported.
-          example:
-          - bundle1
-          - rollingoffer3
-        firstTimePurchase:
-          type: boolean
-          description: Whether the coupon is only valid for first-time purchases.
-          example: false
-        allowedPlayers:
-          type: array
-          items:
-            type: string
-          description: List of player IDs allowed to use this coupon. Empty array means all players are allowed.
-          example:
-          - player123
-          - player456
-          - player789
+    CouponResponse:
+      $ref: '#/components/schemas/Coupon'
   securitySchemes:
     PublisherTokenAuth:
       type: apiKey

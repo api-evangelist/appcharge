@@ -110,6 +110,237 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    PostPurchasePopupDesignCreate:
+      title: Post Purchase Popup Design
+      type: object
+      description: Creates a post purchase popup design.
+      properties:
+        offerUiType:
+          type: string
+          enum:
+          - PopUp
+          description: Type of offer design.
+          example: PopUp
+        name:
+          type: string
+          description: Offer design name.
+          example: Post Purchase Popup Design
+        externalId:
+          type: string
+          description: Design ID that you define.
+          example: post-purchase-popup-design
+        backgroundImageUrl:
+          type: string
+          format: url
+          description: 'Background image URL in PNG or JPEG format.
+
+
+            For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL. External image URLs are saved and used as-is, and Appcharge doesn''t download, copy, upload, or host them. Images must remain available at the provided URLs.
+
+
+            We recommend uploading image files instead of using external URLs when possible.'
+          example: https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/background.png
+        title:
+          allOf:
+          - $ref: '#/components/schemas/OfferTitleCreate'
+        offerUiSubType:
+          type: string
+          enum:
+          - PostPurchase
+          description: Popup design subtype. Use `PostPurchase` for post purchase popup designs.
+          example: PostPurchase
+      required:
+      - offerUiType
+      - name
+      - externalId
+      - backgroundImageUrl
+      - offerUiSubType
+    SubRollingOfferResponse:
+      type: object
+      properties:
+        backgroundImageUrl:
+          type: string
+          format: url
+          description: Background image URL for the sub rolling offer.
+          example: https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/sub-background.png
+        backgroundExternalImageUrl:
+          type: string
+          format: url
+          description: Original background image URL for the sub rolling offer when an external image URL is used.
+          example: https://cdn.example.com/assets/background.png
+        collectText:
+          type: string
+          description: Text displayed for the collect action.
+          example: FREE
+    PostPurchasePopupDesignResponse:
+      title: Post Purchase Popup Design
+      type: object
+      properties:
+        id:
+          type: string
+          description: Design ID.
+          example: 6a09aa1018b751228b09faed
+        offerUiType:
+          type: string
+          enum:
+          - PopUp
+          description: Type of offer design.
+          example: PopUp
+        name:
+          type: string
+          description: Offer design name.
+          example: Post Purchase Popup Design
+        externalId:
+          type: string
+          description: Design ID that you defined.
+          example: post-purchase-popup-design
+        backgroundImageUrl:
+          type: string
+          format: url
+          description: Background image URL. For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL.
+          example: https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/background.png
+        title:
+          allOf:
+          - $ref: '#/components/schemas/OfferTitleResponse'
+        externalBackgroundImageUrl:
+          type: string
+          format: url
+          description: Original background image URL when the design uses an external image URL. This URL is used as provided to serve the image.
+          example: https://cdn.example.com/assets/background.png
+        offerUiSubType:
+          type: string
+          enum:
+          - PostPurchase
+          description: Popup design subtype. Use `PostPurchase` for post purchase popup designs.
+          example: PostPurchase
+    RewardCalendarDesignBlockResponse:
+      type: object
+      description: Information about the reward calendar design.
+      properties:
+        collectibleBadgeImage:
+          type: string
+          format: url
+          description: Badge image to display when a reward is able to be collected.
+          example: https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/collectible-badge.png
+        lockedBadgeImage:
+          type: string
+          format: url
+          description: Badge image to display when a reward is locked.
+          example: https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/locked-badge.png
+        backgroundColor:
+          type: string
+          pattern: ^#[0-9a-fA-F]{6}$
+          description: Reward calendar background color in hex format.
+          example: '#101225'
+        collectIconImage:
+          type: string
+          format: url
+          description: Icon image displayed when a reward has been collected.
+          example: https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/collect-icon.png
+        lockedIconImage:
+          type: string
+          format: url
+          description: Icon image displayed when a reward is locked.
+          example: https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/locked-icon.png
+        dayFontColor:
+          type: string
+          pattern: ^#[0-9a-fA-F]{6}$
+          description: Day label font color in hex format.
+          example: '#FFFFFF'
+        subRewardBackgroundImage:
+          type: string
+          format: url
+          description: Sub reward background image URL.
+          example: https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/sub-reward-background.png
+        mainRewardBackgroundImage:
+          type: string
+          format: url
+          description: Main reward background image URL.
+          example: https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/main-reward-background.png
+        headerImage:
+          type: string
+          format: url
+          description: Header image URL.
+          example: https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/header.png
+    OfferTitleCreate:
+      type: object
+      properties:
+        text:
+          type: string
+          description: Offer title.
+          example: Your daily bonus!
+        fontColor:
+          type: string
+          description: Title font color.
+          example: '#FFFFFF'
+        fontSize:
+          type: number
+          description: Font size in pixels.
+          example: 20
+        fontWeight:
+          type: string
+          description: Font weight.
+          example: normal
+      required:
+      - text
+      - fontColor
+      - fontSize
+      - fontWeight
+    GetAllOfferDesignsResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/OfferDesignResponse'
+    ColorDetails:
+      type: object
+      description: Color details returned by offer designs.
+      properties:
+        colorOne:
+          type: string
+          description: Primary color.
+          example: '#FFFFFF'
+        colorTwo:
+          type: string
+          description: Secondary color.
+          example: '#FDFCF9'
+        direction:
+          type: string
+          description: Direction of the color transition.
+          example: to right
+    OfferTitle:
+      type: object
+      properties:
+        text:
+          type: string
+          description: Offer title.
+          example: Limited Time Offer
+        fontColor:
+          description: 'Title font color.
+
+
+            **Note:** For Daily Bonuses and Triggered Popups, this property is returned as a string. For Special Offers, this property is returned as an object as shown below.'
+          additionalProperties: true
+          properties:
+            colorOne:
+              type: string
+              description: Primary title font color. Only relevant for Special Offers.
+              example: '#FFFFFF'
+            colorTwo:
+              type: string
+              description: Secondary title font color. Only relevant for Special Offers.
+              example: '#FDFCF9'
+            direction:
+              type: string
+              description: Color transition direction. Only relevant for Special Offers.
+              example: to right
+          example: '#FFFFFF'
+        fontSize:
+          type: number
+          description: Font size in pixels.
+          example: 20
+        fontWeight:
+          type: string
+          description: Font weight.
+          example: bold
     PostPurchasePopupDesignUpdate:
       title: Post Purchase Popup Design
       type: object
@@ -149,41 +380,6 @@ components:
           - PostPurchase
           description: Popup design subtype. Use `PostPurchase` for post purchase popup designs.
           example: PostPurchase
-    ColorDetails:
-      type: object
-      description: Color details returned by offer designs.
-      properties:
-        colorOne:
-          type: string
-          description: Primary color.
-          example: '#FFFFFF'
-        colorTwo:
-          type: string
-          description: Secondary color.
-          example: '#FDFCF9'
-        direction:
-          type: string
-          description: Direction of the color transition.
-          example: to right
-    OfferTitleResponse:
-      type: object
-      properties:
-        text:
-          type: string
-          description: Offer title.
-          example: Your daily bonus!
-        fontColor:
-          type: string
-          description: Title font color.
-          example: '#FFFFFF'
-        fontSize:
-          type: number
-          description: Font size in pixels.
-          example: 20
-        fontWeight:
-          type: string
-          description: Font weight.
-          example: normal
     OfferDesignResponse:
       type: object
       description: Information about an offer design. The response can include fields for multiple offer design types; fields that are specific to an offer type are marked in their descriptions.
@@ -298,7 +494,7 @@ components:
           description: Reward calendar design configuration. Only relevant for Reward Calendars.
           allOf:
           - $ref: '#/components/schemas/RewardCalendarDesignBlockResponse'
-    OfferTitleCreate:
+    OfferTitleResponse:
       type: object
       properties:
         text:
@@ -317,202 +513,6 @@ components:
           type: string
           description: Font weight.
           example: normal
-      required:
-      - text
-      - fontColor
-      - fontSize
-      - fontWeight
-    RewardCalendarDesignBlockResponse:
-      type: object
-      description: Information about the reward calendar design.
-      properties:
-        collectibleBadgeImage:
-          type: string
-          format: url
-          description: Badge image to display when a reward is able to be collected.
-          example: https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/collectible-badge.png
-        lockedBadgeImage:
-          type: string
-          format: url
-          description: Badge image to display when a reward is locked.
-          example: https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/locked-badge.png
-        backgroundColor:
-          type: string
-          pattern: ^#[0-9a-fA-F]{6}$
-          description: Reward calendar background color in hex format.
-          example: '#101225'
-        collectIconImage:
-          type: string
-          format: url
-          description: Icon image displayed when a reward has been collected.
-          example: https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/collect-icon.png
-        lockedIconImage:
-          type: string
-          format: url
-          description: Icon image displayed when a reward is locked.
-          example: https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/locked-icon.png
-        dayFontColor:
-          type: string
-          pattern: ^#[0-9a-fA-F]{6}$
-          description: Day label font color in hex format.
-          example: '#FFFFFF'
-        subRewardBackgroundImage:
-          type: string
-          format: url
-          description: Sub reward background image URL.
-          example: https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/sub-reward-background.png
-        mainRewardBackgroundImage:
-          type: string
-          format: url
-          description: Main reward background image URL.
-          example: https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/main-reward-background.png
-        headerImage:
-          type: string
-          format: url
-          description: Header image URL.
-          example: https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/header.png
-    GetAllOfferDesignsResponse:
-      type: array
-      items:
-        $ref: '#/components/schemas/OfferDesignResponse'
-    OfferTitle:
-      type: object
-      properties:
-        text:
-          type: string
-          description: Offer title.
-          example: Limited Time Offer
-        fontColor:
-          description: 'Title font color.
-
-
-            **Note:** For Daily Bonuses and Triggered Popups, this property is returned as a string. For Special Offers, this property is returned as an object as shown below.'
-          additionalProperties: true
-          properties:
-            colorOne:
-              type: string
-              description: Primary title font color. Only relevant for Special Offers.
-              example: '#FFFFFF'
-            colorTwo:
-              type: string
-              description: Secondary title font color. Only relevant for Special Offers.
-              example: '#FDFCF9'
-            direction:
-              type: string
-              description: Color transition direction. Only relevant for Special Offers.
-              example: to right
-          example: '#FFFFFF'
-        fontSize:
-          type: number
-          description: Font size in pixels.
-          example: 20
-        fontWeight:
-          type: string
-          description: Font weight.
-          example: bold
-    PostPurchasePopupDesignResponse:
-      title: Post Purchase Popup Design
-      type: object
-      properties:
-        id:
-          type: string
-          description: Design ID.
-          example: 6a09aa1018b751228b09faed
-        offerUiType:
-          type: string
-          enum:
-          - PopUp
-          description: Type of offer design.
-          example: PopUp
-        name:
-          type: string
-          description: Offer design name.
-          example: Post Purchase Popup Design
-        externalId:
-          type: string
-          description: Design ID that you defined.
-          example: post-purchase-popup-design
-        backgroundImageUrl:
-          type: string
-          format: url
-          description: Background image URL. For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL.
-          example: https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/background.png
-        title:
-          allOf:
-          - $ref: '#/components/schemas/OfferTitleResponse'
-        externalBackgroundImageUrl:
-          type: string
-          format: url
-          description: Original background image URL when the design uses an external image URL. This URL is used as provided to serve the image.
-          example: https://cdn.example.com/assets/background.png
-        offerUiSubType:
-          type: string
-          enum:
-          - PostPurchase
-          description: Popup design subtype. Use `PostPurchase` for post purchase popup designs.
-          example: PostPurchase
-    SubRollingOfferResponse:
-      type: object
-      properties:
-        backgroundImageUrl:
-          type: string
-          format: url
-          description: Background image URL for the sub rolling offer.
-          example: https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/sub-background.png
-        backgroundExternalImageUrl:
-          type: string
-          format: url
-          description: Original background image URL for the sub rolling offer when an external image URL is used.
-          example: https://cdn.example.com/assets/background.png
-        collectText:
-          type: string
-          description: Text displayed for the collect action.
-          example: FREE
-    PostPurchasePopupDesignCreate:
-      title: Post Purchase Popup Design
-      type: object
-      description: Creates a post purchase popup design.
-      properties:
-        offerUiType:
-          type: string
-          enum:
-          - PopUp
-          description: Type of offer design.
-          example: PopUp
-        name:
-          type: string
-          description: Offer design name.
-          example: Post Purchase Popup Design
-        externalId:
-          type: string
-          description: Design ID that you define.
-          example: post-purchase-popup-design
-        backgroundImageUrl:
-          type: string
-          format: url
-          description: 'Background image URL in PNG or JPEG format.
-
-
-            For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL. External image URLs are saved and used as-is, and Appcharge doesn''t download, copy, upload, or host them. Images must remain available at the provided URLs.
-
-
-            We recommend uploading image files instead of using external URLs when possible.'
-          example: https://media.appcharge.com/media/65cb7861ec8924a6b69a0f59/background.png
-        title:
-          allOf:
-          - $ref: '#/components/schemas/OfferTitleCreate'
-        offerUiSubType:
-          type: string
-          enum:
-          - PostPurchase
-          description: Popup design subtype. Use `PostPurchase` for post purchase popup designs.
-          example: PostPurchase
-      required:
-      - offerUiType
-      - name
-      - externalId
-      - backgroundImageUrl
-      - offerUiSubType
   securitySchemes:
     PublisherTokenAuth:
       type: apiKey

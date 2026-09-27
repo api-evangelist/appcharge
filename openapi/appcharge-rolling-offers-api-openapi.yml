@@ -83,117 +83,6 @@ paths:
           description: Unauthorized.
 components:
   schemas:
-    UpdateRollingOfferDto:
-      type: object
-      required:
-      - name
-      - active
-      - productsSequence
-      properties:
-        publisherOfferId:
-          type: string
-          description: The unique identifier for the rolling offer.
-        name:
-          type: string
-          description: The updated name of the rolling offer.
-        type:
-          type: string
-          description: The type of offer - RollingOffer.
-          enum:
-          - RollingOffer
-        active:
-          type: boolean
-          description: Whether the rolling offer is active.
-        priority:
-          type: integer
-          description: The priority level of the rolling offer. Rolling offers will be sorted by priority, and only the rolling offer with the highest priority will be returned. Rolling offers with no priority will be sorted by the `createdAt` date.
-        offerUiId:
-          type: string
-          description: Internal ID for the Offer UI (required if offerExternalUiId not provided).
-        offerExternalUiId:
-          type: string
-          description: The external UI ID for the rolling offer.
-        segments:
-          type: array
-          description: List of player segments that this rolling offer applies to.
-          items:
-            type: string
-        productsSequence:
-          type: array
-          description: The sequence of products included in the rolling offer. At least 2 productsSequences should be added.
-          items:
-            type: object
-            properties:
-              index:
-                type: integer
-                description: The order of the product in the rolling offer.
-              products:
-                type: array
-                description: Max 3 products can be added to each productsSequence.
-                items:
-                  type: object
-                  properties:
-                    publisherProductId:
-                      type: string
-                      description: The unique ID of the product.
-                    quantity:
-                      type: integer
-                      description: The quantity of the product in the rolling offer.
-              priceInUsdCents:
-                type: integer
-                description: The price of the product in cents.
-              priceDiscount:
-                type: object
-                description: Discount applied to the product.
-                properties:
-                  discount:
-                    type: integer
-                  type:
-                    type: string
-                    enum:
-                    - percentage
-                    - fixed_amount
-              productSale:
-                type: object
-                description: Sale details for the product.
-                properties:
-                  sale:
-                    type: integer
-                  type:
-                    type: string
-                    enum:
-                    - percentage
-                    - fixed_amount
-              badges:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    publisherBadgeId:
-                      type: string
-                      description: The unique identifier of the badge.
-        schedule:
-          type: object
-          description: The schedule for when the rolling offer is available.
-          properties:
-            permanent:
-              type: boolean
-            timeFrames:
-              type: array
-              items:
-                type: object
-                properties:
-                  startTime:
-                    type: string
-                    format: date-time
-                  endTime:
-                    type: string
-                    format: date-time
-                  notes:
-                    type: string
-                required:
-                - startTime
-                - endTime
     RollingOfferDtoResponse:
       type: object
       properties:
@@ -326,6 +215,117 @@ components:
         priority:
           type: integer
           description: The priority level of the rolling offer. The priority starts from 1 and 1 is the highest priority.
+        offerUiId:
+          type: string
+          description: Internal ID for the Offer UI (required if offerExternalUiId not provided).
+        offerExternalUiId:
+          type: string
+          description: The external UI ID for the rolling offer.
+        segments:
+          type: array
+          description: List of player segments that this rolling offer applies to.
+          items:
+            type: string
+        productsSequence:
+          type: array
+          description: The sequence of products included in the rolling offer. At least 2 productsSequences should be added.
+          items:
+            type: object
+            properties:
+              index:
+                type: integer
+                description: The order of the product in the rolling offer.
+              products:
+                type: array
+                description: Max 3 products can be added to each productsSequence.
+                items:
+                  type: object
+                  properties:
+                    publisherProductId:
+                      type: string
+                      description: The unique ID of the product.
+                    quantity:
+                      type: integer
+                      description: The quantity of the product in the rolling offer.
+              priceInUsdCents:
+                type: integer
+                description: The price of the product in cents.
+              priceDiscount:
+                type: object
+                description: Discount applied to the product.
+                properties:
+                  discount:
+                    type: integer
+                  type:
+                    type: string
+                    enum:
+                    - percentage
+                    - fixed_amount
+              productSale:
+                type: object
+                description: Sale details for the product.
+                properties:
+                  sale:
+                    type: integer
+                  type:
+                    type: string
+                    enum:
+                    - percentage
+                    - fixed_amount
+              badges:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    publisherBadgeId:
+                      type: string
+                      description: The unique identifier of the badge.
+        schedule:
+          type: object
+          description: The schedule for when the rolling offer is available.
+          properties:
+            permanent:
+              type: boolean
+            timeFrames:
+              type: array
+              items:
+                type: object
+                properties:
+                  startTime:
+                    type: string
+                    format: date-time
+                  endTime:
+                    type: string
+                    format: date-time
+                  notes:
+                    type: string
+                required:
+                - startTime
+                - endTime
+    UpdateRollingOfferDto:
+      type: object
+      required:
+      - name
+      - active
+      - productsSequence
+      properties:
+        publisherOfferId:
+          type: string
+          description: The unique identifier for the rolling offer.
+        name:
+          type: string
+          description: The updated name of the rolling offer.
+        type:
+          type: string
+          description: The type of offer - RollingOffer.
+          enum:
+          - RollingOffer
+        active:
+          type: boolean
+          description: Whether the rolling offer is active.
+        priority:
+          type: integer
+          description: The priority level of the rolling offer. Rolling offers will be sorted by priority, and only the rolling offer with the highest priority will be returned. Rolling offers with no priority will be sorted by the `createdAt` date.
         offerUiId:
           type: string
           description: Internal ID for the Offer UI (required if offerExternalUiId not provided).

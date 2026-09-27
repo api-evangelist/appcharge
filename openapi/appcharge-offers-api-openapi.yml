@@ -255,6 +255,224 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ProductsSequence:
+      type: object
+      properties:
+        index:
+          type: number
+        priceInUsdCents:
+          type: number
+        playerAvailability:
+          type: number
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductsSet'
+      required:
+      - index
+      - priceInUsdCents
+      - products
+    PriceDiscountDto:
+      type: object
+      properties:
+        priceBeforeDiscount:
+          type: integer
+          description: Offer amount in USD before sale is applied
+        discount:
+          type: integer
+          description: Sale amount in percentage
+        type:
+          type: string
+          description: 'Discount type. Defaults to ''percentage''. Optional values: ''percentage'', ''multiplier'', ''fixed_amount''.
+
+            '
+          enum:
+          - percentage
+          - multiplier
+          - fixed_amount
+    GetOffersResponse:
+      type: object
+      properties:
+        result:
+          type: object
+          properties:
+            totalCount:
+              type: number
+            offers:
+              type: array
+              items:
+                $ref: '#/components/schemas/OfferDtoResponse'
+        status:
+          type: number
+        message:
+          type: string
+    CreateOfferDto:
+      type: object
+      required:
+      - publisherOfferId
+      - name
+      - type
+      - active
+      - segments
+      - productsSequence
+      properties:
+        publisherOfferId:
+          type: string
+          description: The publisher offer Id
+        name:
+          type: string
+          description: The name of the offer (at least 3 letters)
+        displayName:
+          type: string
+          description: If not specified, the offer name will be used
+        description:
+          type: string
+          description: The description of the offer (conditionally returned)
+        type:
+          type: string
+          description: The type of the offer - Bundle, SpecialOffer
+        offerUiId:
+          type: string
+          description: 'Internal ID for the Offer UI (required if offerExternalUiId not provided)
+
+            '
+        offerExternalUiId:
+          type: string
+          description: 'The offer UI ID as configured by the publisher (if provided, offerUiId is not required)
+
+            '
+        publisherSectionId:
+          type: string
+          description: 'The publisher section ID (applies only to Bundle)
+
+            '
+        dynamicOfferUi:
+          $ref: '#/components/schemas/DynamicOfferUiDto'
+        active:
+          type: boolean
+          description: Whether the offer is active
+        segments:
+          type: array
+          items:
+            type: string
+          description: 'IDs of player segments (["NewUser", "BigSpender"] etc.)
+
+            '
+        productsSequence:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductsSequence'
+        schedule:
+          type: object
+          properties:
+            permanent:
+              type: boolean
+              default: true
+            timeFrames:
+              type: array
+              items:
+                type: object
+                properties:
+                  startTime:
+                    type: string
+                    format: date-time
+                  endTime:
+                    type: string
+                    format: date-time
+                  notes:
+                    type: string
+                required:
+                - startTime
+                - endTime
+            intervals:
+              type: string
+          required:
+          - permanent
+          - timeFrames
+        priceDiscount:
+          $ref: '#/components/schemas/PriceDiscountDto'
+    DynamicOfferUiDto:
+      type: object
+      properties:
+        badges:
+          type: array
+          items:
+            type: object
+            properties:
+              publisherBadgeId:
+                type: string
+              position:
+                type: string
+          description: The badges of the offer
+        salePercentage:
+          type: number
+        salePercentageDisplayType:
+          type: string
+          default: percentage
+    OfferDtoResponse:
+      type: object
+      properties:
+        offerId:
+          type: string
+        publisherOfferId:
+          type: string
+        name:
+          type: string
+        displayName:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+        createdBy:
+          type: string
+        offerUi:
+          $ref: '#/components/schemas/OfferUiDto'
+        dynamicOfferUi:
+          $ref: '#/components/schemas/DynamicOfferUiDto'
+        active:
+          type: boolean
+        segments:
+          type: array
+          items:
+            type: string
+        productsSequence:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductsSequenceResponse'
+        startOver:
+          type: boolean
+        priority:
+          type: number
+        showAfter:
+          type: string
+        triggers:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              eventName:
+                type: string
+              every:
+                type: integer
+              rules:
+                type: array
+                items: {}
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    ProductsSetResponse:
+      type: object
+      properties:
+        quantity:
+          type: number
+        product:
+          $ref: '#/components/schemas/ProductDto'
     UpdateOfferDto:
       type: object
       properties:
@@ -392,206 +610,6 @@ components:
                   type: string
                 direction:
                   type: string
-    ProductsSet:
-      type: object
-      properties:
-        quantity:
-          type: number
-        publisherProductId:
-          type: string
-      required:
-      - quantity
-      - publisherProductId
-    ProductsSequenceResponse:
-      type: object
-      properties:
-        index:
-          type: number
-        playerAvailability:
-          type: number
-        priceInUsdCents:
-          type: number
-        products:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProductsSetResponse'
-    ProductsSequence:
-      type: object
-      properties:
-        index:
-          type: number
-        priceInUsdCents:
-          type: number
-        playerAvailability:
-          type: number
-        products:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProductsSet'
-      required:
-      - index
-      - priceInUsdCents
-      - products
-    CreateOfferDto:
-      type: object
-      required:
-      - publisherOfferId
-      - name
-      - type
-      - active
-      - segments
-      - productsSequence
-      properties:
-        publisherOfferId:
-          type: string
-          description: The publisher offer Id
-        name:
-          type: string
-          description: The name of the offer (at least 3 letters)
-        displayName:
-          type: string
-          description: If not specified, the offer name will be used
-        description:
-          type: string
-          description: The description of the offer (conditionally returned)
-        type:
-          type: string
-          description: The type of the offer - Bundle, SpecialOffer
-        offerUiId:
-          type: string
-          description: 'Internal ID for the Offer UI (required if offerExternalUiId not provided)
-
-            '
-        offerExternalUiId:
-          type: string
-          description: 'The offer UI ID as configured by the publisher (if provided, offerUiId is not required)
-
-            '
-        publisherSectionId:
-          type: string
-          description: 'The publisher section ID (applies only to Bundle)
-
-            '
-        dynamicOfferUi:
-          $ref: '#/components/schemas/DynamicOfferUiDto'
-        active:
-          type: boolean
-          description: Whether the offer is active
-        segments:
-          type: array
-          items:
-            type: string
-          description: 'IDs of player segments (["NewUser", "BigSpender"] etc.)
-
-            '
-        productsSequence:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProductsSequence'
-        schedule:
-          type: object
-          properties:
-            permanent:
-              type: boolean
-              default: true
-            timeFrames:
-              type: array
-              items:
-                type: object
-                properties:
-                  startTime:
-                    type: string
-                    format: date-time
-                  endTime:
-                    type: string
-                    format: date-time
-                  notes:
-                    type: string
-                required:
-                - startTime
-                - endTime
-            intervals:
-              type: string
-          required:
-          - permanent
-          - timeFrames
-        priceDiscount:
-          $ref: '#/components/schemas/PriceDiscountDto'
-    OfferDtoResponse:
-      type: object
-      properties:
-        offerId:
-          type: string
-        publisherOfferId:
-          type: string
-        name:
-          type: string
-        displayName:
-          type: string
-        description:
-          type: string
-        type:
-          type: string
-        createdBy:
-          type: string
-        offerUi:
-          $ref: '#/components/schemas/OfferUiDto'
-        dynamicOfferUi:
-          $ref: '#/components/schemas/DynamicOfferUiDto'
-        active:
-          type: boolean
-        segments:
-          type: array
-          items:
-            type: string
-        productsSequence:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProductsSequenceResponse'
-        startOver:
-          type: boolean
-        priority:
-          type: number
-        showAfter:
-          type: string
-        triggers:
-          type: array
-          items:
-            type: object
-            properties:
-              type:
-                type: string
-              eventName:
-                type: string
-              every:
-                type: integer
-              rules:
-                type: array
-                items: {}
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-    PriceDiscountDto:
-      type: object
-      properties:
-        priceBeforeDiscount:
-          type: integer
-          description: Offer amount in USD before sale is applied
-        discount:
-          type: integer
-          description: Sale amount in percentage
-        type:
-          type: string
-          description: 'Discount type. Defaults to ''percentage''. Optional values: ''percentage'', ''multiplier'', ''fixed_amount''.
-
-            '
-          enum:
-          - percentage
-          - multiplier
-          - fixed_amount
     ProductDto:
       type: object
       properties:
@@ -626,47 +644,29 @@ components:
           format: date-time
         productId:
           type: string
-    ProductsSetResponse:
+    ProductsSet:
       type: object
       properties:
         quantity:
           type: number
-        product:
-          $ref: '#/components/schemas/ProductDto'
-    DynamicOfferUiDto:
+        publisherProductId:
+          type: string
+      required:
+      - quantity
+      - publisherProductId
+    ProductsSequenceResponse:
       type: object
       properties:
-        badges:
+        index:
+          type: number
+        playerAvailability:
+          type: number
+        priceInUsdCents:
+          type: number
+        products:
           type: array
           items:
-            type: object
-            properties:
-              publisherBadgeId:
-                type: string
-              position:
-                type: string
-          description: The badges of the offer
-        salePercentage:
-          type: number
-        salePercentageDisplayType:
-          type: string
-          default: percentage
-    GetOffersResponse:
-      type: object
-      properties:
-        result:
-          type: object
-          properties:
-            totalCount:
-              type: number
-            offers:
-              type: array
-              items:
-                $ref: '#/components/schemas/OfferDtoResponse'
-        status:
-          type: number
-        message:
-          type: string
+            $ref: '#/components/schemas/ProductsSetResponse'
   securitySchemes:
     PublisherTokenAuth:
       type: apiKey

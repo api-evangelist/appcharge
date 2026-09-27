@@ -743,204 +743,6 @@ paths:
       - General
 components:
   schemas:
-    PriceByCountry:
-      type: object
-      properties:
-        price:
-          type: number
-          description: Localized price for the country.
-          example: 7.99
-        currencyCode:
-          type: string
-          description: Currency code.
-          example: GBP
-        isOverridden:
-          type: boolean
-          description: Whether the price was overridden.
-          example: false
-        taxModel:
-          type: string
-          enum:
-          - Included
-          - Excluded
-          description: Tax model applied to the price.
-          example: Included
-        taxRate:
-          type: number
-          description: Tax rate applied to the price.
-          example: 20
-        country:
-          type: string
-          description: Country name.
-          example: United Kingdom
-        countryCode2:
-          type: string
-          description: Country code in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
-          example: GB
-        usdExchangeRateOnCalc:
-          type: number
-          description: USD exchange rate used at the time of calculation.
-          example: 0.79
-        exchangeRateDrift:
-          type: string
-          description: Exchange rate drift since the last calculation.
-          example: -1.2%
-    PriceByCountryDetailed:
-      allOf:
-      - $ref: '#/components/schemas/PriceByCountry'
-    UnauthorizedError:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          description: HTTP status code.
-          example: 401
-        error:
-          type: string
-          description: Error type.
-          example: Unauthorized
-        message:
-          type: array
-          description: Array of error messages.
-          items:
-            type: object
-            properties:
-              validationErrorNumber:
-                type: integer
-                description: Error number.
-                example: 1
-              error:
-                type: string
-                description: Error message.
-                example: Publisher token is required.
-        requestUrl:
-          type: string
-          description: The request URL that caused the error.
-          example: /reporting/financial-data/transactions?startDate=2025-05-26T00:00:00Z&endDate=2025-07-24T23:59:59Z
-    ConflictErrorResponse:
-      type: object
-      required:
-      - message
-      properties:
-        message:
-          type: string
-          description: Error message describing what went wrong.
-          example: Cannot create new pricing. The price point already exists.
-    CheckoutSessionResponse:
-      type: object
-      properties:
-        checkoutSessionToken:
-          type: string
-          description: Checkout session token. Use this token when calling the [Cancel Checkout Session API](./cancel-checkout-session) to cancel the session.
-          example: 61ed143b22d24815a713e215e99b0ea6
-        purchaseId:
-          type: string
-          description: Purchase ID.
-          example: purchase_abc123def456
-        url:
-          type: string
-          description: Checkout session URL hosted on Appcharge.
-          example: https://checkout-v2.appcharge.com
-          deprecated: true
-        parsedUrl:
-          type: string
-          description: New checkout session URL hosted on Appcharge.
-          example: https://pay.appcharge.com/61a164d563c54014b1959a5c78704964#boot={PUBLISHER_BOOT_DATA}
-    ErrorResponse:
-      type: object
-      properties:
-        errorCode:
-          type: integer
-          format: int32
-          description: Error code indicating the type of failure.
-          default: 0
-        errorMessage:
-          type: string
-          description: Detailed message describing the error.
-    InternalServerError:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          description: HTTP status code.
-          example: 500
-        error:
-          type: string
-          description: Error type.
-          example: Internal Server Error
-        message:
-          type: array
-          description: Array of error messages.
-          items:
-            type: object
-            properties:
-              validationErrorNumber:
-                type: integer
-                description: Error number.
-                example: 1
-              error:
-                type: string
-                description: Error message.
-                example: Failed to get transactions.
-        requestUrl:
-          type: string
-          description: The request URL that caused the error.
-          example: /reporting/financial-data/transactions?startDate=2025-05-26T00:00:00Z&endDate=2025-07-24T23:59:59Z
-    BadRequestError:
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          description: HTTP status code.
-          example: 400
-        error:
-          type: string
-          description: Error type.
-          example: Bad Request
-        message:
-          type: array
-          description: Array of error messages.
-          items:
-            type: object
-            properties:
-              validationErrorNumber:
-                type: integer
-                description: Error number.
-                example: 1
-              error:
-                type: string
-                description: Error message.
-                example: endDate must be after startDate.
-        requestUrl:
-          type: string
-          description: The request URL that caused the error.
-          example: /reporting/financial-data/transactions?startDate=2025-07-24T00:00:00Z&endDate=2025-05-26T23:59:59Z
-    BadRequestErrorResponse:
-      type: object
-      required:
-      - message
-      properties:
-        message:
-          type: string
-          description: Error message describing what went wrong.
-          example: 'Invalid priceInUsdCents value: must be a positive integer [invalid1, invalid2].'
-    PricePoint:
-      type: object
-      properties:
-        priceInUsdCents:
-          type: number
-          description: Base price in USD cents.
-          example: 999
-        lastUpdate:
-          type: string
-          format: date-time
-          description: Timestamp indicating when the price point was last updated, in UTC ISO 8601 format.
-          example: '2026-01-01T14:30:00Z'
-        priceByCountry:
-          type: array
-          items:
-            $ref: '#/components/schemas/PriceByCountry'
-          description: List of localized prices by country, including overrides if present.
     LocalizedPricePointLookupResponse:
       type: object
       properties:
@@ -984,6 +786,223 @@ components:
           type: string
           description: Country code in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
           example: DE
+    UnauthorizedError:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          description: HTTP status code.
+          example: 401
+        error:
+          type: string
+          description: Error type.
+          example: Unauthorized
+        message:
+          type: array
+          description: Array of error messages.
+          items:
+            type: object
+            properties:
+              validationErrorNumber:
+                type: integer
+                description: Error number.
+                example: 1
+              error:
+                type: string
+                description: Error message.
+                example: Publisher token is required.
+        requestUrl:
+          type: string
+          description: The request URL that caused the error.
+          example: /reporting/financial-data/transactions?startDate=2025-05-26T00:00:00Z&endDate=2025-07-24T23:59:59Z
+    CheckoutSessionResponse:
+      type: object
+      properties:
+        checkoutSessionToken:
+          type: string
+          description: Checkout session token. Use this token when calling the [Cancel Checkout Session API](./cancel-checkout-session) to cancel the session.
+          example: 61ed143b22d24815a713e215e99b0ea6
+        purchaseId:
+          type: string
+          description: Purchase ID.
+          example: purchase_abc123def456
+        url:
+          type: string
+          description: Checkout session URL hosted on Appcharge.
+          example: https://checkout-v2.appcharge.com
+          deprecated: true
+        parsedUrl:
+          type: string
+          description: New checkout session URL hosted on Appcharge.
+          example: https://pay.appcharge.com/61a164d563c54014b1959a5c78704964#boot={PUBLISHER_BOOT_DATA}
+    BadRequestError:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          description: HTTP status code.
+          example: 400
+        error:
+          type: string
+          description: Error type.
+          example: Bad Request
+        message:
+          type: array
+          description: Array of error messages.
+          items:
+            type: object
+            properties:
+              validationErrorNumber:
+                type: integer
+                description: Error number.
+                example: 1
+              error:
+                type: string
+                description: Error message.
+                example: endDate must be after startDate.
+        requestUrl:
+          type: string
+          description: The request URL that caused the error.
+          example: /reporting/financial-data/transactions?startDate=2025-07-24T00:00:00Z&endDate=2025-05-26T23:59:59Z
+    PriceByCountry:
+      type: object
+      properties:
+        price:
+          type: number
+          description: Localized price for the country.
+          example: 7.99
+        currencyCode:
+          type: string
+          description: Currency code.
+          example: GBP
+        isOverridden:
+          type: boolean
+          description: Whether the price was overridden.
+          example: false
+        taxModel:
+          type: string
+          enum:
+          - Included
+          - Excluded
+          description: Tax model applied to the price.
+          example: Included
+        taxRate:
+          type: number
+          description: Tax rate applied to the price.
+          example: 20
+        country:
+          type: string
+          description: Country name.
+          example: United Kingdom
+        countryCode2:
+          type: string
+          description: Country code in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+          example: GB
+        usdExchangeRateOnCalc:
+          type: number
+          description: USD exchange rate used at the time of calculation.
+          example: 0.79
+        exchangeRateDrift:
+          type: string
+          description: Exchange rate drift since the last calculation.
+          example: -1.2%
+    ConflictErrorResponse:
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
+          description: Error message describing what went wrong.
+          example: Cannot create new pricing. The price point already exists.
+    PricePointDetailed:
+      type: object
+      properties:
+        priceInUsdCents:
+          type: number
+          description: Base price in USD cents.
+          example: 999
+        lastUpdate:
+          type: string
+          format: date-time
+          description: Timestamp indicating when the price point was last updated, in UTC ISO 8601 format.
+          example: '2026-01-01T14:30:00Z'
+        priceByCountry:
+          type: array
+          items:
+            $ref: '#/components/schemas/PriceByCountryDetailed'
+          description: List of localized prices by country, including overrides if present.
+    InternalServerError:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          description: HTTP status code.
+          example: 500
+        error:
+          type: string
+          description: Error type.
+          example: Internal Server Error
+        message:
+          type: array
+          description: Array of error messages.
+          items:
+            type: object
+            properties:
+              validationErrorNumber:
+                type: integer
+                description: Error number.
+                example: 1
+              error:
+                type: string
+                description: Error message.
+                example: Failed to get transactions.
+        requestUrl:
+          type: string
+          description: The request URL that caused the error.
+          example: /reporting/financial-data/transactions?startDate=2025-05-26T00:00:00Z&endDate=2025-07-24T23:59:59Z
+    ErrorResponse:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+          format: int32
+          description: Error code indicating the type of failure.
+          default: 0
+        errorMessage:
+          type: string
+          description: Detailed message describing the error.
+    PriceByCountryDetailed:
+      allOf:
+      - $ref: '#/components/schemas/PriceByCountry'
+    PriceOverride:
+      type: object
+      properties:
+        countryCode2:
+          type: string
+          description: Country code in ISO 3166-1 alpha-2 format.
+          example: BR
+        price:
+          type: number
+          description: Override price amount. If the country's currency isn't enabled, the value is treated as USD and displayed in USD.
+          example: 29.99
+    PricePoint:
+      type: object
+      properties:
+        priceInUsdCents:
+          type: number
+          description: Base price in USD cents.
+          example: 999
+        lastUpdate:
+          type: string
+          format: date-time
+          description: Timestamp indicating when the price point was last updated, in UTC ISO 8601 format.
+          example: '2026-01-01T14:30:00Z'
+        priceByCountry:
+          type: array
+          items:
+            $ref: '#/components/schemas/PriceByCountry'
+          description: List of localized prices by country, including overrides if present.
     Transaction:
       type: object
       properties:
@@ -1131,35 +1150,6 @@ components:
               type: string
               description: Payment method used.
               example: credit_card
-    PricePointSummary:
-      type: object
-      properties:
-        priceInUsdCents:
-          type: number
-          description: Base price in USD cents.
-          example: 999
-        lastUpdate:
-          type: string
-          format: date-time
-          description: Timestamp indicating when the price point was last updated, in UTC ISO 8601 format.
-          example: '2026-01-01T14:30:00Z'
-    PricePointDetailed:
-      type: object
-      properties:
-        priceInUsdCents:
-          type: number
-          description: Base price in USD cents.
-          example: 999
-        lastUpdate:
-          type: string
-          format: date-time
-          description: Timestamp indicating when the price point was last updated, in UTC ISO 8601 format.
-          example: '2026-01-01T14:30:00Z'
-        priceByCountry:
-          type: array
-          items:
-            $ref: '#/components/schemas/PriceByCountryDetailed'
-          description: List of localized prices by country, including overrides if present.
     CheckoutSessionRequest:
       type: object
       required:
@@ -1282,17 +1272,27 @@ components:
           type: string
           format: uri
           description: "A deeplink URL for redirecting the player to your domain, bringing them back to the game. For more information, see [Link Out Without SDK](/../../guides/payment-links/link-out-without-sdk). \n\n **Note:** This property is not relevant if you're using the Payment Links SDK."
-    PriceOverride:
+    BadRequestErrorResponse:
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
+          description: Error message describing what went wrong.
+          example: 'Invalid priceInUsdCents value: must be a positive integer [invalid1, invalid2].'
+    PricePointSummary:
       type: object
       properties:
-        countryCode2:
-          type: string
-          description: Country code in ISO 3166-1 alpha-2 format.
-          example: BR
-        price:
+        priceInUsdCents:
           type: number
-          description: Override price amount. If the country's currency isn't enabled, the value is treated as USD and displayed in USD.
-          example: 29.99
+          description: Base price in USD cents.
+          example: 999
+        lastUpdate:
+          type: string
+          format: date-time
+          description: Timestamp indicating when the price point was last updated, in UTC ISO 8601 format.
+          example: '2026-01-01T14:30:00Z'
   securitySchemes:
     PublisherTokenAuth:
       type: apiKey
