@@ -491,6 +491,380 @@ paths:
                 body: Server error.
 components:
   schemas:
+    GetContentTranslationsResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/TranslationResponse'
+          description: List of translations for the content item. Each item represents a locale and its translations.
+    ErrorResponse:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+          format: int32
+          description: Error code indicating the type of failure.
+          default: 0
+        errorMessage:
+          type: string
+          description: Detailed message describing the error.
+    ContentItem:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Content ID.
+          example: 507f1f77bcf86cd799439011
+        title:
+          type: string
+          description: Content title.
+          example: Welcome to Our Game
+        subTitle:
+          type: string
+          description: Content description.
+          example: Everything you need to know
+        bodyText:
+          type: string
+          description: Content body text.
+          example: This is the main content body with detailed information...
+        headerImage:
+          type: string
+          description: Content header image URL.
+          example: https://cdn.example.com/images/header.jpg
+        thumbnailImage:
+          type: string
+          description: Content thumbnail image URL.
+          example: https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg
+        labels:
+          type: array
+          items:
+            type: string
+          description: List of labels associated with the content.
+          example:
+          - tutorial
+          - beginner
+        state:
+          type: string
+          description: Current state of the content.
+          default: hidden
+          enum:
+          - visible
+          - hidden
+          - scheduled
+          example: hidden
+        contentType:
+          type: string
+          enum:
+          - article
+          - news
+          description: Content type.
+          example: article
+        publishDate:
+          type: string
+          format: date-time
+          description: Content publish date. Use for scheduling content.
+          example: '2025-10-20T00:00:00.000Z'
+        slug:
+          type: string
+          description: Content slug. If not provided, this value is auto-generated.
+          example: welcome-to-our-game
+        visibility:
+          type: string
+          enum:
+          - public
+          - private
+          description: Content visibility level.
+          default: public
+          example: public
+        tag:
+          type: string
+          description: Internal tag for organizing your content. Not visible to players.
+          example: spring2025
+        createdAt:
+          type: string
+          format: date-time
+          description: Created date.
+          example: '2025-10-15T10:30:00.000Z'
+        updatedAt:
+          type: string
+          format: date-time
+          description: Updated date.
+          example: '2025-10-19T14:20:00.000Z'
+        translations:
+          type: array
+          items:
+            $ref: '#/components/schemas/TranslationResponse'
+          description: List of translations for the content item. Each object represents a locale and its translations.
+        pages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Page'
+          description: List of pages where this content appears.
+          example:
+          - id: 68b0249eb5bd5c59b9bab7e2
+            pageName: FAQs
+          - id: 692eb70d0293e07ab4895518
+            pageName: Events
+    UpdateContentRequest:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Content title.
+          example: Welcome to Our Game - Updated
+        subTitle:
+          type: string
+          description: 'Content description. '
+        bodyText:
+          type: string
+          description: Content body text.
+        headerImage:
+          type: string
+          description: 'Content header image URL. '
+        thumbnailImage:
+          type: string
+          description: 'Content thumbnail image URL. '
+        labels:
+          type: array
+          items:
+            type: string
+          description: List of labels associated with the content.
+          example:
+          - tutorial
+          - beginner
+          - featured
+        state:
+          type: string
+          description: Current state of the content.
+          default: visible
+          enum:
+          - visible
+          - hidden
+          - scheduled
+          example: visible
+        contentType:
+          type: string
+          enum:
+          - article
+          - news
+          description: 'Type: article or news.'
+        publishDate:
+          type: string
+          format: date-time
+          description: Content publish date. Use for scheduling content.
+        pages:
+          type: array
+          items:
+            type: string
+          description: List of pages where this content appears.
+        slug:
+          type: string
+          description: Content slug. If not provided, this value is auto-generated.
+        visibility:
+          type: string
+          enum:
+          - public
+          - private
+          description: Content visibility level.
+          default: public
+          example: public
+        tag:
+          type: string
+          description: Internal tag for organizing your content. Not visible to players.
+          example: spring2025
+        translations:
+          type: array
+          items:
+            $ref: '#/components/schemas/TranslationRequest'
+          description: "List of translations for the content item. Each object represents a locale and its translations. \n\n **Note:** You must first [add the locale in the Publisher Dashboard](/../../guides/translations/add-and-manage-languages) before adding its translations."
+    CreateContentRequest:
+      type: object
+      required:
+      - title
+      - headerImage
+      - thumbnailImage
+      - contentType
+      properties:
+        title:
+          type: string
+          description: Content title.
+          example: Welcome to Our Game
+        subTitle:
+          type: string
+          description: 'Content description. '
+          example: Everything you need to know
+        bodyText:
+          type: string
+          description: Content body text.
+          example: This is the main content body with detailed information about getting started...
+        headerImage:
+          type: string
+          description: Content header image URL. Can be an external link or the URL of an image from the Assets Library.
+          example: https://cdn.example.com/images/header.jpg
+        thumbnailImage:
+          type: string
+          description: Content thumbnail image URL. Can be an external link or the URL of an image from the Assets Library.
+          example: https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg
+        labels:
+          type: array
+          items:
+            type: string
+          description: List of labels associated with the content.
+          example:
+          - tutorial
+          - beginner
+        state:
+          type: string
+          description: Current state of the content.
+          default: visible
+          enum:
+          - visible
+          - hidden
+          - scheduled
+          example: visible
+        contentType:
+          type: string
+          enum:
+          - article
+          - news
+          description: Content type.
+          example: article
+        publishDate:
+          type: string
+          format: date-time
+          description: Content publish date. Use for scheduling content.
+          example: '2025-10-20T00:00:00.000Z'
+        pages:
+          type: array
+          items:
+            type: string
+          description: "List of page IDs where this content will appear. The Page ID can be found in the Pages section of the Publisher Dashboard. \n\n **Note:** If you don't pass this property, or if you assign the content to a page that doesn't exist, the content will be created but won't be displayed in the Game Portal."
+          example:
+          - 6850249eb5bd5c59b9bab7e2
+          - 692eb70d0293e07ab4895518
+        slug:
+          type: string
+          description: Content slug. If not provided, this value is auto-generated.
+          example: welcome-to-our-game
+        visibility:
+          type: string
+          enum:
+          - public
+          - private
+          description: Content visibility level.
+          default: public
+          example: public
+        tag:
+          type: string
+          description: Internal tag for organizing your content. Not visible to players.
+          example: spring2025
+        translations:
+          type: array
+          items:
+            $ref: '#/components/schemas/TranslationRequest'
+          description: "List of translations for the content item. Each object represents a locale and its translations. \n\n **Note:** You must first [add the locale in the Publisher Dashboard](/../../guides/translations/add-and-manage-languages) before adding its translations."
+    TranslationRequest:
+      type: object
+      required:
+      - isoCode
+      - title
+      - subTitle
+      - bodyText
+      - headerImage
+      - thumbnailImage
+      - labels
+      properties:
+        isoCode:
+          type: string
+          description: The locale code. Both [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code and [ISO-3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code formats are supported.
+          example: fr-FR
+        title:
+          type: string
+          description: Translated title.
+          example: Bienvenue dans notre jeu
+        subTitle:
+          type: string
+          description: Translated subtitle.
+          example: Tout ce que vous devez savoir
+        bodyText:
+          type: string
+          description: Translated body text.
+          example: Ceci est le contenu principal de l'article en français...
+        headerImage:
+          type: string
+          description: Translated header image URL. Can be an external link or the URL of an image from the Assets Library.
+          example: https://cdn.example.com/images/header-fr.jpg
+        thumbnailImage:
+          type: string
+          description: Translated thumbnail image URL. Can be an external link or the URL of an image from the Assets Library.
+          example: https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg
+        labels:
+          type: array
+          items:
+            type: string
+          description: Translated labels.
+          example:
+          - tutoriel
+          - débutant
+    GetContentResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContentItemList'
+          description: List of content objects.
+    Page:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Page ID.
+          example: 6850249eb5bd5c59b9bab7e2
+        pageName:
+          type: string
+          description: Page name.
+          example: faq
+    UpsertContentTranslationRequest:
+      type: object
+      required:
+      - title
+      - subTitle
+      - bodyText
+      - headerImage
+      - thumbnailImage
+      - labels
+      properties:
+        title:
+          type: string
+          description: Translated title.
+          example: Bienvenue dans notre jeu
+        subTitle:
+          type: string
+          description: Translated subtitle.
+          example: Tout ce que vous devez savoir
+        bodyText:
+          type: string
+          description: Translated body text.
+          example: Ceci est le contenu principal de l'article en français...
+        headerImage:
+          type: string
+          description: Translated header image URL. Can be an external link or the URL of an image from the Assets Library.
+          example: https://cdn.example.com/images/header-fr.jpg
+        thumbnailImage:
+          type: string
+          description: Translated thumbnail image URL. Can be an external link or the URL of an image from the Assets Library.
+          example: https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg
+        labels:
+          type: array
+          items:
+            type: string
+          description: Translated labels.
+          example:
+          - tutoriel
+          - débutant
     TranslationResponse:
       type: object
       properties:
@@ -618,380 +992,6 @@ components:
             pageName: FAQs
           - id: 692eb70d0293e07ab4895518
             pageName: Events
-    CreateContentRequest:
-      type: object
-      required:
-      - title
-      - headerImage
-      - thumbnailImage
-      - contentType
-      properties:
-        title:
-          type: string
-          description: Content title.
-          example: Welcome to Our Game
-        subTitle:
-          type: string
-          description: 'Content description. '
-          example: Everything you need to know
-        bodyText:
-          type: string
-          description: Content body text.
-          example: This is the main content body with detailed information about getting started...
-        headerImage:
-          type: string
-          description: Content header image URL. Can be an external link or the URL of an image from the Assets Library.
-          example: https://cdn.example.com/images/header.jpg
-        thumbnailImage:
-          type: string
-          description: Content thumbnail image URL. Can be an external link or the URL of an image from the Assets Library.
-          example: https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg
-        labels:
-          type: array
-          items:
-            type: string
-          description: List of labels associated with the content.
-          example:
-          - tutorial
-          - beginner
-        state:
-          type: string
-          description: Current state of the content.
-          default: visible
-          enum:
-          - visible
-          - hidden
-          - scheduled
-          example: visible
-        contentType:
-          type: string
-          enum:
-          - article
-          - news
-          description: Content type.
-          example: article
-        publishDate:
-          type: string
-          format: date-time
-          description: Content publish date. Use for scheduling content.
-          example: '2025-10-20T00:00:00.000Z'
-        pages:
-          type: array
-          items:
-            type: string
-          description: "List of page IDs where this content will appear. The Page ID can be found in the Pages section of the Publisher Dashboard. \n\n **Note:** If you don't pass this property, or if you assign the content to a page that doesn't exist, the content will be created but won't be displayed in the Game Portal."
-          example:
-          - 6850249eb5bd5c59b9bab7e2
-          - 692eb70d0293e07ab4895518
-        slug:
-          type: string
-          description: Content slug. If not provided, this value is auto-generated.
-          example: welcome-to-our-game
-        visibility:
-          type: string
-          enum:
-          - public
-          - private
-          description: Content visibility level.
-          default: public
-          example: public
-        tag:
-          type: string
-          description: Internal tag for organizing your content. Not visible to players.
-          example: spring2025
-        translations:
-          type: array
-          items:
-            $ref: '#/components/schemas/TranslationRequest'
-          description: "List of translations for the content item. Each object represents a locale and its translations. \n\n **Note:** You must first [add the locale in the Publisher Dashboard](/../../guides/translations/add-and-manage-languages) before adding its translations."
-    GetContentTranslationsResponse:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/TranslationResponse'
-          description: List of translations for the content item. Each item represents a locale and its translations.
-    ErrorResponse:
-      type: object
-      properties:
-        errorCode:
-          type: integer
-          format: int32
-          description: Error code indicating the type of failure.
-          default: 0
-        errorMessage:
-          type: string
-          description: Detailed message describing the error.
-    UpsertContentTranslationRequest:
-      type: object
-      required:
-      - title
-      - subTitle
-      - bodyText
-      - headerImage
-      - thumbnailImage
-      - labels
-      properties:
-        title:
-          type: string
-          description: Translated title.
-          example: Bienvenue dans notre jeu
-        subTitle:
-          type: string
-          description: Translated subtitle.
-          example: Tout ce que vous devez savoir
-        bodyText:
-          type: string
-          description: Translated body text.
-          example: Ceci est le contenu principal de l'article en français...
-        headerImage:
-          type: string
-          description: Translated header image URL. Can be an external link or the URL of an image from the Assets Library.
-          example: https://cdn.example.com/images/header-fr.jpg
-        thumbnailImage:
-          type: string
-          description: Translated thumbnail image URL. Can be an external link or the URL of an image from the Assets Library.
-          example: https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg
-        labels:
-          type: array
-          items:
-            type: string
-          description: Translated labels.
-          example:
-          - tutoriel
-          - débutant
-    TranslationRequest:
-      type: object
-      required:
-      - isoCode
-      - title
-      - subTitle
-      - bodyText
-      - headerImage
-      - thumbnailImage
-      - labels
-      properties:
-        isoCode:
-          type: string
-          description: The locale code. Both [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code and [ISO-3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code formats are supported.
-          example: fr-FR
-        title:
-          type: string
-          description: Translated title.
-          example: Bienvenue dans notre jeu
-        subTitle:
-          type: string
-          description: Translated subtitle.
-          example: Tout ce que vous devez savoir
-        bodyText:
-          type: string
-          description: Translated body text.
-          example: Ceci est le contenu principal de l'article en français...
-        headerImage:
-          type: string
-          description: Translated header image URL. Can be an external link or the URL of an image from the Assets Library.
-          example: https://cdn.example.com/images/header-fr.jpg
-        thumbnailImage:
-          type: string
-          description: Translated thumbnail image URL. Can be an external link or the URL of an image from the Assets Library.
-          example: https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg
-        labels:
-          type: array
-          items:
-            type: string
-          description: Translated labels.
-          example:
-          - tutoriel
-          - débutant
-    Page:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Page ID.
-          example: 6850249eb5bd5c59b9bab7e2
-        pageName:
-          type: string
-          description: Page name.
-          example: faq
-    ContentItem:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Content ID.
-          example: 507f1f77bcf86cd799439011
-        title:
-          type: string
-          description: Content title.
-          example: Welcome to Our Game
-        subTitle:
-          type: string
-          description: Content description.
-          example: Everything you need to know
-        bodyText:
-          type: string
-          description: Content body text.
-          example: This is the main content body with detailed information...
-        headerImage:
-          type: string
-          description: Content header image URL.
-          example: https://cdn.example.com/images/header.jpg
-        thumbnailImage:
-          type: string
-          description: Content thumbnail image URL.
-          example: https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg
-        labels:
-          type: array
-          items:
-            type: string
-          description: List of labels associated with the content.
-          example:
-          - tutorial
-          - beginner
-        state:
-          type: string
-          description: Current state of the content.
-          default: hidden
-          enum:
-          - visible
-          - hidden
-          - scheduled
-          example: hidden
-        contentType:
-          type: string
-          enum:
-          - article
-          - news
-          description: Content type.
-          example: article
-        publishDate:
-          type: string
-          format: date-time
-          description: Content publish date. Use for scheduling content.
-          example: '2025-10-20T00:00:00.000Z'
-        slug:
-          type: string
-          description: Content slug. If not provided, this value is auto-generated.
-          example: welcome-to-our-game
-        visibility:
-          type: string
-          enum:
-          - public
-          - private
-          description: Content visibility level.
-          default: public
-          example: public
-        tag:
-          type: string
-          description: Internal tag for organizing your content. Not visible to players.
-          example: spring2025
-        createdAt:
-          type: string
-          format: date-time
-          description: Created date.
-          example: '2025-10-15T10:30:00.000Z'
-        updatedAt:
-          type: string
-          format: date-time
-          description: Updated date.
-          example: '2025-10-19T14:20:00.000Z'
-        translations:
-          type: array
-          items:
-            $ref: '#/components/schemas/TranslationResponse'
-          description: List of translations for the content item. Each object represents a locale and its translations.
-        pages:
-          type: array
-          items:
-            $ref: '#/components/schemas/Page'
-          description: List of pages where this content appears.
-          example:
-          - id: 68b0249eb5bd5c59b9bab7e2
-            pageName: FAQs
-          - id: 692eb70d0293e07ab4895518
-            pageName: Events
-    GetContentResponse:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ContentItemList'
-          description: List of content objects.
-    UpdateContentRequest:
-      type: object
-      properties:
-        title:
-          type: string
-          description: Content title.
-          example: Welcome to Our Game - Updated
-        subTitle:
-          type: string
-          description: 'Content description. '
-        bodyText:
-          type: string
-          description: Content body text.
-        headerImage:
-          type: string
-          description: 'Content header image URL. '
-        thumbnailImage:
-          type: string
-          description: 'Content thumbnail image URL. '
-        labels:
-          type: array
-          items:
-            type: string
-          description: List of labels associated with the content.
-          example:
-          - tutorial
-          - beginner
-          - featured
-        state:
-          type: string
-          description: Current state of the content.
-          default: visible
-          enum:
-          - visible
-          - hidden
-          - scheduled
-          example: visible
-        contentType:
-          type: string
-          enum:
-          - article
-          - news
-          description: 'Type: article or news.'
-        publishDate:
-          type: string
-          format: date-time
-          description: Content publish date. Use for scheduling content.
-        pages:
-          type: array
-          items:
-            type: string
-          description: List of pages where this content appears.
-        slug:
-          type: string
-          description: Content slug. If not provided, this value is auto-generated.
-        visibility:
-          type: string
-          enum:
-          - public
-          - private
-          description: Content visibility level.
-          default: public
-          example: public
-        tag:
-          type: string
-          description: Internal tag for organizing your content. Not visible to players.
-          example: spring2025
-        translations:
-          type: array
-          items:
-            $ref: '#/components/schemas/TranslationRequest'
-          description: "List of translations for the content item. Each object represents a locale and its translations. \n\n **Note:** You must first [add the locale in the Publisher Dashboard](/../../guides/translations/add-and-manage-languages) before adding its translations."
   securitySchemes:
     PublisherTokenAuth:
       type: apiKey

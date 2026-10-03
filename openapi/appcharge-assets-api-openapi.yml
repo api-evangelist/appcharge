@@ -141,49 +141,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    AssetUploadViaFile:
-      title: Upload via File
-      type: object
-      description: Upload asset via file.
-      properties:
-        type:
-          type: string
-          description: Asset category.
-          enum:
-          - product
-          - badge
-          - bgMobile
-          - bgDesk
-          - logo
-          - favicon
-          - bgBundle
-          - bgPopup
-          - general
-          - section
-          - productPrefix
-          - playerLevel
-          - banner
-          - addToHomeButtonImage
-          - addToHomeIconImage
-          - playerProfileImage
-          - offerHeader
-          - backToGameButtonImage
-          - animation
-          - trait
-          example: product
-        name:
-          type: string
-          description: Asset name.
-          example: gold_coins_icon
-        file:
-          type: string
-          format: binary
-          description: A valid PNG or JPEG image file. Maximum size is 2 MB.
-          example: gold_coins_icon.png
-      required:
-      - type
-      - name
-      - file
     GetAllAssetsResponse:
       type: object
       properties:
@@ -239,6 +196,94 @@ components:
                 format: url
                 description: Original image URL if the asset uses an external image URL. This URL is served from your CDN at the provided URL.
                 example: https://example.com/assets/gold_coins_icon.png
+    AssetUploadViaFile:
+      title: Upload via File
+      type: object
+      description: Upload asset via file.
+      properties:
+        type:
+          type: string
+          description: Asset category.
+          enum:
+          - product
+          - badge
+          - bgMobile
+          - bgDesk
+          - logo
+          - favicon
+          - bgBundle
+          - bgPopup
+          - general
+          - section
+          - productPrefix
+          - playerLevel
+          - banner
+          - addToHomeButtonImage
+          - addToHomeIconImage
+          - playerProfileImage
+          - offerHeader
+          - backToGameButtonImage
+          - animation
+          - trait
+          example: product
+        name:
+          type: string
+          description: Asset name.
+          example: gold_coins_icon
+        file:
+          type: string
+          format: binary
+          description: A valid PNG or JPEG image file. Maximum size is 2 MB.
+          example: gold_coins_icon.png
+      required:
+      - type
+      - name
+      - file
+    AssetUpdate:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Asset category.
+          enum:
+          - product
+          - badge
+          - bgMobile
+          - bgDesk
+          - logo
+          - favicon
+          - bgBundle
+          - bgPopup
+          - general
+          - section
+          - productPrefix
+          - playerLevel
+          - banner
+          - addToHomeButtonImage
+          - addToHomeIconImage
+          - playerProfileImage
+          - offerHeader
+          - backToGameButtonImage
+          - animation
+          - trait
+          example: bgMobile
+        name:
+          type: string
+          description: Asset name.
+          example: main_menu_background
+        file:
+          type: string
+          format: binary
+          description: A valid PNG or JPEG image file. Maximum size is 2 MB.
+          example: gold_coins_icon.png
+        externalImageUrl:
+          type: string
+          format: url
+          description: 'URL to a valid, publicly accessible image. Appcharge saves and uses this URL as-is and doesn''t download, copy, upload, or host the image on Appcharge CDN. The image must remain available at the provided URL.
+
+
+            We recommend uploading image files instead of using external URLs when possible. Appcharge hosts uploaded files on its CDN. Maximum size is 2 MB. Must be in PNG or JPEG format.'
+          example: https://example.com/assets/main_menu_background_updated.png
     AssetUploadViaUrl:
       title: Upload via URL
       type: object
@@ -335,51 +380,6 @@ components:
           format: url
           description: Original image URL if the asset uses an external image URL. This URL is served from your CDN at the provided URL.
           example: https://example.com/assets/gold_coins_icon.png
-    AssetUpdate:
-      type: object
-      properties:
-        type:
-          type: string
-          description: Asset category.
-          enum:
-          - product
-          - badge
-          - bgMobile
-          - bgDesk
-          - logo
-          - favicon
-          - bgBundle
-          - bgPopup
-          - general
-          - section
-          - productPrefix
-          - playerLevel
-          - banner
-          - addToHomeButtonImage
-          - addToHomeIconImage
-          - playerProfileImage
-          - offerHeader
-          - backToGameButtonImage
-          - animation
-          - trait
-          example: bgMobile
-        name:
-          type: string
-          description: Asset name.
-          example: main_menu_background
-        file:
-          type: string
-          format: binary
-          description: A valid PNG or JPEG image file. Maximum size is 2 MB.
-          example: gold_coins_icon.png
-        externalImageUrl:
-          type: string
-          format: url
-          description: 'URL to a valid, publicly accessible image. Appcharge saves and uses this URL as-is and doesn''t download, copy, upload, or host the image on Appcharge CDN. The image must remain available at the provided URL.
-
-
-            We recommend uploading image files instead of using external URLs when possible. Appcharge hosts uploaded files on its CDN. Maximum size is 2 MB. Must be in PNG or JPEG format.'
-          example: https://example.com/assets/main_menu_background_updated.png
   securitySchemes:
     PublisherTokenAuth:
       type: apiKey

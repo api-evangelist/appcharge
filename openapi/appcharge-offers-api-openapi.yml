@@ -255,41 +255,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ProductsSequence:
-      type: object
-      properties:
-        index:
-          type: number
-        priceInUsdCents:
-          type: number
-        playerAvailability:
-          type: number
-        products:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProductsSet'
-      required:
-      - index
-      - priceInUsdCents
-      - products
-    PriceDiscountDto:
-      type: object
-      properties:
-        priceBeforeDiscount:
-          type: integer
-          description: Offer amount in USD before sale is applied
-        discount:
-          type: integer
-          description: Sale amount in percentage
-        type:
-          type: string
-          description: 'Discount type. Defaults to ''percentage''. Optional values: ''percentage'', ''multiplier'', ''fixed_amount''.
-
-            '
-          enum:
-          - percentage
-          - multiplier
-          - fixed_amount
     GetOffersResponse:
       type: object
       properties:
@@ -391,81 +356,123 @@ components:
           - timeFrames
         priceDiscount:
           $ref: '#/components/schemas/PriceDiscountDto'
-    DynamicOfferUiDto:
+    ProductDto:
       type: object
       properties:
-        badges:
-          type: array
-          items:
-            type: object
-            properties:
-              publisherBadgeId:
-                type: string
-              position:
-                type: string
-          description: The badges of the offer
-        salePercentage:
-          type: number
-        salePercentageDisplayType:
-          type: string
-          default: percentage
-    OfferDtoResponse:
-      type: object
-      properties:
-        offerId:
-          type: string
-        publisherOfferId:
+        publisherProductId:
           type: string
         name:
           type: string
-        displayName:
-          type: string
-        description:
+        textFontColorHex:
           type: string
         type:
           type: string
-        createdBy:
+        prefix:
           type: string
-        offerUi:
-          $ref: '#/components/schemas/OfferUiDto'
-        dynamicOfferUi:
-          $ref: '#/components/schemas/DynamicOfferUiDto'
-        active:
-          type: boolean
-        segments:
-          type: array
-          items:
-            type: string
-        productsSequence:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProductsSequenceResponse'
-        startOver:
-          type: boolean
+        suffix:
+          type: string
         priority:
-          type: number
-        showAfter:
           type: string
-        triggers:
+        images:
           type: array
           items:
             type: object
             properties:
               type:
                 type: string
-              eventName:
+              url:
                 type: string
-              every:
-                type: integer
-              rules:
-                type: array
-                items: {}
         createdAt:
           type: string
           format: date-time
         updatedAt:
           type: string
           format: date-time
+        productId:
+          type: string
+    PriceDiscountDto:
+      type: object
+      properties:
+        priceBeforeDiscount:
+          type: integer
+          description: Offer amount in USD before sale is applied
+        discount:
+          type: integer
+          description: Sale amount in percentage
+        type:
+          type: string
+          description: 'Discount type. Defaults to ''percentage''. Optional values: ''percentage'', ''multiplier'', ''fixed_amount''.
+
+            '
+          enum:
+          - percentage
+          - multiplier
+          - fixed_amount
+    OfferUiDto:
+      type: object
+      properties:
+        offerUiId:
+          type: string
+        externalId:
+          type: string
+        active:
+          type: boolean
+        offerUiType:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        backgroundImage:
+          type: string
+        specialOffer:
+          type: object
+          properties:
+            templateType:
+              type: string
+            presentOfferEndTimer:
+              type: boolean
+            title:
+              type: string
+            fontSize:
+              type: number
+            fontWeight:
+              type: string
+            fontColor:
+              type: object
+              properties:
+                colorOne:
+                  type: string
+                colorTwo:
+                  type: string
+                direction:
+                  type: string
+            backgroundColor:
+              type: object
+              properties:
+                colorOne:
+                  type: string
+                colorTwo:
+                  type: string
+                direction:
+                  type: string
+    ProductsSequence:
+      type: object
+      properties:
+        index:
+          type: number
+        priceInUsdCents:
+          type: number
+        playerAvailability:
+          type: number
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductsSet'
+      required:
+      - index
+      - priceInUsdCents
+      - products
     ProductsSetResponse:
       type: object
       properties:
@@ -562,88 +569,6 @@ components:
           items:
             $ref: '#/components/schemas/ProductsSequence'
           description: Relevant only for rolling offers, for any other offer (store tile, single promotion) report all products under sequence ‘1’
-    OfferUiDto:
-      type: object
-      properties:
-        offerUiId:
-          type: string
-        externalId:
-          type: string
-        active:
-          type: boolean
-        offerUiType:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        backgroundImage:
-          type: string
-        specialOffer:
-          type: object
-          properties:
-            templateType:
-              type: string
-            presentOfferEndTimer:
-              type: boolean
-            title:
-              type: string
-            fontSize:
-              type: number
-            fontWeight:
-              type: string
-            fontColor:
-              type: object
-              properties:
-                colorOne:
-                  type: string
-                colorTwo:
-                  type: string
-                direction:
-                  type: string
-            backgroundColor:
-              type: object
-              properties:
-                colorOne:
-                  type: string
-                colorTwo:
-                  type: string
-                direction:
-                  type: string
-    ProductDto:
-      type: object
-      properties:
-        publisherProductId:
-          type: string
-        name:
-          type: string
-        textFontColorHex:
-          type: string
-        type:
-          type: string
-        prefix:
-          type: string
-        suffix:
-          type: string
-        priority:
-          type: string
-        images:
-          type: array
-          items:
-            type: object
-            properties:
-              type:
-                type: string
-              url:
-                type: string
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-        productId:
-          type: string
     ProductsSet:
       type: object
       properties:
@@ -654,6 +579,81 @@ components:
       required:
       - quantity
       - publisherProductId
+    OfferDtoResponse:
+      type: object
+      properties:
+        offerId:
+          type: string
+        publisherOfferId:
+          type: string
+        name:
+          type: string
+        displayName:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+        createdBy:
+          type: string
+        offerUi:
+          $ref: '#/components/schemas/OfferUiDto'
+        dynamicOfferUi:
+          $ref: '#/components/schemas/DynamicOfferUiDto'
+        active:
+          type: boolean
+        segments:
+          type: array
+          items:
+            type: string
+        productsSequence:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductsSequenceResponse'
+        startOver:
+          type: boolean
+        priority:
+          type: number
+        showAfter:
+          type: string
+        triggers:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              eventName:
+                type: string
+              every:
+                type: integer
+              rules:
+                type: array
+                items: {}
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    DynamicOfferUiDto:
+      type: object
+      properties:
+        badges:
+          type: array
+          items:
+            type: object
+            properties:
+              publisherBadgeId:
+                type: string
+              position:
+                type: string
+          description: The badges of the offer
+        salePercentage:
+          type: number
+        salePercentageDisplayType:
+          type: string
+          default: percentage
     ProductsSequenceResponse:
       type: object
       properties:
