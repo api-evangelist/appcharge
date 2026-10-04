@@ -1,21 +1,19 @@
-# Kin Score artifact — appcharge — 2026-08-27T094438
+# Kin Score artifact — appcharge — 2026-09-23T000603
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: appcharge
-  schema_version: 0.15.1
-  scored_at: '2026-08-27'
-  run_ts: 2026-08-27T094438
-  composite: 65.1
+  schema_version: 0.22.0
+  scored_at: '2026-09-23'
+  run_ts: 2026-09-23T000603
+  composite: 66.0
   band: strong
   facets:
-    discoverability: 92.6
-    contract_quality: 64.5
-    governance: 30.3
+    discoverability: 75.9
+    contract_quality: 66.0
+    contract_governance: 18.2
     operational_transparency: 65.8
-    developer_ergonomics: 71.4
-    commercial_clarity: 36.8
-    contract_governance: 30.3
+    developer_ergonomics: 67.9
     access_clarity: 36.8
   agent_readiness:
     score: 62.5
