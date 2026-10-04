@@ -206,6 +206,51 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    UpdateCouponRequest:
+      type: object
+      properties:
+        active:
+          type: boolean
+          description: Whether the coupon is active.
+          example: false
+        maxRedemptionsPerCustomer:
+          type:
+          - integer
+          - 'null'
+          description: Maximum number of times a customer can redeem this coupon. Set to `null` to remove the maximum redemptions per customer.
+          example: 5
+        expiredBy:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Expiration date of the coupon. Set to `null` to remove the expiration date and make the coupon permanent.
+          example: '2026-12-31T23:59:59.000Z'
+        startsAt:
+          type: string
+          format: date-time
+          description: Start date of the coupon validity. If not provided, defaults to current date and time.
+          example: '2026-06-16T09:30:53.378Z'
+        supportedOfferExternalIds:
+          type: array
+          items:
+            type: string
+          description: "List of offer external IDs that support this coupon. Empty array means all offers are supported. \n\n **Note:** This represents both the `offer.sku` value in the [Create Checkout Session API](../checkout-session/create-checkout-session), and the `publisherOfferId` in the [Offers V2 API](../../webstore/offers-v2/introduction)."
+          example:
+          - bundle1
+          - rollingoffer3
+        firstTimePurchase:
+          type: boolean
+          description: Whether the coupon is only valid for first-time purchases.
+          example: false
+        allowedPlayers:
+          type: array
+          items:
+            type: string
+          description: List of player IDs allowed to use this coupon. Empty array means all players are allowed.
+          example:
+          - player123
+          - player456
     CreateCouponRequest:
       type: object
       properties:
@@ -257,59 +302,6 @@ components:
       required:
       - name
       - discountPercentage
-    CouponResponse:
-      $ref: '#/components/schemas/Coupon'
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Error message describing what went wrong.
-    UpdateCouponRequest:
-      type: object
-      properties:
-        active:
-          type: boolean
-          description: Whether the coupon is active.
-          example: false
-        maxRedemptionsPerCustomer:
-          type:
-          - integer
-          - 'null'
-          description: Maximum number of times a customer can redeem this coupon. Set to `null` to remove the maximum redemptions per customer.
-          example: 5
-        expiredBy:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: Expiration date of the coupon. Set to `null` to remove the expiration date and make the coupon permanent.
-          example: '2026-12-31T23:59:59.000Z'
-        startsAt:
-          type: string
-          format: date-time
-          description: Start date of the coupon validity. If not provided, defaults to current date and time.
-          example: '2026-06-16T09:30:53.378Z'
-        supportedOfferExternalIds:
-          type: array
-          items:
-            type: string
-          description: "List of offer external IDs that support this coupon. Empty array means all offers are supported. \n\n **Note:** This represents both the `offer.sku` value in the [Create Checkout Session API](../checkout-session/create-checkout-session), and the `publisherOfferId` in the [Offers V2 API](../../webstore/offers-v2/introduction)."
-          example:
-          - bundle1
-          - rollingoffer3
-        firstTimePurchase:
-          type: boolean
-          description: Whether the coupon is only valid for first-time purchases.
-          example: false
-        allowedPlayers:
-          type: array
-          items:
-            type: string
-          description: List of player IDs allowed to use this coupon. Empty array means all players are allowed.
-          example:
-          - player123
-          - player456
     Coupon:
       type: object
       properties:
@@ -360,6 +352,14 @@ components:
           - player123
           - player456
           - player789
+    CouponResponse:
+      $ref: '#/components/schemas/Coupon'
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message describing what went wrong.
   securitySchemes:
     PublisherTokenAuth:
       type: apiKey

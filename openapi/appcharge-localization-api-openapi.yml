@@ -99,6 +99,41 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    TranslationResponse:
+      type: object
+      properties:
+        isoCode:
+          type: string
+          description: The locale code. Both [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code and [ISO-3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code formats are supported.
+          example: fr-FR
+        title:
+          type: string
+          description: Translated title.
+          example: Bienvenue dans notre jeu
+        subTitle:
+          type: string
+          description: Translated description.
+          example: Tout ce que vous devez savoir
+        bodyText:
+          type: string
+          description: Translated body text.
+          example: Ceci est le contenu principal de l'article en français...
+        headerImage:
+          type: string
+          description: Translated header image URL.
+          example: https://cdn.example.com/images/header-fr.jpg
+        thumbnailImage:
+          type: string
+          description: Translated thumbnail image URL.
+          example: https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg
+        labels:
+          type: array
+          items:
+            type: string
+          description: Translated labels.
+          example:
+          - tutoriel
+          - débutant
     TranslationRequest:
       type: object
       required:
@@ -133,41 +168,6 @@ components:
         thumbnailImage:
           type: string
           description: Translated thumbnail image URL. Can be an external link or the URL of an image from the Assets Library.
-          example: https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg
-        labels:
-          type: array
-          items:
-            type: string
-          description: Translated labels.
-          example:
-          - tutoriel
-          - débutant
-    TranslationResponse:
-      type: object
-      properties:
-        isoCode:
-          type: string
-          description: The locale code. Both [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code and [ISO-3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code formats are supported.
-          example: fr-FR
-        title:
-          type: string
-          description: Translated title.
-          example: Bienvenue dans notre jeu
-        subTitle:
-          type: string
-          description: Translated description.
-          example: Tout ce que vous devez savoir
-        bodyText:
-          type: string
-          description: Translated body text.
-          example: Ceci est le contenu principal de l'article en français...
-        headerImage:
-          type: string
-          description: Translated header image URL.
-          example: https://cdn.example.com/images/header-fr.jpg
-        thumbnailImage:
-          type: string
-          description: Translated thumbnail image URL.
           example: https://media.appcharge.com/media/25cb4861ec8924a6b69a0f59/book-shelf1920.jpg
         labels:
           type: array

@@ -255,22 +255,26 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    GetOffersResponse:
+    ProductsSetResponse:
       type: object
       properties:
-        result:
-          type: object
-          properties:
-            totalCount:
-              type: number
-            offers:
-              type: array
-              items:
-                $ref: '#/components/schemas/OfferDtoResponse'
-        status:
+        quantity:
           type: number
-        message:
-          type: string
+        product:
+          $ref: '#/components/schemas/ProductDto'
+    ProductsSequenceResponse:
+      type: object
+      properties:
+        index:
+          type: number
+        playerAvailability:
+          type: number
+        priceInUsdCents:
+          type: number
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductsSetResponse'
     CreateOfferDto:
       type: object
       required:
@@ -356,40 +360,6 @@ components:
           - timeFrames
         priceDiscount:
           $ref: '#/components/schemas/PriceDiscountDto'
-    ProductDto:
-      type: object
-      properties:
-        publisherProductId:
-          type: string
-        name:
-          type: string
-        textFontColorHex:
-          type: string
-        type:
-          type: string
-        prefix:
-          type: string
-        suffix:
-          type: string
-        priority:
-          type: string
-        images:
-          type: array
-          items:
-            type: object
-            properties:
-              type:
-                type: string
-              url:
-                type: string
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-        productId:
-          type: string
     PriceDiscountDto:
       type: object
       properties:
@@ -408,6 +378,22 @@ components:
           - percentage
           - multiplier
           - fixed_amount
+    GetOffersResponse:
+      type: object
+      properties:
+        result:
+          type: object
+          properties:
+            totalCount:
+              type: number
+            offers:
+              type: array
+              items:
+                $ref: '#/components/schemas/OfferDtoResponse'
+        status:
+          type: number
+        message:
+          type: string
     OfferUiDto:
       type: object
       properties:
@@ -456,6 +442,125 @@ components:
                   type: string
                 direction:
                   type: string
+    ProductsSet:
+      type: object
+      properties:
+        quantity:
+          type: number
+        publisherProductId:
+          type: string
+      required:
+      - quantity
+      - publisherProductId
+    OfferDtoResponse:
+      type: object
+      properties:
+        offerId:
+          type: string
+        publisherOfferId:
+          type: string
+        name:
+          type: string
+        displayName:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+        createdBy:
+          type: string
+        offerUi:
+          $ref: '#/components/schemas/OfferUiDto'
+        dynamicOfferUi:
+          $ref: '#/components/schemas/DynamicOfferUiDto'
+        active:
+          type: boolean
+        segments:
+          type: array
+          items:
+            type: string
+        productsSequence:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductsSequenceResponse'
+        startOver:
+          type: boolean
+        priority:
+          type: number
+        showAfter:
+          type: string
+        triggers:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              eventName:
+                type: string
+              every:
+                type: integer
+              rules:
+                type: array
+                items: {}
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    DynamicOfferUiDto:
+      type: object
+      properties:
+        badges:
+          type: array
+          items:
+            type: object
+            properties:
+              publisherBadgeId:
+                type: string
+              position:
+                type: string
+          description: The badges of the offer
+        salePercentage:
+          type: number
+        salePercentageDisplayType:
+          type: string
+          default: percentage
+    ProductDto:
+      type: object
+      properties:
+        publisherProductId:
+          type: string
+        name:
+          type: string
+        textFontColorHex:
+          type: string
+        type:
+          type: string
+        prefix:
+          type: string
+        suffix:
+          type: string
+        priority:
+          type: string
+        images:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              url:
+                type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        productId:
+          type: string
     ProductsSequence:
       type: object
       properties:
@@ -473,13 +578,6 @@ components:
       - index
       - priceInUsdCents
       - products
-    ProductsSetResponse:
-      type: object
-      properties:
-        quantity:
-          type: number
-        product:
-          $ref: '#/components/schemas/ProductDto'
     UpdateOfferDto:
       type: object
       properties:
@@ -569,104 +667,6 @@ components:
           items:
             $ref: '#/components/schemas/ProductsSequence'
           description: Relevant only for rolling offers, for any other offer (store tile, single promotion) report all products under sequence ‘1’
-    ProductsSet:
-      type: object
-      properties:
-        quantity:
-          type: number
-        publisherProductId:
-          type: string
-      required:
-      - quantity
-      - publisherProductId
-    OfferDtoResponse:
-      type: object
-      properties:
-        offerId:
-          type: string
-        publisherOfferId:
-          type: string
-        name:
-          type: string
-        displayName:
-          type: string
-        description:
-          type: string
-        type:
-          type: string
-        createdBy:
-          type: string
-        offerUi:
-          $ref: '#/components/schemas/OfferUiDto'
-        dynamicOfferUi:
-          $ref: '#/components/schemas/DynamicOfferUiDto'
-        active:
-          type: boolean
-        segments:
-          type: array
-          items:
-            type: string
-        productsSequence:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProductsSequenceResponse'
-        startOver:
-          type: boolean
-        priority:
-          type: number
-        showAfter:
-          type: string
-        triggers:
-          type: array
-          items:
-            type: object
-            properties:
-              type:
-                type: string
-              eventName:
-                type: string
-              every:
-                type: integer
-              rules:
-                type: array
-                items: {}
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-    DynamicOfferUiDto:
-      type: object
-      properties:
-        badges:
-          type: array
-          items:
-            type: object
-            properties:
-              publisherBadgeId:
-                type: string
-              position:
-                type: string
-          description: The badges of the offer
-        salePercentage:
-          type: number
-        salePercentageDisplayType:
-          type: string
-          default: percentage
-    ProductsSequenceResponse:
-      type: object
-      properties:
-        index:
-          type: number
-        playerAvailability:
-          type: number
-        priceInUsdCents:
-          type: number
-        products:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProductsSetResponse'
   securitySchemes:
     PublisherTokenAuth:
       type: apiKey

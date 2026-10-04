@@ -317,35 +317,8 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    PromoCode:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Promo code name.
-          example: swx1
-        active:
-          type: boolean
-          description: Whether the promo code is active.
-          example: true
-        maxRedemptions:
-          type: integer
-          description: Maximum number of times this promo code can be redeemed.
-          example: 50
-        createdAt:
-          type: string
-          format: date-time
-          description: Timestamp when the promo code was created.
-          example: '2025-01-22T15:58:24.116Z'
-        updatedAt:
-          type: string
-          format: date-time
-          description: Timestamp when the promo code was last updated.
-          example: '2025-01-25T08:44:26.668Z'
-        redemptions:
-          type: integer
-          description: Number of times this promo code has been redeemed.
-          example: 10
+    PromoCodeResponse:
+      $ref: '#/components/schemas/PromoCode'
     CreatePromoCodesRequest:
       type: object
       properties:
@@ -356,75 +329,6 @@ components:
           description: List of promo codes to create.
       required:
       - promoCodes
-    PromoCodeActivationResponse:
-      type: object
-      properties:
-        promoCodes:
-          type: array
-          items:
-            $ref: '#/components/schemas/PromoCode'
-          description: List of updated promo codes.
-    ListPromoCodesResponse:
-      type: object
-      properties:
-        promoCodes:
-          type: array
-          items:
-            $ref: '#/components/schemas/PromoCode'
-          description: List of promo codes.
-        totalCount:
-          type: integer
-          description: Total number of promo codes matching the query.
-          example: 42
-        totalPages:
-          type: integer
-          description: Total number of pages matching the query.
-          example: 1
-        hasNextPage:
-          type: boolean
-          description: Whether there is an additional page of results.
-          example: true
-        page:
-          type: integer
-          description: Current page number.
-          example: 1
-        limit:
-          type: integer
-          description: Maximum number of promo codes per page.
-          example: 1000
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Error message describing what went wrong.
-    CreatedPromoCode:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Promo code name.
-          example: swx1
-        active:
-          type: boolean
-          description: Whether the promo code is active.
-          example: true
-        maxRedemptions:
-          type: integer
-          description: Maximum number of times this promo code can be redeemed.
-          example: 1
-        createdAt:
-          type: string
-          format: date-time
-          description: Timestamp when the promo code was created.
-          example: '2025-01-22T15:58:24.116Z'
-        updatedAt:
-          type: string
-          format: date-time
-          description: Timestamp when the promo code was last updated.
-          example: '2025-01-25T08:44:26.668Z'
-    PromoCodeResponse:
-      $ref: '#/components/schemas/PromoCode'
     PromoCodesResponse:
       type: object
       properties:
@@ -454,6 +358,94 @@ components:
       required:
       - active
       - promoCodeNames
+    PromoCode:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Promo code name.
+          example: swx1
+        active:
+          type: boolean
+          description: Whether the promo code is active.
+          example: true
+        maxRedemptions:
+          type: integer
+          description: Maximum number of times this promo code can be redeemed.
+          example: 50
+        createdAt:
+          type: string
+          format: date-time
+          description: Timestamp when the promo code was created.
+          example: '2025-01-22T15:58:24.116Z'
+        updatedAt:
+          type: string
+          format: date-time
+          description: Timestamp when the promo code was last updated.
+          example: '2025-01-25T08:44:26.668Z'
+        redemptions:
+          type: integer
+          description: Number of times this promo code has been redeemed.
+          example: 10
+    CreatedPromoCode:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Promo code name.
+          example: swx1
+        active:
+          type: boolean
+          description: Whether the promo code is active.
+          example: true
+        maxRedemptions:
+          type: integer
+          description: Maximum number of times this promo code can be redeemed.
+          example: 1
+        createdAt:
+          type: string
+          format: date-time
+          description: Timestamp when the promo code was created.
+          example: '2025-01-22T15:58:24.116Z'
+        updatedAt:
+          type: string
+          format: date-time
+          description: Timestamp when the promo code was last updated.
+          example: '2025-01-25T08:44:26.668Z'
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message describing what went wrong.
+    ListPromoCodesResponse:
+      type: object
+      properties:
+        promoCodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/PromoCode'
+          description: List of promo codes.
+        totalCount:
+          type: integer
+          description: Total number of promo codes matching the query.
+          example: 42
+        totalPages:
+          type: integer
+          description: Total number of pages matching the query.
+          example: 1
+        hasNextPage:
+          type: boolean
+          description: Whether there is an additional page of results.
+          example: true
+        page:
+          type: integer
+          description: Current page number.
+          example: 1
+        limit:
+          type: integer
+          description: Maximum number of promo codes per page.
+          example: 1000
     CreatePromoCodeInput:
       type: object
       properties:
@@ -473,6 +465,14 @@ components:
       - name
       - maxRedemptions
       - active
+    PromoCodeActivationResponse:
+      type: object
+      properties:
+        promoCodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/PromoCode'
+          description: List of updated promo codes.
   securitySchemes:
     PublisherTokenAuth:
       type: apiKey

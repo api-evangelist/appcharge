@@ -148,6 +148,25 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    RibbonBadgeBase:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Badge name.
+          example: New Year Celebration
+        publisherBadgeId:
+          type: string
+          description: Badge ID that you define.
+          example: new_year_celebration
+        type:
+          type: string
+          description: Badge type.
+          example: ribbon
+      required:
+      - name
+      - publisherBadgeId
+      - type
     RibbonBadgeCreate:
       title: Ribbon Badge
       allOf:
@@ -197,128 +216,6 @@ components:
         required:
         - type
         - text
-    GetAllBadgesResponse:
-      type: object
-      properties:
-        getAllBadgesResponse:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-                description: Badge ID.
-                example: 507f1f77bcf86cd799439011
-              name:
-                type: string
-                description: Badge name.
-                example: New Year Celebration
-              publisherBadgeId:
-                type: string
-                description: Badge ID that you defined.
-                example: new_year_celebration
-              type:
-                type: string
-                enum:
-                - emblem
-                - ribbon
-                description: Badge type.
-                example: ribbon
-              badgeImageUrl:
-                type: string
-                format: url
-                description: Badge image URL. For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL.
-                example: https://media.appcharge.com/media/69133d595af23405d8e843a5
-              text:
-                type: string
-                description: Text displayed on ribbon badge. Only present for ribbon badges.
-                example: New Year Sale
-              backgroundColor:
-                allOf:
-                - $ref: '#/components/schemas/BackgroundColorGradient'
-                - description: Background color details. Only present for ribbon badges.
-                  example:
-                    colorOne: '#00c6ff'
-                    colorTwo: '#0072ff'
-                    gradientDirection: to right
-              textColor:
-                type: object
-                description: Text color. Only present for ribbon badges.
-                properties:
-                  colorOne:
-                    type: string
-                    pattern: ^#[0-9a-fA-F]{6}$
-                    description: Text color in hex format.
-                    example: '#ffffff'
-    EmblemBadgeCreate:
-      title: Emblem Badge
-      allOf:
-      - $ref: '#/components/schemas/BadgeBase'
-      - description: Create an emblem badge.
-      - type: object
-        properties:
-          type:
-            type: string
-            enum:
-            - emblem
-            description: Badge type.
-            example: emblem
-        required:
-        - type
-        - badgeImageUrl
-    EmblemBadgeUpdate:
-      title: Emblem Badge
-      allOf:
-      - $ref: '#/components/schemas/BadgeBase'
-      - description: Update an emblem badge.
-      - type: object
-        properties:
-          name:
-            type: string
-            description: Badge name.
-            example: New Year Celebration
-          publisherBadgeId:
-            type: string
-            description: Badge ID that you define.
-            example: new_year_celebration
-          type:
-            type: string
-            enum:
-            - emblem
-            description: Badge type.
-            example: emblem
-          badgeImageUrl:
-            type: string
-            format: url
-            description: 'Badge image URL in PNG or JPEG format.
-
-
-              For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL. External image URLs are saved and used as-is, and Appcharge doesn''t download, copy, upload, or host them. Images must remain available at the provided URLs.
-
-
-              We recommend uploading image files instead of using external URLs when possible.'
-            example: https://media.appcharge.com/media/69133d595af23405d8e843a5
-        required:
-        - type
-    RibbonBadgeBase:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Badge name.
-          example: New Year Celebration
-        publisherBadgeId:
-          type: string
-          description: Badge ID that you define.
-          example: new_year_celebration
-        type:
-          type: string
-          description: Badge type.
-          example: ribbon
-      required:
-      - name
-      - publisherBadgeId
-      - type
     RibbonBadgeResponse:
       title: Ribbon Badge
       type: object
@@ -366,6 +263,40 @@ components:
               pattern: ^#[0-9a-fA-F]{6}$
               description: Text color in hex format.
               example: '#ffffff'
+    EmblemBadgeUpdate:
+      title: Emblem Badge
+      allOf:
+      - $ref: '#/components/schemas/BadgeBase'
+      - description: Update an emblem badge.
+      - type: object
+        properties:
+          name:
+            type: string
+            description: Badge name.
+            example: New Year Celebration
+          publisherBadgeId:
+            type: string
+            description: Badge ID that you define.
+            example: new_year_celebration
+          type:
+            type: string
+            enum:
+            - emblem
+            description: Badge type.
+            example: emblem
+          badgeImageUrl:
+            type: string
+            format: url
+            description: 'Badge image URL in PNG or JPEG format.
+
+
+              For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL. External image URLs are saved and used as-is, and Appcharge doesn''t download, copy, upload, or host them. Images must remain available at the provided URLs.
+
+
+              We recommend uploading image files instead of using external URLs when possible.'
+            example: https://media.appcharge.com/media/69133d595af23405d8e843a5
+        required:
+        - type
     RibbonBadgeUpdate:
       title: Ribbon Badge
       allOf:
@@ -420,6 +351,102 @@ components:
                 example: '#ffffff'
         required:
         - type
+    EmblemBadgeCreate:
+      title: Emblem Badge
+      allOf:
+      - $ref: '#/components/schemas/BadgeBase'
+      - description: Create an emblem badge.
+      - type: object
+        properties:
+          type:
+            type: string
+            enum:
+            - emblem
+            description: Badge type.
+            example: emblem
+        required:
+        - type
+        - badgeImageUrl
+    EmblemBadgeResponse:
+      title: Emblem Badge
+      type: object
+      properties:
+        id:
+          type: string
+          description: Badge ID.
+          example: 507f1f77bcf86cd799439011
+        name:
+          type: string
+          description: Badge name.
+          example: New Year Celebration
+        publisherBadgeId:
+          type: string
+          description: Badge ID that you defined.
+          example: new_year_celebration
+        type:
+          type: string
+          enum:
+          - emblem
+          description: Badge type.
+          example: emblem
+        badgeImageUrl:
+          type: string
+          format: url
+          description: Badge image URL. For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL.
+          example: https://media.appcharge.com/media/69133d595af23405d8e843a5
+    GetAllBadgesResponse:
+      type: object
+      properties:
+        getAllBadgesResponse:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Badge ID.
+                example: 507f1f77bcf86cd799439011
+              name:
+                type: string
+                description: Badge name.
+                example: New Year Celebration
+              publisherBadgeId:
+                type: string
+                description: Badge ID that you defined.
+                example: new_year_celebration
+              type:
+                type: string
+                enum:
+                - emblem
+                - ribbon
+                description: Badge type.
+                example: ribbon
+              badgeImageUrl:
+                type: string
+                format: url
+                description: Badge image URL. For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL.
+                example: https://media.appcharge.com/media/69133d595af23405d8e843a5
+              text:
+                type: string
+                description: Text displayed on ribbon badge. Only present for ribbon badges.
+                example: New Year Sale
+              backgroundColor:
+                allOf:
+                - $ref: '#/components/schemas/BackgroundColorGradient'
+                - description: Background color details. Only present for ribbon badges.
+                  example:
+                    colorOne: '#00c6ff'
+                    colorTwo: '#0072ff'
+                    gradientDirection: to right
+              textColor:
+                type: object
+                description: Text color. Only present for ribbon badges.
+                properties:
+                  colorOne:
+                    type: string
+                    pattern: ^#[0-9a-fA-F]{6}$
+                    description: Text color in hex format.
+                    example: '#ffffff'
     BadgeBase:
       type: object
       properties:
@@ -450,33 +477,6 @@ components:
       - name
       - publisherBadgeId
       - type
-    EmblemBadgeResponse:
-      title: Emblem Badge
-      type: object
-      properties:
-        id:
-          type: string
-          description: Badge ID.
-          example: 507f1f77bcf86cd799439011
-        name:
-          type: string
-          description: Badge name.
-          example: New Year Celebration
-        publisherBadgeId:
-          type: string
-          description: Badge ID that you defined.
-          example: new_year_celebration
-        type:
-          type: string
-          enum:
-          - emblem
-          description: Badge type.
-          example: emblem
-        badgeImageUrl:
-          type: string
-          format: url
-          description: Badge image URL. For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL.
-          example: https://media.appcharge.com/media/69133d595af23405d8e843a5
     BackgroundColorGradient:
       type: object
       properties:
