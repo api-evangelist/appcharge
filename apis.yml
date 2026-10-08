@@ -290,6 +290,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: RateLimits
+  url: rate-limits/appcharge-rate-limits.yml
 - type: CapabilityMap
   url: capabilities/appcharge-capability-edges.yml
   name: Appcharge Business Capability Map
