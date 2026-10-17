@@ -38,7 +38,7 @@ paths:
         '400':
           description: Bad request. Invalid input or validation failure.
       operationId: postComponentsV1Product
-      summary: Post components V1 product
+      summary: Post components V1Product
       x-summary-source: derived
     get:
       tags:
@@ -52,7 +52,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetAllProductResponse'
       operationId: getComponentsV1Product
-      summary: Get components V1 product
+      summary: Get components V1Product
       x-summary-source: derived
   /components/v1/product/{externalId}:
     parameters:
@@ -77,7 +77,7 @@ paths:
         '404':
           description: Product not found.
       operationId: deleteComponentsV1ProductExternalid
-      summary: Delete components V1 product externalid
+      summary: Delete components V1Product externalid
       x-summary-source: derived
     get:
       tags:
@@ -93,7 +93,7 @@ paths:
         '404':
           description: Product not found.
       operationId: getComponentsV1ProductExternalid
-      summary: Get components V1 product externalid
+      summary: Get components V1Product externalid
       x-summary-source: derived
     put:
       tags:
@@ -117,68 +117,10 @@ paths:
         '404':
           description: Product not found.
       operationId: putComponentsV1ProductExternalid
-      summary: Put components V1 product externalid
+      summary: Put components V1Product externalid
       x-summary-source: derived
 components:
   schemas:
-    ProductResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Product ID.
-          example: 507f1f77bcf86cd799439015
-        name:
-          type: string
-          description: Product name.
-          example: Gold Coins Pack
-        displayName:
-          type: string
-          description: Product display name.
-          example: Gold Coins
-        publisherProductId:
-          type: string
-          description: Product ID that you defined.
-          example: gold_coins_100
-        type:
-          type: string
-          enum:
-          - Quantity
-          - Time
-          description: Product unit type.
-          example: Quantity
-        description:
-          type: string
-          description: Product description.
-          example: A pack of 100 gold coins.
-        prefix:
-          type: string
-          description: Product prefix text.
-          example: Get
-        suffix:
-          type: string
-          description: Product suffix text.
-          example: coins
-        textFontColorHex:
-          type: string
-          pattern: ^#[0-9a-fA-F]{6}$
-          description: Product text font color in hex format.
-          example: '#f5c518'
-        productImageUrl:
-          type: string
-          format: url
-          description: Product image URL. For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL.
-          example: https://media.appcharge.com/media/69133d595af23405d8e843a5
-        productPrefixImageUrl:
-          type: string
-          format: url
-          description: Product prefix image URL. For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL.
-          example: https://media.appcharge.com/media/69133d595af23405d8e843a5
-        productImageExternalUrl:
-          type: string
-          format: url
-          description: Original product image URL when the product uses an external image URL. This URL is used as provided to serve the image.
-          example: https://images.pexels.com/photos/35406321/pexels-photo-35406321.jpeg
     GetAllProductResponse:
       type: object
       properties:
@@ -242,6 +184,121 @@ components:
                 format: url
                 description: Original product image URL when the product uses an external image URL. This URL is used as provided to serve the image.
                 example: https://images.pexels.com/photos/35406321/pexels-photo-35406321.jpeg
+    ProductUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Product name.
+          example: Premium Gold Coins Pack
+        displayName:
+          type: string
+          description: Product display name.
+          example: Premium Gold Coins
+        publisherProductId:
+          type: string
+          description: Product ID that you define
+          example: gold_coins_100
+        type:
+          type: string
+          enum:
+          - Quantity
+          - Time
+          description: Product unit type.
+          example: Quantity
+        prefix:
+          type: string
+          description: Product prefix text.
+          example: Get
+        suffix:
+          type: string
+          description: Product suffix text.
+          example: premium coins
+        textFontColorHex:
+          type: string
+          pattern: ^#[0-9a-fA-F]{6}$
+          description: Product text font color in hex format.
+          example: '#d4af37'
+        productImageUrl:
+          type: string
+          format: url
+          description: 'Product image URL in PNG or JPEG format.
+
+
+            For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL. External image URLs are saved and used as-is, and Appcharge doesn''t download, copy, upload, or host them. Images must remain available at the provided URLs.
+
+
+            We recommend uploading image files instead of using external URLs when possible.'
+          example: https://media.appcharge.com/media/69133d595af23405d8e843a5
+        productPrefixImageUrl:
+          type: string
+          format: url
+          description: 'Product prefix image URL in PNG or JPEG format.
+
+
+            For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL. External image URLs are saved and used as-is, and Appcharge doesn''t download, copy, upload, or host them. Images must remain available at the provided URLs.
+
+
+            We recommend uploading image files instead of using external URLs when possible.'
+          example: https://media.appcharge.com/media/69133d595af23405d8e843a5
+    ProductResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Product ID.
+          example: 507f1f77bcf86cd799439015
+        name:
+          type: string
+          description: Product name.
+          example: Gold Coins Pack
+        displayName:
+          type: string
+          description: Product display name.
+          example: Gold Coins
+        publisherProductId:
+          type: string
+          description: Product ID that you defined.
+          example: gold_coins_100
+        type:
+          type: string
+          enum:
+          - Quantity
+          - Time
+          description: Product unit type.
+          example: Quantity
+        description:
+          type: string
+          description: Product description.
+          example: A pack of 100 gold coins.
+        prefix:
+          type: string
+          description: Product prefix text.
+          example: Get
+        suffix:
+          type: string
+          description: Product suffix text.
+          example: coins
+        textFontColorHex:
+          type: string
+          pattern: ^#[0-9a-fA-F]{6}$
+          description: Product text font color in hex format.
+          example: '#f5c518'
+        productImageUrl:
+          type: string
+          format: url
+          description: Product image URL. For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL.
+          example: https://media.appcharge.com/media/69133d595af23405d8e843a5
+        productPrefixImageUrl:
+          type: string
+          format: url
+          description: Product prefix image URL. For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL.
+          example: https://media.appcharge.com/media/69133d595af23405d8e843a5
+        productImageExternalUrl:
+          type: string
+          format: url
+          description: Original product image URL when the product uses an external image URL. This URL is used as provided to serve the image.
+          example: https://images.pexels.com/photos/35406321/pexels-photo-35406321.jpeg
     ProductCreate:
       type: object
       properties:
@@ -309,63 +366,6 @@ components:
       - type
       - textFontColorHex
       - productImageUrl
-    ProductUpdate:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Product name.
-          example: Premium Gold Coins Pack
-        displayName:
-          type: string
-          description: Product display name.
-          example: Premium Gold Coins
-        publisherProductId:
-          type: string
-          description: Product ID that you define
-          example: gold_coins_100
-        type:
-          type: string
-          enum:
-          - Quantity
-          - Time
-          description: Product unit type.
-          example: Quantity
-        prefix:
-          type: string
-          description: Product prefix text.
-          example: Get
-        suffix:
-          type: string
-          description: Product suffix text.
-          example: premium coins
-        textFontColorHex:
-          type: string
-          pattern: ^#[0-9a-fA-F]{6}$
-          description: Product text font color in hex format.
-          example: '#d4af37'
-        productImageUrl:
-          type: string
-          format: url
-          description: 'Product image URL in PNG or JPEG format.
-
-
-            For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL. External image URLs are saved and used as-is, and Appcharge doesn''t download, copy, upload, or host them. Images must remain available at the provided URLs.
-
-
-            We recommend uploading image files instead of using external URLs when possible.'
-          example: https://media.appcharge.com/media/69133d595af23405d8e843a5
-        productPrefixImageUrl:
-          type: string
-          format: url
-          description: 'Product prefix image URL in PNG or JPEG format.
-
-
-            For uploaded files, this is the Appcharge-hosted CDN URL. For external image URLs, this is the original image URL served from the provided URL. External image URLs are saved and used as-is, and Appcharge doesn''t download, copy, upload, or host them. Images must remain available at the provided URLs.
-
-
-            We recommend uploading image files instead of using external URLs when possible.'
-          example: https://media.appcharge.com/media/69133d595af23405d8e843a5
   securitySchemes:
     PublisherTokenAuth:
       type: apiKey

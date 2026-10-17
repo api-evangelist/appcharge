@@ -61,6 +61,57 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ProductDto:
+      type: object
+      properties:
+        publisherProductId:
+          type: string
+        name:
+          type: string
+        textFontColorHex:
+          type: string
+        type:
+          type: string
+        prefix:
+          type: string
+        suffix:
+          type: string
+        priority:
+          type: string
+        images:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              url:
+                type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        productId:
+          type: string
+    ProductsSequence:
+      type: object
+      properties:
+        index:
+          type: number
+        priceInUsdCents:
+          type: number
+        playerAvailability:
+          type: number
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductsSet'
+      required:
+      - index
+      - priceInUsdCents
+      - products
     PopupDtoResponse:
       type: object
       properties:
@@ -134,135 +185,6 @@ components:
           type: string
           description: the time when the offer was updated, in UTC.
           example: '2023-07-05T12:01:06.113Z'
-    ProductsSetResponse:
-      type: object
-      properties:
-        quantity:
-          type: number
-        product:
-          $ref: '#/components/schemas/ProductDto'
-    ProductsSequenceResponse:
-      type: object
-      properties:
-        index:
-          type: number
-        playerAvailability:
-          type: number
-        priceInUsdCents:
-          type: number
-        products:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProductsSetResponse'
-    OfferUiDto:
-      type: object
-      properties:
-        offerUiId:
-          type: string
-        externalId:
-          type: string
-        active:
-          type: boolean
-        offerUiType:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        backgroundImage:
-          type: string
-        specialOffer:
-          type: object
-          properties:
-            templateType:
-              type: string
-            presentOfferEndTimer:
-              type: boolean
-            title:
-              type: string
-            fontSize:
-              type: number
-            fontWeight:
-              type: string
-            fontColor:
-              type: object
-              properties:
-                colorOne:
-                  type: string
-                colorTwo:
-                  type: string
-                direction:
-                  type: string
-            backgroundColor:
-              type: object
-              properties:
-                colorOne:
-                  type: string
-                colorTwo:
-                  type: string
-                direction:
-                  type: string
-    ProductsSet:
-      type: object
-      properties:
-        quantity:
-          type: number
-        publisherProductId:
-          type: string
-      required:
-      - quantity
-      - publisherProductId
-    ProductDto:
-      type: object
-      properties:
-        publisherProductId:
-          type: string
-        name:
-          type: string
-        textFontColorHex:
-          type: string
-        type:
-          type: string
-        prefix:
-          type: string
-        suffix:
-          type: string
-        priority:
-          type: string
-        images:
-          type: array
-          items:
-            type: object
-            properties:
-              type:
-                type: string
-              url:
-                type: string
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-        productId:
-          type: string
-    ProductsSequence:
-      type: object
-      properties:
-        index:
-          type: number
-        priceInUsdCents:
-          type: number
-        playerAvailability:
-          type: number
-        products:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProductsSet'
-      required:
-      - index
-      - priceInUsdCents
-      - products
     CreatePopupDto:
       type: object
       properties:
@@ -328,6 +250,84 @@ components:
       - subType
       - priority
       - startOver
+    ProductsSetResponse:
+      type: object
+      properties:
+        quantity:
+          type: number
+        product:
+          $ref: '#/components/schemas/ProductDto'
+    ProductsSet:
+      type: object
+      properties:
+        quantity:
+          type: number
+        publisherProductId:
+          type: string
+      required:
+      - quantity
+      - publisherProductId
+    OfferUiDto:
+      type: object
+      properties:
+        offerUiId:
+          type: string
+        externalId:
+          type: string
+        active:
+          type: boolean
+        offerUiType:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        backgroundImage:
+          type: string
+        specialOffer:
+          type: object
+          properties:
+            templateType:
+              type: string
+            presentOfferEndTimer:
+              type: boolean
+            title:
+              type: string
+            fontSize:
+              type: number
+            fontWeight:
+              type: string
+            fontColor:
+              type: object
+              properties:
+                colorOne:
+                  type: string
+                colorTwo:
+                  type: string
+                direction:
+                  type: string
+            backgroundColor:
+              type: object
+              properties:
+                colorOne:
+                  type: string
+                colorTwo:
+                  type: string
+                direction:
+                  type: string
+    ProductsSequenceResponse:
+      type: object
+      properties:
+        index:
+          type: number
+        playerAvailability:
+          type: number
+        priceInUsdCents:
+          type: number
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductsSetResponse'
   securitySchemes:
     PublisherTokenAuth:
       type: apiKey
